@@ -1,0 +1,267 @@
+/*  
+Theme Name: AP-blueprint
+Theme URI: http://www.arcanepalette.com
+Description: a simple, grid-based WordPress theme framework by <a href="http://arcanepalette.com">Arcane Palette</a> that utilizes <a href="http://www.blueprintcss.org/">BlueprintCSS</a>
+Version: 1.2
+Author: Arcane Palette Creative Design
+Author URI: http://www.arcanepalette.com
+License: gpl3
+Git Repo: https://github.com/ArcanePalette/AP-Blueprint
+*/
+
+/* 
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+
+    http://www.opensource.org/licenses/gpl-3.0.html
+*/
+
+/* Main */
+body {
+	background: #efefef;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #111111;
+}
+.container {
+	width: 960px;
+}
+
+a:active, a:hover {text-decoration:none;}
+
+.spacer-10 {
+	clear:both;
+	height: 10px;
+}
+
+.threecolumn {
+	width: 32%;
+	float: left;
+	margin-right: 10px;
+}
+
+/* this stuff is borrowed from Kubrik, the WordPress default theme and handles 
+   WP-specific stuff. */
+   
+/*	Using 'class="alignright"' on an image will (who would've
+	thought?!) align the image to the right. And using 'class="centered',
+	will of course center the image. This is much better than using
+	align="center", being much more futureproof (and valid) */
+
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	}
+
+img.alignright {
+	padding: 4px;
+	margin: 0 0 2px 7px;
+	display: inline;
+	}
+
+img.alignleft {
+	padding: 4px;
+	margin: 0 7px 2px 0;
+	display: inline;
+	}
+
+.alignright {
+	float: right;
+	}
+
+.alignleft {
+	float: left;
+	}
+/* Calendar */
+#wp-calendar {
+	empty-cells: show;
+	margin: 10px auto 0;
+	width: 155px;
+	}
+
+#wp-calendar #next a {
+	padding-right: 10px;
+	text-align: right;
+	}
+
+#wp-calendar #prev a {
+	padding-left: 10px;
+	text-align: left;
+	}
+
+#wp-calendar a {
+	display: block;
+	}
+
+#wp-calendar caption {
+	text-align: center;
+	width: 100%;
+	padding: 3px 0 4px 0!important;
+	}
+
+#wp-calendar td {
+	padding: 3px 0;
+	text-align: center;
+	}
+
+#wp-calendar td.pad:hover { /* Doesn't work in IE */
+	background-color: #fff; }
+#wp-calendar #prev a, #wp-calendar #next a {
+	font-size: 9pt;
+	}
+
+#wp-calendar a {
+	text-decoration: none;
+	}
+
+#wp-calendar caption {
+	font: bold 1.3em 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	text-align: center;
+	}
+
+#wp-calendar th {
+	font-style: normal;
+	text-transform: capitalize;
+	}	
+/* Captions */
+.aligncenter,
+div.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption {
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #f3f3f3;
+	padding-top: 4px;
+	margin: 10px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+.wp-caption p.wp-caption-text {
+	font-size: 11px;
+	line-height: 17px;
+	padding: 0 4px 5px;
+	margin: 0;
+}
+
+/* Header */
+.header {
+}
+
+.navbar {	margin: 0 0 0 -10px !important;}
+.navbar ul {
+	list-style-type: none;
+	margin: 0 !important;
+}
+.navbar li {
+	float: left;
+	margin-left: 10px;
+}
+.navbar li a:link, .navbar a:visited {}
+.navbar li a:hover, .navbar a:active {position:relative; z-index:999;}
+.navbar li .first {margin-left: 0px !important;}
+.navbar li li {
+	display: inline;
+	margin: 0;
+	clear: left;
+	position: relative;
+	z-index: 999;
+}
+.navbar li ul {
+	position: absolute;
+	left: -999em;
+	width: 12em;
+}
+.navbar li:hover ul {
+	left: auto;
+	background: #efefef;
+	padding: 5px;
+	z-index: 10;
+}
+.navbar li:hover ul, #nav li.sfhover ul {
+	left: auto;
+}	
+
+/* Content */
+
+.content {
+	margin-top: 20px;
+	width: 680px;
+	float: left;
+}
+
+.post {
+	background: #ffffff;
+	padding: 0 10px;
+	margin-bottom: 10px;
+	border: 1px dotted #888888;
+}
+
+.the_date h3 {margin-bottom: 0 !important; margin-top: 10px;}
+.postmetadata {padding: 0 0 5px 0;}
+.navigation {
+	margin: 10px auto;
+}
+.linktous img{margin-bottom: -3px;}
+.linktous a, a.linktous {text-decoration: none !important;}
+
+/* Comments */
+
+#comments ul, #comments ol { list-style-type: none; }
+.odd .avatar { float: left; margin-right: 10px; }
+.even .avatar { float: right; margin-left: 10px; }
+li.comment { clear: both; }
+textarea#comment { width: 646px; }
+
+/* Sidebar */
+
+.sidebar {
+	background-color: #F9FAFB;
+	width: 250px;
+	position:relative;
+	height:100%;
+	padding: 0 10px 10px 10px;
+	margin-top: 20px;
+	height: 100%;
+}
+
+ul.sidebar, .sidebar ul  {
+	list-style-type: none;
+	margin: 0px !important;
+}
+.the_left, .the_right {
+	padding-bottom: 20px;
+	display: block;
+}
+.the_left { float: left; margin-right: 10px; }
+.the_right { float: right; margin-left: 10px; }
+
+/* Footer */
+
+.footer {
+	text-align: left;
+}
+.footer ul { list-style-type: none; margin: 0; }
+.footer h2 { font-size: 1.6em; margin: 0; }
+.rightbox { width: 280px!important; }
+.credit { text-align: center; }
