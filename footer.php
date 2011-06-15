@@ -13,14 +13,6 @@
           </ul>
         </div>
         <div class="rightbox span-7 last">
-			<?php if (($apbp_tweets != null ) && ($apbp_foottwit == "true")) { ?>
-                <div id="twitter_div">
-                <?php if ($apbp_twitter != null ) { ?>
-                <h2><?php echo $apbp_twithead ?></h2>
-                <?php } ?>
-                <ul id="twitter_update_list"></ul>
-                </div>    
-            <?php } else {?>
 		 <ul>
 			 <?php if( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Right Footer Box') ) : ?>
              <?php endif; }?>                
