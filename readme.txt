@@ -1,0 +1,48 @@
+=== AP-Museum_Core ===
+Contributors: jazzs3quence
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
+Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar
+Requires at least: 2.8
+Tested up to: 3.1.3
+Stable tag: 0.1.1
+
+A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
+
+== Description ==
+
+AP-Museum_Core will be the core framework behind all commercially-released <a href="http://museumthemes.com">Museum Themes</a>.  It supports all built-in WordPress theme options like post thumbnails, post formats, custom backgrounds, etc.
+
+== Installation ==
+
+1. Unpack and upload the contents of `AP-Museum_Core.zip` to the `/wp-content/themes/` directory.
+2. Activate the theme through the *Themes* menu in WordPress.
+3. That's it!  
+
+== Screenshots ==
+
+There are currently no screenshots.
+
+== Changelog ==
+
+Version 0.1
+6/14/2011
+* initial commit (forked from AP-blueprint)
+* updated style.css with name, new version # and description 
+* removed landing sites 
+* removed theme options 
+* removed git README 
+* removed calls to get-theme-options.php 
+* removed twitter widget from footer (discontinuing hard-coded twitter feeds in the theme since this is easily added with Jetpack or any of a million other plugins)
+* removed left/right if statement (may bring this back in some revised form)
+  removed social media links (may bring these back but probably won't)
+  removed twitter widget (see note on last footer commit)
+* uncommented the dynamic title tags in the header (will change these around later)
+  changed path to reset styles
+  removed link to non-existant fonts.css (but may add another one later)  
+* renamed /blueprint to /css 
+* removed tweet button and dynamic twitter variable in sharing block (might remove the sharing block entirely, anyway, since -- again -- sharedaddy is included in Jetpack)
+
+Version 0.1.1
+6/15/2011  
+* changed version
+* added readme.txt with changelog
