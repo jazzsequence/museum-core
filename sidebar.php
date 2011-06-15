@@ -3,7 +3,6 @@
 	this is the sidebar
 */
 ?>
-<?php include (TEMPLATEPATH.'/get-theme-options.php'); ?>
     <?php if (($left == "true") || ($right != "true" )) { ?>
 <div class="sidebar the_left">
     <?php } ?>         

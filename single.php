@@ -3,7 +3,6 @@
 	This is the single post template
 */
 ?>
-<?php include (TEMPLATEPATH.'/get-theme-options.php'); ?>
 <?php get_header(); ?>
 <?php get_sidebar(); ?>      
 <div class="content single">

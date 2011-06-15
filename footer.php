@@ -1,4 +1,4 @@
-<?php include (TEMPLATEPATH.'/get-theme-options.php'); ?>
+
 <div class="footer">
         <div class="leftbox span-8 colborder">
 		  <ul>
