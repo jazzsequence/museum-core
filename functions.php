@@ -45,22 +45,6 @@ add_shortcode('clear','clear');
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 175, 175 ); // 175 pixels wide by 175 pixels tall, box resize mode
 
-// include Landing Sites by The undersigned 
-// http://theundersigned.net 
-
-include (TEMPLATEPATH.'/plugins/landingsites.php');
-
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Navigation', 'blueprint' ),
-	) );	
-
-	// This adds a home link option in the Menus
-	function home_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
-	}
-	add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
 
 // this changes the output of the comments
 function apbpro_comment($comment, $args, $depth) {
