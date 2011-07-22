@@ -41,10 +41,31 @@ function clear() {
 }
 add_shortcode('clear','clear');
 
+/* WordPress core functionality */
+
 // post thumbnail support
 add_theme_support( 'post-thumbnails' );
 set_post_thumbnail_size( 175, 175 ); // 175 pixels wide by 175 pixels tall, box resize mode
 
+// custom nav menus
+// This theme uses wp_nav_menu() in three (count them, three!) locations.
+	register_nav_menus( array(
+		'top' => __( 'Top Header Navigation', 'core' ),
+		'main' => __( 'Main Navigation', 'core' ),
+		'footer' => __( 'footer Navigation', 'core' ),		
+	) );	
+
+	// This adds a home link option in the Menus
+	function home_page_menu_args( $args ) {
+	$args['show_home'] = true;
+	return $args;
+	}
+	add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
+
+// automatic feed links
+add_theme_support('automatic-feed-links');
+
+	
 
 // this changes the output of the comments
 function apbpro_comment($comment, $args, $depth) {
