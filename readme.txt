@@ -52,3 +52,6 @@ Version 0.1.2
 * updated version
 * added menu support
 * added automatic feed links
+* added custom header stuff
+* added custom background support
+* added post formats support

@@ -62,6 +62,65 @@ set_post_thumbnail_size( 175, 175 ); // 175 pixels wide by 175 pixels tall, box 
 	}
 	add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
 
+// This theme allows users to set a custom background
+add_custom_background();	
+
+// this theme has a custom header thingie
+	// Your changeable header business starts here
+	define( 'HEADER_TEXTCOLOR', '' );
+	// No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
+	define( 'HEADER_IMAGE', '%s/images/headers/leaves.jpg' );
+
+	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
+	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 940 ) );
+	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'core_header_image_height', 200 ) );
+
+	// We'll be using post thumbnails for custom header images on posts and pages.
+	// We want them to be 940 pixels wide by 198 pixels tall.
+	// Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
+	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
+
+	// Don't support text inside the header image.
+	define( 'NO_HEADER_TEXT', true );
+
+	// Add a way for the custom header to be styled in the admin panel that controls
+	// custom headers. See twentyten_admin_header_style(), below.
+	add_custom_image_header( '', 'core_admin_header_style' );
+
+	// ... and thus ends the changeable header business.
+
+	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
+	register_default_headers( array(
+		'leaves' => array(
+			'url' => '%s/images/headers/leaves.jpg',
+			'thumbnail_url' => '%s/images/headers/leaves-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Leaves', 'cg' )
+		),
+		'sunset' => array(
+			'url' => '%s/images/headers/sunset.jpg',
+			'thumbnail_url' => '%s/images/headers/sunset-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Sunset', 'cg' )
+		),
+		'beach' => array(
+			'url' => '%s/images/headers/beach.jpg',
+			'thumbnail_url' => '%s/images/headers/beach-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Beach', 'cg' )
+		),
+		'blueberries' => array(
+			'url' => '%s/images/headers/blueberries.jpg',
+			'thumbnail_url' => '%s/images/headers/blueberries-thumbnail.jpg',
+			/* translators: header image description */
+			'description' => __( 'Blueberries', 'cg' )
+		)
+	) );
+	
+// post formats
+// register all post formats -- child themes can remove some post formats as they so desire
+add_theme_support('post-formats',array('aside','gallery','link','image','quote','status','video','audio','chat'));	
+	
 // automatic feed links
 add_theme_support('automatic-feed-links');
 
