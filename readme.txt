@@ -55,3 +55,4 @@ Version 0.1.2
 * added custom header stuff
 * added custom background support
 * added post formats support
+* added ap_core_setup

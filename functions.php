@@ -41,18 +41,47 @@ function clear() {
 }
 add_shortcode('clear','clear');
 
+/* load styles and scripts */
+/*
+   twitter_anywhere = loads the twitter @anywhere framework
+   twitter_hovercards = loads twitter hovercards from @anywhere
+   suckerfish = loads suckerfish from the theme's /js files  
+*/
+if ( !is_admin() ) { // instruction to only load if it is not the admin area
+   // this loads the twitter anywhere framework
+   wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A','1' );
+   wp_enqueue_script('twitter_anywhere');
+   // this loads twitter hovercards, dependent upon twitter anywhere
+   wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','1');
+   wp_enqueue_script('twitter_hovercards');
+   // this loads suckerfish.js the dropdown menus
+   wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js','1');
+   wp_enqueue_script('suckerfish');
+   // this loads the Ubuntu font from Google Webfonts, used for body text
+   wp_register_style('ubuntu','http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic');
+   wp_enqueue_style('ubuntu');
+   // this loads Goudy Bookletter 1911 from Google Webfonts, used for special titles and Plague branding
+   wp_register_style('goudybookletter','http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911');
+   wp_enqueue_style('goudybookletter');
+   // this loads Orbitron from Google Webfonts, used for post titles and nav links
+   wp_register_style('orbitron','http://fonts.googleapis.com/css?family=Orbitron:regular,500');
+   wp_enqueue_style('orbitron');
+}
+
+
+
 /* WordPress core functionality */
+function ap_core_setup() {
+	// post thumbnail support
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 175, 175 ); // 175 pixels wide by 175 pixels tall, box resize mode
 
-// post thumbnail support
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 175, 175 ); // 175 pixels wide by 175 pixels tall, box resize mode
-
-// custom nav menus
-// This theme uses wp_nav_menu() in three (count them, three!) locations.
+	// custom nav menus
+	// This theme uses wp_nav_menu() in three (count them, three!) locations.
 	register_nav_menus( array(
 		'top' => __( 'Top Header Navigation', 'core' ),
 		'main' => __( 'Main Navigation', 'core' ),
-		'footer' => __( 'footer Navigation', 'core' ),		
+		'footer' => __( 'Footer Navigation', 'core' ),		
 	) );	
 
 	// This adds a home link option in the Menus
@@ -62,10 +91,10 @@ set_post_thumbnail_size( 175, 175 ); // 175 pixels wide by 175 pixels tall, box 
 	}
 	add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
 
-// This theme allows users to set a custom background
-add_custom_background();	
+	// This theme allows users to set a custom background
+	add_custom_background();	
 
-// this theme has a custom header thingie
+	// this theme has a custom header thingie
 	// Your changeable header business starts here
 	define( 'HEADER_TEXTCOLOR', '' );
 	// No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
@@ -117,24 +146,22 @@ add_custom_background();
 		)
 	) );
 	
-// post formats
-// register all post formats -- child themes can remove some post formats as they so desire
-add_theme_support('post-formats',array('aside','gallery','link','image','quote','status','video','audio','chat'));	
+	// post formats
+	// register all post formats -- child themes can remove some post formats as they so desire
+	add_theme_support('post-formats',array('aside','gallery','link','image','quote','status','video','audio','chat'));	
 	
-// automatic feed links
-add_theme_support('automatic-feed-links');
+	// automatic feed links
+	add_theme_support('automatic-feed-links');
 
-	
-
-// this changes the output of the comments
-function apbpro_comment($comment, $args, $depth) {
+	// this changes the output of the comments
+	function ap_core_comment($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
      <div id="comment-<?php comment_ID(); ?>">
       <div class="comment-author vcard">
          <?php echo get_avatar
-($comment,$size='64',$default='<path_to_url>' ); ?>
-On <?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()) ?>
+	($comment,$size='64',$default='<path_to_url>' ); ?>
+	On <?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()) ?>
      <?php printf(__('<cite>%s</cite> <span class="says">said:</span>'), get_comment_author_link()) ?>
       </div>
       <?php if ($comment->comment_approved == '0') : ?>
@@ -148,14 +175,16 @@ On <?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()) ?>
 		 ( $args, array('depth' => $depth, 'reply_text' => 'Respond to this', 'max_depth' => $args['max_depth']))) ?>
       </h4></div>
      </div>
-<?php
+	<?php
         }
 		
-// this changes the default [...] to be a read more hyperlink
-function new_excerpt_more($more) {
-	return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . 'read more' . '</a>)';
+	// this changes the default [...] to be a read more hyperlink
+	function new_excerpt_more($more) {
+		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . 'read more' . '</a>)';
+	}
+	add_filter('excerpt_more', 'new_excerpt_more');		
 }
-add_filter('excerpt_more', 'new_excerpt_more');		
+add_action('after_theme_setup','ap_core_setup');
 
 ?>
 <?php
