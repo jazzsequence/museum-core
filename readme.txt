@@ -61,3 +61,4 @@ Version 0.1.2
 * added screen.css and print.css to the style.css
 * removed css calls in header.php
 * added ie conditional to functions.php
+* added versioning relative to theme version to wp_register_style and wp_register_script calls

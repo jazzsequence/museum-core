@@ -50,19 +50,19 @@ add_shortcode('clear','clear');
 if ( !is_admin() ) { // instruction to only load if it is not the admin area
 	$theme  = get_theme( get_current_theme() );
    // this loads the twitter anywhere framework
-   wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A','1' );
+   wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
    wp_enqueue_script('twitter_anywhere');
    // this loads twitter hovercards, dependent upon twitter anywhere
-   wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','1');
+   wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','twitter_anywhere',$theme['Version']);
    wp_enqueue_script('twitter_hovercards');
    // this loads suckerfish.js the dropdown menus
-   wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js','1');
+   wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js',false,$theme['Version']);
    wp_enqueue_script('suckerfish');
    // this loads the font stack
-   wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css');
-   wp_enqueue_style('fonts');
+   wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
+   wp_enqueue_style('corefonts');
    // this loads the style.css
-   wp_register_style('corecss',get_bloginfo('stylesheet_url'));
+   wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
    wp_enqueue_style('corecss');
    wp_register_style( 'coreie', get_bloginfo( 'template_directory' ) . '/css/ie.css', false, $theme['Version'] );
    $GLOBALS['wp_styles']->add_data( 'coreie', 'conditional', 'lte IE 8' );
