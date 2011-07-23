@@ -56,3 +56,8 @@ Version 0.1.2
 * added custom background support
 * added post formats support
 * added ap_core_setup
+* added fonts
+* added style.css call to the functions.php file
+* added screen.css and print.css to the style.css
+* removed css calls in header.php
+* added ie conditional to functions.php

@@ -23,11 +23,14 @@ Git Repo: https://github.com/ArcanePalette/AP-Museum_Core
 
     http://www.opensource.org/licenses/gpl-3.0.html
 */
+@import url('css/screen.css') screen, projection;
+@import url('css/print.css') print;
+
 
 /* Main */
 body {
 	background: #efefef;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
 	color: #111111;
 }
 .container {

@@ -48,6 +48,7 @@ add_shortcode('clear','clear');
    suckerfish = loads suckerfish from the theme's /js files  
 */
 if ( !is_admin() ) { // instruction to only load if it is not the admin area
+	$theme  = get_theme( get_current_theme() );
    // this loads the twitter anywhere framework
    wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A','1' );
    wp_enqueue_script('twitter_anywhere');
@@ -57,15 +58,15 @@ if ( !is_admin() ) { // instruction to only load if it is not the admin area
    // this loads suckerfish.js the dropdown menus
    wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js','1');
    wp_enqueue_script('suckerfish');
-   // this loads the Ubuntu font from Google Webfonts, used for body text
-   wp_register_style('ubuntu','http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic');
-   wp_enqueue_style('ubuntu');
-   // this loads Goudy Bookletter 1911 from Google Webfonts, used for special titles and Plague branding
-   wp_register_style('goudybookletter','http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911');
-   wp_enqueue_style('goudybookletter');
-   // this loads Orbitron from Google Webfonts, used for post titles and nav links
-   wp_register_style('orbitron','http://fonts.googleapis.com/css?family=Orbitron:regular,500');
-   wp_enqueue_style('orbitron');
+   // this loads the font stack
+   wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css');
+   wp_enqueue_style('fonts');
+   // this loads the style.css
+   wp_register_style('corecss',get_bloginfo('stylesheet_url'));
+   wp_enqueue_style('corecss');
+   wp_register_style( 'coreie', get_bloginfo( 'template_directory' ) . '/css/ie.css', false, $theme['Version'] );
+   $GLOBALS['wp_styles']->add_data( 'coreie', 'conditional', 'lte IE 8' );
+   wp_enqueue_style( 'coreie' );   
 }
 
 
