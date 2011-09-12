@@ -25,8 +25,5 @@
 
 		<?php do_action('wp_footer'); ?>
 </div>
-
-<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/<?php echo $apbp_twitter; ?>.json?callback=twitterCallback2&amp;count=<?php echo $apbp_tweets; ?>"></script>
 </body>
 </html>
