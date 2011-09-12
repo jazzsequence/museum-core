@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar
 Requires at least: 2.8
 Tested up to: 3.2.1
-Stable tag: 0.1.2
+Stable tag: 0.2
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -62,3 +62,17 @@ Version 0.1.2
 * removed css calls in header.php
 * added ie conditional to functions.php
 * added versioning relative to theme version to wp_register_style and wp_register_script calls
+
+Version 0.2
+9/12/2011
+* fixed ap_core_setup (using wrong hook)
+* added nav menus to header.php
+* removed nav menu fallback default (set to no fallback)
+* removed old twitter callback scripts
+* changed do_action('wp_footer') to wp_footer.php()
+* changed footer text
+* added footer menu
+* added Inconsolata font for monospaced elements (pre, tt, code and .code class)
+* added more typography classes for potential typography settings options
+* added theme options page and sidebar options (still a work in progress)
+* updated version
