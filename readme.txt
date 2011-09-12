@@ -74,5 +74,5 @@ Version 0.2
 * added footer menu
 * added Inconsolata font for monospaced elements (pre, tt, code and .code class)
 * added more typography classes for potential typography settings options
-* added theme options page and sidebar options (still a work in progress)
+* added new theme options page and sidebar options (still a work in progress)
 * updated version
