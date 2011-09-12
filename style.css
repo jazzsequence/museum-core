@@ -269,5 +269,8 @@ ul.sidebar, .sidebar ul  {
 .rightbox { width: 280px!important; }
 .credit { text-align: center; }
 
-/* Monospace typography */
-tt, code, pre, .code { font-family: 'Inconsolata', monospace; }
+/* typography */
+tt, code, pre, .code, .inconsolata { font-family: 'Inconsolata', monospace; }
+.ubuntu { font-family: 'Ubuntu', sans-serif; }
+.droid { font-family: 'DroidSans', sans-serif; }
+.ptserif { font-family: 'PTSerif', serif; }
