@@ -76,3 +76,4 @@ Version 0.2
 * added more typography classes for potential typography settings options
 * added new theme options page and sidebar options (still a work in progress)
 * updated version
+* removed sharing options from single posts
