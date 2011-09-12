@@ -69,8 +69,6 @@ if ( !is_admin() ) { // instruction to only load if it is not the admin area
    wp_enqueue_style( 'coreie' );   
 }
 
-
-
 /* WordPress core functionality */
 function ap_core_setup() {
 	// post thumbnail support
@@ -184,7 +182,136 @@ function ap_core_setup() {
 		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . 'read more' . '</a>)';
 	}
 	add_filter('excerpt_more', 'new_excerpt_more');		
+	
 }
 add_action('after_setup_theme','ap_core_setup');
 
+/* Build a Theme Options page */
+function ap_core_register_settings() {
+	register_setting( 'ap_core_theme_options', 'ap_core_options', 'ap_core_validate_options' );
+}
+add_action ( 'admin_init', 'ap_core_register_settings' );
+
+// default options settings
+$ap_core_options = array(
+	'sidebar' => 'left',
+	// typography options
+	'headings' => 'PTSerif',
+	'body' => 'DroidSans',
+	'alt' => 'Ubuntu'
+);
+$ap_core_sidebar = array( 
+	'left' => array(
+		'value' => 'left',
+		'label' => 'Left Sidebar'),
+	'right' => array(
+		'value' => 'right',
+		'label' => 'Right Sidebar')
+);
+
+function ap_core_theme_options() {
+	add_theme_page( 'Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
+}
+add_action ( 'admin_menu', 'ap_core_theme_options' );
+
+function ap_core_theme_options_page() {
+	global $ap_core_options, $ap_core_sidebar;
+	if ( ! isset( $_REQUEST['updated'] ) )
+    $_REQUEST['updated'] = false; // This checks whether the form has just been submitted. ?>
+	<div class="wrap">
+ 
+    <?php screen_icon(); echo "<h2>Core Options</h2>";
+    // This shows the page's name and an icon if one has been provided ?>
+ 
+    <?php if ( false !== $_REQUEST['updated'] ) : ?>
+    <div><p><strong><?php _e( 'Options saved' ); ?></strong></p></div>
+    <?php endif; // If the form has just been submitted, this shows the notification ?>
+ 
+    <form method="post" action="options.php">
+ 
+    <?php $settings = get_option( 'ap_core_options', $ap_core_options ); ?>
+ 
+    <?php settings_fields( 'ap_core_theme_options' );
+    /* This function outputs some hidden fields required by the form,
+    including a nonce, a unique number used to ensure the form has been submitted from the admin page
+    and not somewhere else, very important for security */ ?>
+	<table class="form-table">
+	<tr valign="top"><th scope="row"><label for="sidebar">Sidebar</label></th>
+	<td>
+		<?php  foreach( $ap_core_sidebar as $sidebar ) : ?>
+			<input type="radio" id="<?php echo $sidebar['value']; ?>" name="ap_core_options[sidebar]" value="<?php esc_attr_e( $sidebar['value'] ); ?>" <?php checked( $settings['sidebar'], $sidebar['value'] ); ?> />
+			<label for="<?php echo $sidebar['value']; ?>"><?php echo $sidebar['label']; ?></label><br />
+			<?php endforeach; ?>
+	</td>
+	</tr>
+<?php /*
+    <table><!-- Grab a hot cup of coffee, yes we're using tables! -->
+ 
+    <tr valign="top"><th scope="row"><label for="footer_copyright">Footer Copyright Notice</label></th>
+    <td>
+    <input id="footer_copyright" name="ap_core_options[footer_copyright]" type="text" value="<?php  esc_attr_e($settings['footer_copyright']); ?>" />
+    </td>
+    </tr>
+ 
+    <tr valign="top"><th scope="row"><label for="intro_text">Intro Text</label></th>
+    <td>
+    <textarea id="intro_text" name="ap_core_options[intro_text]" rows="5" cols="30"><?php echo stripslashes($settings['intro_text']); ?></textarea>
+    </td>
+    </tr>
+ 
+    <tr valign="top"><th scope="row"><label for="featured_cat">Featured Category</label></th>
+    <td>
+    <select id="featured_cat" name="ap_core_options[featured_cat]">
+    <?php
+    foreach ( $categories as $category ) :
+        $label = $category['label'];
+        $selected = '';
+        if ( $category['value'] == $settings['featured_cat'] )
+            $selected = 'selected="selected"';
+        echo '<option style="padding-right: 10px;" value="' . esc_attr( $category['value'] ) . '" ' . $selected . '>' . $label . '</option>';
+    endforeach;
+    ?>
+    </select>
+    </td>
+    </tr>
+ 
+    <tr valign="top"><th scope="row">Layout View</th>
+    <td>
+    <?php foreach( $layouts as $layout ) : ?>
+    <input type="radio" id="<?php echo $layout['value']; ?>" name="ap_core_options[layout_view]" value="<?php esc_attr_e( $layout['value'] ); ?>" <?php checked( $settings['layout_view'], $layout['value'] ); ?> />
+    <label for="<?php echo $layout['value']; ?>"><?php echo $layout['label']; ?></label><br />
+    <?php endforeach; ?>
+    </td>
+    </tr>
+ 
+    <tr valign="top"><th scope="row">Author Credits</th>
+    <td>
+    <input type="checkbox" id="author_credits" name="ap_core_options[author_credits]" value="1" <?php checked( true, $settings['author_credits'] ); ?> />
+    <label for="author_credits">Show Author Credits</label>
+    </td>
+    </tr>
+ 
+    </table> */ ?>
+	</table>
+    <p class="submit"><input type="submit" id="submit" class="button-primary" value="Save Options" /></p>
+ 
+    </form>
+ 
+    </div>
+ 
+<?php } 
+function ap_core_validate_options( $input ) {
+    global $ap_core_options, $ap_core_sidebar;
+ 
+    $settings = get_option( 'ap_core_options', $ap_core_options );
+ 
+    // We select the previous value of the field, to restore it in case an invalid entry has been given
+    $prev = $settings['sidebar'];
+    // We verify if the given value exists in the layouts array
+    if ( !array_key_exists( $input['sidebar'], $ap_core_sidebar ) )
+    $input['sidebar'] = $prev;
+
+ 
+    return $input;
+}
 ?>
