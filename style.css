@@ -268,3 +268,6 @@ ul.sidebar, .sidebar ul  {
 .footer h2 { font-size: 1.6em; margin: 0; }
 .rightbox { width: 280px!important; }
 .credit { text-align: center; }
+
+/* Monospace typography */
+tt, code, pre, .code { font-family: 'Inconsolata', monospace; }
