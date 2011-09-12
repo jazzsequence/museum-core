@@ -17,12 +17,13 @@
 <body>
 <div class="container">
 <div class="header">
+	<?php wp_nav_menu( array( 'container_class' => 'topnav', 'theme_location' => 'top' ) ); ?>
 	<div class="siteinfo">
         <h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
 		<h2><?php bloginfo('description'); ?></h2>
     </div>              
 
 <div class="clear"></div>
-		<?php wp_nav_menu( array( 'container_class' => 'navbar', 'theme_location' => 'primary' ) ); ?>
+	<?php wp_nav_menu( array( 'container_class' => 'mainnav', 'theme_location' => 'main' ) ); ?>	
 </div>		
 <div class="clear"></div>
