@@ -1,20 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<!--[if lt IE 7]> <html class="ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-<meta http-equiv="Content-type" content="text/html;charset=utf-8" />	
-	<title><?php
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title><?php
 	$category = get_the_category();
 	if (is_home () ) { bloginfo('name'); }
 	elseif ( is_category() ) { single_cat_title(); echo ' | ' ; bloginfo('name'); }
 	elseif (is_single() ) { single_post_title(); echo ' | '; echo $category[0]->cat_name; }
 	elseif (is_page() ) { single_post_title();}
 	else { wp_title('',true); } ?> | <?php bloginfo('description'); ?></title>
+<?php if ( is_tax() ) { 
+	$term_description = term_description(); ?>
+<meta name="description" content="<?php echo $term_description; ?>">
+<?php } elseif (( is_single() ) || ( is_page())) { ?>
+<meta name="description" content="<?php the_excerpt(); ?>">
+<?php } ?>
 	<link rel="Shortcut Icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   	<?php wp_get_archives('type=monthly&format=link'); ?>
 	<?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 <div class="container">
 <div class="header">
 	<?php wp_nav_menu( array( 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>

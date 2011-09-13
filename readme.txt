@@ -95,3 +95,7 @@ Version 0.3
 * added icons plugin from blueprintCSS (but removed the external link icons)
 * changed name to AP Museum Core (from AP-Museum_Core)
 * added formalize.css styles
+* added formalize js & enqueued jquery
+* updated doctype (from BPH5)
+* added conditional _classes_ (as opposed to conditional stylesheets) (from BPH5)
+* added meta description (pulls from taxonomy description if on a taxonomy page (custom taxonomies, tags, categories) or page/post excerpt (if on single post or any page that supports the_excerpt)
