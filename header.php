@@ -18,7 +18,11 @@
 <meta name="description" content="<?php echo $term_description; ?>">
 <?php } elseif (( is_single() ) || ( is_page())) { ?>
 <meta name="description" content="<?php the_excerpt(); ?>">
-<?php } ?>
+<?php } 
+	$author_id = $post->post_author;
+	$author = get_userdata($author_id);
+?>
+<meta name="author" content="<?php echo $author->display_name; ?>">
 	<link rel="Shortcut Icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   	<?php wp_get_archives('type=monthly&format=link'); ?>

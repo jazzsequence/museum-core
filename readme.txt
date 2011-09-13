@@ -99,3 +99,4 @@ Version 0.3
 * updated doctype (from BPH5)
 * added conditional _classes_ (as opposed to conditional stylesheets) (from BPH5)
 * added meta description (pulls from taxonomy description if on a taxonomy page (custom taxonomies, tags, categories) or page/post excerpt (if on single post or any page that supports the_excerpt)
+* added author meta tag
