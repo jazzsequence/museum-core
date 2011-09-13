@@ -61,12 +61,6 @@ if ( !is_admin() ) { // instruction to only load if it is not the admin area
    // this loads the font stack
    wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
    wp_enqueue_style('corefonts');
-   // this loads the style.css
-   wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
-   wp_enqueue_style('corecss');
-   wp_register_style( 'coreie', get_bloginfo( 'template_directory' ) . '/css/ie.css', false, $theme['Version'] );
-   $GLOBALS['wp_styles']->add_data( 'coreie', 'conditional', 'lte IE 8' );
-   wp_enqueue_style( 'coreie' );   
 }
 
 /* WordPress core functionality */

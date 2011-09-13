@@ -77,3 +77,11 @@ Version 0.2
 * added new theme options page and sidebar options (still a work in progress)
 * updated version
 * removed sharing options from single posts
+
+Version 0.3
+9/13/2011
+* NOW USING BOILERPLATE HTML5!
+* replaced blueprint resets and print styles with BPH5 css
+* removed ie conditional stylesheet (in favor of BPH5 conditional classes)
+* removed separate typography stylesheet (replaced with inline css in style.css)
+* leaving the embedded typography in a separate stylesheet but changing the call to 'stylesheet_directory' rather than 'template_directory' -- this is so each child theme can define its own styles without loading the fonts from the parent theme
