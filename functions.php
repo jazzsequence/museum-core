@@ -61,6 +61,9 @@ if ( !is_admin() ) { // instruction to only load if it is not the admin area
    // this loads the font stack
    wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
    wp_enqueue_style('corefonts');
+   // this loads the style.css
+   wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
+   wp_enqueue_style('corecss');
 }
 
 /* WordPress core functionality */
