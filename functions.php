@@ -58,6 +58,11 @@ if ( !is_admin() ) { // instruction to only load if it is not the admin area
    // this loads suckerfish.js the dropdown menus
    wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js',false,$theme['Version']);
    wp_enqueue_script('suckerfish');
+    // this loads jquery (for formalize, among other things)
+    wp_enqueue_script('jquery');
+   // this loads the formalize js
+   wp_register_script('formalize',get_bloginfo('template_directory').'/js/jquery.formalize.min.js',false,$theme['Version']);
+   wp_enqueue_script('formalize');
    // this loads the font stack
    wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
    wp_enqueue_style('corefonts');

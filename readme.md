@@ -94,3 +94,4 @@ There are currently no screenshots.
 * added typography styles from blueprintCSS
 * added icons plugin from blueprintCSS (but removed the external link icons)
 * changed name to AP Museum Core (from AP-Museum_Core)
+* added formalize.css styles
