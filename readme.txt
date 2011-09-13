@@ -91,3 +91,6 @@ Version 0.3
 * removed separate typography stylesheet (replaced with inline css in style.css)
 * leaving the embedded typography in a separate stylesheet but changing the call to 'stylesheet_directory' rather than 'template_directory' -- this is so each child theme can define its own styles without loading the fonts from the parent theme
 * added readme.md for the benefit of Git
+* added typography styles from blueprintCSS
+* added icons plugin from blueprintCSS (but removed the external link icons)
+* changed name to AP Museum Core (from AP-Museum_Core)

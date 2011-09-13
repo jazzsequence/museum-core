@@ -1,5 +1,5 @@
 /*  
-Theme Name: AP-Museum_Core
+Theme Name: AP Museum Core
 Theme URI: http://www.museumthemes.com
 Description: A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 Version: 0.3
@@ -306,6 +306,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /* Here are some generic typographic styles from blueprintCSS */
 /* typography.css */
+@media screen, projection {
 body {font-size:75%;color:#222;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
 h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
@@ -389,6 +390,37 @@ caption {background:#eee;}
    
 .dquo { margin-left: -.5em; } 
 
+/* This is the icons plugin for blueprintcss that adds contextual link icons depending on the thing being linked */
+
+/* Use this class if a link gets an icon when it shouldn't. */
+body a.noicon { 
+	background:transparent none !important; 
+	padding:0 !important; 
+	margin:0 !important; 
+}
+
+/* Make sure the icons are not cut */
+a[href^="mailto:"], a[href$=".pdf"], a[href$=".doc"], a[href$=".xls"], a[href$=".rss"], a[href$=".rdf"], a[href^="aim:"] {
+  padding:2px 22px 2px 0;
+  margin:-2px 0;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+/* Email */
+a[href^="mailto:"]        { background-image: url(icons/email.png); }
+
+/* Files */
+a[href$=".pdf"]   { background-image: url(icons/pdf.png); }  
+a[href$=".doc"]   { background-image: url(icons/doc.png); }  
+a[href$=".xls"]   { background-image: url(icons/xls.png); }  
+ 
+/* Misc */
+a[href$=".rss"], 
+a[href$=".rdf"]   { background-image: url(icons/feed.png); }
+a[href^="aim:"]   { background-image: url(icons/im.png); }
+
+}
 
 /* Main */
 body {
