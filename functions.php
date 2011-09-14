@@ -63,6 +63,9 @@ if ( !is_admin() ) { // instruction to only load if it is not the admin area
    // this loads the formalize js
    wp_register_script('formalize',get_bloginfo('template_directory').'/js/jquery.formalize.min.js',false,$theme['Version']);
    wp_enqueue_script('formalize');
+   // loads modernizr for BPH5
+   wp_register_script('modernizr',get_bloginfo('template_directory').'/js/modernizr-2.0.6.min.js',false,'2.0.6');
+   wp_enqueue_script('modernizr');
    // this loads the font stack
    wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
    wp_enqueue_style('corefonts');

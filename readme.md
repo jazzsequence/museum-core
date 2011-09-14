@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 2.8  
 Tested up to: 3.2.1  
-Stable tag: 0.2
+Stable tag: 0.3.1
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -100,3 +100,10 @@ There are currently no screenshots.
 * added conditional _classes_ (as opposed to conditional stylesheets) (from BPH5)
 * added meta description (pulls from taxonomy description if on a taxonomy page (custom taxonomies, tags, categories) or page/post excerpt (if on single post or any page that supports the_excerpt)
 * added author meta tag
+
+### Version 0.3.1
+#### 9/14/2011
+
+* updated version
+* added viewport meta tag
+* added modernizr js

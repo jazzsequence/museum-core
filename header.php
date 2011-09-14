@@ -23,6 +23,7 @@
 	$author = get_userdata($author_id);
 ?>
 <meta name="author" content="<?php echo $author->display_name; ?>">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="Shortcut Icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
   	<?php wp_get_archives('type=monthly&format=link'); ?>
