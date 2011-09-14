@@ -112,3 +112,6 @@ Version 0.3.1
 * removed redundant </div>
 * added <time> tag to post date and removed <div>
 * replaced multiple <divs> with HTML5 equivalents for content
+* replaced <divs> with HTML5 equivalents to 404 page
+* added frowny face and span[frown] from BPH5 404.html
+* applied text-shadow to body type
