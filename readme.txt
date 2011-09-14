@@ -107,3 +107,4 @@ Version 0.3.1
 * updated version
 * added viewport meta tag
 * added modernizr js
+* added HTML5 <header> tag and formatted markup

@@ -24,21 +24,24 @@
 ?>
 <meta name="author" content="<?php echo $author->display_name; ?>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="Shortcut Icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon" />
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-  	<?php wp_get_archives('type=monthly&format=link'); ?>
-	<?php wp_head(); ?>
+<link rel="Shortcut Icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon" />
+<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+<?php wp_get_archives('type=monthly&format=link'); ?>
+<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<div class="container">
-<div class="header">
-	<?php wp_nav_menu( array( 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
-	<div class="siteinfo">
-        <h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-		<h2><?php bloginfo('description'); ?></h2>
-    </div>              
+	<div class="container">
+	<header>
+		<div class="header">
+			<?php wp_nav_menu( array( 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
+			<div class="siteinfo">
+				<h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+				<h2><?php bloginfo('description'); ?></h2>
+			</div>              
 
-<div class="clear"></div>
-	<?php wp_nav_menu( array( 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?>	
-</div>		
-<div class="clear"></div>
+		<div class="clear"></div>
+			<?php wp_nav_menu( array( 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?>	
+		</div>		
+	</header>
+	<div class="clear"></div>
+	
