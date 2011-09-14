@@ -33,14 +33,14 @@
 	<div class="container">
 		<header>
 			<div class="header">
-				<?php wp_nav_menu( array( 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
+				<nav><?php wp_nav_menu( array( 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?></nav>
 				<div class="siteinfo">
 					<h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
 					<h2><?php bloginfo('description'); ?></h2>
 				</div>              
 
 			<div class="clear"></div>
-				<?php wp_nav_menu( array( 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?>	
+				<nav><?php wp_nav_menu( array( 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?></nav>
 			</div>		
 		</header>
 		<div class="clear"></div>

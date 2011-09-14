@@ -110,3 +110,5 @@ Version 0.3.1
 * added HTML5 <header> tag and formatted markup
 * added HTML5 <footer> tag and formatted markup
 * removed redundant </div>
+* added <time> tag to post date and removed <div>
+* replaced multiple <divs> with HTML5 equivalents for content
