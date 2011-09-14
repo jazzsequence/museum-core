@@ -108,3 +108,5 @@ Version 0.3.1
 * added viewport meta tag
 * added modernizr js
 * added HTML5 <header> tag and formatted markup
+* added HTML5 <footer> tag and formatted markup
+* removed redundant </div>
