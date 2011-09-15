@@ -1,10 +1,10 @@
-=== AP-Museum_Core ===
+=== AP Museum Core ===
 Contributors: jazzs3quence
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar
-Requires at least: 2.8
+Requires at least: 3.1
 Tested up to: 3.2.1
-Stable tag: 0.3.1
+Stable tag: 0.3.2
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -24,7 +24,7 @@ There are currently no screenshots.
 
 == Changelog ==
 
-Version 0.1
+= Version 0.1 =
 6/14/2011
 
 * initial commit (forked from AP-blueprint)
@@ -43,13 +43,13 @@ Version 0.1
 * renamed /blueprint to /css 
 * removed tweet button and dynamic twitter variable in sharing block (might remove the sharing block entirely, anyway, since -- again -- sharedaddy is included in Jetpack)
 
-Version 0.1.1
+= Version 0.1.1 =
 6/15/2011  
 
 * changed version
 * added readme.txt with changelog
 
-Version 0.1.2
+= Version 0.1.2 =
 7/22/2011
 
 * updated version
@@ -66,7 +66,7 @@ Version 0.1.2
 * added ie conditional to functions.php
 * added versioning relative to theme version to wp_register_style and wp_register_script calls
 
-Version 0.2
+= Version 0.2 =
 9/12/2011
 
 * fixed ap_core_setup (using wrong hook)
@@ -82,7 +82,7 @@ Version 0.2
 * updated version
 * removed sharing options from single posts
 
-Version 0.3
+= Version 0.3 =
 9/13/2011
 
 * NOW USING BOILERPLATE HTML5!
@@ -101,7 +101,7 @@ Version 0.3
 * added meta description (pulls from taxonomy description if on a taxonomy page (custom taxonomies, tags, categories) or page/post excerpt (if on single post or any page that supports the_excerpt)
 * added author meta tag
 
-Version 0.3.1
+= Version 0.3.1 =
 9/14/2011
 
 * updated version
@@ -115,3 +115,8 @@ Version 0.3.1
 * replaced <divs> with HTML5 equivalents to 404 page
 * added frowny face and span[frown] from BPH5 404.html
 * applied text-shadow to body type
+
+= Version 0.3.2 = 
+9/14/2011
+
+* updated version

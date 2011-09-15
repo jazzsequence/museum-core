@@ -2,9 +2,9 @@
 Contributors: <a href="https://github.com/jazzsequence">jazzsequence</a>  
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6  
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
-Requires at least: 2.8  
+Requires at least: 3.1
 Tested up to: 3.2.1  
-Stable tag: 0.3.1
+Stable tag: 0.3.2
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -115,3 +115,8 @@ There are currently no screenshots.
 * replaced <divs> with HTML5 equivalents to 404 page
 * added frowny face and span[frown] from BPH5 404.html
 * applied text-shadow to body type
+
+### Version 0.3.2
+#### 9/15/2011
+
+* updated version
