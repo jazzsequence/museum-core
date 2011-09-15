@@ -35,7 +35,7 @@
 			<div class="header">
 				<nav><?php wp_nav_menu( array( 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?></nav>
 				<hgroup class="siteinfo">
-					<h1><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+					<h1 class="alt"><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
 					<h2><?php bloginfo('description'); ?></h2>
 				</hgroup>              
 

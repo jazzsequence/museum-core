@@ -58,7 +58,7 @@ audio[controls], canvas, video { display: inline-block; *display: inline; *zoom:
 
 html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-body { margin: 0; font-size: 13px; line-height: 1.231; }
+body { margin: 0; font-size: 14px; line-height: 1.231; }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
@@ -68,8 +68,8 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
  * Also: hot pink!
  */
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: #222222; color: #fff; text-shadow: none!important; }
+::selection { background: #222222; color: #fff; text-shadow: none!important; }
 
 
 /* =============================================================================
@@ -123,7 +123,6 @@ sub { bottom: -0.25em; }
    Lists
    ========================================================================== */
 
-ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
 
@@ -307,7 +306,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 /* Here are some generic typographic styles from blueprintCSS */
 /* typography.css */
 @media screen, projection {
-body {font-size:75%;color:#222;}
+body {color:#222;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
 h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
 h2 {font-size:2em;margin-bottom:0.75em;}
@@ -377,8 +376,7 @@ caption {background:#eee;}
   
 .alt { 
   color: #666; 
-  font-family: "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif; 
-  font-style: italic;
+  font-family: 'PTSerif',"Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif; 
   font-weight: normal;
 }
 
@@ -841,25 +839,21 @@ body {
 	text-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
 }
 .container {
-	margin: 0 auto;
+	background: #ffffff;
+	margin: 10px auto;
 	width: 960px;
+	box-shadow: 0px 0px 4px rgba(200, 200, 200, 0.5);
 }
 
-a:active, a:hover {text-decoration:none;}
+a { text-decoration:none; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all  0.3s ease; }
 
-.clear {clear:both;}
-
-.spacer-10 {
-	clear:both;
-	height: 10px;
-}
-
+.clear { clear:both; }
+.spacer-10 { clear:both; height: 10px; }
 .threecolumn {
 	width: 32%;
 	float: left;
 	margin-right: 10px;
 }
-
 .last { margin-right: 0!important; }
 
 span[frown] { transform: rotate(90deg); -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); display:inline-block; padding: 0 10px; }
@@ -1067,6 +1061,7 @@ textarea#comment { width: 646px; }
 ul.sidebar, .sidebar ul  {
 	list-style-type: none;
 	margin: 0px !important;
+	padding: 0px!important;
 }
 .the_left, .the_right {
 	padding-bottom: 20px;
