@@ -135,3 +135,4 @@ There are currently no screenshots.
 * changed alt class to use embedded PTSans as primary font in stack
 * started css fixing
 * changed container for wp_nav_menus to <nav> and removed <nav> tag
+* added topnav menu styling
