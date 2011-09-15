@@ -129,3 +129,5 @@ There are currently no screenshots.
 * added post thumbnails to archive.php
 * changed post thumbnail size
 * added HTML5 tags to page.php
+* added HTML5 tags to search.php
+* changed deprecated bloginfo('url') to current echo home_url() in searchform.php

@@ -126,3 +126,6 @@ There are currently no screenshots.
 * added HTML5 tags to single.php
 * added <time> tag to single.php
 * added HTML5 tags to archive.php
+* added post thumbnails to archive.php
+* changed post thumbnail size
+* added HTML5 tags to page.php
