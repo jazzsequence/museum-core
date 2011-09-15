@@ -78,7 +78,7 @@ if ( !is_admin() ) { // instruction to only load if it is not the admin area
 function ap_core_setup() {
 	// post thumbnail support
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 175, 175 ); // 175 pixels wide by 175 pixels tall, box resize mode
+	set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
 
 	// custom nav menus
 	// This theme uses wp_nav_menu() in three (count them, three!) locations.
