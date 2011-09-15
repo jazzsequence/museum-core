@@ -124,3 +124,5 @@ There are currently no screenshots.
 * moved get_sidebar to above get_footer for SEO
 * added <hgroup> to site headings
 * added HTML5 tags to single.php
+* added <time> tag to single.php
+* added HTML5 tags to archive.php

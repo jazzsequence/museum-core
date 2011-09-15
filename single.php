@@ -17,7 +17,7 @@
 		</section>         
         <div class="clear"></div>
 		<section class="postmetadata">
-			Posted in <?php the_category(',&nbsp;'); ?> on <?php the_time('j F Y') ?><?php the_tags(', and tagged ',', ',''); ?><br />
+			Posted in <?php the_category(',&nbsp;'); ?> on <time datetime=<?php the_time('Y-m-d'); ?>><?php the_time('j F Y') ?></time><?php the_tags(', and tagged ',', ',''); ?><br />
 			<?php comments_popup_link('No Comments &#187;', 'One Comment &#187;', '% Comments &#187;'); ?>       
 			<p><?php edit_post_link('Edit this entry','','.'); ?></p>			
         </section>
