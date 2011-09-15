@@ -4,7 +4,6 @@
 */
 ?>
 <?php get_header(); ?>
-<?php get_sidebar(); ?>
 <div class="content">
 	
 <?php if (have_posts()) : ?>
@@ -29,11 +28,13 @@
 	<?php endwhile; ?>
 
 	<nav class="navigation">
+		<?php  if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
 		<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
 		<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
+		<?php } ?>
 	</nav>
 	<?php endif; ?>
-
 </div>
+<?php get_sidebar(); ?>
 <div class="clear"></div>
 <?php get_footer(); ?>

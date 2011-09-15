@@ -4,7 +4,6 @@
 */
 ?>
 <?php get_header(); ?>
-<?php get_sidebar(); ?>
 <div class="content">
 	<article class="post">
 	<h2 class="the_title">The page you were looking for could not be found <span frown>:(</span></h2>
@@ -36,5 +35,6 @@
 	<div class="clear"></div>
 	</article>
 </div>
+<?php get_sidebar(); ?>
 <div class="clear"></div>
 <?php get_footer(); ?>

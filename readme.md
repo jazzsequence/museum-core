@@ -120,3 +120,7 @@ There are currently no screenshots.
 #### 9/15/2011
 
 * updated version
+* added support for wp-pagenavi
+* moved get_sidebar to above get_footer for SEO
+* added <hgroup> to site headings
+* added HTML5 tags to single.php

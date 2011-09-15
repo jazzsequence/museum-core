@@ -120,3 +120,5 @@ There are currently no screenshots.
 9/14/2011
 
 * updated version
+* added support for wp-pagenavi
+* moved get_sidebar to above get_footer for SEO
