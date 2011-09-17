@@ -143,3 +143,6 @@ There are currently no screenshots.
 * changed version
 * added some css3 sliding transition to topnav
 * added some css formatting
+* changed link color
+* duplicated topnav styles for mainnav
+* added content styles

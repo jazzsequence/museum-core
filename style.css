@@ -725,6 +725,8 @@ body {
 	box-shadow: 0px 0px 4px rgba(200, 200, 200, 0.5);
 }
 
+a, a:link, a:visited { color: #486D96; }
+a:hover, a:active { color: #333333; }
 a { text-decoration:none; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all  0.3s ease; }
 
 .clear { clear:both; }
@@ -851,31 +853,62 @@ div.aligncenter {
 }
 
 .wp-caption p.wp-caption-text {
-	font-size: 11px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 0.9em;
 	line-height: 17px;
 	padding: 0 4px 5px;
 	margin: 0;
 }
 
 /* Header */
-header { padding: 10px; }
-hgroup { clear: both; padding: 5px 0; }
+header { 
+	padding: 10px 10px 30px 10px; 
+	margin-bottom: 20px; 
+}
+hgroup { clear: both; padding: 5px 10px; }
 hgroup h1, hgroup h2 { margin: auto!important; }
 
-nav.topnav {	margin: 0!important; }
-nav.topnav ul {
+nav.topnav,
+nav.mainnav { 
+	margin: 0!important; 
+}
+nav.topnav ul,
+nav.mainnav ul {
 	list-style-type: none;
 	margin: 0 !important;
 }
-nav.topnav li {
+nav.topnav li,
+nav.mainnav li {
 	float: left;
 	padding: 7px 10px; 
 }
-nav.topnav li:hover, nav.topnav li:active { background: #efefef; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all  0.3s ease; }
-nav.topnav li a:link, nav.topnav a:visited {}
-nav.topnav li a:hover, nav.topnav a:active {position:relative; z-index:999;}
-nav.topnav li .first {margin-left: 0px !important;}
-nav.topnav li li {
+nav.topnav li:hover, 
+nav.topnav li:active,
+nav.mainnav li:hover, 
+nav.mainnav li:active { 
+	background: #efefef; 
+	-webkit-transition: all 0.3s ease; 
+	-moz-transition: all 0.3s ease; 
+	-o-transition: all 0.3s ease; 
+	transition: all  0.3s ease; 
+}
+nav.topnav li a:link, 
+nav.topnav a:visited,
+nav.mainnav li a:link, 
+nav.mainnav a:visited {}
+nav.topnav li a:hover, 
+nav.topnav a:active,
+nav.mainnav li a:hover, 
+nav.mainnav a:active {
+	position:relative; 
+	z-index:999;
+}
+nav.topnav li .first,
+nav.mainnav li .first { 
+	margin-left: 0px !important; 
+}
+nav.topnav li li,
+nav.mainnav li li {
 	display: inline;
 	width: 148px;
 	margin: 0;
@@ -886,21 +919,34 @@ nav.topnav li li {
 	line-height: 0;
 	opacity: 0;
 }
-nav.topnav li:hover li { line-height: 20px; opacity: 1; }
-nav.topnav li li {
+nav.topnav li:hover li,
+nav.mainnav li:hover li { 
+	line-height: 20px; 
+	opacity: 1; 
+}
+nav.topnav li li,
+nav.mainnav li li {
 	-webkit-transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
 	-moz-transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
 	-o-transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
 	transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
 }
-nav.topnav li li:hover, nav.topnav li li:active { background: #fcfcfc; box-shadow: none!important; }
-nav.topnav li ul {
+nav.topnav li li:hover, 
+nav.topnav li li:active,
+nav.mainnav li li:hover, 
+nav.mainnav li li:active { 
+	background: #fcfcfc; 
+	box-shadow: none!important; 
+}
+nav.topnav li ul,
+nav.mainnav li ul {
 	position: absolute;
 	left: -999em;
 	margin-top: 5px!important; 
 	width: 12em;
 }
-nav.topnav li:hover ul {
+nav.topnav li:hover ul,
+nav.mainnav li:hover ul {
 	left: auto;
 	background: #efefef;
 	margin-left: -10px!important;
@@ -908,27 +954,45 @@ nav.topnav li:hover ul {
 	z-index: 10;
 	box-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
 }
-nav.topnav li:hover ul, #nav li.sfhover ul {
+nav.topnav li:hover ul, 
+nav.topnav li.sfhover ul,
+nav.mainnav li:hover ul, 
+nav.mainnav li.sfhover ul {
 	left: auto;
 }	
 
 /* Content */
 
 .content {
-	margin-top: 20px;
 	width: 680px;
 	float: left;
 }
 
-.post {
-	background: #ffffff;
-	padding: 0 10px;
-	margin-bottom: 10px;
-	border: 1px dotted #888888;
+article {
+	padding: 0 20px;
+	margin-bottom: 20px;
 }
 
-.the_date h3 {margin-bottom: 0 !important; margin-top: 10px;}
-.postmetadata {padding: 0 0 5px 0;}
+h3.the_date{
+	font-size: 1.0em;
+	line-height: auto;
+	margin: 0;
+}
+
+time { 
+	font-family: 'Ubuntu', sans-serif;
+}
+
+h2.the_title {
+	line-height: auto;
+	margin: 0 0 20px;
+}
+
+.postmetadata {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 0.9em;
+	padding: 0 0 5px 0;
+}
 .navigation {
 	margin: 10px auto;
 }
@@ -951,7 +1015,6 @@ textarea#comment { width: 646px; }
 	position:relative;
 	height:100%;
 	padding: 0 10px 10px 10px;
-	margin-top: 20px;
 	height: 100%;
 }
 
