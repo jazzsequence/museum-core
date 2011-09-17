@@ -2,7 +2,7 @@
 Theme Name: AP Museum Core
 Theme URI: http://www.museumthemes.com
 Description: A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
-Version: 0.3.2
+Version: 0.3.3
 Author: Arcane Palette Creative Design
 Author URI: http://www.arcanepalette.com
 License: gpl3
@@ -856,7 +856,7 @@ a { text-decoration:none; -webkit-transition: all 0.3s ease; -moz-transition: al
 }
 .last { margin-right: 0!important; }
 
-span[frown] { transform: rotate(90deg); -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); display:inline-block; padding: 0 10px; }
+span[frown] { -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg); display:inline-block; padding: 0 10px; }
 
 /* this stuff is borrowed from Kubrik, the WordPress default theme and handles 
    WP-specific stuff. */
@@ -991,7 +991,7 @@ nav.topnav li {
 	float: left;
 	padding: 7px 10px; 
 }
-nav.topnav li:hover, nav.topnav li:active { background: #efefef; }
+nav.topnav li:hover, nav.topnav li:active { background: #efefef; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all  0.3s ease; }
 nav.topnav li a:link, nav.topnav a:visited {}
 nav.topnav li a:hover, nav.topnav a:active {position:relative; z-index:999;}
 nav.topnav li .first {margin-left: 0px !important;}
@@ -1003,6 +1003,15 @@ nav.topnav li li {
 	clear: left;
 	position: relative;
 	z-index: 999;
+	line-height: 0;
+	opacity: 0;
+}
+nav.topnav li:hover li { line-height: 20px; opacity: 1; }
+nav.topnav li li {
+	-webkit-transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
+	-moz-transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
+	-o-transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
+	transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
 }
 nav.topnav li li:hover, nav.topnav li li:active { background: #fcfcfc; box-shadow: none!important; }
 nav.topnav li ul {

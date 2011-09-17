@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 3.1
 Tested up to: 3.2.1  
-Stable tag: 0.3.2
+Stable tag: 0.3.3
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -136,3 +136,9 @@ There are currently no screenshots.
 * started css fixing
 * changed container for wp_nav_menus to <nav> and removed <nav> tag
 * added topnav menu styling
+
+### Version 0.3.3 
+#### 9/16/2011
+
+* changed version
+* added some css3 sliding transition to topnav
