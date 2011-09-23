@@ -146,3 +146,10 @@ There are currently no screenshots.
 * changed link color
 * duplicated topnav styles for mainnav
 * added content styles
+
+### Version 0.3.4
+#### 9/22/2011
+
+* split out template parts for post formats and content types
+* changed version
+* added license uri
