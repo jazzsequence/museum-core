@@ -24,7 +24,7 @@
 ?>
 <meta name="author" content="<?php echo $author->display_name; ?>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="Shortcut Icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon" />
+<link rel="Shortcut Icon" href="<?php echo get_template_directory_uri() ?>/images/favicon.ico" type="image/x-icon" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_get_archives('type=monthly&format=link'); ?>
 <?php wp_head(); ?>
@@ -35,7 +35,7 @@
 			<div class="header">
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
 				<hgroup class="siteinfo">
-					<h1 class="alt"><a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+					<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
 					<h2><?php bloginfo('description'); ?></h2>
 				</hgroup>              
 

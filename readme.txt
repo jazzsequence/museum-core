@@ -153,3 +153,9 @@ There are currently no screenshots.
 * split out template parts for post formats and content types
 * changed version
 * added license uri
+* updated aside format
+* updated status format
+* humanized date for status (will probably do this for asides as well)
+* replaced bloginfo('url') with echo home_url() in header.php
+* replaced bloginfo('template_directory') with echo get_template_directory_uri() in header.php
+* added Tags: to style.css (but left blank for now)
