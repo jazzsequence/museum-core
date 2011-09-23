@@ -114,7 +114,7 @@ There are currently no screenshots.
 * replaced multiple <divs> with HTML5 equivalents for content
 * replaced <divs> with HTML5 equivalents to 404 page
 * added frowny face and span[frown] from BPH5 404.html
-* applied text-shadow to body type
+* applied text-shadow to body type  
 
 ### Version 0.3.2
 #### 9/15/2011
