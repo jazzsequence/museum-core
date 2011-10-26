@@ -8,7 +8,7 @@
 		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
         <div class="clear"></div>
 		<section class="entry">
-			<?php the_content('Read more &raquo;'); ?>
+			<?php the_content('Read more &raquo;'); ?>			
 		</section>
 		<section class="postmetadata">
             Posted in <?php the_category(',&nbsp;'); ?> <?php the_tags('| Tags: ',', ',''); ?><br />

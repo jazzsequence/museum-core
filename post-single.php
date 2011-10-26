@@ -6,6 +6,7 @@
                 
 		<section class="entry">
 			<?php the_content('Read more &raquo;'); ?>
+			<?php wp_link_pages(); ?>			
 		</section>         
         <div class="clear"></div>
 		<section class="postmetadata">

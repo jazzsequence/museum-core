@@ -79,6 +79,7 @@ function ap_core_setup() {
 	// post thumbnail support
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
+	if ( ! isset( $content_width ) ) $content_width = 680;
 
 	// custom nav menus
 	// This theme uses wp_nav_menu() in three (count them, three!) locations.

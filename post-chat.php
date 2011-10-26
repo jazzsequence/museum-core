@@ -4,6 +4,7 @@
         <div class="clear"></div>
 		<section class="entry">
 			<?php the_content('Read more &raquo;'); ?>
+			<?php wp_link_pages(); ?>			
 		</section>
 		<section class="postmetadata">
             Posted in <?php the_category(',&nbsp;'); ?> <?php the_tags('| Tags: ',', ',''); ?><br />
