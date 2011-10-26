@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 3.1
 Tested up to: 3.2.1  
-Stable tag: 0.3.3
+Stable tag: 0.3.5
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -32,6 +32,8 @@ There are currently no screenshots.
 * added language attributes to html tag
 * added wp_link_pages to all post formats (some of these aren't really applicable, like link posts, but adding it to everything to be thorough)
 * removed old comments form and replaced with comment_form function
+* enqueueing comment-reply script on single posts
+* updated post formats with dynamic date format where post time displays (time tag still has a hard-coded timestamp to comply with HTML5 date/time standard)
 
 to do: 
 	REQUIRED: .sticky css class is needed in your theme css.

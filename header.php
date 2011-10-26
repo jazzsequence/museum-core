@@ -27,6 +27,7 @@
 <link rel="Shortcut Icon" href="<?php echo get_template_directory_uri() ?>/images/favicon.ico" type="image/x-icon" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_get_archives('type=monthly&format=link'); ?>
+<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
