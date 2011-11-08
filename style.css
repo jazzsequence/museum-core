@@ -1,8 +1,8 @@
-/*  
+/*
 Theme Name: Museum Core
 Theme URI: http://www.museumthemes.com
 Description: A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
-Version: 0.3.5-beta
+Version: 0.3.6-beta
 Author: Arcane Palette Creative Design
 Author URI: http://www.arcanepalette.com
 License: gpl3
@@ -11,7 +11,7 @@ Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-wid
 Git Repo: https://github.com/ArcanePalette/AP-Museum_Core
 */
 
-/* 
+/*
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -141,7 +141,7 @@ nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
 img { border: 0; -ms-interpolation-mode: bicubic; }
 
 /*
- * Correct overflow displayed oddly in IE9 
+ * Correct overflow displayed oddly in IE9
  */
 
 svg:not(:root) {
@@ -163,9 +163,9 @@ figure { margin: 0; }
 form { margin: 0; }
 fieldset { border: 0; margin: 0; padding: 0; }
 
-/* 
- * 1. Correct color not inheriting in IE6/7/8/9 
- * 2. Correct alignment displayed oddly in IE6/7 
+/*
+ * 1. Correct color not inheriting in IE6/7/8/9
+ * 2. Correct alignment displayed oddly in IE6/7
  */
 
 legend { border: 0; *margin-left: -7px; padding: 0; }
@@ -280,21 +280,21 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 	/* Surround uppercase words and abbreviations with this class.
 	   Based on work by Jørgen Arnor Gårdsø Lom [http://twistedintellect.com/] */
-	   
+
 	.caps { font-variant: small-caps; letter-spacing: 1px; text-transform: lowercase; font-size:1.2em; line-height:1%; font-weight:bold; padding:0 2px; }
 
-	/* For great looking type, use this code instead of asdf: 
-	   <span class="alt">asdf</span>  
+	/* For great looking type, use this code instead of asdf:
+	   <span class="alt">asdf</span>
 	   Best used on prepositions and ampersands. */
-	  
+
 	.alt { color: #666; font-family: 'PTSerif',"Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif; font-weight: normal; }
 
 	/* For great looking quote marks in titles, replace "asdf" with:
 	   <span class="dquo">&#8220;</span>asdf&#8221;
-	   (That is, when the title starts with a quote mark). 
-	   (You may have to change this value depending on your font size). */  
-	   
-	.dquo { margin-left: -.5em; } 
+	   (That is, when the title starts with a quote mark).
+	   (You may have to change this value depending on your font size). */
+
+	.dquo { margin-left: -.5em; }
 
 	/* This is the icons plugin for blueprintcss that adds contextual link icons depending on the thing being linked */
 
@@ -302,34 +302,34 @@ table { border-collapse: collapse; border-spacing: 0; }
 	body a.noicon { background:transparent none !important; padding:0 !important; margin:0 !important; }
 
 	/* Make sure the icons are not cut */
-	a[href^="mailto:"], 
-	a[href$=".pdf"], 
-	a[href$=".doc"], 
-	a[href$=".xls"], 
-	a[href$=".rss"], 
-	a[href$=".rdf"], 
-	a[href^="aim:"] { 
-		padding:2px 22px 2px 0; 
-		margin:-2px 0; 
-		background-repeat: no-repeat; 
-		background-position: right center; 
+	a[href^="mailto:"],
+	a[href$=".pdf"],
+	a[href$=".doc"],
+	a[href$=".xls"],
+	a[href$=".rss"],
+	a[href$=".rdf"],
+	a[href^="aim:"] {
+		padding:2px 22px 2px 0;
+		margin:-2px 0;
+		background-repeat: no-repeat;
+		background-position: right center;
 	}
 
 	/* Email */
 	a[href^="mailto:"]  { background-image: url(icons/email.png); }
 
 	/* Files */
-	a[href$=".pdf"]   { background-image: url(icons/pdf.png); }  
-	a[href$=".doc"]   { background-image: url(icons/doc.png); }  
-	a[href$=".xls"]   { background-image: url(icons/xls.png); }  
-	 
+	a[href$=".pdf"]   { background-image: url(icons/pdf.png); }
+	a[href$=".doc"]   { background-image: url(icons/doc.png); }
+	a[href$=".xls"]   { background-image: url(icons/xls.png); }
+
 	/* Misc */
-	a[href$=".rss"], 
-	a[href$=".rdf"]  { 
-		background-image: url(icons/feed.png); 
+	a[href$=".rss"],
+	a[href$=".rdf"]  {
+		background-image: url(icons/feed.png);
 	}
 	a[href^="aim:"]  { background-image: url(icons/im.png); }
-	
+
 } /* closes blueprintCSS styles */
 
 /* formalize.css
@@ -707,7 +707,7 @@ optgroup {
 
 .ie6_input_disabled {
   background: #eee;
-}	
+}
 
 /* =========================================
 	Actual  AP Museum Core CSS starts here
@@ -742,15 +742,15 @@ a { text-decoration:none; -webkit-transition: all 0.3s ease; -moz-transition: al
 
 span[frown] { -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg); display:inline-block; padding: 0 10px; }
 
-/* this stuff is borrowed from Kubrik, the WordPress default theme and handles 
+/* this stuff is borrowed from Kubrik, the WordPress default theme and handles
    WP-specific stuff. */
-   
+
 /*	Using 'class="alignright"' on an image will (who would've
 	thought?!) align the image to the right. And using 'class="centered',
 	will of course center the image. This is much better than using
 	align="center", being much more futureproof (and valid) */
 /* added .center because I always forget that the class is .centerED */
-	
+
 img.centered, img.center {
 	display: block;
 	margin-left: auto;
@@ -827,7 +827,7 @@ img.alignleft {
 #wp-calendar th {
 	font-style: normal;
 	text-transform: capitalize;
-	}	
+	}
 /* Captions */
 .aligncenter,
 div.aligncenter {
@@ -863,16 +863,16 @@ div.aligncenter {
 }
 
 /* Header */
-header { 
-	padding: 10px 10px 30px 10px; 
-	margin-bottom: 20px; 
+header {
+	padding: 10px 10px 30px 10px;
+	margin-bottom: 20px;
 }
 hgroup { clear: both; padding: 5px 10px; }
 hgroup h1, hgroup h2 { margin: auto!important; }
 
 nav.topnav,
-nav.mainnav { 
-	margin: 0!important; 
+nav.mainnav {
+	margin: 0!important;
 }
 nav.topnav ul,
 nav.mainnav ul {
@@ -882,32 +882,32 @@ nav.mainnav ul {
 nav.topnav li,
 nav.mainnav li {
 	float: left;
-	padding: 7px 10px; 
+	padding: 7px 10px;
 }
-nav.topnav li:hover, 
+nav.topnav li:hover,
 nav.topnav li:active,
-nav.mainnav li:hover, 
-nav.mainnav li:active { 
-	background: #efefef; 
-	-webkit-transition: all 0.3s ease; 
-	-moz-transition: all 0.3s ease; 
-	-o-transition: all 0.3s ease; 
-	transition: all  0.3s ease; 
+nav.mainnav li:hover,
+nav.mainnav li:active {
+	background: #efefef;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all  0.3s ease;
 }
-nav.topnav li a:link, 
+nav.topnav li a:link,
 nav.topnav a:visited,
-nav.mainnav li a:link, 
+nav.mainnav li a:link,
 nav.mainnav a:visited {}
-nav.topnav li a:hover, 
+nav.topnav li a:hover,
 nav.topnav a:active,
-nav.mainnav li a:hover, 
+nav.mainnav li a:hover,
 nav.mainnav a:active {
-	position:relative; 
+	position:relative;
 	z-index:999;
 }
 nav.topnav li .first,
-nav.mainnav li .first { 
-	margin-left: 0px !important; 
+nav.mainnav li .first {
+	margin-left: 0px !important;
 }
 nav.topnav li li,
 nav.mainnav li li {
@@ -922,9 +922,9 @@ nav.mainnav li li {
 	opacity: 0;
 }
 nav.topnav li:hover li,
-nav.mainnav li:hover li { 
-	line-height: 20px; 
-	opacity: 1; 
+nav.mainnav li:hover li {
+	line-height: 20px;
+	opacity: 1;
 }
 nav.topnav li li,
 nav.mainnav li li {
@@ -933,18 +933,18 @@ nav.mainnav li li {
 	-o-transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
 	transition: opacity .50s ease-in .25s, line-height .15s linear .1s;
 }
-nav.topnav li li:hover, 
+nav.topnav li li:hover,
 nav.topnav li li:active,
-nav.mainnav li li:hover, 
-nav.mainnav li li:active { 
-	background: #fcfcfc; 
-	box-shadow: none!important; 
+nav.mainnav li li:hover,
+nav.mainnav li li:active {
+	background: #fcfcfc;
+	box-shadow: none!important;
 }
 nav.topnav li ul,
 nav.mainnav li ul {
 	position: absolute;
 	left: -999em;
-	margin-top: 5px!important; 
+	margin-top: 5px!important;
 	width: 12em;
 }
 nav.topnav li:hover ul,
@@ -956,12 +956,12 @@ nav.mainnav li:hover ul {
 	z-index: 10;
 	box-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
 }
-nav.topnav li:hover ul, 
+nav.topnav li:hover ul,
 nav.topnav li.sfhover ul,
-nav.mainnav li:hover ul, 
+nav.mainnav li:hover ul,
 nav.mainnav li.sfhover ul {
 	left: auto;
-}	
+}
 
 /* Content */
 
@@ -981,7 +981,7 @@ h3.the_date{
 	margin: 0;
 }
 
-time { 
+time {
 	font-family: 'Ubuntu', sans-serif;
 }
 
@@ -1036,7 +1036,7 @@ ul.sidebar, .sidebar ul  {
 
 footer {
 	text-align: left;
-	padding: 10px; 
+	padding: 10px;
 }
 footer ul { list-style-type: none; margin: 0; padding: 0; }
 footer h2 { font-size: 1.6em; margin: 0; }
@@ -1078,7 +1078,7 @@ tt, code, pre, .code, .inconsolata { font-family: 'Inconsolata', monospace; }
 /* Hide visually and from screenreaders, but maintain layout */
 .invisible { visibility: hidden; }
 
-/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
@@ -1106,7 +1106,7 @@ tt, code, pre, .code, .inconsolata { font-family: 'Inconsolata', monospace; }
    Print styles.
    Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
- 
+
 @media print {
   * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: sanbeiji.com/archives/953 */
   a, a:visited { color: #444 !important; text-decoration: underline; }

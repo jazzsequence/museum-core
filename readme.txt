@@ -16,7 +16,7 @@ AP-Museum_Core will be the core framework behind all commercially-released <a hr
 
 1. Unpack and upload the contents of `AP-Museum_Core.zip` to the `/wp-content/themes/` directory.
 2. Activate the theme through the *Themes* menu in WordPress.
-3. That's it!  
+3. That's it!
 
 == Screenshots ==
 
@@ -24,7 +24,20 @@ There are currently no screenshots.
 
 == Changelog ==
 
-= Version 0.3.5 = 
+to do:
+	REQUIRED: .sticky css class is needed in your theme css.
+	REQUIRED: .gallery-caption css class is needed in your theme css.
+	REQUIRED: .bypostauthor css class is needed in your theme css.
+	Post format styles/layouts
+	Admin Options page functions
+
+= Version 0.3.6 =
+11/08/2011
+
+* removed whitespace from readme files, style.css, header.php
+* added generator tag to header.php (for troubleshooting)
+
+= Version 0.3.5 =
 10/26/2011
 
 * inverted changelog (newest updates on top)
@@ -36,13 +49,6 @@ There are currently no screenshots.
 * updated post formats with dynamic date format where post time displays (time tag still has a hard-coded timestamp to comply with HTML5 date/time standard)
 * added footernav styling
 * added footer box styling
-
-to do: 
-	REQUIRED: .sticky css class is needed in your theme css.
-	REQUIRED: .gallery-caption css class is needed in your theme css.
-	REQUIRED: .bypostauthor css class is needed in your theme css.
-	Post format styles/layouts
-	Admin Options page functions
 
 = Version 0.3.4 =
 9/22/2011
@@ -67,7 +73,7 @@ to do:
 * duplicated topnav styles for mainnav
 * added content styles
 
-= Version 0.3.2 = 
+= Version 0.3.2 =
 9/15/2011
 
 * updated version
@@ -156,7 +162,7 @@ to do:
 * added versioning relative to theme version to wp_register_style and wp_register_script calls
 
 = Version 0.1.1 =
-6/15/2011  
+6/15/2011
 
 * changed version
 * added readme.txt with changelog
@@ -165,17 +171,17 @@ to do:
 6/14/2011
 
 * initial commit (forked from AP-blueprint)
-* updated style.css with name, new version # and description 
-* removed landing sites 
-* removed theme options 
-* removed git README 
-* removed calls to get-theme-options.php 
+* updated style.css with name, new version # and description
+* removed landing sites
+* removed theme options
+* removed git README
+* removed calls to get-theme-options.php
 * removed twitter widget from footer (discontinuing hard-coded twitter feeds in the theme since this is easily added with Jetpack or any of a million other plugins)
 * removed left/right if statement (may bring this back in some revised form)
 * removed social media links (may bring these back but probably won't)
 * removed twitter widget (see note on last footer commit)
 * uncommented the dynamic title tags in the header (will change these around later)
 * changed path to reset styles
-* removed link to non-existant fonts.css (but may add another one later)  
-* renamed /blueprint to /css 
+* removed link to non-existant fonts.css (but may add another one later)
+* renamed /blueprint to /css
 * removed tweet button and dynamic twitter variable in sharing block (might remove the sharing block entirely, anyway, since -- again -- sharedaddy is included in Jetpack)

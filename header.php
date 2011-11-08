@@ -13,12 +13,12 @@
 	elseif (is_single() ) { single_post_title(); echo ' | '; echo $category[0]->cat_name; }
 	elseif (is_page() ) { single_post_title();}
 	else { wp_title('',true); } ?> | <?php bloginfo('description'); ?></title>
-<?php if ( is_tax() ) { 
+<?php if ( is_tax() ) {
 	$term_description = term_description(); ?>
 <meta name="description" content="<?php echo $term_description; ?>">
 <?php } elseif (( is_single() ) || ( is_page())) { ?>
 <meta name="description" content="<?php the_excerpt(); ?>">
-<?php } 
+<?php }
 	$author_id = $post->post_author;
 	$author = get_userdata($author_id);
 ?>
@@ -29,6 +29,7 @@
 <?php wp_get_archives('type=monthly&format=link'); ?>
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
+<meta name="generator" content="Core framework 0.3.6"
 </head>
 <body <?php body_class(); ?>>
 	<div class="container">
@@ -38,10 +39,10 @@
 				<hgroup class="siteinfo">
 					<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
 					<h2><?php bloginfo('description'); ?></h2>
-				</hgroup>              
+				</hgroup>
 
 			<div class="clear"></div>
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?>
-			</div>		
+			</div>
 		</header>
 		<div class="clear"></div>
