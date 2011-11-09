@@ -289,13 +289,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 	.alt { color: #666; font-family: 'PTSerif',"Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif; font-weight: normal; }
 
-	/* For great looking quote marks in titles, replace "asdf" with:
-	   <span class="dquo">&#8220;</span>asdf&#8221;
-	   (That is, when the title starts with a quote mark).
-	   (You may have to change this value depending on your font size). */
-
-	.dquo { margin-left: -.5em; }
-
 	/* This is the icons plugin for blueprintcss that adds contextual link icons depending on the thing being linked */
 
 	/* Use this class if a link gets an icon when it shouldn't. */
