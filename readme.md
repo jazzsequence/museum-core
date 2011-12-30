@@ -1,10 +1,10 @@
 # Museum Core
-Contributors: <a href="https://github.com/jazzsequence">jazzsequence</a>
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
-Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar
-Requires at least: 3.1
-Tested up to: 3.3
-Stable tag: 0.3.7-beta
+Contributors: <a href="https://github.com/jazzsequence">jazzsequence</a>  
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6  
+Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
+Requires at least: 3.1  
+Tested up to: 3.3  
+Stable tag: 0.3.7-beta  
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
