@@ -24,6 +24,13 @@ There are currently no screenshots.
 
 ## Changelog
 
+### Version 0.3.7
+#### 12/30/2011
+
+* integrated Andy Taylor's <a href="http://cssgrid.net/">1140 grid</a> layout for wider layout that's more responsive
+* removed tr.even td background color (because it was ugly)
+* removed some whitespace
+
 ### Version 0.3.6
 #### 11/08/2011
 
