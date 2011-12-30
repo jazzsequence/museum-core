@@ -4,7 +4,7 @@
 */
 ?>
 <?php get_header(); ?>
-<div class="content">
+<div class="content ninecol">
 
 	<?php get_template_part('post','archive'); ?>
 

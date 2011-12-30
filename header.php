@@ -32,7 +32,7 @@
 <meta name="generator" content="Core framework 0.3.6"
 </head>
 <body <?php body_class(); ?>>
-	<div class="container">
+	<div class="row container">
 		<header>
 			<div class="header">
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>

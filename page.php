@@ -4,11 +4,11 @@
 */
 ?>
 <?php get_header(); ?>
-<div class="content">
+<div class="content ninecol">
 
 	<?php get_template_part('post', 'page'); ?>
 
-</div>	
-<?php get_sidebar(); ?>      
+</div>
+<?php get_sidebar(); ?>
 <div class="clear"></div>
 <?php get_footer(); ?>

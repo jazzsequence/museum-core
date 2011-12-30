@@ -2,7 +2,7 @@
 if ( function_exists('register_sidebars') )
     register_sidebar(array(
 		'name' => 'Sidebar',
-		'description' => 'This is the regular, widgetized sidebar for everything else',	
+		'description' => 'This is the regular, widgetized sidebar for everything else',
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h2 class="widgettitle">',
@@ -10,7 +10,7 @@ if ( function_exists('register_sidebars') )
     ));
     register_sidebar(array(
 		'name' => 'Left Footer Box',
-		'description' => 'This is the left box in the footer.',	
+		'description' => 'This is the left box in the footer.',
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h2 class="widgettitle">',
@@ -18,7 +18,7 @@ if ( function_exists('register_sidebars') )
     ));
     register_sidebar(array(
 		'name' => 'Center Footer Box',
-		'description' => 'This is the center box in the footer.',	
+		'description' => 'This is the center box in the footer.',
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h2 class="widgettitle">',
@@ -26,7 +26,7 @@ if ( function_exists('register_sidebars') )
     ));
     register_sidebar(array(
 		'name' => 'Right Footer Box',
-		'description' => 'This is the right box in the footer.',	
+		'description' => 'This is the right box in the footer.',
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h2 class="widgettitle">',
@@ -45,7 +45,7 @@ add_shortcode('clear','clear');
 /*
    twitter_anywhere = loads the twitter @anywhere framework
    twitter_hovercards = loads twitter hovercards from @anywhere
-   suckerfish = loads suckerfish from the theme's /js files  
+   suckerfish = loads suckerfish from the theme's /js files
 */
 if ( !is_admin() ) { // instruction to only load if it is not the admin area
 	$theme  = get_theme( get_current_theme() );
@@ -79,15 +79,15 @@ function ap_core_setup() {
 	// post thumbnail support
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
-	if ( ! isset( $content_width ) ) $content_width = 680;
+	if ( ! isset( $content_width ) ) $content_width = 1140;
 
 	// custom nav menus
 	// This theme uses wp_nav_menu() in three (count them, three!) locations.
 	register_nav_menus( array(
 		'top' => __( 'Top Header Navigation', 'core' ),
 		'main' => __( 'Main Navigation', 'core' ),
-		'footer' => __( 'Footer Navigation', 'core' ),		
-	) );	
+		'footer' => __( 'Footer Navigation', 'core' ),
+	) );
 
 	// This adds a home link option in the Menus
 	function home_page_menu_args( $args ) {
@@ -97,7 +97,7 @@ function ap_core_setup() {
 	add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
 
 	// This theme allows users to set a custom background
-	add_custom_background();	
+	add_custom_background();
 
 	// this theme has a custom header thingie
 	// Your changeable header business starts here
@@ -150,11 +150,11 @@ function ap_core_setup() {
 			'description' => __( 'Blueberries', 'cg' )
 		)
 	) );
-	
+
 	// post formats
 	// register all post formats -- child themes can remove some post formats as they so desire
-	add_theme_support('post-formats',array('aside','gallery','link','image','quote','status','video','audio','chat'));	
-	
+	add_theme_support('post-formats',array('aside','gallery','link','image','quote','status','video','audio','chat'));
+
 	// automatic feed links
 	add_theme_support('automatic-feed-links');
 
@@ -182,13 +182,13 @@ function ap_core_setup() {
      </div>
 	<?php
         }
-		
+
 	// this changes the default [...] to be a read more hyperlink
 	function new_excerpt_more($more) {
 		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . 'read more' . '</a>)';
 	}
-	add_filter('excerpt_more', 'new_excerpt_more');		
-	
+	add_filter('excerpt_more', 'new_excerpt_more');
+
 }
 add_action('after_setup_theme','ap_core_setup');
 
@@ -206,7 +206,7 @@ $ap_core_options = array(
 	'body' => 'DroidSans',
 	'alt' => 'Ubuntu'
 );
-$ap_core_sidebar = array( 
+$ap_core_sidebar = array(
 	'left' => array(
 		'value' => 'left',
 		'label' => 'Left Sidebar'),
@@ -225,18 +225,18 @@ function ap_core_theme_options_page() {
 	if ( ! isset( $_REQUEST['updated'] ) )
     $_REQUEST['updated'] = false; // This checks whether the form has just been submitted. ?>
 	<div class="wrap">
- 
+
     <?php screen_icon(); echo "<h2>Core Options</h2>";
     // This shows the page's name and an icon if one has been provided ?>
- 
+
     <?php if ( false !== $_REQUEST['updated'] ) : ?>
     <div><p><strong><?php _e( 'Options saved' ); ?></strong></p></div>
     <?php endif; // If the form has just been submitted, this shows the notification ?>
- 
+
     <form method="post" action="options.php">
- 
+
     <?php $settings = get_option( 'ap_core_options', $ap_core_options ); ?>
- 
+
     <?php settings_fields( 'ap_core_theme_options' );
     /* This function outputs some hidden fields required by the form,
     including a nonce, a unique number used to ensure the form has been submitted from the admin page
@@ -252,19 +252,19 @@ function ap_core_theme_options_page() {
 	</tr>
 <?php /*
     <table><!-- Grab a hot cup of coffee, yes we're using tables! -->
- 
+
     <tr valign="top"><th scope="row"><label for="footer_copyright">Footer Copyright Notice</label></th>
     <td>
     <input id="footer_copyright" name="ap_core_options[footer_copyright]" type="text" value="<?php  esc_attr_e($settings['footer_copyright']); ?>" />
     </td>
     </tr>
- 
+
     <tr valign="top"><th scope="row"><label for="intro_text">Intro Text</label></th>
     <td>
     <textarea id="intro_text" name="ap_core_options[intro_text]" rows="5" cols="30"><?php echo stripslashes($settings['intro_text']); ?></textarea>
     </td>
     </tr>
- 
+
     <tr valign="top"><th scope="row"><label for="featured_cat">Featured Category</label></th>
     <td>
     <select id="featured_cat" name="ap_core_options[featured_cat]">
@@ -280,7 +280,7 @@ function ap_core_theme_options_page() {
     </select>
     </td>
     </tr>
- 
+
     <tr valign="top"><th scope="row">Layout View</th>
     <td>
     <?php foreach( $layouts as $layout ) : ?>
@@ -289,35 +289,35 @@ function ap_core_theme_options_page() {
     <?php endforeach; ?>
     </td>
     </tr>
- 
+
     <tr valign="top"><th scope="row">Author Credits</th>
     <td>
     <input type="checkbox" id="author_credits" name="ap_core_options[author_credits]" value="1" <?php checked( true, $settings['author_credits'] ); ?> />
     <label for="author_credits">Show Author Credits</label>
     </td>
     </tr>
- 
+
     </table> */ ?>
 	</table>
     <p class="submit"><input type="submit" id="submit" class="button-primary" value="Save Options" /></p>
- 
+
     </form>
- 
+
     </div>
- 
-<?php } 
+
+<?php }
 function ap_core_validate_options( $input ) {
     global $ap_core_options, $ap_core_sidebar;
- 
+
     $settings = get_option( 'ap_core_options', $ap_core_options );
- 
+
     // We select the previous value of the field, to restore it in case an invalid entry has been given
     $prev = $settings['sidebar'];
     // We verify if the given value exists in the layouts array
     if ( !array_key_exists( $input['sidebar'], $ap_core_sidebar ) )
     $input['sidebar'] = $prev;
 
- 
+
     return $input;
 }
 ?>

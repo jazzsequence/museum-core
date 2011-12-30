@@ -1,10 +1,10 @@
-<?php 
+<?php
 /*
 	This is the author page template
 */
 ?>
 <?php get_header(); ?>
-<div class="content">
+<div class="content ninecol">
 
 	<?php get_template_part('post', 'author'); ?>
 

@@ -1,12 +1,12 @@
-<?php 
+<?php
 /*
 	This is the main index template
 */
 ?>
 <?php get_header(); ?>
-<div class="content">
+<div class="content ninecol">
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); 
+	<?php if (have_posts()) : while (have_posts()) : the_post();
 		$post_format = get_post_format();
 		get_template_part('post',$post_format);
 		endwhile; ?>
