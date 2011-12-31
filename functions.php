@@ -125,29 +125,35 @@ function ap_core_setup() {
 
 	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
 	register_default_headers( array(
-		'leaves' => array(
-			'url' => '%s/images/headers/leaves.jpg',
-			'thumbnail_url' => '%s/images/headers/leaves-thumbnail.jpg',
+		'nature' => array(
+			'url' => '%s/images/headers/nature.jpg',
+			'thumbnail_url' => '%s/images/headers/nature-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Leaves', 'cg' )
+			'description' => __( 'Nature', 'core' )
 		),
-		'sunset' => array(
-			'url' => '%s/images/headers/sunset.jpg',
-			'thumbnail_url' => '%s/images/headers/sunset-thumbnail.jpg',
+		'smoke' => array(
+			'url' => '%s/images/headers/smoke.jpg',
+			'thumbnail_url' => '%s/images/headers/smoke-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Sunset', 'cg' )
+			'description' => __( 'Smoke', 'core' )
 		),
-		'beach' => array(
-			'url' => '%s/images/headers/beach.jpg',
-			'thumbnail_url' => '%s/images/headers/beach-thumbnail.jpg',
+		'lights1' => array(
+			'url' => '%s/images/headers/lights1.jpg',
+			'thumbnail_url' => '%s/images/headers/lights1-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Beach', 'cg' )
+			'description' => __( 'Lights 1', 'core' )
 		),
-		'blueberries' => array(
-			'url' => '%s/images/headers/blueberries.jpg',
-			'thumbnail_url' => '%s/images/headers/blueberries-thumbnail.jpg',
+    'lights2' => array(
+      'url' => '%s/images/headers/lights2.jpg',
+      'thumbnail_url' => '%s/images/headers/lights2-thumbnail.jpg',
+      /* translators: header image description */
+      'description' => __( 'Lights 2', 'core' )
+    ),
+		'lights3' => array(
+			'url' => '%s/images/headers/lights3.jpg',
+			'thumbnail_url' => '%s/images/headers/lights3-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Blueberries', 'cg' )
+			'description' => __( 'Lights 3', 'core' )
 		)
 	) );
 
