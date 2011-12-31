@@ -51,12 +51,12 @@ There are currently no screenshots.
 * added footernav styling
 * added footer box styling
 
-to do:
-	REQUIRED: .sticky css class is needed in your theme css.
-	REQUIRED: .gallery-caption css class is needed in your theme css.
-	REQUIRED: .bypostauthor css class is needed in your theme css.
-	Post format styles/layouts
-	Admin Options page functions
+to do:  
+	REQUIRED: .sticky css class is needed in your theme css.  
+	REQUIRED: .gallery-caption css class is needed in your theme css.  
+	REQUIRED: .bypostauthor css class is needed in your theme css.  
+	Post format styles/layouts  
+	Admin Options page functions  
 
 ### Version 0.3.4
 #### 9/22/2011
