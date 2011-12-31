@@ -36,10 +36,30 @@
 		<header>
 			<div class="header">
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
+				<?php if ( (!get_header_image()) && (!has_post_thumbnail( $post->ID )) ) { ?>
 				<hgroup class="siteinfo">
 					<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
 					<h2><?php bloginfo('description'); ?></h2>
 				</hgroup>
+				<?php } ?>
+
+			<div class="headerimg">
+				<hgroup class="siteinfo">
+					<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+					<h2><?php bloginfo('description'); ?></h2>
+				</hgroup>
+				<?php
+					// Check if this is a post or page, if it has a thumbnail, and if it's a big one
+					if ( is_singular() && current_theme_supports( 'post-thumbnails' ) &&
+							has_post_thumbnail( $post->ID ) &&
+							( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
+							$image[1] >= HEADER_IMAGE_WIDTH ) :
+						// Houston, we have a new header image!
+						echo get_the_post_thumbnail( $post->ID );
+					elseif ( get_header_image() ) : ?>
+						<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
+					<?php endif; ?>
+			</div>
 
 			<div class="clear"></div>
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?>

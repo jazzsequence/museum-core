@@ -106,7 +106,7 @@ function ap_core_setup() {
 	define( 'HEADER_IMAGE', '%s/images/headers/leaves.jpg' );
 
 	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 940 ) );
+	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 1120 ) );
 	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'core_header_image_height', 200 ) );
 
 	// We'll be using post thumbnails for custom header images on posts and pages.

@@ -994,11 +994,24 @@ div.aligncenter {
 
 /* Header */
 header {
-	padding: 10px 10px 30px 10px;
-	margin-bottom: 20px;
+	padding: 20px 10px 30px 10px;
 }
 hgroup { clear: both; padding: 5px 10px; }
 hgroup h1, hgroup h2 { margin: auto!important; }
+
+.headerimg {
+  position: relative;
+}
+.headerimg hgroup {
+  position: absolute;
+  text-align: right;
+  right: 20px;
+  bottom: 20px;
+}
+.headerimg hgroup h1, .headerimg hgroup h2, .headerimg hgroup a {
+  color: #ffffff!important;
+  text-shadow: 2px 2px 1px #000000;
+}
 
 nav.topnav,
 nav.mainnav {
