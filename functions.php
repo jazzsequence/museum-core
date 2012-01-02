@@ -168,7 +168,7 @@ function ap_core_setup() {
 	function ap_core_comment($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-     <div id="comment-<?php comment_ID(); ?>">
+     <div id="comment-<?php comment_ID(); ?>" class="the_comment">
       <div class="comment-author vcard">
          <?php echo get_avatar
 	($comment,$size='64',$default='<path_to_url>' ); ?>
@@ -181,10 +181,10 @@ function ap_core_setup() {
       <?php endif; ?>
       <?php comment_text() ?>
       <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)'),'  ','') ?></div>
-      <div class="reply"><h4>
+      <div class="reply"><button>
          <?php comment_reply_link(array_merge
 		 ( $args, array('depth' => $depth, 'reply_text' => 'Respond to this', 'max_depth' => $args['max_depth']))) ?>
-      </h4></div>
+      </button></div>
      </div>
 	<?php
         }
