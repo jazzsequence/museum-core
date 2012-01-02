@@ -94,9 +94,9 @@ to do:
 * updated version
 * added support for wp-pagenavi
 * moved get_sidebar to above get_footer for SEO
-* added <hgroup> to site headings
+* added `<hgroup>` to site headings
 * added HTML5 tags to single.php
-* added <time> tag to single.php
+* added `<time>` tag to single.php
 * added HTML5 tags to archive.php
 * added post thumbnails to archive.php
 * changed post thumbnail size
@@ -115,12 +115,12 @@ to do:
 * updated version
 * added viewport meta tag
 * added modernizr js
-* added HTML5 <header> tag and formatted markup
-* added HTML5 <footer> tag and formatted markup
-* removed redundant </div>
-* added <time> tag to post date and removed <div>
-* replaced multiple <divs> with HTML5 equivalents for content
-* replaced <divs> with HTML5 equivalents to 404 page
+* added HTML5 `<header>` tag and formatted markup
+* added HTML5 `<footer>` tag and formatted markup
+* removed redundant `</div>`
+* added `<time>` tag to post date and removed `<div>`
+* replaced multiple `<div>`s with HTML5 equivalents for content
+* replaced `<div>`s with HTML5 equivalents to 404 page
 * added frowny face and span[frown] from BPH5 404.html
 * applied text-shadow to body type
 
@@ -150,7 +150,7 @@ to do:
 * added nav menus to header.php
 * removed nav menu fallback default (set to no fallback)
 * removed old twitter callback scripts
-* changed do_action('wp_footer') to wp_footer.php()
+* changed do_action('wp_footer') to wp_footer()
 * changed footer text
 * added footer menu
 * added Inconsolata font for monospaced elements (pre, tt, code and .code class)
