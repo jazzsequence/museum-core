@@ -30,6 +30,7 @@ There are currently no screenshots.
 * added comment styling
 * took care of .bypostauthor required comment class
 * removed override for &lt;q&gt; tag. It's a little ridiculous to use a tag for that, but it is one of the things that's being checked in the theme test, so doing it for the sake of WP theme uniformity/compatibility
+* updated #comments ol, #comments ul styling to allow margins for `ul`s/`ol`s within comments
 
 to do:  
 	REQUIRED: .sticky css class is needed in your theme css.  

@@ -1143,7 +1143,7 @@ h2.the_title {
 
 /* Comments */
 
-#comments ul, #comments ol { list-style-type: none; margin: 0; padding: 0; }
+#comments ul.commentlist, #comments ol.commentlist { list-style-type: none; margin: 0; padding: 0; }
 #comments li div.the_comment { padding: 10px; border-bottom: 1px solid #efefef; margin-bottom: 10px; }
 #comments ul.children { margin: 0 0 0 10px; }
 #comments ul.children li { border-left: 5px solid #efefef; }
