@@ -35,6 +35,7 @@ to do:
 
 * added comment styling
 * took care of .bypostauthor required comment class
+* removed override for &lt;q&gt; tag. It's a little ridiculous to use a tag for that, but it is one of the things that's being checked in the theme test, so doing it for the sake of WP theme uniformity/compatibility
 
 = Version 0.3.7 =
 12/30/2011

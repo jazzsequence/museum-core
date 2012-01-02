@@ -110,9 +110,6 @@ pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier
 /* Improve readability of pre-formatted text in all browsers */
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
-q { quotes: none; }
-q:before, q:after { content: ""; content: none; }
-
 small { font-size: 85%; }
 
 /* Position subscript and superscript content without affecting line-height: gist.github.com/413930 */
