@@ -2,7 +2,7 @@
 Theme Name: Museum Core
 Theme URI: http://www.museumthemes.com
 Description: A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
-Version: 0.3.8-beta
+Version: 0.3.9-beta
 Author: Arcane Palette Creative Design
 Author URI: http://www.arcanepalette.com
 License: gpl3
@@ -26,7 +26,7 @@ Git Repo: https://github.com/ArcanePalette/AP-Museum_Core
     http://www.opensource.org/licenses/gpl-3.0.html
 */
 
-/* This theme uses Boilerplate HTML5 since 0.3 */
+/* This theme uses HTML5 Boilerplate since 0.3 */
 /*
  * HTML5 Boilerplate
  *
@@ -247,7 +247,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 	address {margin:0 0 1.5em;font-style:italic;}
 	del {color:#666;}
 	pre {margin:1.5em 0;white-space:pre;}
-	pre, code, tt {font:1em 'andale mono', 'lucida console', monospace;line-height:1.5;}
+	pre, code, tt {font-size:1em;line-height:1.5;}
 	li ul, li ol {margin:0 1.5em;}
 	ul, ol {margin:0 1.5em 1.5em 1.5em;}
 	ul {list-style-type:disc;}
@@ -981,7 +981,7 @@ div.aligncenter {
 	border: 0 none;
 }
 
-.wp-caption p.wp-caption-text {
+.wp-caption p.wp-caption-text, .gallery-item dd.gallery-caption {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 0.9em;
 	line-height: 17px;
@@ -1114,6 +1114,11 @@ article {
 	padding: 0 20px;
 	margin-bottom: 20px;
 }
+article.sticky {
+  padding: 10px 20px;
+  background: #efefef;
+  border-radius: 4px;
+}
 
 h3.the_date{
 	font-size: 1.0em;
@@ -1195,6 +1200,8 @@ nav.footernav li { display: inline; margin: 0 10px; }
 
 /* typography */
 tt, code, pre, .code, .inconsolata { font-family: 'Inconsolata', monospace; }
+pre { padding: 10px; background: #f9f9f9; border: 1px dashed #cccccc; border-radius: 4px; text-shadow: none; }
+tt, code, .code { padding: 2px 5px; background: #f9f9f9; border: 1px solid #cccccc; text-shadow: none; border-radius: 4px; }
 .ubuntu { font-family: 'Ubuntu', sans-serif; }
 .droid { font-family: 'DroidSans', sans-serif; }
 .ptserif { font-family: 'PTSerif', serif; }

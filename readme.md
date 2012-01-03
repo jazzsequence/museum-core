@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 3.1  
 Tested up to: 3.3  
-Stable tag: 0.3.8-beta  
+Stable tag: 0.3.9-beta  
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -24,6 +24,18 @@ There are currently no screenshots.
 
 ## Changelog
 
+### Version 0.3.9
+#### 01/03/2012
+
+* added .gallery-caption styling
+* wrapped scripts and stylesheets in a function (fixes NOTICE that wp_enqueue_scripts/wp_enqueue_styles was being loaded incorrectly)
+* added .sticky styling -- that takes care of the WordPress theme requirements
+* added some built-in pre/tt/code styling
+
+to do:  
+	Post format styles/layouts  
+	Admin Options page functions  
+
 ### Version 0.3.8
 #### 01/02/2012
 
@@ -32,12 +44,6 @@ There are currently no screenshots.
 * removed override for &lt;q&gt; tag. It's a little ridiculous to use a tag for that, but it is one of the things that's being checked in the theme test, so doing it for the sake of WP theme uniformity/compatibility
 * updated #comments ol, #comments ul styling to allow margins for `ul`s/`ol`s within comments
 * <em>actually</em> added human time diff to asides (was listed in notes for 0.3.4 but it wasn't actually there)
-
-to do:  
-	REQUIRED: .sticky css class is needed in your theme css.  
-	REQUIRED: .gallery-caption css class is needed in your theme css.  
-	Post format styles/layouts  
-	Admin Options page functions  
 
 ### Version 0.3.7
 #### 12/30/2011

@@ -47,32 +47,35 @@ add_shortcode('clear','clear');
    twitter_hovercards = loads twitter hovercards from @anywhere
    suckerfish = loads suckerfish from the theme's /js files
 */
-if ( !is_admin() ) { // instruction to only load if it is not the admin area
-	$theme  = get_theme( get_current_theme() );
-   // this loads the twitter anywhere framework
-   wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
-   wp_enqueue_script('twitter_anywhere');
-   // this loads twitter hovercards, dependent upon twitter anywhere
-   wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','twitter_anywhere',$theme['Version']);
-   wp_enqueue_script('twitter_hovercards');
-   // this loads suckerfish.js the dropdown menus
-   wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js',false,$theme['Version']);
-   wp_enqueue_script('suckerfish');
-    // this loads jquery (for formalize, among other things)
-    wp_enqueue_script('jquery');
-   // this loads the formalize js
-   wp_register_script('formalize',get_bloginfo('template_directory').'/js/jquery.formalize.min.js',false,$theme['Version']);
-   wp_enqueue_script('formalize');
-   // loads modernizr for BPH5
-   wp_register_script('modernizr',get_bloginfo('template_directory').'/js/modernizr-2.0.6.min.js',false,'2.0.6');
-   wp_enqueue_script('modernizr');
-   // this loads the font stack
-   wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
-   wp_enqueue_style('corefonts');
-   // this loads the style.css
-   wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
-   wp_enqueue_style('corecss');
+function ap_core_load_scripts() {
+  if ( !is_admin() ) { // instruction to only load if it is not the admin area
+  	$theme  = get_theme( get_current_theme() );
+     // this loads the twitter anywhere framework
+     wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
+     wp_enqueue_script('twitter_anywhere');
+     // this loads twitter hovercards, dependent upon twitter anywhere
+     wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','twitter_anywhere',$theme['Version']);
+     wp_enqueue_script('twitter_hovercards');
+     // this loads suckerfish.js the dropdown menus
+     wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js',false,$theme['Version']);
+     wp_enqueue_script('suckerfish');
+      // this loads jquery (for formalize, among other things)
+      wp_enqueue_script('jquery');
+     // this loads the formalize js
+     wp_register_script('formalize',get_bloginfo('template_directory').'/js/jquery.formalize.min.js',false,$theme['Version']);
+     wp_enqueue_script('formalize');
+     // loads modernizr for BPH5
+     wp_register_script('modernizr',get_bloginfo('template_directory').'/js/modernizr-2.0.6.min.js',false,'2.0.6');
+     wp_enqueue_script('modernizr');
+     // this loads the font stack
+     wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
+     wp_enqueue_style('corefonts');
+     // this loads the style.css
+     wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
+     wp_enqueue_style('corecss');
+  }
 }
+add_action( 'init', 'ap_core_load_scripts' );
 
 /* WordPress core functionality */
 function ap_core_setup() {
