@@ -3,8 +3,8 @@ Contributors: <a href="https://github.com/jazzsequence">jazzsequence</a>
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6  
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 3.1  
-Tested up to: 3.3  
-Stable tag: 0.3.9-beta  
+Tested up to: 3.3.1  
+Stable tag: 0.4.0-beta  
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -23,6 +23,11 @@ AP Museum Core will be the core framework behind all commercially-released <a hr
 There are currently no screenshots.
 
 ## Changelog
+
+### Version 0.4.0
+#### 03/2/2012
+
+* updated style.css to current h5bp style.css
 
 ### Version 0.3.9
 #### 01/03/2012
