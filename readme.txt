@@ -33,6 +33,7 @@ to do:
 
 * updated style.css to current h5bp style.css
 * updated modernizr to 2.5.3
+* updated header.php to add some h5pb updates
 
 = Version 0.3.9 =
 01/03/2012
