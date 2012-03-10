@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 0.4.0-beta
+Stable tag: 0.4.1-beta
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -27,6 +27,12 @@ There are currently no screenshots.
 to do:
 	Post format styles/layouts
 	Admin Options page functions
+
+= Version 0.4.1 =
+03/09/2012
+
+* added /inc/theme-options.php
+* made sidebar options functional (beginnings of new theme options page using Settings API)
 
 = Version 0.4.0 =
 03/02/2012
