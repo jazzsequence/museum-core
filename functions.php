@@ -41,44 +41,62 @@ function clear() {
 }
 add_shortcode('clear','clear');
 
-/* load styles and scripts */
-/*
-   twitter_anywhere = loads the twitter @anywhere framework
-   twitter_hovercards = loads twitter hovercards from @anywhere
-   suckerfish = loads suckerfish from the theme's /js files
+/**
+ * load scripts
+ * @since 0.1
+ * @author Chris Reynolds
+ * @uses wp_register_script()
+ * @uses wp_enqueue_script()
+ * @uses wp_register_style()
+ * @uses wp_enqueue_style
+ * loads all the styles and scripts for the theme
+ * twitter_anywhere = loads the twitter @anywhere framework
+ * twitter_hovercards = loads twitter hovercards from @anywhere
+ * suckerfish = loads suckerfish from the theme's /js files
 */
 function ap_core_load_scripts() {
   if ( !is_admin() ) { // instruction to only load if it is not the admin area
   	$theme  = get_theme( get_current_theme() );
-     // this loads the twitter anywhere framework
-     wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
-     wp_enqueue_script('twitter_anywhere');
-     // this loads twitter hovercards, dependent upon twitter anywhere
-     wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','twitter_anywhere',$theme['Version']);
-     wp_enqueue_script('twitter_hovercards');
-     // this loads suckerfish.js the dropdown menus
-     wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js',false,$theme['Version']);
-     wp_enqueue_script('suckerfish');
-      // this loads jquery (for formalize, among other things)
-      wp_enqueue_script('jquery');
-     // this loads the formalize js
-     wp_register_script('formalize',get_bloginfo('template_directory').'/js/jquery.formalize.min.js',false,$theme['Version']);
-     wp_enqueue_script('formalize');
-     // loads modernizr for BPH5
-     wp_register_script('modernizr',get_bloginfo('template_directory').'/js/modernizr-2.5.3.min.js',false,'2.5.3');
-     wp_enqueue_script('modernizr');
-     // this loads the font stack
-     wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
-     wp_enqueue_style('corefonts');
-     // this loads the style.css
-     wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
-     wp_enqueue_style('corecss');
+    // this loads the twitter anywhere framework
+    wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
+    wp_enqueue_script('twitter_anywhere');
+    // this loads twitter hovercards, dependent upon twitter anywhere
+    wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','twitter_anywhere',$theme['Version']);
+    wp_enqueue_script('twitter_hovercards');
+    // this loads suckerfish.js the dropdown menus
+    wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js',false,$theme['Version']);
+    wp_enqueue_script('suckerfish');
+    // this loads jquery (for formalize, among other things)
+    wp_enqueue_script('jquery');
+    // this loads the formalize js
+    wp_register_script('formalize',get_bloginfo('template_directory').'/js/jquery.formalize.min.js',false,$theme['Version']);
+    wp_enqueue_script('formalize');
+    // loads modernizr for BPH5
+    wp_register_script('modernizr',get_bloginfo('template_directory').'/js/modernizr-2.5.3.min.js',false,'2.5.3');
+    wp_enqueue_script('modernizr');
+    // this loads the font stack
+    wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
+    wp_enqueue_style('corefonts');
+    // this loads the style.css
+    wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
+    wp_enqueue_style('corecss');
   }
 }
 add_action( 'init', 'ap_core_load_scripts' );
 
-/* WordPress core functionality */
+/**
+ * setup AP Core
+ * @uses add_theme_support()
+ * @uses register_nav_menus()
+ * @uses set_post_thumbnail_size()
+ * @uses add_custom_background()
+ * @uses add_custom_image_header()
+ * @since 0.2
+ * adds core WordPress theme functionality and adds some tweaks
+ */
 function ap_core_setup() {
+    // load up the theme options
+    require_once ( get_template_directory() . '/inc/theme-options.php' );
 	// post thumbnail support
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
@@ -201,64 +219,42 @@ function ap_core_setup() {
 }
 add_action('after_setup_theme','ap_core_setup');
 
-/* Build a Theme Options page */
-function ap_core_register_settings() {
-	register_setting( 'ap_core_theme_options', 'ap_core_options', 'ap_core_validate_options' );
+/**
+ * Get default options
+ * @since 0.4.0
+ * @author Chris Reynolds
+ * defines the options and some defaults
+ */
+function ap_core_get_theme_defaults(){
+    // default options settings
+    $defaults = array(
+    	'sidebar' => 'left',
+    	// typography options
+    	'headings' => 'PTSerif',
+    	'body' => 'DroidSans',
+    	'alt' => 'Ubuntu'
+    );
+    return $defaults;
 }
-add_action ( 'admin_init', 'ap_core_register_settings' );
 
-// default options settings
-$ap_core_options = array(
-	'sidebar' => 'left',
-	// typography options
-	'headings' => 'PTSerif',
-	'body' => 'DroidSans',
-	'alt' => 'Ubuntu'
-);
-$ap_core_sidebar = array(
-	'left' => array(
-		'value' => 'left',
-		'label' => 'Left Sidebar'),
-	'right' => array(
-		'value' => 'right',
-		'label' => 'Right Sidebar')
-);
-
-function ap_core_theme_options() {
-	add_theme_page( 'Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
+/**
+ * Sidebar settings
+ * @since 0.4.0
+ * @author Chris Reynolds
+ * this is the array for the sidebar setting
+ */
+function ap_core_sidebar() {
+    $ap_core_sidebar = array(
+        'left' => array(
+            'value' => 'left',
+            'label' => 'Left Sidebar'),
+        'right' => array(
+            'value' => 'right',
+            'label' => 'Right Sidebar')
+    );
+    return $ap_core_sidebar;
 }
-add_action ( 'admin_menu', 'ap_core_theme_options' );
-
-function ap_core_theme_options_page() {
-	global $ap_core_options, $ap_core_sidebar;
-	if ( ! isset( $_REQUEST['updated'] ) )
-    $_REQUEST['updated'] = false; // This checks whether the form has just been submitted. ?>
-	<div class="wrap">
-
-    <?php screen_icon(); echo "<h2>Core Options</h2>";
-    // This shows the page's name and an icon if one has been provided ?>
-
-    <?php if ( false !== $_REQUEST['updated'] ) : ?>
-    <div><p><strong><?php _e( 'Options saved' ); ?></strong></p></div>
-    <?php endif; // If the form has just been submitted, this shows the notification ?>
-
-    <form method="post" action="options.php">
-
-    <?php $settings = get_option( 'ap_core_options', $ap_core_options ); ?>
-
-    <?php settings_fields( 'ap_core_theme_options' );
-    /* This function outputs some hidden fields required by the form,
-    including a nonce, a unique number used to ensure the form has been submitted from the admin page
-    and not somewhere else, very important for security */ ?>
-	<table class="form-table">
-	<tr valign="top"><th scope="row"><label for="sidebar">Sidebar</label></th>
-	<td>
-		<?php  foreach( $ap_core_sidebar as $sidebar ) : ?>
-			<input type="radio" id="<?php echo $sidebar['value']; ?>" name="ap_core_options[sidebar]" value="<?php esc_attr_e( $sidebar['value'] ); ?>" <?php checked( $settings['sidebar'], $sidebar['value'] ); ?> />
-			<label for="<?php echo $sidebar['value']; ?>"><?php echo $sidebar['label']; ?></label><br />
-			<?php endforeach; ?>
-	</td>
-	</tr>
+    ?>
 <?php /*
     <table><!-- Grab a hot cup of coffee, yes we're using tables! -->
 
@@ -306,27 +302,5 @@ function ap_core_theme_options_page() {
     </td>
     </tr>
 
-    </table> */ ?>
-	</table>
-    <p class="submit"><input type="submit" id="submit" class="button-primary" value="Save Options" /></p>
-
-    </form>
-
-    </div>
-
-<?php }
-function ap_core_validate_options( $input ) {
-    global $ap_core_options, $ap_core_sidebar;
-
-    $settings = get_option( 'ap_core_options', $ap_core_options );
-
-    // We select the previous value of the field, to restore it in case an invalid entry has been given
-    $prev = $settings['sidebar'];
-    // We verify if the given value exists in the layouts array
-    if ( !array_key_exists( $input['sidebar'], $ap_core_sidebar ) )
-    $input['sidebar'] = $prev;
-
-
-    return $input;
-}
+    </table> */
 ?>
