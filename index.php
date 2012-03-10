@@ -2,9 +2,11 @@
 /*
 	This is the main index template
 */
-?>
-<?php get_header(); ?>
-<div class="content ninecol">
+$options = get_option( 'ap_core_theme_options' );
+get_header();
+if ( ( 'left' == $options['sidebar'] ) || ( !isset($options['sidebar']) ) )
+	$right = ' the_right last';?>
+<div class="content ninecol<?php echo $right; ?>">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post();
 		$post_format = get_post_format();
