@@ -7,7 +7,9 @@ $options = get_option( 'ap_core_theme_options' );
 if ( !isset($options['sidebar']) )
 	$sidebar = $defaults['sidebar'];
 if ( 'right' == $options['sidebar'] )
-	$last = ' last'; ?>
+	$last = ' last';
+if ( 'left' == $options['sidebar'] )
+	$sidebar = $options['sidebar']; ?>
  <div class="sidebar the_<?php echo $sidebar; ?> threecol<?php echo $last; ?>">
 	<ul>
          <!-- regular sidebar starts here -->
