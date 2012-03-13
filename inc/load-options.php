@@ -21,3 +21,4 @@ if ( 'left' == $options['sidebar'] ) {
 	$sidebar = $options['sidebar'];
 	$right = ' the_right last';
 }
+?>
