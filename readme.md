@@ -24,6 +24,10 @@ There are currently no screenshots.
 
 ## Changelog
 
+to do:  
+	Post format styles/layouts  
+	Admin Options page functions - *in progress*  
+
 ### Version 0.4.3
 #### 03/13/2012
 
@@ -55,10 +59,6 @@ There are currently no screenshots.
 * wrapped scripts and stylesheets in a function (fixes NOTICE that wp_enqueue_scripts/wp_enqueue_styles was being loaded incorrectly)
 * added .sticky styling -- that takes care of the WordPress theme requirements
 * added some built-in pre/tt/code styling
-
-to do:  
-	Post format styles/layouts  
-	Admin Options page functions  
 
 ### Version 0.3.8
 #### 01/02/2012
