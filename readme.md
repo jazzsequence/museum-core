@@ -35,6 +35,7 @@ to do:
 * updated header images to 1140 width and header image definition
 * updated generator tag with current version
 * fixed some cosmetic spacing issues in the header
+* updated sticky padding/margins so it doesn't look weird against the regular posts
 
 ### Version 0.4.2
 #### 03/12/2012
