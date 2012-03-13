@@ -1006,8 +1006,7 @@ div.aligncenter {
 
 /* Header */
 header {
-	padding: 20px 10px 30px 10px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 hgroup { clear: both; padding: 5px 10px; }
 hgroup h1, hgroup h2 { margin: auto!important; }
@@ -1030,6 +1029,7 @@ nav.topnav,
 nav.mainnav {
 	margin: 0!important;
   position: relative;
+  height: 36px;
   z-index: 1;
   display: block;
   clear: both;
