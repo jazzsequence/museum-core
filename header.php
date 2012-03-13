@@ -32,7 +32,7 @@
 <?php wp_get_archives('type=monthly&format=link'); ?>
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
-<meta name="generator" content="Core framework 0.3.6"
+<meta name="generator" content="Core framework 0.4.3"
 </head>
 <body <?php body_class(); ?>>
 	<div class="row container">
