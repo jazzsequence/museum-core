@@ -3,7 +3,7 @@
 	This is the main index template
 */
 get_header();
-include( get_template_directory() . '/inc/load-options.php' ); ?>
+include( AP_CORE_OPTIONS ); ?>
 <div class="content ninecol<?php echo $right; ?>">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post();

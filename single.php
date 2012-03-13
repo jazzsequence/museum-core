@@ -2,9 +2,9 @@
 /*
 	This is the single post template
 */
-?>
-<?php get_header(); ?>
-<div class="content single ninecol">
+get_header();
+include( AP_CORE_OPTIONS ); ?>
+<div class="content single ninecol<?php echo $right; ?>">
 
 	<?php get_template_part('post','single'); ?>
 

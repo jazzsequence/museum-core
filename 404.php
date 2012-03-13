@@ -2,9 +2,9 @@
 /*
 	This is the 404 error template
 */
-?>
-<?php get_header(); ?>
-<div class="content ninecol">
+get_header();
+include( AP_CORE_OPTIONS ); ?>
+<div class="content ninecol<?php echo $right; ?>">
 	<article class="post">
 	<h2 class="the_title">The page you were looking for could not be found <span frown>:(</span></h2>
 	<p>The page you were looking for is missing or doesn't exist.  Here are some links to help you back on your way.</p>

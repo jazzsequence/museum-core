@@ -1,10 +1,10 @@
-<?php 
+<?php
 /*
 	This is the default page template
 */
-?>
-<?php get_header(); ?>
-<div class="content ninecol">
+get_header();
+include( AP_CORE_OPTIONS ); ?>
+<div class="content ninecol<?php echo $right; ?>">
 
 	<?php get_template_part('post', 'page'); ?>
 

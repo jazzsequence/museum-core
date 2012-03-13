@@ -2,7 +2,7 @@
 /*
 	this is the sidebar
 */
-include( get_template_directory() . '/inc/load-options.php' ); ?>
+include( AP_CORE_OPTIONS ); ?>
  <div class="sidebar the_<?php echo $sidebar; ?> threecol<?php echo $last; ?>">
 	<ul>
          <!-- regular sidebar starts here -->

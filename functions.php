@@ -1,4 +1,7 @@
 <?php
+
+define( "AP_CORE_OPTIONS", get_template_directory() . '/inc/load-options.php' );
+
 if ( function_exists('register_sidebars') )
     register_sidebar(array(
 		'name' => 'Sidebar',
@@ -97,6 +100,7 @@ add_action( 'init', 'ap_core_load_scripts' );
 function ap_core_setup() {
     // load up the theme options
     require_once ( get_template_directory() . '/inc/theme-options.php' );
+
 	// post thumbnail support
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
@@ -254,7 +258,8 @@ function ap_core_sidebar() {
     );
     return $ap_core_sidebar;
 }
-    ?>
+
+?>
 <?php /*
     <table><!-- Grab a hot cup of coffee, yes we're using tables! -->
 
