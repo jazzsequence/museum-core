@@ -32,6 +32,9 @@ to do:
 03/13/2012
 
 * included load-options.php on all pages that need to load options
+* updated header images to 1140 width and header image definition
+* updated generator tag with current version
+* fixed some cosmetic spacing issues in the header
 
 = Version 0.4.2 =
 03/12/2012
