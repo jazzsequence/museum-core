@@ -84,7 +84,10 @@ function ap_core_theme_options_page() {
 
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
-
+	$load_css = '<style type="text/css">';
+	$load_css .= '@import url( "'. get_bloginfo('template_directory') . '/fonts/fonts.css");';
+	$load_css .= '</style>';
+	echo $load_css;
 	?>
 	<div class="wrap">
 		<?php screen_icon(); echo "<h2>" . get_current_theme() . __( ' Theme Options', 'ap_core' ) . "</h2>"; ?>
@@ -158,7 +161,7 @@ function ap_core_theme_options_page() {
 				<?php
 				*/
 				/**
-				 * A sample of radio buttons
+				 * Sidebar Settings
 				 */
 				?>
 				<tr valign="top"><th scope="row"><?php _e( 'Sidebar', 'ap_core' ); ?></th>
@@ -183,6 +186,44 @@ function ap_core_theme_options_page() {
 							}
 						?>
 						</fieldset>
+					</td>
+				</tr>
+				<tr valign="top"><th scope="row"><?php _e( 'Museum Core Fonts', 'ap_core' ); ?></th>
+					<td>
+						<fieldset>
+							<legend class="screen-reader-text"><span><?php _e( 'Font Test', 'ap_core' ); ?></span></legend>
+							<?php foreach ( ap_core_fonts() as $option ) {
+									$label = $option['label'];
+									$link = $option['link'];
+									$value = $option['value']; ?>
+							<label class="description"><span style="font-family: '<?php echo $value; ?>'; font-size: 1.7em; padding-right: 20px;"><?php echo $label; ?><span style="font-size: 10px; font-family: sans-serif;"> <a href="<?php echo $link; ?>" target="_blank">[link]</a></span></span></label>
+							<?php } ?>
+						</fieldset>
+					</td>
+				</tr>
+
+
+				<?php
+				/**
+				 * A Font Settings
+				 */
+				?>
+				<tr valign="top"><th scope="row"><?php _e( 'Headings Font', 'ap_core' ); ?></th>
+					<td>
+						<select name="ap_core_theme_options[heading]">
+							<?php
+								if ( !isset($options['heading']) ) {
+									$defaults = ap_core_get_theme_defaults();
+									$defaults['heading'] = $options['heading'];
+								}
+								$selected = $options['heading'];
+								foreach ( ap_core_fonts() as $option ) {
+									$label = $option['label'];
+									$value = $option['value'];
+								?>
+									<option value="<?php esc_attr( $value ); ?> "><?php echo $label; ?></option>
+								<?php } ?>
+						</select>
 					</td>
 				</tr>
 
@@ -243,11 +284,11 @@ function theme_options_validate( $input ) {
  * completely rewritten @since 0.4.0
  */
 function ap_core_theme_options_validate( $input ) {
-    // We select the previous value of the field, to restore it in case an invalid entry has been given
-    // We verify if the given value exists in the layouts array
+
     if ( !array_key_exists( $input['sidebar'], ap_core_sidebar() ) )
     $input['sidebar'] = $input['sidebar'];
-
+	if ( !array_key_exists( $input['heading'], ap_core_fonts() ) )
+	$input['heading'] = $input['heading'];
 
     return $input;
 }

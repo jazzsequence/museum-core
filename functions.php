@@ -259,6 +259,38 @@ function ap_core_sidebar() {
     return $ap_core_sidebar;
 }
 
+/**
+ * Font settings
+ * @since 0.4.4
+ * @author Chris Reynolds
+ * this array handles the font selection
+ */
+function ap_core_fonts() {
+    $ap_core_fonts = array(
+        'ptserif' => array(
+            'value' => 'PTSerif',
+            'label' => 'PT Serif',
+            'link' => 'http://www.fontsquirrel.com/fonts/pt-serif'
+        ),
+        'inconsolata' => array(
+            'value' => 'Inconsolata',
+            'label' => 'Inconsolata',
+            'link' => 'http://www.fontsquirrel.com/fonts/inconsolata'
+        ),
+        'droidsans' => array(
+            'value' => 'DroidSans',
+            'label' => 'Droid Sans',
+            'link' => 'http://www.fontsquirrel.com/fonts/droid-sans'
+        ),
+        'ubuntu' => array(
+            'value' => 'Ubuntu',
+            'label' => 'Ubuntu',
+            'link' => 'http://www.fontsquirrel.com/fonts/ubuntu'
+        )
+    );
+    return $ap_core_fonts;
+}
+
 ?>
 <?php /*
     <table><!-- Grab a hot cup of coffee, yes we're using tables! -->
