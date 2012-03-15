@@ -232,6 +232,7 @@ function ap_core_setup() {
 
 	// this changes the default [...] to be a read more hyperlink
 	function new_excerpt_more($more) {
+        global $post;
 		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . 'read more' . '</a>)';
 	}
 	add_filter('excerpt_more', 'new_excerpt_more');
