@@ -232,9 +232,12 @@ add_action('after_setup_theme','ap_core_setup');
 function ap_core_get_theme_defaults(){
     // default options settings
     $defaults = array(
+        // sidebar
     	'sidebar' => 'left',
+        // theme tracking
+        'presstrends' => 'true',
     	// typography options
-    	'headings' => 'PTSerif',
+    	'heading' => 'PTSerif',
     	'body' => 'DroidSans',
     	'alt' => 'Ubuntu'
     );
@@ -291,6 +294,27 @@ function ap_core_fonts() {
     return $ap_core_fonts;
 }
 
+/**
+ * PressTrends settings
+ * @since 0.4.4
+ * @author Chris Reynolds, George Ortiz
+ * @link http://presstrends.io
+ * PressTrends enables theme tracking and analytics. This gives the user an option to disable it
+ */
+function ap_core_presstrends() {
+    $ap_core_presstrends = array(
+        'true' => array(
+            'value' => 'true',
+            'label' => 'Yes'
+        ),
+        'false' => array(
+            'value' => 'false',
+            'label' => 'No'
+        )
+    );
+    return $ap_core_presstrends;
+}
+
 ?>
 <?php /*
     <table><!-- Grab a hot cup of coffee, yes we're using tables! -->
@@ -340,4 +364,5 @@ function ap_core_fonts() {
     </tr>
 
     </table> */
+
 ?>

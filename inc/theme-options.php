@@ -99,6 +99,7 @@ function ap_core_theme_options_page() {
 		<form method="post" action="options.php">
 			<?php settings_fields( 'ap_core_options' ); ?>
 			<?php $options = get_option( 'ap_core_theme_options' ); ?>
+			<?php $defaults = ap_core_get_theme_defaults(); ?>
 
 			<table class="form-table">
 
@@ -171,9 +172,9 @@ function ap_core_theme_options_page() {
 							if ( ! isset( $checked ) )
 								$checked = '';
 							foreach ( ap_core_sidebar() as $option ) {
-								$selected_sidebar = $options['sidebar'];
+								$selected = $options['sidebar'];
 
-								if ( '' != $selected_sidebar ) {
+								if ( '' != $selected ) {
 									if ( $options['sidebar'] == $option['value'] ) {
 										$checked = "checked=\"checked\"";
 									} else {
@@ -191,8 +192,9 @@ function ap_core_theme_options_page() {
 				<tr valign="top"><th scope="row"><?php _e( 'Museum Core Fonts', 'ap_core' ); ?></th>
 					<td>
 						<fieldset>
-							<legend class="screen-reader-text"><span><?php _e( 'Font Test', 'ap_core' ); ?></span></legend>
-							<?php foreach ( ap_core_fonts() as $option ) {
+							<legend class="screen-reader-text"><span><?php _e( 'Fonts', 'ap_core' ); ?></span></legend>
+							<?php
+								foreach ( ap_core_fonts() as $option ) {
 									$label = $option['label'];
 									$link = $option['link'];
 									$value = $option['value']; ?>
@@ -212,18 +214,41 @@ function ap_core_theme_options_page() {
 					<td>
 						<select name="ap_core_theme_options[heading]">
 							<?php
-								if ( !isset($options['heading']) ) {
-									$defaults = ap_core_get_theme_defaults();
-									$defaults['heading'] = $options['heading'];
-								}
 								$selected = $options['heading'];
+								$checked = 'selected="selected"';
+								$p = '';
 								foreach ( ap_core_fonts() as $option ) {
 									$label = $option['label'];
 									$value = $option['value'];
-								?>
-									<option value="<?php esc_attr( $value ); ?> "><?php echo $label; ?></option>
-								<?php } ?>
+									if ( $selected == $option['value'] ) {
+										$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+									} else {
+										$p = '<option value="' . $value . '">' . $label . '</option>';
+									}
+									echo $p;
+								} ?>
 						</select>
+					</td>
+				</tr>
+				<tr valign="top"><th scope="row"><?php _e( 'Send usage data?', 'ap_core' ); ?></th>
+					<td>
+						<select name="ap_core_theme_options[presstrends]">
+							<?php
+								$selected = $options['presstrends'];
+								$checked = 'selected="selected"';
+								$p = '';
+								foreach ( ap_core_presstrends() as $option ) {
+									$label = $option['label'];
+									$value = $option['value'];
+									if ( $selected == $option['value'] ) {
+										$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+									} else {
+										$p = '<option value="' . $value . '">' . $label . '</option>';
+									}
+									echo $p;
+								} ?>
+						</select><br />
+						<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'For more information visit <a href="http://presstrends.io/faq">PressTrends</a>.', 'ap_core' ); ?></label>
 					</td>
 				</tr>
 
@@ -241,12 +266,62 @@ function ap_core_theme_options_page() {
 				</tr>
 			*/ ?>
 			</table>
+			<?php /* debug */
+			$options = get_option( 'ap_core_theme_options' ); var_dump($options); ?><br /><?php var_dump($defaults); ?>
+			<?php /* end debug */ ?>
 			<p class="submit">
 				<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'ap_core' ); ?>" />
 			</p>
 		</form>
 	</div>
 	<?php
+}
+
+$options = get_option( 'ap_core_theme_options' );
+if ( $options['presstrends'] != 'false' ) {
+// Presstrends
+function presstrends() {
+
+// Add your PressTrends and Theme API Keys
+$api_key = 'i93727o4eba1lujhti5bjgiwfmln5xm5o0iv';
+$auth = '0o7g17t95klos03ovw79y5biocuyc3yu9';
+
+// NO NEED TO EDIT BELOW
+$data = get_transient( 'presstrends_data' );
+if (!$data || $data == ''){
+$api_base = 'http://api.presstrends.io/index.php/api/sites/add/auth/';
+$url = $api_base . $auth . '/api/' . $api_key . '/';
+$data = array();
+$count_posts = wp_count_posts();
+$count_pages = wp_count_posts('page');
+$comments_count = wp_count_comments();
+$theme_data = get_theme_data(get_stylesheet_directory() . '/style.css');
+$plugin_count = count(get_option('active_plugins'));
+$all_plugins = get_plugins();
+foreach($all_plugins as $plugin_file => $plugin_data) {
+$plugin_name .= $plugin_data['Name'];
+$plugin_name .= '&';
+}
+$data['url'] = stripslashes(str_replace(array('http://', '/', ':' ), '', site_url()));
+$data['posts'] = $count_posts->publish;
+$data['pages'] = $count_pages->publish;
+$data['comments'] = $comments_count->total_comments;
+$data['approved'] = $comments_count->approved;
+$data['spam'] = $comments_count->spam;
+$data['theme_version'] = $theme_data['Version'];
+$data['theme_name'] = $theme_data['Name'];
+$data['site_name'] = str_replace( ' ', '', get_bloginfo( 'name' ));
+$data['plugins'] = $plugin_count;
+$data['plugin'] = urlencode($plugin_name);
+$data['wpversion'] = get_bloginfo('version');
+foreach ( $data as $k => $v ) {
+$url .= $k . '/' . $v . '/';
+}
+$response = wp_remote_get( $url );
+set_transient('presstrends_data', $data, 60*60*24);
+}}
+
+add_action('admin_init', 'presstrends');
 }
 
 /**
@@ -287,6 +362,8 @@ function ap_core_theme_options_validate( $input ) {
 
     if ( !array_key_exists( $input['sidebar'], ap_core_sidebar() ) )
     $input['sidebar'] = $input['sidebar'];
+	if ( !array_key_exists( $input['presstrends'], ap_core_presstrends() ) )
+	$input['presstrends'] = $input['presstrends'];
 	if ( !array_key_exists( $input['heading'], ap_core_fonts() ) )
 	$input['heading'] = $input['heading'];
 

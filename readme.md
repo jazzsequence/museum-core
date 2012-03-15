@@ -34,6 +34,7 @@ to do:
 * added options array for theme fonts
 * added font examples on theme options page
 * added dropdown for headings (not functional yet)
+* integrated PressTrends.io tracking
 
 ### Version 0.4.3
 #### 03/13/2012
