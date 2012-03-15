@@ -88,6 +88,22 @@ function ap_core_load_scripts() {
 add_action( 'init', 'ap_core_load_scripts' );
 
 /**
+ * Meta generator
+ * @since 0.4.5
+ * @author Chris Reynolds
+ * @uses get_theme()
+ * @uses get_current_theme()
+ * returns a generator meta tag that is added in the header which pulls automatically from the theme version
+ * (replaces the original method which was updating this generator tag manually)
+ * generator tag is used for troubleshooting to identify what version of the theme people are using by looking at the source
+ */
+function ap_core_generator() {
+    $theme  = get_theme( get_current_theme() );
+    $ap_core_version = '<meta name="generator" content="' . get_current_theme() . ' ' . $theme['Version'] . '">';
+    return $ap_core_version;
+}
+
+/**
  * setup AP Core
  * @uses add_theme_support()
  * @uses register_nav_menus()
@@ -239,7 +255,9 @@ function ap_core_get_theme_defaults(){
     	// typography options
     	'heading' => 'PTSerif',
     	'body' => 'DroidSans',
-    	'alt' => 'Ubuntu'
+    	'alt' => 'Ubuntu',
+        // link color
+        'link' => '#486D96'
     );
     return $defaults;
 }
