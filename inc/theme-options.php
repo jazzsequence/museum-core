@@ -91,6 +91,23 @@ function ap_core_side_box() {
 			</div>
 		</div>
 	</div>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "museum_themes";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#444444";
+  feedback_widget_options.style = "question";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
 	<?php
 }
 
@@ -110,23 +127,6 @@ function ap_core_theme_options_page() {
 	$load_css .= '</style>';
 	echo $load_css;
 	?>
-<script type="text/javascript" charset="utf-8">
-  var is_ssl = ("https:" == document.location.protocol);
-  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
-  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
-<script type="text/javascript" charset="utf-8">
-  var feedback_widget_options = {};
-
-  feedback_widget_options.display = "overlay";
-  feedback_widget_options.company = "museum_themes";
-  feedback_widget_options.placement = "right";
-  feedback_widget_options.color = "#222";
-  feedback_widget_options.style = "question";
-
-  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-</script>
 	<div class="wrap">
 		<?php screen_icon(); echo "<h2>" . get_current_theme() . __( ' Theme Options', 'ap_core' ) . "</h2>"; ?>
 
