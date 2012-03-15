@@ -363,36 +363,6 @@ add_action('admin_init', 'presstrends');
 }
 
 /**
- * Sanitize and validate input. Accepts an array, return a sanitized array.
- */
-function theme_options_validate( $input ) {
-	global $select_options, $radio_options;
-
-	// Our checkbox value is either 0 or 1
-	if ( ! isset( $input['option1'] ) )
-		$input['option1'] = null;
-	$input['option1'] = ( $input['option1'] == 1 ? 1 : 0 );
-
-	// Say our text option must be safe text with no HTML tags
-	$input['sometext'] = wp_filter_nohtml_kses( $input['sometext'] );
-
-	// Our select option must actually be in our array of select options
-	if ( ! array_key_exists( $input['selectinput'], $select_options ) )
-		$input['selectinput'] = null;
-
-	// Our radio option must actually be in our array of radio options
-	if ( ! isset( $input['radioinput'] ) )
-		$input['radioinput'] = null;
-	if ( ! array_key_exists( $input['radioinput'], $radio_options ) )
-		$input['radioinput'] = null;
-
-	// Say our textarea option must be safe text with the allowed tags for posts
-	$input['sometextarea'] = wp_filter_post_kses( $input['sometextarea'] );
-
-	return $input;
-}
-
-/**
  * Validate options
  * completely rewritten @since 0.4.0
  */
@@ -413,4 +383,4 @@ function ap_core_theme_options_validate( $input ) {
     return $input;
 }
 
-// adapted from http://planetozh.com/blog/2009/05/handling-plugins-options-in-wordpress-28-with-register_setting/
+?>
