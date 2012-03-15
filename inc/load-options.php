@@ -13,6 +13,7 @@ $options = get_option( 'ap_core_theme_options' );
 if ( !isset($options['sidebar']) ) {
 	$sidebar = $defaults['sidebar'];
 	$right = ' the_right last';
+	$last = '';
 }
 if ( 'right' == $options['sidebar'] ) {
 	$last = ' last';
@@ -20,5 +21,6 @@ if ( 'right' == $options['sidebar'] ) {
 if ( 'left' == $options['sidebar'] ) {
 	$sidebar = $options['sidebar'];
 	$right = ' the_right last';
+	$last = '';
 }
 ?>
