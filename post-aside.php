@@ -3,7 +3,7 @@
 		<section class="entry">
 			<?php the_content('Read more &raquo;'); ?>
 			<?php wp_link_pages(); ?>
-			<em class="human-time-diff"><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?></em>
+			<span class="human-time-diff alt"><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago'; ?></span>
 		</section>
 	</article>
     <div class="clear"></div>
