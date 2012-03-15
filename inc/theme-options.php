@@ -25,62 +25,27 @@ function ap_core_theme_options_init() {
  * @since 0.1
  * @author Chris Reynolds
  * this creates the admin page
+ * this also calls the ap_core_admin_scripts() function and adds those scripts to admin_print_scripts for that page
  */
 function ap_core_theme_options_add_page() {
     add_theme_page( 'Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
-    add_action( 'admin_head', 'ap_core_admin_scripts' );
+    $page = add_menu_page( 'Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
+    add_action( 'admin_print_scripts-'.$page, 'ap_core_admin_scripts' );
 }
 
+/**
+ * Load admin scripts
+ * @since 0.4.5
+ * @author Chris Reynolds
+ * @link http://theme.fm/blog/2011/08/30/using-the-color-picker-in-your-wordpress-theme-options/
+ * loads the farbtastic color picker on the theme options page
+ */
 function ap_core_admin_scripts() {
 	wp_enqueue_style( 'farbtastic' );
     wp_enqueue_script( 'farbtastic' );
     wp_enqueue_script( 'ap_core_color_picker', get_template_directory_uri() . '/js/color-picker.js', array( 'farbtastic', 'jquery' ) );
 }
 
-/**
- * Create arrays for our select and radio options
- */
-$select_options = array(
-	'0' => array(
-		'value' =>	'0',
-		'label' => __( 'Zero', 'ap_core' )
-	),
-	'1' => array(
-		'value' =>	'1',
-		'label' => __( 'One', 'ap_core' )
-	),
-	'2' => array(
-		'value' => '2',
-		'label' => __( 'Two', 'ap_core' )
-	),
-	'3' => array(
-		'value' => '3',
-		'label' => __( 'Three', 'ap_core' )
-	),
-	'4' => array(
-		'value' => '4',
-		'label' => __( 'Four', 'ap_core' )
-	),
-	'5' => array(
-		'value' => '3',
-		'label' => __( 'Five', 'ap_core' )
-	)
-);
-
-$radio_options = array(
-	'yes' => array(
-		'value' => 'yes',
-		'label' => __( 'Yes', 'ap_core' )
-	),
-	'no' => array(
-		'value' => 'no',
-		'label' => __( 'No', 'ap_core' )
-	),
-	'maybe' => array(
-		'value' => 'maybe',
-		'label' => __( 'Maybe', 'ap_core' )
-	)
-);
 /**
  * Theme options page
  * @since 0.4.0
