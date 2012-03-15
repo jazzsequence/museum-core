@@ -28,8 +28,7 @@ function ap_core_theme_options_init() {
  * this also calls the ap_core_admin_scripts() function and adds those scripts to admin_print_scripts for that page
  */
 function ap_core_theme_options_add_page() {
-    add_theme_page( 'Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
-    $page = add_menu_page( 'Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
+    $page = add_theme_page( 'Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
     add_action( 'admin_print_scripts-'.$page, 'ap_core_admin_scripts' );
 }
 
@@ -161,6 +160,11 @@ function ap_core_theme_options_page() {
 						</fieldset>
 					</td>
 				</tr>
+				<?php
+				/**
+				 * A Font Settings
+				 */
+				?>
 				<tr valign="top"><th scope="row"><?php _e( 'Museum Core Fonts', 'ap_core' ); ?></th>
 					<td>
 						<fieldset>
@@ -175,13 +179,6 @@ function ap_core_theme_options_page() {
 						</fieldset>
 					</td>
 				</tr>
-
-
-				<?php
-				/**
-				 * A Font Settings
-				 */
-				?>
 				<tr valign="top"><th scope="row"><?php _e( 'Headings Font', 'ap_core' ); ?></th>
 					<td>
 						<select name="ap_core_theme_options[heading]">
@@ -245,6 +242,11 @@ function ap_core_theme_options_page() {
 						<label class="description" for="ap_core_theme_options[alt]"><?php _e( 'Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code> and <code>&lt;h6&gt;</code> tags and anywhere the <code>.alt</code> class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</code>.', 'ap_core' ); ?></label>
 					</td>
 				</tr>
+				<?php
+				/**
+				 * Link color
+				 */
+				?>
 				<tr valign="top"><th scope="row"><?php _e( 'Link Color', 'ap_core' ); ?></th>
 					<td><?php if ( !isset($options['link']) ) { $options['link'] == '486D96'; } ?>
 						<input class="medium-text" type="text" name="ap_core_theme_options[link]" value="<?php echo $options['link']; ?>" id="color" />
@@ -294,8 +296,7 @@ function ap_core_theme_options_page() {
 			*/ ?>
 			</table>
 			<?php /* debug */
-			$options = get_option( 'ap_core_theme_options' ); var_dump($options); ?><br /><?php var_dump($defaults); ?>
-			<?php /* end debug */ ?>
+			/* var_dump($options); ?><br /><?php var_dump($defaults); */ ?>
 			<p class="submit">
 				<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'ap_core' ); ?>" />
 			</p>
