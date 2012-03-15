@@ -48,8 +48,8 @@
 
 			<div class="headerimg">
 				<hgroup class="siteinfo">
-					<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-					<h2><?php bloginfo('description'); ?></h2>
+					<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+					<h2  class="alt"><?php bloginfo('description'); ?></h2>
 				</hgroup>
 				<?php
 					// Check if this is a post or page, if it has a thumbnail, and if it's a big one
