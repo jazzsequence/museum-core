@@ -28,6 +28,13 @@ function ap_core_theme_options_init() {
  */
 function ap_core_theme_options_add_page() {
     add_theme_page( 'Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
+    add_action( 'admin_head', 'ap_core_admin_scripts' );
+}
+
+function ap_core_admin_scripts() {
+	wp_enqueue_style( 'farbtastic' );
+    wp_enqueue_script( 'farbtastic' );
+    wp_enqueue_script( 'ap_core_color_picker', get_template_directory_uri() . '/js/color-picker.js', array( 'farbtastic', 'jquery' ) );
 }
 
 /**
@@ -227,9 +234,64 @@ function ap_core_theme_options_page() {
 									}
 									echo $p;
 								} ?>
-						</select>
+						</select><br />
+						<label class="description" for="ap_core_theme_options[heading]"><?php _e( 'Used for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;h3&gt;</code> tags.', 'ap_core' ); ?></label>
 					</td>
 				</tr>
+				<tr valign="top"><th scope="row"><?php _e( 'Body Font', 'ap_core' ); ?></th>
+					<td>
+						<select name="ap_core_theme_options[body]">
+							<?php
+								$selected = $options['body'];
+								$checked = 'selected="selected"';
+								$p = '';
+								foreach ( ap_core_fonts() as $option ) {
+									$label = $option['label'];
+									$value = $option['value'];
+									if ( $selected == $option['value'] ) {
+										$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+									} else {
+										$p = '<option value="' . $value . '">' . $label . '</option>';
+									}
+									echo $p;
+								} ?>
+						</select><br />
+						<label class="description" for="ap_core_theme_options[body]"><?php _e( 'Used for all body text.', 'ap_core' ); ?></label>
+					</td>
+				</tr>
+				<tr valign="top"><th scope="row"><?php _e( 'Alternate Font', 'ap_core' ); ?></th>
+					<td>
+						<select name="ap_core_theme_options[alt]">
+							<?php
+								$selected = $options['alt'];
+								$checked = 'selected="selected"';
+								$p = '';
+								foreach ( ap_core_fonts() as $option ) {
+									$label = $option['label'];
+									$value = $option['value'];
+									if ( $selected == $option['value'] ) {
+										$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+									} else {
+										$p = '<option value="' . $value . '">' . $label . '</option>';
+									}
+									echo $p;
+								} ?>
+						</select><br />
+						<label class="description" for="ap_core_theme_options[alt]"><?php _e( 'Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code> and <code>&lt;h6&gt;</code> tags and anywhere the <code>.alt</code> class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</code>.', 'ap_core' ); ?></label>
+					</td>
+				</tr>
+				<tr valign="top"><th scope="row"><?php _e( 'Link Color', 'ap_core' ); ?></th>
+					<td><?php if ( !isset($options['link']) ) { $options['link'] == '486D96'; } ?>
+						<input class="medium-text" type="text" name="ap_core_theme_options[link]" value="<?php echo $options['link']; ?>" id="color" />
+						<div id="colorpicker"></div>
+						<br /><label class="description" for="ap_core_theme_options[link]"><?php _e( 'Set your desired link color.', 'ap_core' ); ?></label>
+					</td>
+				</tr>
+				<?php
+				/**
+				 * PressTrends setting
+				 */
+				?>
 				<tr valign="top"><th scope="row"><?php _e( 'Send usage data?', 'ap_core' ); ?></th>
 					<td>
 						<select name="ap_core_theme_options[presstrends]">
@@ -277,8 +339,6 @@ function ap_core_theme_options_page() {
 	<?php
 }
 
-$options = get_option( 'ap_core_theme_options' );
-if ( $options['presstrends'] != 'false' ) {
 // Presstrends
 function presstrends() {
 
@@ -321,7 +381,10 @@ $response = wp_remote_get( $url );
 set_transient('presstrends_data', $data, 60*60*24);
 }}
 
+$options = get_option( 'ap_core_theme_options' );
+if ( $options['presstrends'] != 'false' ) {
 add_action('admin_init', 'presstrends');
+//add_action('wp_head', function() { echo 'Presstrends is enabled'; });
 }
 
 /**
@@ -366,6 +429,11 @@ function ap_core_theme_options_validate( $input ) {
 	$input['presstrends'] = $input['presstrends'];
 	if ( !array_key_exists( $input['heading'], ap_core_fonts() ) )
 	$input['heading'] = $input['heading'];
+	if ( !array_key_exists( $input['body'], ap_core_fonts() ) )
+	$input['body'] = $input['body'];
+	if ( !array_key_exists( $input['alt'], ap_core_fonts() ) )
+	$input['alt'] = $input['alt'];
+	$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 
     return $input;
 }
