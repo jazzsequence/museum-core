@@ -257,7 +257,8 @@ function ap_core_get_theme_defaults(){
     	'body' => 'DroidSans',
     	'alt' => 'Ubuntu',
         // link color
-        'link' => '#486D96'
+        'link' => '#486D96',
+        'hover' => '#333333'
     );
     return $defaults;
 }
@@ -332,6 +333,45 @@ function ap_core_presstrends() {
     );
     return $ap_core_presstrends;
 }
+
+function ap_core_custom_styles() {
+    $defaults = ap_core_get_theme_defaults();
+    $options = get_option( 'ap_core_theme_options' );
+    // set the heading font
+    if ( isset($options['heading']) ) {
+        $heading = $options['heading'];
+    } else {
+        $heading = $defaults['heading'];
+    }
+    // set the body font
+    if ( isset($options['body']) ) {
+        $body = $options['body'];
+    } else {
+        $body = $defaults['body'];
+    }
+    // set the alt font
+    if ( isset($options['alt']) ) {
+        $alt = $options['alt'];
+    } else {
+        $alt = $defaults['alt'];
+    }
+    // set the link color
+    if ( isset($options['link']) ) {
+        $link = $options['link'];
+    } else {
+        $link = $defaults['link'];
+    }
+    if ( isset($options['hover']) ) {
+        $hover = $options['hover'];
+    } else {
+        $hover = $defaults['hover'];
+    }
+    /* debug */
+    //$output = 'The heading is ' . $heading . '. The body is ' . $body . '.  The alt is ' . $alt . '. The link color is ' . $link . '.';
+    $output = "<style type=\"text/css\" media=\"print,screen\">h1, h2, h3 { font-family: $heading, sans-serif; } h4, h5, h6, .alt, time { font-family: $alt, sans-serif; } body { font-family: $body, sans-serif; } a, a:link, a:visited { color: $link; } a:hover, a:active { color: $hover; }</style>";
+    echo $output;
+}
+add_action( 'wp_head', 'ap_core_custom_styles' );
 
 ?>
 <?php /*

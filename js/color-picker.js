@@ -1,8 +1,13 @@
 jQuery(document).ready(function($) {
-    $('#colorpicker').hide();
-    $('#colorpicker').farbtastic('#color');
+    $('#colorpicker-link').hide();
+    $('#colorpicker-hover').hide();
+    $('#colorpicker-link').farbtastic('#link-color');
+    $('#colorpicker-hover').farbtastic('#hover-color');
 
-    $('#color').click(function() {
-        $('#colorpicker').slideToggle();
+    $('#link-color').click(function() {
+        $('#colorpicker-link').slideToggle();
+    });
+    $('#hover-color').click(function() {
+        $('#colorpicker-hover').slideToggle();
     });
 });
