@@ -35,6 +35,11 @@ to do:
 * updated load-options.php to suppress php warnings
 * added the rest of the font options and a link color option
 * added farbtastic color picker for link color
+* added custom styles function to load options in wp_head
+* removed beta tag
+* moved .alt class to h2 in header instead of h1
+* added side box on options page with news feed, twitter and get satisfaction feedback widget
+* removed old example code
 
 = Version 0.4.4 =
 03/14/2012
