@@ -1171,6 +1171,15 @@ article.format-aside {
 }
 article.format-aside .human-time-diff { font-style: normal; }
 
+article.format-video .entry embed,
+article.format-video .entry object,
+article.format-audio .entry embed,
+article.format-audio .entry object {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
 /* Comments */
 
 #comments ul.commentlist, #comments ol.commentlist { list-style-type: none; margin: 0; padding: 0; }
