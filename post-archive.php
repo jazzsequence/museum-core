@@ -1,5 +1,5 @@
-	<?php if (have_posts()) : 
-		$post = $posts[0]; // Hack. Set $post so that the_date() works. 
+	<?php if (have_posts()) :
+		$post = $posts[0]; // Hack. Set $post so that the_date() works.
 		/* If this is a category archive */ if (is_category()) { ?>
 		    <h2 class="the_title">Posts filed under <?php single_cat_title(); ?></h2>
 			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
@@ -11,16 +11,24 @@
 			<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
 			<h2 class="the_title">Archive for <?php the_time('Y'); ?></h2>
 			<?php /* If this is an author archive */ } elseif (is_author()) { ?>
-			<h2 class="the_title">Author Archive</h2>                                  
+			<h2 class="the_title">Author Archive</h2>
 			<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-			<h2 class="the_title">Blog Archives</h2>                                  
+			<h2 class="the_title">Blog Archives</h2>
 		<?php } ?>
 	<?php while (have_posts()) : the_post(); ?>
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+    	<h3 class="the_date"><time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time></h3>
 		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-		<span class="postmeta">Posted on <time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time></span>
-		<div class="alignleft"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a></div>
-		<?php the_excerpt(); ?>
+		<section class="entry">
+			<?php if(has_post_thumbnail()) { ?>
+				<div class="alignleft twocol"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a></div>
+			<?php } ?>
+			<?php the_excerpt(); ?>
+		</section>
+		<section class="postmetadata">
+            Posted in <?php the_category(', '); ?> <?php the_tags('and tagged ',', ',''); ?><br />
+            <?php comments_popup_link('No Comments &#187;', 'One Comment &#187;', '% Comments &#187;'); ?>
+        </section>
     </article>
     <div class="spacer-10"></div>
 	<?php endwhile; ?>
@@ -31,5 +39,4 @@
 		<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
 		<?php } ?>
 	</nav>
-				
 	<?php endif; ?>
