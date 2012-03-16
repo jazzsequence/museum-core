@@ -27,9 +27,10 @@ There are currently no screenshots.
 to do:
 	post thumbnail support
 	excerpt with thumbnails/full post option on theme options page
+	recheck all templates for correct i18n
+	add wp-post-formats ux from crowdfavorite
 
 = Version 0.4.5 =
-03/15/2012
 
 * added meta generator function
 * updated load-options.php to suppress php warnings
@@ -44,7 +45,6 @@ to do:
 * added custom author page
 
 = Version 0.4.4 =
-03/14/2012
 
 * added options array for theme fonts
 * added font examples on theme options page
@@ -52,7 +52,6 @@ to do:
 * integrated PressTrends.io tracking
 
 = Version 0.4.3 =
-03/13/2012
 
 * included load-options.php on all pages that need to load options
 * updated header images to 1140 width and header image definition
@@ -61,26 +60,22 @@ to do:
 * updated sticky padding/margins so it doesn't look weird against the regular posts
 
 = Version 0.4.2 =
-03/12/2012
 
 * defined the sidebar if 'left' is selected
 * added /inc/load-options.php to keep php out of the template files
 
 = Version 0.4.1 =
-03/09/2012
 
 * added /inc/theme-options.php
 * made sidebar options functional (beginnings of new theme options page using Settings API)
 
 = Version 0.4.0 =
-03/02/2012
 
 * updated style.css to current h5bp style.css
 * updated modernizr to 2.5.3
 * updated header.php to add some h5pb updates
 
 = Version 0.3.9 =
-01/03/2012
 
 * added .gallery-caption styling
 * wrapped scripts and stylesheets in a function (fixes NOTICE that wp_enqueue_scripts/wp_enqueue_styles was being loaded incorrectly)
@@ -88,7 +83,6 @@ to do:
 * added some built-in pre/tt/code styling
 
 = Version 0.3.8 =
-01/02/2012
 
 * added comment styling
 * took care of .bypostauthor required comment class
@@ -97,7 +91,6 @@ to do:
 * <em>actually</em> added human time diff to asides (was listed in notes for 0.3.4 but it wasn't actually there)
 
 = Version 0.3.7 =
-12/30/2011
 
 * integrated Andy Taylor's <a href="http://cssgrid.net/">1140 grid</a> layout for wider layout that's more responsive
 * removed tr.even td background color (because it was ugly)
@@ -105,13 +98,11 @@ to do:
 * added header image support
 
 = Version 0.3.6 =
-11/08/2011
 
 * removed whitespace from readme files, style.css, header.php
 * added generator tag to header.php (for troubleshooting)
 
 = Version 0.3.5 =
-10/26/2011
 
 * inverted changelog (newest updates on top)
 * added content width to functions.php
@@ -124,7 +115,6 @@ to do:
 * added footer box styling
 
 = Version 0.3.4 =
-9/22/2011
 
 * split out template parts for post formats and content types
 * changed version
@@ -137,7 +127,6 @@ to do:
 * added Tags: to style.css (but left blank for now)
 
 = Version 0.3.3 =
-9/16/2011
 
 * changed version
 * added some css3 sliding transition to topnav
@@ -147,7 +136,6 @@ to do:
 * added content styles
 
 = Version 0.3.2 =
-9/15/2011
 
 * updated version
 * added support for wp-pagenavi
@@ -168,7 +156,6 @@ to do:
 * added topnav menu styling
 
 = Version 0.3.1 =
-9/14/2011
 
 * updated version
 * added viewport meta tag
@@ -183,7 +170,6 @@ to do:
 * applied text-shadow to body type
 
 = Version 0.3 =
-9/13/2011
 
 * NOW USING BOILERPLATE HTML5!
 * replaced blueprint resets and print styles with BPH5 css
@@ -202,7 +188,6 @@ to do:
 * added author meta tag
 
 = Version 0.2 =
-9/12/2011
 
 * fixed ap_core_setup (using wrong hook)
 * added nav menus to header.php
@@ -218,7 +203,6 @@ to do:
 * removed sharing options from single posts
 
 = Version 0.1.2 =
-7/22/2011
 
 * updated version
 * added menu support
@@ -235,13 +219,11 @@ to do:
 * added versioning relative to theme version to wp_register_style and wp_register_script calls
 
 = Version 0.1.1 =
-6/15/2011
 
 * changed version
 * added readme.txt with changelog
 
 = Version 0.1 =
-6/14/2011
 
 * initial commit (forked from AP-blueprint)
 * updated style.css with name, new version # and description
