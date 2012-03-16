@@ -882,6 +882,8 @@ a { text-decoration:none; -webkit-transition: all 0.3s ease; -moz-transition: al
 }
 .last { margin-right: 0!important; }
 
+h3 { margin: auto; }
+
 span[frown] { -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg); display:inline-block; padding: 0 10px; }
 
 /* this stuff is borrowed from Kubrik, the WordPress default theme and handles
@@ -1198,7 +1200,6 @@ li.bypostauthor { background: #efefef; border-bottom: 1px solid #dcdcdc; }
 /* Sidebar */
 
 .sidebar {
-	background-color: #F9FAFB;
 	position:relative;
 	height:100%;
 }
@@ -1216,6 +1217,8 @@ ul.sidebar, .sidebar ul  {
 }
 .the_left { float: left; }
 .the_right { float: right; }
+
+.sidebar .widget { margin-bottom: 20px; }
 
 /* Footer */
 
