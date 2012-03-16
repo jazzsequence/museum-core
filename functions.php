@@ -8,32 +8,32 @@ if ( function_exists('register_sidebars') )
 		'description' => 'This is the regular, widgetized sidebar for everything else',
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
-        'before_title' => '<h2 class="widgettitle">',
-        'after_title' => '</h2>'
+        'before_title' => '<h3 class="widgettitle">',
+        'after_title' => '</h3>'
     ));
     register_sidebar(array(
 		'name' => 'Left Footer Box',
 		'description' => 'This is the left box in the footer.',
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
-        'before_title' => '<h2 class="widgettitle">',
-        'after_title' => '</h2>'
+        'before_title' => '<h3 class="widgettitle">',
+        'after_title' => '</h3>'
     ));
     register_sidebar(array(
 		'name' => 'Center Footer Box',
 		'description' => 'This is the center box in the footer.',
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
-        'before_title' => '<h2 class="widgettitle">',
-        'after_title' => '</h2>'
+        'before_title' => '<h3 class="widgettitle">',
+        'after_title' => '</h3>'
     ));
     register_sidebar(array(
 		'name' => 'Right Footer Box',
 		'description' => 'This is the right box in the footer.',
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
-        'before_title' => '<h2 class="widgettitle">',
-        'after_title' => '</h2>'
+        'before_title' => '<h3 class="widgettitle">',
+        'after_title' => '</h3>'
     ));
 
 
