@@ -4,10 +4,11 @@
         <div class="clear"></div>
 		<section class="entry">
 			<?php the_content('Read more &raquo;'); ?>
+			<div class="clear"></div>
 			<?php wp_link_pages(); ?>
 		</section>
 		<section class="postmetadata">
-            Posted in <?php the_category(',&nbsp;'); ?> <?php the_tags('| Tags: ',', ',''); ?><br />
+            Posted in <?php the_category(', '); ?> <?php the_tags('and tagged ',', ',''); ?><br />
             <?php comments_popup_link('No Comments &#187;', 'One Comment &#187;', '% Comments &#187;'); ?>
          </section>
 	</article>
