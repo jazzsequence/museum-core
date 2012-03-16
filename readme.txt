@@ -25,8 +25,8 @@ There are currently no screenshots.
 == Changelog ==
 
 to do:
-	Post format styles/layouts
-	Admin Options page functions
+	post thumbnail support
+	excerpt with thumbnails/full post option on theme options page
 
 = Version 0.4.5 =
 03/15/2012
