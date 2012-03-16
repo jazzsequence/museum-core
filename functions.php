@@ -259,7 +259,9 @@ function ap_core_get_theme_defaults(){
     	'alt' => 'Ubuntu',
         // link color
         'link' => '#486D96',
-        'hover' => '#333333'
+        'hover' => '#333333',
+        // excerpts or full posts
+        'excerpts' => 'true'
     );
     return $defaults;
 }
@@ -333,6 +335,26 @@ function ap_core_presstrends() {
         )
     );
     return $ap_core_presstrends;
+}
+
+/**
+ * Show excerpts
+ * @since 0.5
+ * @author Chris Reynolds
+ * option to show excerpts or full posts
+ */
+function ap_core_show_excerpts() {
+    $ap_core_show_excerpts = array(
+        'true' => array(
+            'value' => 'true',
+            'label' => 'Show Post Excerpts'
+        ),
+        'false' => array(
+            'value' => 'false',
+            'label' => 'Show Full Posts'
+        )
+    );
+    return $ap_core_show_excerpts;
 }
 
 function ap_core_custom_styles() {

@@ -123,7 +123,11 @@ function ap_core_theme_options_page() {
 		$_REQUEST['settings-updated'] = false;
 	$load_css = '<style type="text/css">';
 	$load_css .= '@import url( "'. get_bloginfo('template_directory') . '/fonts/fonts.css");';
+	if ( false !== $_REQUEST['settings-updated'] ) {
+	$load_css .= 'a#fdbk_tab { top: 23%; }';
+	} else {
 	$load_css .= 'a#fdbk_tab { top: 19%; }';
+	}
 	$load_css .= '</style>';
 	echo $load_css;
 	?>
@@ -171,6 +175,32 @@ function ap_core_theme_options_page() {
 										}
 									?>
 									</fieldset>
+								</td>
+							</tr>
+							<?php
+							/**
+							 * Show full posts or excerpts
+							 */
+							?>
+							<tr valign="top"><th scope="row"><?php _e( 'Full posts or excerpts?', 'ap_core' ); ?></th>
+								<td>
+									<select name="ap_core_theme_options[excerpts]">
+										<?php
+											$selected = $options['excerpts'];
+											$checked = 'selected="selected"';
+											$p = '';
+											foreach ( ap_core_show_excerpts() as $option ) {
+												$label = $option['label'];
+												$value = $option['value'];
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
+											} ?>
+									</select><br />
+									<label class="description" for="ap_core_theme_options[excerpts]"><?php _e( 'Select whether you want full posts on the blog page or post excerpts with post thumbnails.', 'ap_core' ); ?></label>
 								</td>
 							</tr>
 							<?php
