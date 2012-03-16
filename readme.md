@@ -40,6 +40,8 @@ to do:
 * moved .alt class to h2 in header instead of h1
 * added side box on options page with news feed, twitter and get satisfaction feedback widget
 * removed old example code
+* added post format styles
+* added custom author page
 
 
 ### Version 0.4.4
