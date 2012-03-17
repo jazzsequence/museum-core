@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 0.5.1
+Stable tag: 1.0
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -24,9 +24,11 @@ There are currently no screenshots.
 
 == Changelog ==
 
-to do:
-	recheck all templates for correct i18n
-	add wp-post-formats ux from crowdfavorite
+= Version 1.0 =
+
+* added screenshot
+* replaced `get_bloginfo('template_directory')` with `get_template_directory_uri()` in `theme-options.php`
+* added smooth fade to link colors in header styles
 
 = Version 0.5.1 =
 
