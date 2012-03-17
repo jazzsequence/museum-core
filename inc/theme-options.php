@@ -122,7 +122,7 @@ function ap_core_theme_options_page() {
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
 	$load_css = '<style type="text/css">';
-	$load_css .= '@import url( "'. get_bloginfo('template_directory') . '/fonts/fonts.css");';
+	$load_css .= '@import url( "'. get_template_directory_uri() . '/fonts/fonts.css");';
 	if ( false !== $_REQUEST['settings-updated'] ) {
 	$load_css .= 'a#fdbk_tab { top: 23%; }';
 	} else {
