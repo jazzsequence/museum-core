@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 3.1  
 Tested up to: 3.3.1  
-Stable tag: 0.4.5  
+Stable tag: 0.5  
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -25,15 +25,13 @@ There are currently no screenshots.
 ## Changelog
 
 to do:  
-	post thumbnail support  
-	excerpt with thumbnails/full post option on theme options page  
 	recheck all templates for correct i18n  
 	add wp-post-formats ux from crowdfavorite
 
 ### Version 0.5
 
 * removed dates from changelogs (not really helpful and hindering releasing multiple versions in the same day)
-* added show excerpts option to defaults array
+* added show excerpts option/full post
 
 ### Version 0.4.5
 
