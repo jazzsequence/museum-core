@@ -2,7 +2,7 @@
 Theme Name: Museum Core
 Theme URI: http://www.museumthemes.com
 Description: A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
-Version: 0.5.1
+Version: 1.0
 Author: Arcane Palette Creative Design
 Author URI: http://www.arcanepalette.com
 License: gpl3
@@ -871,7 +871,7 @@ body {
 
 a, a:link, a:visited { color: #486D96; }
 a:hover, a:active { color: #333333; }
-a { text-decoration:none; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; transition: all  0.3s ease; }
+a { text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }
 
 .clear { clear:both; }
 .spacer-10 { clear:both; height: 10px; }
