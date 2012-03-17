@@ -4,7 +4,16 @@
 		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
         <div class="clear"></div>
 		<section class="entry">
-			<?php the_content('Read more &raquo;'); ?>
+			<?php include( AP_CORE_OPTIONS );
+			if ( $show_excerpt == 'false' ) {
+				the_content('Read more &raquo;');
+			} else {
+				if(has_post_thumbnail()) { ?>
+					<div class="alignleft twocol"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a></div>
+			<?php }
+				the_excerpt();
+			}
+			?>
 		<section class="postmetadata">
             Posted in <?php the_category(', '); ?> <?php the_tags('and tagged ',', ',''); ?><br />
             <?php comments_popup_link('No Comments &#187;', 'One Comment &#187;', '% Comments &#187;'); ?>

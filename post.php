@@ -3,7 +3,16 @@
 		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
         <div class="clear"></div>
 		<section class="entry">
-			<?php the_content('Read more &raquo;'); ?>
+			<?php include( AP_CORE_OPTIONS );
+			if ( $show_excerpt == 'false' ) {
+				the_content('Read more &raquo;');
+			} else {
+				if(has_post_thumbnail()) { ?>
+					<div class="alignleft twocol"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a></div>
+				<?php }
+				the_excerpt();
+			}
+			?>
 			<div class="clear"></div>
 			<?php wp_link_pages(); ?>
 		</section>
