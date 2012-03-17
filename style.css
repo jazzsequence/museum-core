@@ -1228,9 +1228,6 @@ footer {
 }
 footer ul { list-style-type: none; margin: 0; padding: 0; }
 footer h2 { font-size: 1.6em; margin: 0; }
-.leftbox, .middlebox, .rightbox { width: 280px; padding: 0 10px; }
-.leftbox, .middlebox { float: left; margin-right: 20px; }
-.rightbox { float: right; }
 .credit { text-align: center; }
 footer nav { text-align: center; margin: 10px auto;}
 nav.footernav li { display: inline; margin: 0 10px; }
