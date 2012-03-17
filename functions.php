@@ -4,32 +4,32 @@ define( "AP_CORE_OPTIONS", get_template_directory() . '/inc/load-options.php' );
 
 if ( function_exists('register_sidebars') )
     register_sidebar(array(
-		'name' => 'Sidebar',
-		'description' => 'This is the regular, widgetized sidebar for everything else',
+		'name' => __('Sidebar','ap_core'),
+		'description' => __('This is the regular, widgetized sidebar','ap_core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-		'name' => 'Left Footer Box',
-		'description' => 'This is the left box in the footer.',
+		'name' => __('Left Footer Box','ap_core'),
+		'description' => __('This is the left box in the footer.','ap_core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-		'name' => 'Center Footer Box',
-		'description' => 'This is the center box in the footer.',
+		'name' => __('Center Footer Box','ap_core'),
+		'description' => __('This is the center box in the footer.','ap_core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-		'name' => 'Right Footer Box',
-		'description' => 'This is the right box in the footer.',
+		'name' => __('Right Footer Box','ap_core'),
+		'description' => __('This is the right box in the footer.','ap_core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
@@ -125,9 +125,9 @@ function ap_core_setup() {
 	// custom nav menus
 	// This theme uses wp_nav_menu() in three (count them, three!) locations.
 	register_nav_menus( array(
-		'top' => __( 'Top Header Navigation', 'core' ),
-		'main' => __( 'Main Navigation', 'core' ),
-		'footer' => __( 'Footer Navigation', 'core' ),
+		'top' => __( 'Top Header Navigation', 'ap_core' ),
+		'main' => __( 'Main Navigation', 'ap_core' ),
+		'footer' => __( 'Footer Navigation', 'ap_core' ),
 	) );
 
 	// This adds a home link option in the Menus
@@ -170,31 +170,31 @@ function ap_core_setup() {
 			'url' => '%s/images/headers/nature.jpg',
 			'thumbnail_url' => '%s/images/headers/nature-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Nature', 'core' )
+			'description' => __( 'Nature', 'ap_core' )
 		),
 		'smoke' => array(
 			'url' => '%s/images/headers/smoke.jpg',
 			'thumbnail_url' => '%s/images/headers/smoke-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Smoke', 'core' )
+			'description' => __( 'Smoke', 'ap_core' )
 		),
 		'lights1' => array(
 			'url' => '%s/images/headers/lights1.jpg',
 			'thumbnail_url' => '%s/images/headers/lights1-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Lights 1', 'core' )
+			'description' => __( 'Lights 1', 'ap_core' )
 		),
     'lights2' => array(
       'url' => '%s/images/headers/lights2.jpg',
       'thumbnail_url' => '%s/images/headers/lights2-thumbnail.jpg',
       /* translators: header image description */
-      'description' => __( 'Lights 2', 'core' )
+      'description' => __( 'Lights 2', 'ap_core' )
     ),
 		'lights3' => array(
 			'url' => '%s/images/headers/lights3.jpg',
 			'thumbnail_url' => '%s/images/headers/lights3-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Lights 3', 'core' )
+			'description' => __( 'Lights 3', 'ap_core' )
 		)
 	) );
 
@@ -213,18 +213,18 @@ function ap_core_setup() {
       <div class="comment-author vcard">
          <?php echo get_avatar
 	($comment,$size='64',$default='<path_to_url>' ); ?>
-	On <?php printf(__('%1$s at %2$s'), get_comment_date(), get_comment_time()) ?>
-     <?php printf(__('<cite>%s</cite> <span class="says">said:</span>'), get_comment_author_link()) ?>
+	<?php _e('On ','ap_core'); printf(__('%1$s at %2$s','ap_core'), get_comment_date(), get_comment_time()) ?>
+     <?php printf(__('<cite>%s</cite> <span class="says">said:</span>', 'ap_core'), get_comment_author_link()) ?>
       </div>
       <?php if ($comment->comment_approved == '0') : ?>
-         <em><?php _e('Your comment is awaiting moderation.') ?></em>
+         <em><?php _e('Your comment is awaiting moderation.', 'ap_core') ?></em>
          <br />
       <?php endif; ?>
       <?php comment_text() ?>
-      <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)'),'  ','') ?></div>
+      <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)', 'ap_core'),'  ','') ?></div>
       <div class="reply"><button>
          <?php comment_reply_link(array_merge
-		 ( $args, array('depth' => $depth, 'reply_text' => 'Respond to this', 'max_depth' => $args['max_depth']))) ?>
+		 ( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','ap_core'), 'max_depth' => $args['max_depth']))) ?>
       </button></div>
      </div>
 	<?php
@@ -233,7 +233,7 @@ function ap_core_setup() {
 	// this changes the default [...] to be a read more hyperlink
 	function new_excerpt_more($more) {
         global $post;
-		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . 'read more' . '</a>)';
+		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . __('read more','ap_core') . '</a>)';
 	}
 	add_filter('excerpt_more', 'new_excerpt_more');
 
@@ -276,10 +276,10 @@ function ap_core_sidebar() {
     $ap_core_sidebar = array(
         'left' => array(
             'value' => 'left',
-            'label' => 'Left Sidebar'),
+            'label' => __('Left Sidebar','ap_core')),
         'right' => array(
             'value' => 'right',
-            'label' => 'Right Sidebar')
+            'label' => __('Right Sidebar','ap_core'))
     );
     return $ap_core_sidebar;
 }
@@ -327,11 +327,11 @@ function ap_core_presstrends() {
     $ap_core_presstrends = array(
         'true' => array(
             'value' => 'true',
-            'label' => 'Yes'
+            'label' => __('Yes','ap_core')
         ),
         'false' => array(
             'value' => 'false',
-            'label' => 'No'
+            'label' => __('No','ap_core')
         )
     );
     return $ap_core_presstrends;
@@ -347,11 +347,11 @@ function ap_core_show_excerpts() {
     $ap_core_show_excerpts = array(
         'true' => array(
             'value' => 'true',
-            'label' => 'Show Post Excerpts'
+            'label' => __('Show Post Excerpts','ap_core')
         ),
         'false' => array(
             'value' => 'false',
-            'label' => 'Show Full Posts'
+            'label' => __('Show Full Posts','ap_core')
         )
     );
     return $ap_core_show_excerpts;

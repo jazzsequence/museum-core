@@ -4,12 +4,12 @@
 			<h2 class="the_title"><?php the_title(); ?></h2>
             <div class="clear"></div>
 			<section class="entry">
-				<?php the_content('Read more &raquo;'); ?>
+				<?php the_content(__('Read more &raquo;','ap_core')); ?>
 				<div class="clear"></div>
 				<?php wp_link_pages(); ?>
 			</section>
 			<section class="postmeta">
-				<p><?php edit_post_link('Edit this entry','','.'); ?></p>
+				<p><?php edit_post_link(__('Edit this entry','ap_core'),'','.'); ?></p>
 			</section>
     	<div class="clear"></div>
 		</article>

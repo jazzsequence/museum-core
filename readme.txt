@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 0.5
+Stable tag: 0.5.1
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -27,6 +27,10 @@ There are currently no screenshots.
 to do:
 	recheck all templates for correct i18n
 	add wp-post-formats ux from crowdfavorite
+
+= Version 0.5.1 =
+
+* i18nized all files, tested with <a href="http://wordpress.org/extend/plugins/piglatin/" target="_blank">Pig Latin</a>.
 
 = Version 0.5 =
 

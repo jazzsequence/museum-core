@@ -21,10 +21,13 @@
 <?php } elseif (( is_single() ) || ( is_page())) { ?>
 <meta name="description" content="<?php the_excerpt(); ?>">
 <?php }
+if (!is_404()) {
+	// if there is no post author, this stuff doesn't exist
 	$author_id = $post->post_author;
 	$author = get_userdata($author_id);
 ?>
 <meta name="author" content="<?php echo $author->display_name; ?>">
+<?php } ?>
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
 <meta name="viewport" content="width=device-width">
 <link rel="Shortcut Icon" href="<?php echo get_template_directory_uri() ?>/images/favicon.ico" type="image/x-icon" />

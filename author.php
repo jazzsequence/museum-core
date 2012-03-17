@@ -19,7 +19,7 @@ include( AP_CORE_OPTIONS ); ?>
 					echo $description; ?><br />
 				<?php }
 				if (isset($url)) { ?>
-					<a href="<?php echo $url; ?>" rel="me">Website</a>
+					<a href="<?php echo $url; ?>" rel="me"><?php _e('Website','ap_core'); ?></a>
 				<?php } ?>
 			</p>
 		</div>

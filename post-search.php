@@ -18,7 +18,7 @@
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 		<h3 class="the_date"><time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time></h3>
-		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to','ap_core'); ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
         <div class="clear"></div>
 		<section class="entry">
 			<?php if(has_post_thumbnail()) { ?>
@@ -27,8 +27,8 @@
 			<?php the_excerpt(); ?>
 		</section>
 		<section class="postmetadata">
-            Posted in <?php the_category(', '); ?> <?php the_tags('and tagged ',', ',''); ?><br />
-            <?php comments_popup_link('No Comments &#187;', 'One Comment &#187;', '% Comments &#187;'); ?>
+            <?php _e('Posted in ','ap_core'); the_category(', '); ?> <?php the_tags(__('and tagged ','ap_core'),', ',''); ?><br />
+            <?php comments_popup_link(__('No Comments &#187;','ap_core'), __('One Comment &#187;','ap_core'), __('% Comments &#187;','ap_core')); ?>
         </section>
 	</article>
     <div class="clear"></div>
@@ -37,8 +37,8 @@
 
 	<nav class="navigation">
 		<?php  if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
-		<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
-		<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
+		<div class="alignleft"><?php next_posts_link(__('&laquo; Older Entries','ap_core')) ?></div>
+		<div class="alignright"><?php previous_posts_link(__('Newer Entries &raquo;','ap_core')) ?></div>
 		<?php } ?>
 	</nav>
 	<?php endif; ?>

@@ -28,7 +28,7 @@ function ap_core_theme_options_init() {
  * this also calls the ap_core_admin_scripts() function and adds those scripts to admin_print_scripts for that page
  */
 function ap_core_theme_options_add_page() {
-    $page = add_theme_page( 'Theme Options', 'Theme Options', 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
+    $page = add_theme_page( __('Theme Options','ap_core'), __('Theme Options','ap_core'), 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
     add_action( 'admin_print_scripts-'.$page, 'ap_core_admin_scripts' );
 }
 
@@ -57,7 +57,7 @@ function ap_core_side_box() {
 					// Get RSS Feed(s)
 					@wp_widget_rss_output('http://museumthemes.com/feed/', array('show_date' => 0, 'items' => 3));
 
-					echo '<h2 style="margin:0">' . __('Follow us on Twitter', 'event_espresso') . '</h2>';
+					echo '<h2 style="margin:0">' . __('Follow us on Twitter', 'ap_core') . '</h2>';
 					?>
 						<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
 						<script>
@@ -217,7 +217,7 @@ function ap_core_theme_options_page() {
 												$label = $option['label'];
 												$link = $option['link'];
 												$value = $option['value']; ?>
-										<label class="description"><span style="font-family: '<?php echo $value; ?>'; font-size: 1.7em; padding-right: 20px;"><?php echo $label; ?><span style="font-size: 10px; font-family: sans-serif;"> <a href="<?php echo $link; ?>" target="_blank">[link]</a></span></span></label>
+										<label class="description"><span style="font-family: '<?php echo $value; ?>'; font-size: 1.7em; padding-right: 20px;"><?php echo $label; ?><span style="font-size: 10px; font-family: sans-serif;"> <a href="<?php echo $link; ?>" target="_blank"><?php _e('[link]','ap_core'); ?></a></span></span></label>
 										<?php } ?>
 									</fieldset>
 								</td>
