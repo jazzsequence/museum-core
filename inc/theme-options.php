@@ -292,14 +292,14 @@ function ap_core_theme_options_page() {
 							?>
 							<tr valign="top"><th scope="row"><?php _e( 'Link Color', 'ap_core' ); ?></th>
 								<td><?php if ( !isset($options['link']) ) { $options['link'] == '#486D96'; } ?>
-									<input class="medium-text" type="text" name="ap_core_theme_options[link]" value="<?php echo $options['link']; ?>" id="link-color" />
+									<input class="medium-text" type="text" name="ap_core_theme_options[link]" value="#<?php echo $options['link']; ?>" id="link-color" />
 									<div id="colorpicker-link"></div>
 									<br /><label class="description" for="ap_core_theme_options[link]"><?php _e( 'Set your desired link color.', 'ap_core' ); ?></label>
 								</td>
 							</tr>
 							<tr valign="top"><th scope="row"><?php _e( 'Hover Color', 'ap_core' ); ?></th>
 								<td><?php if ( !isset($options['hover']) ) { $options['hover'] == '#333333'; } ?>
-									<input class="medium-text" type="text" name="ap_core_theme_options[hover]" value="<?php echo $options['hover']; ?>" id="hover-color" />
+									<input class="medium-text" type="text" name="ap_core_theme_options[hover]" value="#<?php echo $options['hover']; ?>" id="hover-color" />
 									<div id="colorpicker-hover"></div>
 									<br /><label class="description" for="ap_core_theme_options[hover]"><?php _e( 'Set your desired link hover color.', 'ap_core' ); ?></label>
 								</td>
