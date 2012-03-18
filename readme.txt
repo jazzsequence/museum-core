@@ -22,11 +22,15 @@ AP-Museum_Core will be the core framework behind all commercially-released <a hr
 
 There are currently no screenshots.
 
+to do:
+	h1 uses "alt" option
+
 == Changelog ==
 
 = Version 1.0.1 =
 
 * fixes an issue with the farbtastic color picker
+* fixes both headers displaying if no header image is set
 
 = Version 1.0 =
 

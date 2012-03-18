@@ -44,10 +44,10 @@ if (!is_404()) {
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
 				<?php if ( (!get_header_image()) && (!has_post_thumbnail( $post->ID )) ) { ?>
 				<hgroup class="siteinfo">
-					<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-					<h2><?php bloginfo('description'); ?></h2>
+					<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+					<h2 class="alt"><?php bloginfo('description'); ?></h2>
 				</hgroup>
-				<?php } ?>
+				<?php } else { ?>
 
 			<div class="headerimg">
 				<hgroup class="siteinfo">
@@ -66,7 +66,7 @@ if (!is_404()) {
 						<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
 					<?php endif; ?>
 			</div>
-
+			<?php } ?>
 			<div class="clear"></div>
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?>
 			</div>

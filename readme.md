@@ -24,9 +24,13 @@ There are currently no screenshots.
 
 ## Changelog
 
+to do:
+	h1 uses "alt" option
+
 ### Version 1.0.1
 
 * fixes an issue with the farbtastic color picker
+* fixes both headers displaying if no header image is set
 
 ### Version 1.0
 
