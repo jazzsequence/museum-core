@@ -19,7 +19,7 @@
 			</div>
 			<div class="spacer-10"></div>
 			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'footernav', 'theme_location' => 'footer', 'fallback_cb' => false ) ); ?>
-			<div class="credit">&copy; <?php echo date('Y'); ?> <?php bloginfo('title'); ?> | <?php _e('Core is a ','ap_core'); ?><a href="http://wordpress.org" target="_blank">WordPress</a><?php _e(' theme framework by ','ap_core'); ?><a href="http://museumthemes.com/category/free-themes/" target="_blank" title="Museum Themes | Fine Art WordPress Themes">Museum Themes</a></div>
+			<div class="credit">&copy; <?php echo date('Y'); ?> <?php bloginfo('title'); ?> | <?php _e('Core is a ','museum-core'); ?><a href="http://wordpress.org" target="_blank">WordPress</a><?php _e(' theme framework by ','museum-core'); ?><a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a></div>
 		</footer>
 	</div><!-- closes .container -->
 
