@@ -124,9 +124,9 @@ function ap_core_theme_options_page() {
 	$load_css = '<style type="text/css">';
 	$load_css .= '@import url( "'. get_template_directory_uri() . '/fonts/fonts.css");';
 	if ( false !== $_REQUEST['settings-updated'] ) {
-	$load_css .= 'a#fdbk_tab { top: 23%; }';
+	$load_css .= 'a#fdbk_tab { top: 300px; }';
 	} else {
-	$load_css .= 'a#fdbk_tab { top: 19%; }';
+	$load_css .= 'a#fdbk_tab { top: 240px; }';
 	}
 	$load_css .= '</style>';
 	echo $load_css;

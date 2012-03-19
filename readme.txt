@@ -31,6 +31,7 @@ to do:
 
 * fixes an issue with the farbtastic color picker
 * fixes both headers displaying if no header image is set
+* changed positioning for feedback/support tab to pixels for better display on all resolutions
 
 = Version 1.0 =
 
