@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 3.1  
 Tested up to: 3.3.1  
-Stable tag: 1.0.1  
+Stable tag: 1.0.2  
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -24,13 +24,11 @@ There are currently no screenshots.
 
 ## Changelog
 
-to do:
-	h1 uses "alt" option
-
 ### Version 1.0.2
 
 * changed text domain to slug
 * removed SEO from footer link and changed url
+* added use alt font for h1 option
 
 ### Version 1.0.1
 
