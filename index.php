@@ -12,8 +12,8 @@ include( AP_CORE_OPTIONS ); ?>
 		endwhile; ?>
 	<nav class="navigation">
 		<?php  if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
-		<div class="alignleft"><?php next_posts_link(__('&laquo; Older Entries','ap_core')) ?></div>
-		<div class="alignright"><?php previous_posts_link(__('Newer Entries &raquo;','ap_core')) ?></div>
+		<div class="alignleft"><?php next_posts_link(__('&laquo; Older Entries','museum-core')) ?></div>
+		<div class="alignright"><?php previous_posts_link(__('Newer Entries &raquo;','museum-core')) ?></div>
 		<?php } ?>
 	</nav>
 	<?php endif; ?>

@@ -27,6 +27,11 @@ There are currently no screenshots.
 to do:
 	h1 uses "alt" option
 
+### Version 1.0.2
+
+* changed text domain to slug
+* removed SEO from footer link and changed url
+
 ### Version 1.0.1
 
 * fixes an issue with the farbtastic color picker

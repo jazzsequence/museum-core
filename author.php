@@ -19,11 +19,11 @@ include( AP_CORE_OPTIONS ); ?>
 					echo $description; ?><br />
 				<?php }
 				if (isset($url)) { ?>
-					<a href="<?php echo $url; ?>" rel="me"><?php _e('Website','ap_core'); ?></a>
+					<a href="<?php echo $url; ?>" rel="me"><?php _e('Website','museum-core'); ?></a>
 				<?php } ?>
 			</p>
 		</div>
-		<h3 class="alt"><?php _e( 'All posts by ', 'ap_core' ); the_author_meta('display_name'); ?></h3>
+		<h3 class="alt"><?php _e( 'All posts by ', 'museum-core' ); the_author_meta('display_name'); ?></h3>
 	</section>
 	<div class="clear"></div>
 	<?php

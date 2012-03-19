@@ -4,32 +4,32 @@ define( "AP_CORE_OPTIONS", get_template_directory() . '/inc/load-options.php' );
 
 if ( function_exists('register_sidebars') )
     register_sidebar(array(
-		'name' => __('Sidebar','ap_core'),
-		'description' => __('This is the regular, widgetized sidebar','ap_core'),
+		'name' => __('Sidebar','museum-core'),
+		'description' => __('This is the regular, widgetized sidebar','museum-core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-		'name' => __('Left Footer Box','ap_core'),
-		'description' => __('This is the left box in the footer.','ap_core'),
+		'name' => __('Left Footer Box','museum-core'),
+		'description' => __('This is the left box in the footer.','museum-core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-		'name' => __('Center Footer Box','ap_core'),
-		'description' => __('This is the center box in the footer.','ap_core'),
+		'name' => __('Center Footer Box','museum-core'),
+		'description' => __('This is the center box in the footer.','museum-core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-		'name' => __('Right Footer Box','ap_core'),
-		'description' => __('This is the right box in the footer.','ap_core'),
+		'name' => __('Right Footer Box','museum-core'),
+		'description' => __('This is the right box in the footer.','museum-core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
@@ -125,9 +125,9 @@ function ap_core_setup() {
 	// custom nav menus
 	// This theme uses wp_nav_menu() in three (count them, three!) locations.
 	register_nav_menus( array(
-		'top' => __( 'Top Header Navigation', 'ap_core' ),
-		'main' => __( 'Main Navigation', 'ap_core' ),
-		'footer' => __( 'Footer Navigation', 'ap_core' ),
+		'top' => __( 'Top Header Navigation', 'museum-core' ),
+		'main' => __( 'Main Navigation', 'museum-core' ),
+		'footer' => __( 'Footer Navigation', 'museum-core' ),
 	) );
 
 	// This adds a home link option in the Menus
@@ -170,31 +170,31 @@ function ap_core_setup() {
 			'url' => '%s/images/headers/nature.jpg',
 			'thumbnail_url' => '%s/images/headers/nature-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Nature', 'ap_core' )
+			'description' => __( 'Nature', 'museum-core' )
 		),
 		'smoke' => array(
 			'url' => '%s/images/headers/smoke.jpg',
 			'thumbnail_url' => '%s/images/headers/smoke-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Smoke', 'ap_core' )
+			'description' => __( 'Smoke', 'museum-core' )
 		),
 		'lights1' => array(
 			'url' => '%s/images/headers/lights1.jpg',
 			'thumbnail_url' => '%s/images/headers/lights1-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Lights 1', 'ap_core' )
+			'description' => __( 'Lights 1', 'museum-core' )
 		),
     'lights2' => array(
       'url' => '%s/images/headers/lights2.jpg',
       'thumbnail_url' => '%s/images/headers/lights2-thumbnail.jpg',
       /* translators: header image description */
-      'description' => __( 'Lights 2', 'ap_core' )
+      'description' => __( 'Lights 2', 'museum-core' )
     ),
 		'lights3' => array(
 			'url' => '%s/images/headers/lights3.jpg',
 			'thumbnail_url' => '%s/images/headers/lights3-thumbnail.jpg',
 			/* translators: header image description */
-			'description' => __( 'Lights 3', 'ap_core' )
+			'description' => __( 'Lights 3', 'museum-core' )
 		)
 	) );
 
@@ -213,18 +213,18 @@ function ap_core_setup() {
       <div class="comment-author vcard">
          <?php echo get_avatar
 	($comment,$size='64',$default='<path_to_url>' ); ?>
-	<?php _e('On ','ap_core'); printf(__('%1$s at %2$s','ap_core'), get_comment_date(), get_comment_time()) ?>
-     <?php printf(__('<cite>%s</cite> <span class="says">said:</span>', 'ap_core'), get_comment_author_link()) ?>
+	<?php _e('On ','museum-core'); printf(__('%1$s at %2$s','museum-core'), get_comment_date(), get_comment_time()) ?>
+     <?php printf(__('<cite>%s</cite> <span class="says">said:</span>', 'museum-core'), get_comment_author_link()) ?>
       </div>
       <?php if ($comment->comment_approved == '0') : ?>
-         <em><?php _e('Your comment is awaiting moderation.', 'ap_core') ?></em>
+         <em><?php _e('Your comment is awaiting moderation.', 'museum-core') ?></em>
          <br />
       <?php endif; ?>
       <?php comment_text() ?>
-      <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)', 'ap_core'),'  ','') ?></div>
+      <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)', 'museum-core'),'  ','') ?></div>
       <div class="reply"><button>
          <?php comment_reply_link(array_merge
-		 ( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','ap_core'), 'max_depth' => $args['max_depth']))) ?>
+		 ( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','museum-core'), 'max_depth' => $args['max_depth']))) ?>
       </button></div>
      </div>
 	<?php
@@ -233,7 +233,7 @@ function ap_core_setup() {
 	// this changes the default [...] to be a read more hyperlink
 	function new_excerpt_more($more) {
         global $post;
-		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . __('read more','ap_core') . '</a>)';
+		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . __('read more','museum-core') . '</a>)';
 	}
 	add_filter('excerpt_more', 'new_excerpt_more');
 
@@ -261,7 +261,9 @@ function ap_core_get_theme_defaults(){
         'link' => '#486D96',
         'hover' => '#333333',
         // excerpts or full posts
-        'excerpts' => 'true'
+        'excerpts' => 'true',
+        // use alt for h1?
+        'alth1' => 'false'
     );
     return $defaults;
 }
@@ -276,10 +278,10 @@ function ap_core_sidebar() {
     $ap_core_sidebar = array(
         'left' => array(
             'value' => 'left',
-            'label' => __('Left Sidebar','ap_core')),
+            'label' => __('Left Sidebar','museum-core')),
         'right' => array(
             'value' => 'right',
-            'label' => __('Right Sidebar','ap_core'))
+            'label' => __('Right Sidebar','museum-core'))
     );
     return $ap_core_sidebar;
 }
@@ -322,16 +324,17 @@ function ap_core_fonts() {
  * @author Chris Reynolds, George Ortiz
  * @link http://presstrends.io
  * PressTrends enables theme tracking and analytics. This gives the user an option to disable it
+ * @deprecated
  */
 function ap_core_presstrends() {
     $ap_core_presstrends = array(
         'true' => array(
             'value' => 'true',
-            'label' => __('Yes','ap_core')
+            'label' => __('Yes','museum-core')
         ),
         'false' => array(
             'value' => 'false',
-            'label' => __('No','ap_core')
+            'label' => __('No','museum-core')
         )
     );
     return $ap_core_presstrends;
@@ -347,14 +350,34 @@ function ap_core_show_excerpts() {
     $ap_core_show_excerpts = array(
         'true' => array(
             'value' => 'true',
-            'label' => __('Show Post Excerpts','ap_core')
+            'label' => __('Show Post Excerpts','museum-core')
         ),
         'false' => array(
             'value' => 'false',
-            'label' => __('Show Full Posts','ap_core')
+            'label' => __('Show Full Posts','museum-core')
         )
     );
     return $ap_core_show_excerpts;
+}
+
+/**
+ * True/False option
+ * @since 1.0.2
+ * @author Chris Reynolds
+ * generic yes/no function used for true/false options
+ */
+function ap_core_true_false() {
+    $ap_core_true_false = array(
+        'true' => array(
+            'value' => 'true',
+            'label' => __('Yes','museum-core')
+        ),
+        'false' => array(
+            'value' => 'false',
+            'label' => __('No','museum-core')
+        )
+    );
+    return $ap_core_true_false;
 }
 
 function ap_core_custom_styles() {

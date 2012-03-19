@@ -4,12 +4,12 @@
 			<h2 class="the_title"><?php the_title(); ?></h2>
             <div class="clear"></div>
 			<section class="entry">
-				<?php the_content(__('Read more &raquo;','ap_core')); ?>
+				<?php the_content(__('Read more &raquo;','museum-core')); ?>
 				<div class="clear"></div>
 				<?php wp_link_pages(); ?>
 			</section>
 			<section class="postmeta">
-				<p><?php edit_post_link(__('Edit this entry','ap_core'),'','.'); ?></p>
+				<p><?php edit_post_link(__('Edit this entry','museum-core'),'','.'); ?></p>
 			</section>
     	<div class="clear"></div>
 		</article>
