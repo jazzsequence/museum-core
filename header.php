@@ -36,6 +36,7 @@ if (!is_404()) {
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
 <?php echo ap_core_generator(); ?>
+<?php $options = get_option( 'ap_core_theme_options' ); ?>
 </head>
 <body <?php body_class(); ?>>
 	<div class="row container">
@@ -44,15 +45,25 @@ if (!is_404()) {
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
 				<?php if ( (!get_header_image()) && (!has_post_thumbnail( $post->ID )) ) { ?>
 				<hgroup class="siteinfo">
-					<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-					<h2 class="alt"><?php bloginfo('description'); ?></h2>
+					<?php if ($options['alth1'] == 'true') { ?>
+						<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+						<h2><?php bloginfo('description'); ?></h2>
+					<?php } else { ?>
+						<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+						<h2 class="alt"><?php bloginfo('description'); ?></h2>
+					<?php } ?>
 				</hgroup>
 				<?php } else { ?>
 
 			<div class="headerimg">
 				<hgroup class="siteinfo">
-					<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-					<h2 class="alt"><?php bloginfo('description'); ?></h2>
+					<?php if ($options['alth1'] == 'true') { ?>
+						<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+						<h2><?php bloginfo('description'); ?></h2>
+					<?php } else { ?>
+						<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+						<h2 class="alt"><?php bloginfo('description'); ?></h2>
+					<?php } ?>
 				</hgroup>
 				<?php
 					// Check if this is a post or page, if it has a thumbnail, and if it's a big one
