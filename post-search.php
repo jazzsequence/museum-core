@@ -13,7 +13,7 @@
     global $wp_query;
     $total_results = $wp_query->found_posts;
 ?>
-	<h2 class="searchresults the_title"><?php _e( 'We found ', 'museum-core' ); echo $total_results; _e( ' results for ', 'museum-core' ); ?>&ldquo;<?php echo get_search_query(); ?>&rdquo;</h2>
+	<h2 class="searchresults the_title"><?php $results = sprintf( __( 'We found %d results for ', 'museum-core' ), $total_results ); echo $results ?>&ldquo;<?php echo get_search_query(); ?>&rdquo;</h2>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
