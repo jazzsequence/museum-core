@@ -1,3 +1,4 @@
+		<?php $options = get_option( 'ap_core_theme_options' ); ?>
 		<footer class="row">
 			<div class="fourcol" id="leftbox">
 				<ul>
@@ -19,7 +20,9 @@
 			</div>
 			<div class="spacer-10"></div>
 			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'footernav', 'theme_location' => 'footer', 'fallback_cb' => false ) ); ?>
-			<div class="credit">&copy; <?php echo date('Y'); ?> <?php bloginfo('title'); ?> | <?php _e('Core is a ','museum-core'); ?><a href="http://wordpress.org" target="_blank">WordPress</a><?php _e(' theme framework by ','museum-core'); ?><a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a></div>
+			<div class="credit"><?php if ( $options['footer'] != '' ) { echo $options['footer']; } else { ?>
+				&copy; <?php echo date('Y'); ?> <?php bloginfo('title'); ?> . <a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a> . <a href="http://wordpress.org" target="_blank"><?php _e('Powered by WordPress','museum-core'); ?></a><?php } ?>
+			</div>
 		</footer>
 	</div><!-- closes .container -->
 

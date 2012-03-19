@@ -263,7 +263,7 @@ function ap_core_get_theme_defaults(){
         // excerpts or full posts
         'excerpts' => 'true',
         // use alt for h1?
-        'alth1' => 'false'
+        'alth1' => 'false',
     );
     return $defaults;
 }

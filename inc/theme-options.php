@@ -327,6 +327,19 @@ function ap_core_theme_options_page() {
 							</tr>
 							<?php
 							/**
+							 * Footer text
+							 */
+							?>
+							<tr valign="top"><th scope="row"><?php _e( 'Footer Text', 'museum-core' ); ?></th>
+								<td>
+									<textarea id="ap_core_theme_options[footer]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[footer]" style="font-family: monospace;"><?php if ($options['footer'] != '') { echo esc_textarea( $options['footer'] ); } else { ?>
+											&copy; <?php echo date('Y'); ?> <?php bloginfo('title'); ?> . <a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a> . <a href="http://wordpress.org" target="_blank"><?php _e('Powered by WordPress','museum-core'); ?></a>
+										<?php } ?></textarea>
+									<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Sample text box', 'sampletheme' ); ?></label>
+								</td>
+							</tr>
+							<?php
+							/**
 							 * PressTrends setting
 							 */
 							?>
@@ -430,6 +443,8 @@ function ap_core_theme_options_validate( $input ) {
 	if ( !array_key_exists( $input['alt'], ap_core_fonts() ) )
 	$input['alt'] = $input['alt'];
 	$input['link'] = wp_filter_nohtml_kses( $input['link'] );
+	$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
+	$input['footer'] = wp_filter_post_kses( $input['footer'] );
 
     return $input;
 }
