@@ -29,6 +29,7 @@ There are currently no screenshots.
 * changed text domain to slug
 * removed SEO from footer link and changed url
 * added use alt font for h1 option
+* added option to change footer text
 
 = Version 1.0.1 =
 
