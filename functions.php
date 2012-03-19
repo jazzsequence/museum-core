@@ -117,6 +117,13 @@ function ap_core_setup() {
     // load up the theme options
     require_once ( get_template_directory() . '/inc/theme-options.php' );
 
+    // i18n stuff
+    load_theme_textdomain('museum-core', TEMPLATEPATH.'/lang');
+    $locale = get_locale();
+    $locale_file = TEMPLATEPATH."/lang/museum-core-$locale.php";
+    if ( is_readable($locale_file) )
+    require_once($locale_file);
+
 	// post thumbnail support
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
