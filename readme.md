@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 3.1  
 Tested up to: 3.3.1  
-Stable tag: 1.0.2  
+Stable tag: 1.0.3  
 
 A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -23,6 +23,13 @@ AP Museum Core will be the core framework behind all commercially-released <a hr
 There are currently no screenshots.
 
 ## Changelog
+
+### Version 1.0.3
+
+* moved AP_CORE_OPTIONS to ap_core_setup (for child themes)
+* fixed dropdown menu styling
+* added a human-time-diff class to quote and status posts
+* removed list style from comment children
 
 ### Version 1.0.2
 
