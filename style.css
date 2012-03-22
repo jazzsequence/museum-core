@@ -1075,7 +1075,7 @@ nav.mainnav li .first {
 nav.topnav li li,
 nav.mainnav li li {
 	display: inline;
-	width: 148px;
+	width: 150px;
 	margin: 0;
 	padding: 7px 10px;
 	clear: left;
@@ -1108,7 +1108,7 @@ nav.mainnav li ul {
 	position: absolute;
 	left: -999em;
 	margin-top: 5px!important;
-	width: 12em;
+	width: 170px;
 }
 nav.topnav li:hover ul,
 nav.mainnav li:hover ul {
