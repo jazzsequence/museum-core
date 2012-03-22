@@ -1186,7 +1186,7 @@ article.format-audio .entry object {
 
 #comments ul.commentlist, #comments ol.commentlist { list-style-type: none; margin: 0; padding: 0; }
 #comments li div.the_comment { padding: 10px; border-bottom: 1px solid #efefef; margin-bottom: 10px; }
-#comments ul.children { margin: 0 0 0 10px; }
+#comments ul.children { margin: 0 0 0 10px; list-style-type: none; }
 #comments ul.children li { border-left: 5px solid #efefef; }
 #comments ul.children li.bypostauthor { border-left: 5px solid #dcdcdc; }
 .odd .avatar { float: left; margin-right: 10px; }
