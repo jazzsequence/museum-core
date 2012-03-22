@@ -1,7 +1,5 @@
 <?php
 
-define( "AP_CORE_OPTIONS", get_template_directory() . '/inc/load-options.php' );
-
 if ( function_exists('register_sidebars') )
     register_sidebar(array(
 		'name' => __('Sidebar','museum-core'),
@@ -114,6 +112,8 @@ function ap_core_generator() {
  * adds core WordPress theme functionality and adds some tweaks
  */
 function ap_core_setup() {
+
+    define( "AP_CORE_OPTIONS", get_template_directory() . '/inc/load-options.php' );
     // load up the theme options
     require_once ( get_template_directory() . '/inc/theme-options.php' );
 
@@ -146,7 +146,6 @@ function ap_core_setup() {
 
 	// This theme allows users to set a custom background
 	add_custom_background();
-
 	// this theme has a custom header thingie
 	// Your changeable header business starts here
 	define( 'HEADER_TEXTCOLOR', '' );
