@@ -121,6 +121,7 @@ pre {
   white-space: -o-pre-wrap; /* Opera 7 */
   white-space: pre-wrap; /* css-3 */
   word-wrap: break-word; /* Internet Explorer 5.5+ */
+  overflow: auto; /* browsers that don't break words correctly can get a scroll for long strings of characters and links */
 }
 
 small { font-size: 85%; }
