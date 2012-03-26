@@ -38,11 +38,9 @@
 	<?php if ( comments_open() ) : ?>
 		<!-- If comments are open, but there are no comments. -->
 
-	 <?php else : // comments are closed ?>
-		<!-- If comments are closed. -->
-		<p class="nocomments"><?php _e('Comments are closed.','museum-core'); ?></p>
-
-	<?php endif; ?>
+	 <?php else : // comments are closed
+		/* If comments are closed we won't display anything (because I think displaying "Comments are closed" is ugly). */
+	 endif; ?>
 <?php endif; ?>
 
 
