@@ -30,7 +30,9 @@ if (!is_404()) {
 <?php } ?>
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
 <meta name="viewport" content="width=device-width">
+<!-- uncomment this if you want to use a favicon.  Upload your favicon to the /themes/museum-core/images/ directory
 <link rel="Shortcut Icon" href="<?php echo get_template_directory_uri() ?>/images/favicon.ico" type="image/x-icon" />
+-->
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_get_archives('type=monthly&format=link'); ?>
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
