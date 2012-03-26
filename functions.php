@@ -150,7 +150,7 @@ function ap_core_setup() {
 	// Your changeable header business starts here
 	define( 'HEADER_TEXTCOLOR', '' );
 	// No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
-	define( 'HEADER_IMAGE', '%s/images/headers/leaves.jpg' );
+	define( 'HEADER_IMAGE', '%s/images/headers/smoke.jpg' );
 
 	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
 	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 1140 ) );
