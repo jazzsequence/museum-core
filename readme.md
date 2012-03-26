@@ -30,6 +30,8 @@ There are currently no screenshots.
 * fixed dropdown menu styling
 * added a human-time-diff class to quote and status posts
 * removed list style from comment children
+* made meta charset dynamic
+
 
 ### Version 1.0.2
 
