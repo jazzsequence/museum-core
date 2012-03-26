@@ -384,6 +384,7 @@ function presstrends() {
 // Add your PressTrends and Theme API Keys
 $api_key = 'i93727o4eba1lujhti5bjgiwfmln5xm5o0iv';
 $auth = '0o7g17t95klos03ovw79y5biocuyc3yu9';
+$plugin_name = ''; // let's set the plugin_name varible with something to see if it fixes that not defined error...
 
 // NO NEED TO EDIT BELOW
 $data = get_transient( 'presstrends_data' );
