@@ -32,6 +32,10 @@ There are currently no screenshots.
 * removed list style from comment children
 * made meta charset dynamic
 * updated license info
+* added comment support to pages
+* defined a default header image (that actually exists in the theme)
+* commented out favicon support (since no favicon is included in the theme)
+* defined a default $plugin_name value to eliminate undefined variable issue in presstrends function
 
 = Version 1.0.2 =
 
