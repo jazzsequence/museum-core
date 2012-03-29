@@ -118,23 +118,6 @@ function ap_core_side_box() {
 }
 
 /**
- * Theme options tabs
- * @since 1.0.4
- * @author Elio Rivero
- * @link http://wp.smashingmagazine.com/2011/10/20/create-tabs-wordpress-settings-pages/
- * since the theme options are starting to go nuts, putting some tabs in to organize things better
- */
-function ap_core_admin_tabs( $current = 'home' ) {
-	$tabs = array( 'home' => __('General','museum-core'), 'typography' => __('Typography & Fonts','museum-core'), 'advanced' => __('Advanced','museum-core') );
-	echo '<h2 class="nav-tab-wrapper">';
-	foreach( $tabs as $tab => $name ) {
-		$class = ( $tab == $current ) ? ' nav-tab-active' : '';
-		echo "<a class='nav-tab$class' href='?page=theme_options&tab=$tab'>$name</a>";
-	}
-	echo '</h2>';
-}
-
-/**
  * Theme options page
  * @since 0.4.0
  * @author Chris Reynolds
@@ -142,6 +125,8 @@ function ap_core_admin_tabs( $current = 'home' ) {
  */
 function ap_core_theme_options_page() {
 	global $pagenow;
+
+	wp_nonce_field( 'ap-core-settings-page' );
 
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
@@ -156,9 +141,7 @@ function ap_core_theme_options_page() {
 	echo $load_css;
 	?>
 	<div class="wrap">
-		<?php echo "<h2>" . get_current_theme() . __( ' Theme Options', 'museum-core' ) . "</h2>"; ?>
-		<?php screen_icon(); ?>
-		<?php if ( isset ( $_GET['tab'] ) ) ap_core_admin_tabs($_GET['tab']); else ap_core_admin_tabs('home'); ?>
+		<?php screen_icon(); echo "<h2>" . get_current_theme() . __( ' Theme Options', 'museum-core' ) . "</h2>"; ?>
 
 		<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
 		<div class="updated fade"><p><strong><?php _e( 'Options saved', 'museum-core' ); ?></strong></p></div>
@@ -172,14 +155,11 @@ function ap_core_theme_options_page() {
 						<?php $defaults = ap_core_get_theme_defaults(); ?>
 						<?php $options = get_option( 'ap_core_theme_options', $defaults ); ?>
 
+						<div id="home">
+						<h3 class="title"><?php _e('General','museum-core'); ?></h3>
 						<table class="form-table">
 
-							<?php if ( $pagenow == 'themes.php' && $_GET['page'] == 'theme_options' ) {
-								if ( isset( $_GET['tab'] ) ) $tab = $_GET['tab'];
-								else $tab = 'home';
-
-								switch( $tab ) {
-									case 'home' :
+							<?php
 							/**
 							 * Sidebar Settings
 							 */
@@ -249,35 +229,11 @@ function ap_core_theme_options_page() {
 									<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Add your own footer text or leave blank for no text in the footer', 'museum-core' ); ?></label>
 								</td>
 							</tr>
-							<?php
-							/**
-							 * PressTrends setting
-							 */
-							?>
-							<tr valign="top"><th scope="row"><?php _e( 'Send usage data?', 'museum-core' ); ?></th>
-								<td>
-									<select name="ap_core_theme_options[presstrends]">
-										<?php
-											$selected = $options['presstrends'];
-											$checked = 'selected="selected"';
-											$p = '';
-											foreach ( ap_core_true_false() as $option ) {
-												$label = $option['label'];
-												$value = $option['value'];
-												if ( $selected == $option['value'] ) {
-													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
-												} else {
-													$p = '<option value="' . $value . '">' . $label . '</option>';
-												}
-												echo $p;
-											} ?>
-									</select><br />
-									<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'For more information visit <a href="http://presstrends.io/faq">PressTrends</a>.', 'museum-core' ); ?></label>
-								</td>
-							</tr>
-							<?php
-								break;
-								case 'typography' : ?>
+						</table>
+						</div>
+						<div id="typography">
+						<h3 class="title"><?php _e('Typography & Fonts','museum-core'); ?></h3>
+						<table class="form-table">
 							<?php
 							/**
 							 * A Font Settings
@@ -400,10 +356,11 @@ function ap_core_theme_options_page() {
 									<br /><label class="description" for="ap_core_theme_options[hover]"><?php _e( 'Set your desired link hover color.', 'museum-core' ); ?></label>
 								</td>
 							</tr>
-							<?php
-								break;
-								case 'advanced' :
-							?>
+						</table>
+						</div>
+						<div id="advanced">
+						<h3 class="title"><?php _e('Advanced','museum-core'); ?></h3>
+						<table class="form-table">
 							<?php
 							/**
 							 * <title> setting
@@ -508,14 +465,39 @@ function ap_core_theme_options_page() {
 									<label class="description" for="ap_core_theme_options[generator]"><?php _e( 'If Yes, the theme name and version will be added to a meta generator tag.  This is useful in identifying which version of the theme you are using for troubleshooting purposes.  This should be enabled if you need to contact us for support.','museum-core'); ?></label>
 								</td>
 							</tr>
-						<?php
-								}
-							} ?>
+							<?php
+							/**
+							 * PressTrends setting
+							 */
+							?>
+							<tr valign="top"><th scope="row"><?php _e( 'Send usage data?', 'museum-core' ); ?></th>
+								<td>
+									<select name="ap_core_theme_options[presstrends]">
+										<?php
+											$selected = $options['presstrends'];
+											$checked = 'selected="selected"';
+											$p = '';
+											foreach ( ap_core_true_false() as $option ) {
+												$label = $option['label'];
+												$value = $option['value'];
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
+											} ?>
+									</select><br />
+									<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'For more information visit <a href="http://presstrends.io/faq">PressTrends</a>.', 'museum-core' ); ?></label>
+								</td>
+							</tr>
 						</table>
+						</div>
 						<?php /* debug */
 						/* var_dump($options); ?><br /><?php var_dump($defaults); */ ?>
 						<p class="submit">
 							<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'museum-core' ); ?>" />
+							<input type="hidden" name="ap-core-settings-submit" value="Y" />
 						</p>
 					</form>
 				</div><!-- closes post-body-content -->
