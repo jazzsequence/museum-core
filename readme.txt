@@ -36,6 +36,7 @@ There are currently no screenshots.
 * removed TEMPLATEPATH constants
 * moved comment-reply script call to ap_core_load_scripts
 * internationalized searchform
+* removed debug code
 
 = Version 1.0.3 =
 

@@ -419,8 +419,6 @@ function ap_core_custom_styles() {
     } else {
         $hover = $defaults['hover'];
     }
-    /* debug */
-    //$output = 'The heading is ' . $heading . '. The body is ' . $body . '.  The alt is ' . $alt . '. The link color is ' . $link . '.';
     $output = "<style type=\"text/css\" media=\"print,screen\">h1, h2, h3 { font-family: $heading, sans-serif; } h4, h5, h6, .alt, h3 time { font-family: $alt, sans-serif; } body { font-family: $body, sans-serif; } a, a:link, a:visited { color: $link; } a:hover, a:active { color: $hover; } a { text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }</style>";
     echo $output;
 }
