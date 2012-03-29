@@ -282,6 +282,13 @@ function ap_core_get_theme_defaults(){
         'excerpts' => 'true',
         // use alt for h1?
         'alth1' => 'false',
+        // footer text
+        'footer' => stripslashes('&copy; ' . date('Y') . ' ' . get_bloginfo('title') . ' . <a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a> . <a href="http://wordpress.org" target="_blank">Powered by WordPress</a>'),
+        // advanced settings
+        'title' => 'true',
+        'meta' => 'false',
+        'author' => 'false',
+        'generator' => 'false',
     );
     return $defaults;
 }

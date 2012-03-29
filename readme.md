@@ -32,6 +32,8 @@ There are currently no screenshots.
 * hooked theme and sidebar business to widgets_init
 * wrapped WP core functions in function_exists if statements
 * added tabs to theme options page
+* added advanced theme options for meta and title tags
+* added and set default settings
 
 ### Version 1.0.3
 

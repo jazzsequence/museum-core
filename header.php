@@ -9,26 +9,39 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <?php $options = get_option( 'ap_core_theme_options' ); ?>
-<title><?php
-	$category = get_the_category();
-	if (is_home () ) { bloginfo('name'); }
-	elseif ( is_category() ) { single_cat_title(); echo ' | ' ; bloginfo('name'); }
-	elseif (is_single() ) { single_post_title(); echo ' | '; echo $category[0]->cat_name; }
-	elseif (is_page() ) { single_post_title();}
-	else { wp_title('',true); } ?> | <?php bloginfo('description'); ?></title>
-<?php if ( is_tax() ) {
-	$term_description = term_description(); ?>
-<meta name="description" content="<?php echo $term_description; ?>">
-<?php } elseif (( is_single() ) || ( is_page())) { ?>
-<meta name="description" content="<?php the_excerpt(); ?>">
+<?php /* title tag */ ?>
+<?php if ($options['title'] == 'false') { ?>
+	<!-- using Museum Core titles -->
+	<title>
+		<?php
+		$category = get_the_category();
+		if (is_home () ) { bloginfo('name'); }
+		elseif ( is_category() ) { single_cat_title(); echo ' | ' ; bloginfo('name'); }
+		elseif (is_single() ) { single_post_title(); echo ' | '; echo $category[0]->cat_name; }
+		elseif (is_page() ) { single_post_title();}
+		else { wp_title('',true); } ?> | <?php bloginfo('description'); ?>
+	</title>
+<?php } else {
+	echo '<title>'; wp_title(); echo '</title>';
+} ?>
+<?php /* meta description */ ?>
+<?php if ($options['meta'] == 'true') {
+	if ( is_tax() ) {
+		$term_description = term_description(); ?>
+	<meta name="description" content="<?php echo $term_description; ?>">
+	<?php } elseif (( is_single() ) || ( is_page())) { ?>
+	<meta name="description" content="<?php the_excerpt(); ?>">
 <?php }
-if (!is_404()) {
-	// if there is no post author, this stuff doesn't exist
-	$author_id = $post->post_author;
-	$author = get_userdata($author_id);
-?>
-<meta name="author" content="<?php echo $author->display_name; ?>">
-<?php } ?>
+}
+if ($options['author'] == 'true') {
+	if (!is_404()) {
+		// if there is no post author, this stuff doesn't exist
+		$author_id = $post->post_author;
+		$author = get_userdata($author_id);
+	?>
+	<meta name="author" content="<?php echo $author->display_name; ?>">
+	<?php }
+} ?>
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
 <meta name="viewport" content="width=device-width">
 <!-- uncomment this if you want to use a favicon.  Upload your favicon to the /themes/museum-core/images/ directory
@@ -38,7 +51,9 @@ if (!is_404()) {
 <?php wp_get_archives('type=monthly&format=link'); ?>
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
-<?php echo ap_core_generator(); ?>
+<?php if ($options['generator'] == 'true') {
+	echo ap_core_generator();
+} ?>
 </head>
 <body <?php body_class(); ?>>
 	<div class="row container">

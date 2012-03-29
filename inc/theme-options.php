@@ -169,8 +169,8 @@ function ap_core_theme_options_page() {
 				<div id="post-body-content">
 					<form method="post" action="options.php">
 						<?php settings_fields( 'AP_CORE_OPTIONS' ); ?>
-						<?php $options = get_option( 'ap_core_theme_options' ); ?>
 						<?php $defaults = ap_core_get_theme_defaults(); ?>
+						<?php $options = get_option( 'ap_core_theme_options', $defaults ); ?>
 
 						<table class="form-table">
 
@@ -241,9 +241,11 @@ function ap_core_theme_options_page() {
 							?>
 							<tr valign="top"><th scope="row"><?php _e( 'Footer Text', 'museum-core' ); ?></th>
 								<td>
-									<textarea id="ap_core_theme_options[footer]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[footer]" style="font-family: monospace;"><?php if ($options['footer'] != '') { echo esc_textarea( stripslashes($options['footer']) ); } else {
-											echo htmlentities(stripslashes('&copy; ' . date('Y') . bloginfo('title') . ' . <a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a> . <a href="http://wordpress.org" target="_blank">Powered by WordPress</a>'));
-										} ?></textarea>
+									<textarea id="ap_core_theme_options[footer]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[footer]" style="font-family: monospace;"><?php if ($options['footer'] != '') {
+										echo esc_textarea( stripslashes($options['footer']) );
+									} else {
+										echo $defaults['footer'];
+									} ?></textarea>
 									<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Add your own footer text or leave blank for no text in the footer', 'museum-core' ); ?></label>
 								</td>
 							</tr>
@@ -402,7 +404,110 @@ function ap_core_theme_options_page() {
 								break;
 								case 'advanced' :
 							?>
-
+							<?php
+							/**
+							 * <title> setting
+							 */
+							?>
+							<tr valign="top"><th scope="row"><?php _e( 'Use default title tags?', 'museum-core' ); ?></th>
+								<td>
+									<select name="ap_core_theme_options[title]">
+										<?php
+											$selected = $options['title'];
+											$checked = 'selected="selected"';
+											$p = '';
+											foreach ( ap_core_true_false() as $option ) {
+												$label = $option['label'];
+												$value = $option['value'];
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
+											} ?>
+									</select><br />
+									<label class="description" for="ap_core_theme_options[title]"><?php _e( 'If Yes, site will use the standard <code>wp_title</code> function to display titles (good for plugins that change the format of the title tags).','museum-core'); ?><br /><?php _e( 'If No, site will use custom formatted title tags ("Site Name | site description" for the home page, "Post Title | category | site description" for single posts, etc.).', 'museum-core' ); ?>  <a href="http://codex.wordpress.org/Function_Reference/wp_title" target="_blank"><?php _e('More info','museum-core'); ?></label>
+								</td>
+							</tr>
+							<?php
+							/**
+							 * <meta> tags
+							 */
+							?>
+							<tr valign="top"><th scope="row"><?php _e( 'Use meta description?', 'museum-core' ); ?></th>
+								<td>
+									<select name="ap_core_theme_options[meta]">
+										<?php
+											$selected = $options['meta'];
+											$checked = 'selected="selected"';
+											$p = '';
+											foreach ( ap_core_true_false() as $option ) {
+												$label = $option['label'];
+												$value = $option['value'];
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
+											} ?>
+									</select><br />
+									<label class="description" for="ap_core_theme_options[meta]"><?php _e( 'If Yes, meta tags for description will be loaded in the header (pulled from post excerpt for single posts and pages or from the description for tags and categories).  Use this if you don\'t plan on using an SEO plugin to handle your meta descriptions.','museum-core'); ?><br /><?php _e( 'If No, no meta description tags will be loaded.  Use this if you plan on using something to take care of your meta description.', 'museum-core' ); ?>  <a href="http://yoast.com/meta-description-seo-social/" target="_blank"><?php _e('More info','museum-core'); ?></label>
+								</td>
+							</tr>
+							<?php
+							/**
+							 * Author tag
+							 */
+							?>
+							<tr valign="top"><th scope="row"><?php _e( 'Use meta author?', 'museum-core' ); ?></th>
+								<td>
+									<select name="ap_core_theme_options[author]">
+										<?php
+											$selected = $options['author'];
+											$checked = 'selected="selected"';
+											$p = '';
+											foreach ( ap_core_true_false() as $option ) {
+												$label = $option['label'];
+												$value = $option['value'];
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
+											} ?>
+									</select><br />
+									<label class="description" for="ap_core_theme_options[author]"><?php _e( 'If Yes, meta author tags will be used on all pages (except 404 pages).','museum-core'); ?><br /><?php _e( 'If No, meta author tags will be disabled.', 'museum-core' ); ?></label>
+								</td>
+							</tr>
+							<?php
+							/**
+							 * Generator tag
+							 */
+							?>
+							<tr valign="top"><th scope="row"><?php _e( 'Use meta generator tag?', 'museum-core' ); ?></th>
+								<td>
+									<select name="ap_core_theme_options[generator]">
+										<?php
+											$selected = $options['generator'];
+											$checked = 'selected="selected"';
+											$p = '';
+											foreach ( ap_core_true_false() as $option ) {
+												$label = $option['label'];
+												$value = $option['value'];
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
+											} ?>
+									</select><br />
+									<label class="description" for="ap_core_theme_options[generator]"><?php _e( 'If Yes, the theme name and version will be added to a meta generator tag.  This is useful in identifying which version of the theme you are using for troubleshooting purposes.  This should be enabled if you need to contact us for support.','museum-core'); ?></label>
+								</td>
+							</tr>
 						<?php
 								}
 							} ?>
@@ -485,6 +590,16 @@ function ap_core_theme_options_validate( $input ) {
 	$input['body'] = $input['body'];
 	if ( !array_key_exists( $input['alt'], ap_core_fonts() ) )
 	$input['alt'] = $input['alt'];
+	if ( !array_key_exists( $input['alth1'], ap_core_true_false() ) )
+	$input['alth1'] = $input['alth1'];
+	if ( !array_key_exists( $input['title'], ap_core_true_false() ) )
+	$input['title'] = $input['title'];
+	if ( !array_key_exists( $input['meta'], ap_core_true_false() ) )
+	$input['meta'] = $input['meta'];
+	if ( !array_key_exists( $input['author'], ap_core_true_false() ) )
+	$input['author'] = $input['author'];
+	if ( !array_key_exists( $input['generator'], ap_core_true_false() ) )
+	$input['generator'] = $input['generator'];
 	$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 	$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
 	$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
