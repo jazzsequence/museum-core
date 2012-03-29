@@ -35,6 +35,7 @@ There are currently no screenshots.
 * added and set default settings
 * removed TEMPLATEPATH constants
 * moved comment-reply script call to ap_core_load_scripts
+* internationalized searchform
 
 ### Version 1.0.3
 
