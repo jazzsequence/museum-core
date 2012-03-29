@@ -125,92 +125,103 @@ function ap_core_setup() {
     if ( is_readable($locale_file) )
     require_once($locale_file);
 
-	// post thumbnail support
-	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
+    if ( function_exists('add_theme_support') ) { // check if 'add_theme_support' exists, then run all the theme support stuff
+        // post thumbnail support
+    	add_theme_support( 'post-thumbnails' );
+    	set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
+        // post formats
+        // register all post formats -- child themes can remove some post formats as they so desire
+        add_theme_support('post-formats',array('aside','gallery','link','image','quote','status','video','audio','chat'));
+
+        // automatic feed links
+        add_theme_support('automatic-feed-links');
+    }
 	if ( ! isset( $content_width ) ) $content_width = 1140;
 
-	// custom nav menus
-	// This theme uses wp_nav_menu() in three (count them, three!) locations.
-	register_nav_menus( array(
-		'top' => __( 'Top Header Navigation', 'museum-core' ),
-		'main' => __( 'Main Navigation', 'museum-core' ),
-		'footer' => __( 'Footer Navigation', 'museum-core' ),
-	) );
+    if ( function_exists('register_nav_menus') ) { // check if custom nav menus is supported, then do the nav menu stuff
+    	// custom nav menus
+    	// This theme uses wp_nav_menu() in three (count them, three!) locations.
+    	register_nav_menus( array(
+    		'top' => __( 'Top Header Navigation', 'museum-core' ),
+    		'main' => __( 'Main Navigation', 'museum-core' ),
+    		'footer' => __( 'Footer Navigation', 'museum-core' ),
+    	) );
 
-	// This adds a home link option in the Menus
-	function ap_core_home_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
-	}
-	add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
+    	// This adds a home link option in the Menus
+    	function ap_core_home_page_menu_args( $args ) {
+    	$args['show_home'] = true;
+    	return $args;
+    	}
+    	add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
+    }
 
-	// This theme allows users to set a custom background
-	add_custom_background();
-	// this theme has a custom header thingie
-	// Your changeable header business starts here
-	define( 'HEADER_TEXTCOLOR', '' );
-	// No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
-	define( 'HEADER_IMAGE', '%s/images/headers/smoke.jpg' );
+    if ( function_exists('add_custom_background') ) { // check if custom backgrounds are supported, then do background stuff
+    	// This theme allows users to set a custom background
+    	add_custom_background();
+    }
 
-	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 1140 ) );
-	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'core_header_image_height', 200 ) );
+    if ( function_exists('add_custom_image_header') ) { // check if custom headers are supported, then do header stuff
+    	// this theme has a custom header thingie
+    	// Your changeable header business starts here
+    	define( 'HEADER_TEXTCOLOR', '' );
+    	// No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
+    	define( 'HEADER_IMAGE', '%s/images/headers/smoke.jpg' );
 
-	// We'll be using post thumbnails for custom header images on posts and pages.
-	// We want them to be 940 pixels wide by 198 pixels tall.
-	// Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
-	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
+    	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
+    	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 1140 ) );
+    	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'core_header_image_height', 200 ) );
 
-	// Don't support text inside the header image.
-	define( 'NO_HEADER_TEXT', true );
+    	// We'll be using post thumbnails for custom header images on posts and pages.
+    	// We want them to be 940 pixels wide by 198 pixels tall.
+    	// Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
+    	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
 
-	// Add a way for the custom header to be styled in the admin panel that controls
-	// custom headers. See twentyten_admin_header_style(), below.
-	add_custom_image_header( '', 'core_admin_header_style' );
+    	// Don't support text inside the header image.
+    	define( 'NO_HEADER_TEXT', true );
 
-	// ... and thus ends the changeable header business.
+    	// Add a way for the custom header to be styled in the admin panel that controls
+    	// custom headers. See twentyten_admin_header_style(), below.
+    	add_custom_image_header( '', 'core_admin_header_style' );
 
-	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
-	register_default_headers( array(
-		'nature' => array(
-			'url' => '%s/images/headers/nature.jpg',
-			'thumbnail_url' => '%s/images/headers/nature-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Nature', 'museum-core' )
-		),
-		'smoke' => array(
-			'url' => '%s/images/headers/smoke.jpg',
-			'thumbnail_url' => '%s/images/headers/smoke-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Smoke', 'museum-core' )
-		),
-		'lights1' => array(
-			'url' => '%s/images/headers/lights1.jpg',
-			'thumbnail_url' => '%s/images/headers/lights1-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Lights 1', 'museum-core' )
-		),
-    'lights2' => array(
-      'url' => '%s/images/headers/lights2.jpg',
-      'thumbnail_url' => '%s/images/headers/lights2-thumbnail.jpg',
-      /* translators: header image description */
-      'description' => __( 'Lights 2', 'museum-core' )
-    ),
-		'lights3' => array(
-			'url' => '%s/images/headers/lights3.jpg',
-			'thumbnail_url' => '%s/images/headers/lights3-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Lights 3', 'museum-core' )
-		)
-	) );
+    	// ... and thus ends the changeable header business.
 
-	// post formats
-	// register all post formats -- child themes can remove some post formats as they so desire
-	add_theme_support('post-formats',array('aside','gallery','link','image','quote','status','video','audio','chat'));
-
-	// automatic feed links
-	add_theme_support('automatic-feed-links');
+    	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
+    	register_default_headers( array(
+    		'nature' => array(
+    			'url' => '%s/images/headers/nature.jpg',
+    			'thumbnail_url' => '%s/images/headers/nature-thumbnail.jpg',
+    			/* translators: header image description */
+    			'description' => __( 'Nature', 'museum-core' )
+    		),
+    		'smoke' => array(
+    			'url' => '%s/images/headers/smoke.jpg',
+    			'thumbnail_url' => '%s/images/headers/smoke-thumbnail.jpg',
+    			/* translators: header image description */
+    			'description' => __( 'Smoke', 'museum-core' )
+    		),
+    		'lights1' => array(
+    			'url' => '%s/images/headers/lights1.jpg',
+    			'thumbnail_url' => '%s/images/headers/lights1-thumbnail.jpg',
+    			/* translators: header image description */
+    			'description' => __( 'Lights 1', 'museum-core' )
+    		),
+        'lights2' => array(
+          'url' => '%s/images/headers/lights2.jpg',
+          'thumbnail_url' => '%s/images/headers/lights2-thumbnail.jpg',
+          /* translators: header image description */
+          'description' => __( 'Lights 2', 'museum-core' )
+        ),
+    		'lights3' => array(
+    			'url' => '%s/images/headers/lights3.jpg',
+    			'thumbnail_url' => '%s/images/headers/lights3-thumbnail.jpg',
+    			/* translators: header image description */
+    			'description' => __( 'Lights 3', 'museum-core' )
+    		)
+    	) );
+        function core_admin_header_style() {
+            // I don't have any custom header styles...yet.
+        }
+    }
 
 	// this changes the output of the comments
 	function ap_core_comment($comment, $args, $depth) {
