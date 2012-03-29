@@ -1,12 +1,4 @@
 <?php
-/**
- * @package WordPress
- * @subpackage Default_Theme
- */
-
-// Do not delete these lines
-	if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-		die ('Please do not load this page directly. Thanks!');
 
 	if ( post_password_required() ) { ?>
 		<p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments.','museum-core'); ?></p>
@@ -39,7 +31,10 @@
 		<!-- If comments are open, but there are no comments. -->
 
 	 <?php else : // comments are closed
-		/* If comments are closed we won't display anything (because I think displaying "Comments are closed" is ugly). */
+		if ( !is_page() ) {
+			// if it's not a page, display comments are closed message ?>
+			<p><?php _e('Comments are closed.','museum-core'); ?></p>
+		<?php }
 	 endif; ?>
 <?php endif; ?>
 
