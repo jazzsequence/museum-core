@@ -8,22 +8,18 @@
 <head>
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<?php $options = get_option( 'ap_core_theme_options' ); ?>
-<?php /* title tag */ ?>
-<?php if ($options['title'] == 'false') { ?>
-	<!-- using Museum Core titles -->
 	<title>
 		<?php
-		$category = get_the_category();
-		if (is_home () ) { bloginfo('name'); }
-		elseif ( is_category() ) { single_cat_title(); echo ' | ' ; bloginfo('name'); }
-		elseif (is_single() ) { single_post_title(); echo ' | '; echo $category[0]->cat_name; }
-		elseif (is_page() ) { single_post_title();}
+		if ( !is_404() )
+			$category = get_the_category();
+		if ( is_home() ) { bloginfo('name'); }
+		elseif ( is_category() ) { wp_title('',true); echo ' | ' ; bloginfo('name'); }
+		elseif (is_single() ) { wp_title('',true); echo ' | '; echo $category[0]->cat_name; }
+		elseif (is_page() ) { wp_title('',true); }
+		elseif ( is_404() ) { wp_title('',true); }
 		else { wp_title('',true); } ?> | <?php bloginfo('description'); ?>
 	</title>
-<?php } else {
-	echo '<title>'; wp_title(); echo '</title>';
-} ?>
+<?php $options = get_option( 'ap_core_theme_options' ); ?>
 <?php /* meta description */ ?>
 <?php if ($options['meta'] == 'true') {
 	if ( is_tax() ) {

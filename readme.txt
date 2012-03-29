@@ -31,7 +31,7 @@ There are currently no screenshots.
 * added htmlentities encoding and some stripslashes madness to the footer text input box
 * hooked theme and sidebar business to widgets_init
 * wrapped WP core functions in function_exists if statements
-* added advanced theme options for meta and title tags
+* added advanced theme options for meta tags
 * added and set default settings
 * removed TEMPLATEPATH constants
 * moved comment-reply script call to ap_core_load_scripts

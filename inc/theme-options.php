@@ -360,33 +360,6 @@ function ap_core_theme_options_page() {
 						</div>
 						<div id="advanced">
 						<h3 class="title"><?php _e('Advanced','museum-core'); ?></h3>
-						<table class="form-table">
-							<?php
-							/**
-							 * <title> setting
-							 */
-							?>
-							<tr valign="top"><th scope="row"><?php _e( 'Use default title tags?', 'museum-core' ); ?></th>
-								<td>
-									<select name="ap_core_theme_options[title]">
-										<?php
-											$selected = $options['title'];
-											$checked = 'selected="selected"';
-											$p = '';
-											foreach ( ap_core_true_false() as $option ) {
-												$label = $option['label'];
-												$value = $option['value'];
-												if ( $selected == $option['value'] ) {
-													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
-												} else {
-													$p = '<option value="' . $value . '">' . $label . '</option>';
-												}
-												echo $p;
-											} ?>
-									</select><br />
-									<label class="description" for="ap_core_theme_options[title]"><?php _e( 'If Yes, site will use the standard <code>wp_title</code> function to display titles (good for plugins that change the format of the title tags).','museum-core'); ?><br /><?php _e( 'If No, site will use custom formatted title tags ("Site Name | site description" for the home page, "Post Title | category | site description" for single posts, etc.).', 'museum-core' ); ?>  <a href="http://codex.wordpress.org/Function_Reference/wp_title" target="_blank"><?php _e('More info','museum-core'); ?></label>
-								</td>
-							</tr>
 							<?php
 							/**
 							 * <meta> tags
