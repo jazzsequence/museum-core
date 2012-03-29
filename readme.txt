@@ -31,6 +31,7 @@ There are currently no screenshots.
 * added htmlentities encoding and some stripslashes madness to the footer text input box
 * hooked theme and sidebar business to widgets_init
 * wrapped WP core functions in function_exists if statements
+* added tabs to theme options page
 
 = Version 1.0.3 =
 

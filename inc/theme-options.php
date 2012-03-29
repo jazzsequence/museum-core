@@ -45,6 +45,12 @@ function ap_core_admin_scripts() {
     wp_enqueue_script( 'ap_core_color_picker', get_template_directory_uri() . '/js/color-picker.js', array( 'farbtastic', 'jquery' ) );
 }
 
+/**
+ * Side box
+ * @since 0.4.5
+ * @author Chris Reynolds
+ * this adds some side boxes for news and twitter feed for the theme options page
+ */
 function ap_core_side_box() {
 	?>
 	<div id="side-info-column" class="inner-sidebar">
@@ -91,24 +97,41 @@ function ap_core_side_box() {
 			</div>
 		</div>
 	</div>
-<script type="text/javascript" charset="utf-8">
-  var is_ssl = ("https:" == document.location.protocol);
-  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
-  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
+	<script type="text/javascript" charset="utf-8">
+	  var is_ssl = ("https:" == document.location.protocol);
+	  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+	  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
 
-<script type="text/javascript" charset="utf-8">
-  var feedback_widget_options = {};
+	<script type="text/javascript" charset="utf-8">
+	  var feedback_widget_options = {};
 
-  feedback_widget_options.display = "overlay";
-  feedback_widget_options.company = "museum_themes";
-  feedback_widget_options.placement = "right";
-  feedback_widget_options.color = "#444444";
-  feedback_widget_options.style = "question";
+	  feedback_widget_options.display = "overlay";
+	  feedback_widget_options.company = "museum_themes";
+	  feedback_widget_options.placement = "right";
+	  feedback_widget_options.color = "#444444";
+	  feedback_widget_options.style = "question";
 
-  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-</script>
+	  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+	</script>
 	<?php
+}
+
+/**
+ * Theme options tabs
+ * @since 1.0.4
+ * @author Elio Rivero
+ * @link http://wp.smashingmagazine.com/2011/10/20/create-tabs-wordpress-settings-pages/
+ * since the theme options are starting to go nuts, putting some tabs in to organize things better
+ */
+function ap_core_admin_tabs( $current = 'home' ) {
+	$tabs = array( 'home' => __('General','museum-core'), 'typography' => __('Typography & Fonts','museum-core'), 'advanced' => __('Advanced','museum-core') );
+	echo '<h2 class="nav-tab-wrapper">';
+	foreach( $tabs as $tab => $name ) {
+		$class = ( $tab == $current ) ? ' nav-tab-active' : '';
+		echo "<a class='nav-tab$class' href='?page=theme_options&tab=$tab'>$name</a>";
+	}
+	echo '</h2>';
 }
 
 /**
@@ -118,6 +141,7 @@ function ap_core_side_box() {
  * this displays the actual options page
  */
 function ap_core_theme_options_page() {
+	global $pagenow;
 
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
@@ -132,7 +156,9 @@ function ap_core_theme_options_page() {
 	echo $load_css;
 	?>
 	<div class="wrap">
-		<?php screen_icon(); echo "<h2>" . get_current_theme() . __( ' Theme Options', 'museum-core' ) . "</h2>"; ?>
+		<?php echo "<h2>" . get_current_theme() . __( ' Theme Options', 'museum-core' ) . "</h2>"; ?>
+		<?php screen_icon(); ?>
+		<?php if ( isset ( $_GET['tab'] ) ) ap_core_admin_tabs($_GET['tab']); else ap_core_admin_tabs('home'); ?>
 
 		<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
 		<div class="updated fade"><p><strong><?php _e( 'Options saved', 'museum-core' ); ?></strong></p></div>
@@ -148,7 +174,12 @@ function ap_core_theme_options_page() {
 
 						<table class="form-table">
 
-							<?php
+							<?php if ( $pagenow == 'themes.php' && $_GET['page'] == 'theme_options' ) {
+								if ( isset( $_GET['tab'] ) ) $tab = $_GET['tab'];
+								else $tab = 'home';
+
+								switch( $tab ) {
+									case 'home' :
 							/**
 							 * Sidebar Settings
 							 */
@@ -203,6 +234,48 @@ function ap_core_theme_options_page() {
 									<label class="description" for="ap_core_theme_options[excerpts]"><?php _e( 'Select whether you want full posts on the blog page or post excerpts with post thumbnails.', 'museum-core' ); ?></label>
 								</td>
 							</tr>
+							<?php
+							/**
+							 * Footer text
+							 */
+							?>
+							<tr valign="top"><th scope="row"><?php _e( 'Footer Text', 'museum-core' ); ?></th>
+								<td>
+									<textarea id="ap_core_theme_options[footer]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[footer]" style="font-family: monospace;"><?php if ($options['footer'] != '') { echo esc_textarea( stripslashes($options['footer']) ); } else {
+											echo htmlentities(stripslashes('&copy; ' . date('Y') . bloginfo('title') . ' . <a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a> . <a href="http://wordpress.org" target="_blank">Powered by WordPress</a>'));
+										} ?></textarea>
+									<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Add your own footer text or leave blank for no text in the footer', 'museum-core' ); ?></label>
+								</td>
+							</tr>
+							<?php
+							/**
+							 * PressTrends setting
+							 */
+							?>
+							<tr valign="top"><th scope="row"><?php _e( 'Send usage data?', 'museum-core' ); ?></th>
+								<td>
+									<select name="ap_core_theme_options[presstrends]">
+										<?php
+											$selected = $options['presstrends'];
+											$checked = 'selected="selected"';
+											$p = '';
+											foreach ( ap_core_true_false() as $option ) {
+												$label = $option['label'];
+												$value = $option['value'];
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
+											} ?>
+									</select><br />
+									<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'For more information visit <a href="http://presstrends.io/faq">PressTrends</a>.', 'museum-core' ); ?></label>
+								</td>
+							</tr>
+							<?php
+								break;
+								case 'typography' : ?>
 							<?php
 							/**
 							 * A Font Settings
@@ -326,44 +399,13 @@ function ap_core_theme_options_page() {
 								</td>
 							</tr>
 							<?php
-							/**
-							 * Footer text
-							 */
+								break;
+								case 'advanced' :
 							?>
-							<tr valign="top"><th scope="row"><?php _e( 'Footer Text', 'museum-core' ); ?></th>
-								<td>
-									<textarea id="ap_core_theme_options[footer]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[footer]" style="font-family: monospace;"><?php if ($options['footer'] != '') { echo esc_textarea( stripslashes($options['footer']) ); } else {
-											echo htmlentities(stripslashes('&copy; ' . date('Y') . bloginfo('title') . ' . <a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a> . <a href="http://wordpress.org" target="_blank">Powered by WordPress</a>'));
-										} ?></textarea>
-									<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Sample text box', 'sampletheme' ); ?></label>
-								</td>
-							</tr>
-							<?php
-							/**
-							 * PressTrends setting
-							 */
-							?>
-							<tr valign="top"><th scope="row"><?php _e( 'Send usage data?', 'museum-core' ); ?></th>
-								<td>
-									<select name="ap_core_theme_options[presstrends]">
-										<?php
-											$selected = $options['presstrends'];
-											$checked = 'selected="selected"';
-											$p = '';
-											foreach ( ap_core_true_false() as $option ) {
-												$label = $option['label'];
-												$value = $option['value'];
-												if ( $selected == $option['value'] ) {
-													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
-												} else {
-													$p = '<option value="' . $value . '">' . $label . '</option>';
-												}
-												echo $p;
-											} ?>
-									</select><br />
-									<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'For more information visit <a href="http://presstrends.io/faq">PressTrends</a>.', 'museum-core' ); ?></label>
-								</td>
-							</tr>
+
+						<?php
+								}
+							} ?>
 						</table>
 						<?php /* debug */
 						/* var_dump($options); ?><br /><?php var_dump($defaults); */ ?>
