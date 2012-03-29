@@ -24,6 +24,10 @@ There are currently no screenshots.
 
 == Changelog ==
 
+= Version 1.0.4 =
+
+* fixed page with comments not displaying comments
+
 = Version 1.0.3 =
 
 * moved AP_CORE_OPTIONS to ap_core_setup (for child themes)

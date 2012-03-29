@@ -10,9 +10,11 @@
 			</section>
 			<section class="postmetadata">
 				<p><?php edit_post_link(__('Edit this entry','museum-core'),'','.'); ?></p>
-				<?php comments_popup_link(__('No Comments &#187;','museum-core'), __('One Comment &#187;','museum-core'), __('% Comments &#187;','museum-core')); ?>
 			</section>
     	<div class="clear"></div>
+    	<section id="comments">
+			<?php comments_template(); ?>
+        </section>
 		</article>
 
 	<?php endwhile; endif; ?>
