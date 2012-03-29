@@ -332,9 +332,9 @@ function ap_core_theme_options_page() {
 							?>
 							<tr valign="top"><th scope="row"><?php _e( 'Footer Text', 'museum-core' ); ?></th>
 								<td>
-									<textarea id="ap_core_theme_options[footer]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[footer]" style="font-family: monospace;"><?php if ($options['footer'] != '') { echo esc_textarea( $options['footer'] ); } else { ?>
-											&copy; <?php echo date('Y'); ?> <?php bloginfo('title'); ?> . <a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a> . <a href="http://wordpress.org" target="_blank"><?php _e('Powered by WordPress','museum-core'); ?></a>
-										<?php } ?></textarea>
+									<textarea id="ap_core_theme_options[footer]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[footer]" style="font-family: monospace;"><?php if ($options['footer'] != '') { echo esc_textarea( stripslashes($options['footer']) ); } else {
+											echo htmlentities(stripslashes('&copy; ' . date('Y') . bloginfo('title') . ' . <a href="http://museumthemes.com/" target="_blank" title="Museum Themes">Museum Themes</a> . <a href="http://wordpress.org" target="_blank">Powered by WordPress</a>'));
+										} ?></textarea>
 									<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Sample text box', 'sampletheme' ); ?></label>
 								</td>
 							</tr>
@@ -379,7 +379,7 @@ function ap_core_theme_options_page() {
 }
 
 // Presstrends
-function presstrends() {
+function ap_core_presstrends() {
 
 // Add your PressTrends and Theme API Keys
 $api_key = 'i93727o4eba1lujhti5bjgiwfmln5xm5o0iv';
@@ -423,7 +423,7 @@ set_transient('presstrends_data', $data, 60*60*24);
 
 $options = get_option( 'ap_core_theme_options' );
 if ( $options['presstrends'] != 'false' ) {
-add_action('admin_init', 'presstrends');
+add_action('admin_init', 'ap_core_presstrends');
 //add_action('wp_head', function() { echo 'Presstrends is enabled'; });
 }
 
@@ -435,7 +435,7 @@ function ap_core_theme_options_validate( $input ) {
 
     if ( !array_key_exists( $input['sidebar'], ap_core_sidebar() ) )
     $input['sidebar'] = $input['sidebar'];
-	if ( !array_key_exists( $input['presstrends'], ap_core_presstrends() ) )
+	if ( !array_key_exists( $input['presstrends'], ap_core_true_false() ) )
 	$input['presstrends'] = $input['presstrends'];
 	if ( !array_key_exists( $input['heading'], ap_core_fonts() ) )
 	$input['heading'] = $input['heading'];
@@ -445,7 +445,7 @@ function ap_core_theme_options_validate( $input ) {
 	$input['alt'] = $input['alt'];
 	$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 	$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
-	$input['footer'] = wp_filter_post_kses( $input['footer'] );
+	$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
 
     return $input;
 }

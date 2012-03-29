@@ -27,6 +27,8 @@ There are currently no screenshots.
 ### Version 1.0.4
 
 * fixed page with comments not displaying comments
+* prefixed all non-prefixed functions with ap_core_
+* added htmlentities encoding and some stripslashes madness to the footer text input box
 
 ### Version 1.0.3
 

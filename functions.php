@@ -37,10 +37,10 @@ if ( function_exists('register_sidebars') )
 
 // clear shortcode
 // a quick shortcode that clears floats
-function clear() {
+function ap_core_clear() {
 	return '<div class="clear"></div>';
 }
-add_shortcode('clear','clear');
+add_shortcode('clear','ap_core_clear');
 
 /**
  * load scripts
@@ -138,11 +138,11 @@ function ap_core_setup() {
 	) );
 
 	// This adds a home link option in the Menus
-	function home_page_menu_args( $args ) {
+	function ap_core_home_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 	}
-	add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
+	add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
 
 	// This theme allows users to set a custom background
 	add_custom_background();
@@ -237,11 +237,11 @@ function ap_core_setup() {
         }
 
 	// this changes the default [...] to be a read more hyperlink
-	function new_excerpt_more($more) {
+	function ap_core_new_excerpt_more($more) {
         global $post;
 		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . __('read more','museum-core') . '</a>)';
 	}
-	add_filter('excerpt_more', 'new_excerpt_more');
+	add_filter('excerpt_more', 'ap_core_new_excerpt_more');
 
 }
 add_action('after_setup_theme','ap_core_setup');
@@ -322,28 +322,6 @@ function ap_core_fonts() {
         )
     );
     return $ap_core_fonts;
-}
-
-/**
- * PressTrends settings
- * @since 0.4.4
- * @author Chris Reynolds, George Ortiz
- * @link http://presstrends.io
- * PressTrends enables theme tracking and analytics. This gives the user an option to disable it
- * @deprecated
- */
-function ap_core_presstrends() {
-    $ap_core_presstrends = array(
-        'true' => array(
-            'value' => 'true',
-            'label' => __('Yes','museum-core')
-        ),
-        'false' => array(
-            'value' => 'false',
-            'label' => __('No','museum-core')
-        )
-    );
-    return $ap_core_presstrends;
 }
 
 /**
