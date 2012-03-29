@@ -29,6 +29,7 @@ There are currently no screenshots.
 * fixed page with comments not displaying comments
 * prefixed all non-prefixed functions with ap_core_
 * added htmlentities encoding and some stripslashes madness to the footer text input box
+* hooked theme and sidebar business to widgets_init
 
 = Version 1.0.3 =
 

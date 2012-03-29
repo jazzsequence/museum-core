@@ -1,17 +1,17 @@
 <?php
 
-if ( function_exists('register_sidebars') )
+function ap_core_register_sidebars() {
     register_sidebar(array(
-		'name' => __('Sidebar','museum-core'),
-		'description' => __('This is the regular, widgetized sidebar','museum-core'),
+    	'name' => __('Sidebar','museum-core'),
+    	'description' => __('This is the regular, widgetized sidebar','museum-core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-		'name' => __('Left Footer Box','museum-core'),
-		'description' => __('This is the left box in the footer.','museum-core'),
+    	'name' => __('Left Footer Box','museum-core'),
+    	'description' => __('This is the left box in the footer.','museum-core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
@@ -19,7 +19,7 @@ if ( function_exists('register_sidebars') )
     ));
     register_sidebar(array(
 		'name' => __('Center Footer Box','museum-core'),
-		'description' => __('This is the center box in the footer.','museum-core'),
+    	'description' => __('This is the center box in the footer.','museum-core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
@@ -27,13 +27,14 @@ if ( function_exists('register_sidebars') )
     ));
     register_sidebar(array(
 		'name' => __('Right Footer Box','museum-core'),
-		'description' => __('This is the right box in the footer.','museum-core'),
+    	'description' => __('This is the right box in the footer.','museum-core'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget' => '</li>',
         'before_title' => '<h3 class="widgettitle">',
         'after_title' => '</h3>'
     ));
-
+}
+add_action('widgets_init','ap_core_register_sidebars');
 
 // clear shortcode
 // a quick shortcode that clears floats
@@ -83,7 +84,7 @@ function ap_core_load_scripts() {
     wp_enqueue_style('corecss');
   }
 }
-add_action( 'init', 'ap_core_load_scripts' );
+add_action( 'wp_enqueue_scripts', 'ap_core_load_scripts' );
 
 /**
  * Meta generator
