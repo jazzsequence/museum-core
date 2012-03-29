@@ -49,7 +49,6 @@ if ($options['author'] == 'true') {
 -->
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_get_archives('type=monthly&format=link'); ?>
-<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
 <?php if ($options['generator'] == 'true') {
 	echo ap_core_generator();

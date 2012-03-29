@@ -33,6 +33,8 @@ There are currently no screenshots.
 * wrapped WP core functions in function_exists if statements
 * added advanced theme options for meta and title tags
 * added and set default settings
+* removed TEMPLATEPATH constants
+* moved comment-reply script call to ap_core_load_scripts
 
 = Version 1.0.3 =
 

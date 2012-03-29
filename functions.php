@@ -82,6 +82,10 @@ function ap_core_load_scripts() {
     // this loads the style.css
     wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
     wp_enqueue_style('corecss');
+    // loads the comment reply script
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
   }
 }
 add_action( 'wp_enqueue_scripts', 'ap_core_load_scripts' );
@@ -119,9 +123,9 @@ function ap_core_setup() {
     require_once ( get_template_directory() . '/inc/theme-options.php' );
 
     // i18n stuff
-    load_theme_textdomain('museum-core', TEMPLATEPATH.'/lang');
+    load_theme_textdomain('museum-core', get_template_directory() .'/lang');
     $locale = get_locale();
-    $locale_file = TEMPLATEPATH."/lang/museum-core-$locale.php";
+    $locale_file = get_template_directory() ."/lang/museum-core-$locale.php";
     if ( is_readable($locale_file) )
     require_once($locale_file);
 
