@@ -8,6 +8,7 @@
 <head>
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<?php $options = get_option( 'ap_core_theme_options' ); ?>
 <title><?php
 	$category = get_the_category();
 	if (is_home () ) { bloginfo('name'); }
@@ -38,7 +39,6 @@ if (!is_404()) {
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 <?php wp_head(); ?>
 <?php echo ap_core_generator(); ?>
-<?php $options = get_option( 'ap_core_theme_options' ); ?>
 </head>
 <body <?php body_class(); ?>>
 	<div class="row container">
