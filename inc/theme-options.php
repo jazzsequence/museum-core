@@ -173,7 +173,7 @@ function ap_core_theme_options_page() {
 										foreach ( ap_core_sidebar() as $option ) {
 											$selected = $options['sidebar'];
 											?>
-											<label class="description"><input type="radio" name="ap_core_theme_options[sidebar]" value="<?php esc_attr_e( $option['value'] ); ?>" <?php checked( $selected, $option['value'] ) ?> /> <?php echo $option['label']; ?></label><br />
+											<label class="description"><input type="radio" name="ap_core_theme_options[sidebar]" value="<?php esc_attr( $option['value'] ); ?>" <?php checked( $selected, $option['value'] ) ?> /> <?php echo $option['label']; ?></label><br />
 											<?php
 										}
 									?>
