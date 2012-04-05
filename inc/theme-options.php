@@ -172,8 +172,16 @@ function ap_core_theme_options_page() {
 											$checked = '';
 										foreach ( ap_core_sidebar() as $option ) {
 											$selected = $options['sidebar'];
+
+											if ( '' != $selected ) {
+												if ( $options['sidebar'] == $option['value'] ) {
+													$checked = "checked=\"checked\"";
+												} else {
+													$checked = '';
+												}
+											}
 											?>
-											<label class="description"><input type="radio" name="ap_core_theme_options[sidebar]" value="<?php esc_attr_e( $option['value'] ); ?>" <?php checked( $selected, $option['value'] ) ?> /> <?php echo $option['label']; ?></label><br />
+											<label class="description"><input type="radio" name="ap_core_theme_options[sidebar]" value="<?php esc_attr_e( $option['value'] ); ?>" <?php echo $checked; ?> /> <?php echo $option['label']; ?></label><br />
 											<?php
 										}
 									?>
@@ -190,10 +198,17 @@ function ap_core_theme_options_page() {
 									<select name="ap_core_theme_options[excerpts]">
 										<?php
 											$selected = $options['excerpts'];
+											$checked = 'selected="selected"';
+											$p = '';
 											foreach ( ap_core_show_excerpts() as $option ) {
 												$label = $option['label'];
 												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
 											} ?>
 									</select><br />
 									<label class="description" for="ap_core_theme_options[excerpts]"><?php _e( 'Select whether you want full posts on the blog page or post excerpts with post thumbnails.', 'museum-core' ); ?></label>
@@ -243,10 +258,17 @@ function ap_core_theme_options_page() {
 									<select name="ap_core_theme_options[heading]">
 										<?php
 											$selected = $options['heading'];
+											$checked = 'selected="selected"';
+											$p = '';
 											foreach ( ap_core_fonts() as $option ) {
 												$label = $option['label'];
 												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
 											} ?>
 									</select><br />
 									<label class="description" for="ap_core_theme_options[heading]"><?php _e( 'Used for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;h3&gt;</code> tags.', 'museum-core' ); ?></label>
@@ -257,10 +279,17 @@ function ap_core_theme_options_page() {
 									<select name="ap_core_theme_options[body]">
 										<?php
 											$selected = $options['body'];
+											$checked = 'selected="selected"';
+											$p = '';
 											foreach ( ap_core_fonts() as $option ) {
 												$label = $option['label'];
 												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
 											} ?>
 									</select><br />
 									<label class="description" for="ap_core_theme_options[body]"><?php _e( 'Used for all body text.', 'museum-core' ); ?></label>
@@ -271,10 +300,17 @@ function ap_core_theme_options_page() {
 									<select name="ap_core_theme_options[alt]">
 										<?php
 											$selected = $options['alt'];
+											$checked = 'selected="selected"';
+											$p = '';
 											foreach ( ap_core_fonts() as $option ) {
 												$label = $option['label'];
 												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
 											} ?>
 									</select><br />
 									<label class="description" for="ap_core_theme_options[alt]"><?php _e( 'Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code> and <code>&lt;h6&gt;</code> tags and anywhere the <code>.alt</code> class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</code>.', 'museum-core' ); ?></label>
@@ -285,10 +321,17 @@ function ap_core_theme_options_page() {
 									<select name="ap_core_theme_options[alth1]">
 										<?php
 											$selected = $options['alth1'];
+											$checked = 'selected="selected"';
+											$p = '';
 											foreach ( ap_core_true_false() as $option ) {
 												$label = $option['label'];
 												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
 											} ?>
 									</select><br />
 									<label class="description" for="ap_core_theme_options[alth1]"><?php _e( 'If set to "Yes", the alternate font will be used on the <code>&lt;h1&gt;</code> tag in the header and the heading font will be used for the description.', 'museum-core' ); ?></label>
@@ -317,7 +360,6 @@ function ap_core_theme_options_page() {
 						</div>
 						<div id="advanced">
 						<h3 class="title"><?php _e('Advanced','museum-core'); ?></h3>
-						<table class="form-table">
 							<?php
 							/**
 							 * <meta> tags
@@ -328,10 +370,17 @@ function ap_core_theme_options_page() {
 									<select name="ap_core_theme_options[meta]">
 										<?php
 											$selected = $options['meta'];
+											$checked = 'selected="selected"';
+											$p = '';
 											foreach ( ap_core_true_false() as $option ) {
 												$label = $option['label'];
 												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
 											} ?>
 									</select><br />
 									<label class="description" for="ap_core_theme_options[meta]"><?php _e( 'If Yes, meta tags for description will be loaded in the header (pulled from post excerpt for single posts and pages or from the description for tags and categories).  Use this if you don\'t plan on using an SEO plugin to handle your meta descriptions.','museum-core'); ?><br /><?php _e( 'If No, no meta description tags will be loaded.  Use this if you plan on using something to take care of your meta description.', 'museum-core' ); ?>  <a href="http://yoast.com/meta-description-seo-social/" target="_blank"><?php _e('More info','museum-core'); ?></label>
@@ -347,10 +396,17 @@ function ap_core_theme_options_page() {
 									<select name="ap_core_theme_options[author]">
 										<?php
 											$selected = $options['author'];
+											$checked = 'selected="selected"';
+											$p = '';
 											foreach ( ap_core_true_false() as $option ) {
 												$label = $option['label'];
 												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
 											} ?>
 									</select><br />
 									<label class="description" for="ap_core_theme_options[author]"><?php _e( 'If Yes, meta author tags will be used on all pages (except 404 pages).','museum-core'); ?><br /><?php _e( 'If No, meta author tags will be disabled.', 'museum-core' ); ?></label>
@@ -366,10 +422,17 @@ function ap_core_theme_options_page() {
 									<select name="ap_core_theme_options[generator]">
 										<?php
 											$selected = $options['generator'];
+											$checked = 'selected="selected"';
+											$p = '';
 											foreach ( ap_core_true_false() as $option ) {
 												$label = $option['label'];
 												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
 											} ?>
 									</select><br />
 									<label class="description" for="ap_core_theme_options[generator]"><?php _e( 'If Yes, the theme name and version will be added to a meta generator tag.  This is useful in identifying which version of the theme you are using for troubleshooting purposes.  This should be enabled if you need to contact us for support.','museum-core'); ?></label>
@@ -385,10 +448,17 @@ function ap_core_theme_options_page() {
 									<select name="ap_core_theme_options[presstrends]">
 										<?php
 											$selected = $options['presstrends'];
+											$checked = 'selected="selected"';
+											$p = '';
 											foreach ( ap_core_true_false() as $option ) {
 												$label = $option['label'];
 												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												if ( $selected == $option['value'] ) {
+													$p = '<option value="' . $value . '" ' . $checked . '>' . $label . '</option>';
+												} else {
+													$p = '<option value="' . $value . '">' . $label . '</option>';
+												}
+												echo $p;
 											} ?>
 									</select><br />
 									<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'For more information visit <a href="http://presstrends.io/faq">PressTrends</a>.', 'museum-core' ); ?></label>
