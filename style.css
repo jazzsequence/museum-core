@@ -735,48 +735,6 @@ img {
   height: auto;
 }
 
-
-/* Smaller screens */
-
-@media only screen and (max-width: 1023px) {
-
-  body {
-  font-size: 0.8em;
-  line-height: 1.5em;
-  }
-
-  }
-
-
-/* Mobile */
-
-@media handheld, only screen and (max-width: 767px) {
-
-  body {
-  font-size: 16px;
-  -webkit-text-size-adjust: none;
-  }
-
-  .row, body, .container {
-  width: 100%;
-  min-width: 0;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  }
-
-  .row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
-  width: auto;
-  float: none;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
-  }
-
-}
-
 /* `IE6
 ----------------------------------------------------------------------------------------------------*/
 
@@ -1032,7 +990,7 @@ hgroup h1, hgroup h2 { margin: auto!important; }
   bottom: 20px;
 }
 .headerimg hgroup h1, .headerimg hgroup h2, .headerimg hgroup a {
-  color: #ffffff!important;
+  color: #ffffff;
   text-shadow: 2px 2px 1px #000000;
 }
 
@@ -1149,7 +1107,7 @@ article.sticky {
 
 h3.the_date{
 	font-size: 1.0em;
-	line-height: auto;
+	line-height: 100%;
 	margin: 0;
 }
 
@@ -1158,7 +1116,7 @@ time {
 }
 
 h2.the_title {
-	line-height: auto;
+	line-height: 100%;
 	margin: 0 0 20px;
 }
 
@@ -1284,14 +1242,61 @@ tt, code, .code { padding: 2px 5px; background: #f9f9f9; border: 1px solid #cccc
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 480px) {
-  /* Style adjustments for viewports 480px and over go here */
+/* Smaller screens */
+
+@media only screen and (max-width: 1023px) {
+
+  body {
+  font-size: 0.8em;
+  line-height: 1.5em;
+  }
+.container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  article {
+    padding: 0 1.8%;
+  }
+  article.sticky {
+    padding: 10px 1.8%!important;
+    margin: 0 0 20px 0!important;
+  }
+  }
+
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+
+  body {
+  font-size: 16px;
+  -webkit-text-size-adjust: none;
+  }
+
+  .row, body, .container {
+  width: 100%;
+  min-width: 0;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  }
+
+  .row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
+  width: auto;
+  float: none;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  }
 
 }
-
-@media only screen and (min-width: 768px) {
-  /* Style adjustments for viewports 768px and over go here */
-
+/* small screens break the h1 */
+@media only screen and (max-width: 551px){
+  .headerimg { clear: both; background: #222; }
+  .headerimg img { min-height: 110px; }
+  .headerimg h2 { font-size: 150%; }
 }
 
 

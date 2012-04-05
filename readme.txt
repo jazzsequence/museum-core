@@ -34,6 +34,8 @@ There are currently no screenshots.
 * fixed archive headings
 * changed sidebar selection to dropdown
 * changed depth of footer menu to 1 level
+* fixed responsive styles
+* localized 'go' button
 
 = Version 1.0.4 =
 
