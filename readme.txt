@@ -37,6 +37,7 @@ There are currently no screenshots.
 * fixed responsive styles
 * localized 'go' button
 * removed favicon support (for now)
+* added jquery-ui tabs on theme options page
 
 = Version 1.0.4 =
 
