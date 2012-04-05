@@ -31,6 +31,7 @@ There are currently no screenshots.
 * localized footer default text & replaced footer fallback with default
 * fixed postmeta
 * adds a permalinked (no title) to posts without a title
+* fixed archive headings
 
 ### Version 1.0.4
 

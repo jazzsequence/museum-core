@@ -1,15 +1,15 @@
 	<?php if (have_posts()) :
 		$post = $posts[0]; // Hack. Set $post so that the_date() works.
 		/* If this is a category archive */ if (is_category()) { ?>
-		    <h2 class="the_title"><?php echo sprintf( __('Posts filed under %1$s','museum-core'), single_cat_title() ); ?></h2>
+		    <h2 class="the_title"><?php single_cat_title( __('Posts filed under ','museum-core') ); ?></h2>
 			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Posts filed under %1$s','museum-core'), single_tag_title() ); ?></h2>
+			<h2 class="the_title"><?php single_tag_title( __('Posts filed under ','museum-core') ); ?></h2>
 			<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), the_time('j F Y') ); ?></h2>
+			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('j F Y') ); ?></h2>
 			<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), the_time('F Y') ); ?></h2>
+			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('F Y') ); ?></h2>
 			<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), the_time('Y') ); ?></h2>
+			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('Y') ); ?></h2>
 			<?php /* If this is an author archive */ } elseif (is_author()) { ?>
 			<h2 class="the_title"><?php _e('Author Archive','museum-core'); ?></h2>
 			<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
