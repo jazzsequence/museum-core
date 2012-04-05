@@ -8,7 +8,13 @@
 		</section>
 		<section class="postmetadata">
 			<time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time><br />
-            <?php echo sprintf(__('Posted in %1$s','museum-core'), the_category(', ')); ?> <?php the_tags(__('and tagged ','museum-core'),', ',''); ?><br />
+			<?php
+            	$categories = get_the_category_list( __(', ', 'museum-core') );
+				$tags = get_the_tag_list( __('and tagged ', 'museum-core'),', ' );
+				$postmeta = __('Posted in %1$s %2$s', 'museum-core');
+				printf( $postmeta, $categories, $tags );
+			?>
+			<br />
             <?php comments_popup_link(__('No Comments &#187;','museum-core'), __('One Comment &#187;','museum-core'), __('% Comments &#187;','museum-core')); ?>
          </section>
 	</article>

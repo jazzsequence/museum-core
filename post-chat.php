@@ -12,7 +12,13 @@
 		<div class="clear"></div>
 		<section class="postmetadata">
 			<span class="human-time-diff alt"><?php echo sprintf(__('%1$s ago','museum-core'), human_time_diff( get_the_time('U'), current_time('timestamp') )); ?></span><br />
-            <?php echo sprintf(__('Filed under %1$s','museum-core'), the_category(',&nbsp;')); the_tags(__(' and tagged ','museum-core'),', ',''); ?><br />
+			<?php
+				$categories = get_the_category_list( __(', ', 'museum-core') );
+				$tags = get_the_tag_list( __('and tagged ', 'museum-core'),', ' );
+				$postmeta = __('Filed under %1$s %2$s', 'museum-core');
+				printf( $postmeta, $categories, $tags );
+			?>
+			<br />
             <?php comments_popup_link(__('No Comments &#187;','museum-core'), __('One Comment &#187;','museum-core'), __('% Comments &#187;','museum-core')); ?>
          </section>
 	</article>

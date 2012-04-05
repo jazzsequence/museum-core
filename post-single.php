@@ -12,8 +12,13 @@
 
 		<section class="postmetadata">
 			<?php
-				$time = '<time datetime=' . the_time('Y-m-d') . '>' . the_time('j F Y') . '</time>';
-				echo sprintf(__('Posted in %1$s on %2$s','museum-core'), the_category(', '), $time); ?> <?php the_tags(__('and tagged ','museum-core'),', ',''); ?><br />
+				$time = '<time datetime=' . get_the_time('Y-m-d') . '>' . get_the_time('j F Y') . '</time>';
+				$categories = get_the_category_list( __(', ', 'museum-core') );
+				$tags = get_the_tag_list( __('and tagged ', 'museum-core'),', ' );
+				$postmeta = __('Posted in %1$s on %2$s %3$s', 'museum-core');
+				printf( $postmeta, $categories, $time, $tags );
+			?>
+			<br />
 			<?php comments_popup_link(__('No Comments &#187;','museum-core'), __('One Comment &#187;','museum-core'), __('% Comments &#187;','museum-core')); ?>
 			<p><?php edit_post_link(__('Edit this entry','museum-core'),'','.'); ?></p>
         </section>
