@@ -23,7 +23,7 @@ include( AP_CORE_OPTIONS ); ?>
 				<?php } ?>
 			</p>
 		</div>
-		<h3 class="alt"><?php _e( 'All posts by ', 'museum-core' ); the_author_meta('display_name'); ?></h3>
+		<h3 class="alt"><?php echo sprintf( __( 'All posts by %1$s', 'museum-core' ), the_author_meta('display_name') ); ?></h3>
 	</section>
 	<div class="clear"></div>
 	<?php

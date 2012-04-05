@@ -2,18 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-29 18:02-0700\n"
-"PO-Revision-Date: 2012-03-29 18:03-0700\n"
+"POT-Creation-Date: 2012-03-29 21:22-0700\n"
+"PO-Revision-Date: 2012-03-29 21:22-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: ../inc\n"
 
@@ -42,7 +43,8 @@ msgid "Website"
 msgstr ""
 
 #: ../author.php:26
-msgid "All posts by "
+#, php-format
+msgid "All posts by %1$s"
 msgstr ""
 
 #: ../comments.php:4
@@ -50,35 +52,18 @@ msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
 #: ../comments.php:13
-msgid "No Responses"
-msgstr ""
-
-#: ../comments.php:13
-msgid "One Response"
-msgstr ""
-
-#: ../comments.php:13
-msgid "% Responses"
-msgstr ""
-
-#: ../comments.php:13
-msgid " to"
-msgstr ""
+#, php-format
+msgid "One Response to %2$s"
+msgid_plural "%1$s Responses to %2$s"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../comments.php:36
 msgid "Comments are closed."
 msgstr ""
 
-#: ../comments.php:49
-msgid "You must be"
-msgstr ""
-
-#: ../comments.php:49
-msgid "logged in"
-msgstr ""
-
-#: ../comments.php:49
-msgid "to post a comment."
+#: ../comments.php:52
+msgid "You must be %1$slogged in%$2s to post a comment."
 msgstr ""
 
 #: ../footer.php:24
@@ -150,56 +135,47 @@ msgid "Lights 3"
 msgstr ""
 
 #: ../functions.php:238
-msgid "On "
-msgstr ""
-
-#: ../functions.php:238
 #, php-format
-msgid "%1$s at %2$s"
+msgid "On %1$s at %2$s %3$s said:"
 msgstr ""
 
-#: ../functions.php:239
-#, php-format
-msgid "<cite>%s</cite> <span class=\"says\">said:</span>"
-msgstr ""
-
-#: ../functions.php:242
+#: ../functions.php:241
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: ../functions.php:246
+#: ../functions.php:245
 msgid "(Edit)"
 msgstr ""
 
-#: ../functions.php:249
+#: ../functions.php:248
 msgid "Respond to this"
 msgstr ""
 
-#: ../functions.php:258
+#: ../functions.php:257
 msgid "read more"
 msgstr ""
 
-#: ../functions.php:310
+#: ../functions.php:309
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../functions.php:313
+#: ../functions.php:312
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../functions.php:360
+#: ../functions.php:359
 msgid "Show Post Excerpts"
 msgstr ""
 
-#: ../functions.php:364
+#: ../functions.php:363
 msgid "Show Full Posts"
 msgstr ""
 
-#: ../functions.php:380
+#: ../functions.php:379
 msgid "Yes"
 msgstr ""
 
-#: ../functions.php:384
+#: ../functions.php:383
 msgid "No"
 msgstr ""
 
@@ -217,13 +193,15 @@ msgstr ""
 
 #: ../post-archive.php:4
 #: ../post-archive.php:6
-msgid "Posts filed under"
+#, php-format
+msgid "Posts filed under %1$s"
 msgstr ""
 
 #: ../post-archive.php:8
 #: ../post-archive.php:10
 #: ../post-archive.php:12
-msgid "Archive for"
+#, php-format
+msgid "Archive for %1$s"
 msgstr ""
 
 #: ../post-archive.php:14
@@ -235,11 +213,21 @@ msgid "Blog Archives"
 msgstr ""
 
 #: ../post-archive.php:21
-msgid "Permanent Link to "
+#: ../post-audio.php:3
+#: ../post-author.php:4
+#: ../post-chat.php:3
+#: ../post-gallery.php:2
+#: ../post-image.php:2
+#, php-format
+msgid "Permanent Link to %1$s"
 msgstr ""
 
 #: ../post-archive.php:29
-msgid "Posted in"
+#: ../post-audio.php:11
+#: ../post-author.php:18
+#: ../post-image.php:11
+#, php-format
+msgid "Posted in %1$s"
 msgstr ""
 
 #: ../post-archive.php:29
@@ -288,25 +276,13 @@ msgstr ""
 
 #: ../post-aside.php:8
 #: ../post-chat.php:14
-msgid " ago"
-msgstr ""
-
-#: ../post-audio.php:3
-#: ../post-author.php:4
-#: ../post-chat.php:3
-#: ../post-gallery.php:2
-#: ../post-image.php:2
-msgid "Permanent Link to"
-msgstr ""
-
-#: ../post-audio.php:11
-#: ../post-author.php:18
-#: ../post-image.php:11
-msgid "Posted in "
+#, php-format
+msgid "%1$s ago"
 msgstr ""
 
 #: ../post-chat.php:15
-msgid "Filed under "
+#, php-format
+msgid "Filed under %1$s"
 msgstr ""
 
 #: ../post-chat.php:15
@@ -314,21 +290,23 @@ msgid " and tagged "
 msgstr ""
 
 #: ../post-gallery.php:11
-msgid "Displayed in "
+#, php-format
+msgid "Displayed in %1$s"
 msgstr ""
 
 #: ../post-page.php:12
-#: ../post-single.php:16
+#: ../post-single.php:18
 msgid "Edit this entry"
 msgstr ""
 
 #: ../post-search.php:16
 #, php-format
-msgid "We found %d results for "
+msgid "We found %1$s results for &ldquo;%2$s&rdquo;"
 msgstr ""
 
-#: ../post-single.php:14
-msgid "on"
+#: ../post-single.php:16
+#, php-format
+msgid "Posted in %1$s on %2$s"
 msgstr ""
 
 #: ../searchform.php:2

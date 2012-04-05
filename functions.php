@@ -235,8 +235,7 @@ function ap_core_setup() {
       <div class="comment-author vcard">
          <?php echo get_avatar
 	($comment,$size='64',$default='<path_to_url>' ); ?>
-	<?php _e('On ','museum-core'); printf(__('%1$s at %2$s','museum-core'), get_comment_date(), get_comment_time()) ?>
-     <?php printf(__('<cite>%s</cite> <span class="says">said:</span>', 'museum-core'), get_comment_author_link()) ?>
+	<?php sprintf(__('On %1$s at %2$s %3$s said:','museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ?>
       </div>
       <?php if ($comment->comment_approved == '0') : ?>
          <em><?php _e('Your comment is awaiting moderation.', 'museum-core') ?></em>
