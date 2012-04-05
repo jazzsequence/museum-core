@@ -466,6 +466,8 @@ function ap_core_theme_options_page() {
 							</tr>
 						</table>
 						</div>
+						<?php /* debug */
+						/* var_dump($options); ?><br /><?php var_dump($defaults); */ ?>
 						<p class="submit">
 							<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'museum-core' ); ?>" />
 							<input type="hidden" name="ap-core-settings-submit" value="Y" />
@@ -524,6 +526,7 @@ set_transient('presstrends_data', $data, 60*60*24);
 $options = get_option( 'ap_core_theme_options' );
 if ( $options['presstrends'] != 'false' ) {
 add_action('admin_init', 'ap_core_presstrends');
+//add_action('wp_head', function() { echo 'Presstrends is enabled'; });
 }
 
 /**
