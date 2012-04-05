@@ -2,233 +2,245 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-29 21:22-0700\n"
-"PO-Revision-Date: 2012-03-29 21:25-0700\n"
+"POT-Creation-Date: 2012-03-29 18:02-0700\n"
+"PO-Revision-Date: 2012-03-29 18:03-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _e;__;_n:1,2\n"
+"X-Poedit-KeywordsList: _e;__\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-Country: UNITED STATES\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: ../inc\n"
 
 #: ../404.php:9
 msgid "The page you were looking for could not be found."
-msgstr "The page you were looking for could not be found."
+msgstr ""
 
 #: ../404.php:10
 msgid "The page you were looking for is missing or doesn't exist.  Here are some links to help you back on your way."
-msgstr "The page you were looking for is missing or doesn't exist.  Here are some links to help you back on your way."
+msgstr ""
 
 #: ../404.php:15
 msgid "Archives by Month"
-msgstr "Archives by Month"
+msgstr ""
 
 #: ../404.php:22
 msgid "Archives by Subject"
-msgstr "Archives by Subject"
+msgstr ""
 
 #: ../404.php:29
 msgid "Links"
-msgstr "Links"
+msgstr ""
 
 #: ../author.php:22
 msgid "Website"
-msgstr "Website"
+msgstr ""
 
 #: ../author.php:26
-#, php-format
-msgid "All posts by %1$s"
-msgstr "All posts by %1$s"
+msgid "All posts by "
+msgstr ""
 
 #: ../comments.php:4
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "This post is password protected. Enter the password to view comments."
+msgstr ""
 
 #: ../comments.php:13
-#, php-format
-msgid "One Response to %2$s"
-msgid_plural "%1$s Responses to %2$s"
-msgstr[0] "One Response to %2$s"
-msgstr[1] "%1$s Responses to %2$s"
+msgid "No Responses"
+msgstr ""
+
+#: ../comments.php:13
+msgid "One Response"
+msgstr ""
+
+#: ../comments.php:13
+msgid "% Responses"
+msgstr ""
+
+#: ../comments.php:13
+msgid " to"
+msgstr ""
 
 #: ../comments.php:36
 msgid "Comments are closed."
-msgstr "Comments are closed."
+msgstr ""
 
-#: ../comments.php:52
-msgid "You must be %1$slogged in%$2s to post a comment."
-msgstr "You must be %1$slogged in%$2s to post a comment."
+#: ../comments.php:49
+msgid "You must be"
+msgstr ""
+
+#: ../comments.php:49
+msgid "logged in"
+msgstr ""
+
+#: ../comments.php:49
+msgid "to post a comment."
+msgstr ""
 
 #: ../footer.php:24
 msgid "Powered by WordPress"
-msgstr "Powered by WordPress"
+msgstr ""
 
 #: ../functions.php:5
 msgid "Sidebar"
-msgstr "Sidebar"
+msgstr ""
 
 #: ../functions.php:6
 msgid "This is the regular, widgetized sidebar"
-msgstr "This is the regular, widgetized sidebar"
+msgstr ""
 
 #: ../functions.php:13
 msgid "Left Footer Box"
-msgstr "Left Footer Box"
+msgstr ""
 
 #: ../functions.php:14
 msgid "This is the left box in the footer."
-msgstr "This is the left box in the footer."
+msgstr ""
 
 #: ../functions.php:21
 msgid "Center Footer Box"
-msgstr "Center Footer Box"
+msgstr ""
 
 #: ../functions.php:22
 msgid "This is the center box in the footer."
-msgstr "This is the center box in the footer."
+msgstr ""
 
 #: ../functions.php:29
 msgid "Right Footer Box"
-msgstr "Right Footer Box"
+msgstr ""
 
 #: ../functions.php:30
 msgid "This is the right box in the footer."
-msgstr "This is the right box in the footer."
+msgstr ""
 
 #: ../functions.php:149
 msgid "Top Header Navigation"
-msgstr "Top Header Navigation"
+msgstr ""
 
 #: ../functions.php:150
 msgid "Main Navigation"
-msgstr "Main Navigation"
+msgstr ""
 
 #: ../functions.php:151
 msgid "Footer Navigation"
-msgstr "Footer Navigation"
+msgstr ""
 
 #: ../functions.php:198
 msgid "Nature"
-msgstr "Nature"
+msgstr ""
 
 #: ../functions.php:204
 msgid "Smoke"
-msgstr "Smoke"
+msgstr ""
 
 #: ../functions.php:210
 msgid "Lights 1"
-msgstr "Lights 1"
+msgstr ""
 
 #: ../functions.php:216
 msgid "Lights 2"
-msgstr "Lights 2"
+msgstr ""
 
 #: ../functions.php:222
 msgid "Lights 3"
-msgstr "Lights 3"
+msgstr ""
+
+#: ../functions.php:238
+msgid "On "
+msgstr ""
 
 #: ../functions.php:238
 #, php-format
-msgid "On %1$s at %2$s %3$s said:"
-msgstr "On %1$s at %2$s %3$s said:"
+msgid "%1$s at %2$s"
+msgstr ""
 
-#: ../functions.php:241
+#: ../functions.php:239
+#, php-format
+msgid "<cite>%s</cite> <span class=\"says\">said:</span>"
+msgstr ""
+
+#: ../functions.php:242
 msgid "Your comment is awaiting moderation."
-msgstr "Your comment is awaiting moderation."
+msgstr ""
 
-#: ../functions.php:245
+#: ../functions.php:246
 msgid "(Edit)"
-msgstr "(Edit)"
+msgstr ""
 
-#: ../functions.php:248
+#: ../functions.php:249
 msgid "Respond to this"
-msgstr "Respond to this"
+msgstr ""
 
-#: ../functions.php:257
+#: ../functions.php:258
 msgid "read more"
-msgstr "read more"
+msgstr ""
 
-#: ../functions.php:309
+#: ../functions.php:310
 msgid "Left Sidebar"
-msgstr "Left Sidebar"
+msgstr ""
 
-#: ../functions.php:312
+#: ../functions.php:313
 msgid "Right Sidebar"
-msgstr "Right Sidebar"
+msgstr ""
 
-#: ../functions.php:359
+#: ../functions.php:360
 msgid "Show Post Excerpts"
-msgstr "Show Post Excerpts"
+msgstr ""
 
-#: ../functions.php:363
+#: ../functions.php:364
 msgid "Show Full Posts"
-msgstr "Show Full Posts"
+msgstr ""
 
-#: ../functions.php:379
+#: ../functions.php:380
 msgid "Yes"
-msgstr "Yes"
+msgstr ""
 
-#: ../functions.php:383
+#: ../functions.php:384
 msgid "No"
-msgstr "No"
+msgstr ""
 
 #: ../index.php:15
 #: ../post-archive.php:38
 #: ../post-author.php:28
 msgid "&laquo; Older Entries"
-msgstr "&laquo; Older Entries"
+msgstr ""
 
 #: ../index.php:16
 #: ../post-archive.php:39
 #: ../post-author.php:29
 msgid "Newer Entries &raquo;"
-msgstr "Newer Entries &raquo;"
+msgstr ""
 
 #: ../post-archive.php:4
 #: ../post-archive.php:6
-#, php-format
-msgid "Posts filed under %1$s"
-msgstr "Posts filed under %1$s"
+msgid "Posts filed under"
+msgstr ""
 
 #: ../post-archive.php:8
 #: ../post-archive.php:10
 #: ../post-archive.php:12
-#, php-format
-msgid "Archive for %1$s"
-msgstr "Archive for %1$s"
+msgid "Archive for"
+msgstr ""
 
 #: ../post-archive.php:14
 msgid "Author Archive"
-msgstr "Author Archive"
+msgstr ""
 
 #: ../post-archive.php:16
 msgid "Blog Archives"
-msgstr "Blog Archives"
+msgstr ""
 
 #: ../post-archive.php:21
-#: ../post-audio.php:3
-#: ../post-author.php:4
-#: ../post-chat.php:3
-#: ../post-gallery.php:2
-#: ../post-image.php:2
-#, php-format
-msgid "Permanent Link to %1$s"
-msgstr "Permanent Link to %1$s"
+msgid "Permanent Link to "
+msgstr ""
 
 #: ../post-archive.php:29
-#: ../post-audio.php:11
-#: ../post-author.php:18
-#: ../post-image.php:11
-#, php-format
-msgid "Posted in %1$s"
-msgstr "Posted in %1$s"
+msgid "Posted in"
+msgstr ""
 
 #: ../post-archive.php:29
 #: ../post-audio.php:11
@@ -236,7 +248,7 @@ msgstr "Posted in %1$s"
 #: ../post-gallery.php:11
 #: ../post-image.php:11
 msgid "and tagged "
-msgstr "and tagged "
+msgstr ""
 
 #: ../post-archive.php:30
 #: ../post-audio.php:12
@@ -245,7 +257,7 @@ msgstr "and tagged "
 #: ../post-gallery.php:12
 #: ../post-image.php:12
 msgid "No Comments &#187;"
-msgstr "No Comments &#187;"
+msgstr ""
 
 #: ../post-archive.php:30
 #: ../post-audio.php:12
@@ -254,7 +266,7 @@ msgstr "No Comments &#187;"
 #: ../post-gallery.php:12
 #: ../post-image.php:12
 msgid "One Comment &#187;"
-msgstr "One Comment &#187;"
+msgstr ""
 
 #: ../post-archive.php:30
 #: ../post-audio.php:12
@@ -263,7 +275,7 @@ msgstr "One Comment &#187;"
 #: ../post-gallery.php:12
 #: ../post-image.php:12
 msgid "% Comments &#187;"
-msgstr "% Comments &#187;"
+msgstr ""
 
 #: ../post-aside.php:4
 #: ../post-audio.php:6
@@ -272,200 +284,210 @@ msgstr "% Comments &#187;"
 #: ../post-gallery.php:5
 #: ../post-image.php:5
 msgid "Read more &raquo;"
-msgstr "Read more &raquo;"
+msgstr ""
 
 #: ../post-aside.php:8
 #: ../post-chat.php:14
-#, php-format
-msgid "%1$s ago"
-msgstr "%1$s ago"
+msgid " ago"
+msgstr ""
+
+#: ../post-audio.php:3
+#: ../post-author.php:4
+#: ../post-chat.php:3
+#: ../post-gallery.php:2
+#: ../post-image.php:2
+msgid "Permanent Link to"
+msgstr ""
+
+#: ../post-audio.php:11
+#: ../post-author.php:18
+#: ../post-image.php:11
+msgid "Posted in "
+msgstr ""
 
 #: ../post-chat.php:15
-#, php-format
-msgid "Filed under %1$s"
-msgstr "Filed under %1$s"
+msgid "Filed under "
+msgstr ""
 
 #: ../post-chat.php:15
 msgid " and tagged "
-msgstr " and tagged "
+msgstr ""
 
 #: ../post-gallery.php:11
-#, php-format
-msgid "Displayed in %1$s"
-msgstr "Displayed in %1$s"
+msgid "Displayed in "
+msgstr ""
 
 #: ../post-page.php:12
-#: ../post-single.php:18
+#: ../post-single.php:16
 msgid "Edit this entry"
-msgstr "Edit this entry"
+msgstr ""
 
 #: ../post-search.php:16
 #, php-format
-msgid "We found %1$s results for &ldquo;%2$s&rdquo;"
-msgstr "We found %1$s results for &ldquo;%2$s&rdquo;"
+msgid "We found %d results for "
+msgstr ""
 
-#: ../post-single.php:16
-#, php-format
-msgid "Posted in %1$s on %2$s"
-msgstr "Posted in %1$s on %2$s"
+#: ../post-single.php:14
+msgid "on"
+msgstr ""
 
 #: ../searchform.php:2
 msgid "Search this site"
-msgstr "Search this site"
+msgstr ""
 
 #: ../inc/theme-options.php:31
 msgid "Theme Options"
-msgstr "Theme Options"
+msgstr ""
 
 #: ../inc/theme-options.php:61
 msgid "What's new at Museum Themes"
-msgstr "What's new at Museum Themes"
+msgstr ""
 
 #: ../inc/theme-options.php:66
 msgid "Follow us on Twitter"
-msgstr "Follow us on Twitter"
+msgstr ""
 
 #: ../inc/theme-options.php:144
 msgid " Theme Options"
-msgstr " Theme Options"
+msgstr ""
 
 #: ../inc/theme-options.php:147
 msgid "Options saved"
-msgstr "Options saved"
+msgstr ""
 
 #: ../inc/theme-options.php:159
 msgid "General"
-msgstr "General"
+msgstr ""
 
 #: ../inc/theme-options.php:188
 msgid "Full posts or excerpts?"
-msgstr "Full posts or excerpts?"
+msgstr ""
 
 #: ../inc/theme-options.php:199
 msgid "Select whether you want full posts on the blog page or post excerpts with post thumbnails."
-msgstr "Select whether you want full posts on the blog page or post excerpts with post thumbnails."
+msgstr ""
 
 #: ../inc/theme-options.php:207
 msgid "Footer Text"
-msgstr "Footer Text"
+msgstr ""
 
 #: ../inc/theme-options.php:214
 msgid "Add your own footer text or leave blank for no text in the footer"
-msgstr "Add your own footer text or leave blank for no text in the footer"
+msgstr ""
 
 #: ../inc/theme-options.php:220
 msgid "Typography & Fonts"
-msgstr "Typography & Fonts"
+msgstr ""
 
 #: ../inc/theme-options.php:227
 msgid "Museum Core Fonts"
-msgstr "Museum Core Fonts"
+msgstr ""
 
 #: ../inc/theme-options.php:230
 msgid "Fonts"
-msgstr "Fonts"
+msgstr ""
 
 #: ../inc/theme-options.php:236
 msgid "[link]"
-msgstr "[link]"
+msgstr ""
 
 #: ../inc/theme-options.php:241
 msgid "Headings Font"
-msgstr "Headings Font"
+msgstr ""
 
 #: ../inc/theme-options.php:252
 msgid "Used for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;h3&gt;</code> tags."
-msgstr "Used for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;h3&gt;</code> tags."
+msgstr ""
 
 #: ../inc/theme-options.php:255
 msgid "Body Font"
-msgstr "Body Font"
+msgstr ""
 
 #: ../inc/theme-options.php:266
 msgid "Used for all body text."
-msgstr "Used for all body text."
+msgstr ""
 
 #: ../inc/theme-options.php:269
 msgid "Alternate Font"
-msgstr "Alternate Font"
+msgstr ""
 
 #: ../inc/theme-options.php:280
 msgid "Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code> and <code>&lt;h6&gt;</code> tags and anywhere the <code>.alt</code> class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</code>."
-msgstr "Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code> and <code>&lt;h6&gt;</code> tags and anywhere the <code>.alt</code> class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</code>."
+msgstr ""
 
 #: ../inc/theme-options.php:283
 msgid "Use alternate font for H1?"
-msgstr "Use alternate font for H1?"
+msgstr ""
 
 #: ../inc/theme-options.php:294
 msgid "If set to \"Yes\", the alternate font will be used on the <code>&lt;h1&gt;</code> tag in the header and the heading font will be used for the description."
-msgstr "If set to \"Yes\", the alternate font will be used on the <code>&lt;h1&gt;</code> tag in the header and the heading font will be used for the description."
+msgstr ""
 
 #: ../inc/theme-options.php:302
 msgid "Link Color"
-msgstr "Link Color"
+msgstr ""
 
 #: ../inc/theme-options.php:306
 msgid "Set your desired link color."
-msgstr "Set your desired link color."
+msgstr ""
 
 #: ../inc/theme-options.php:309
 msgid "Hover Color"
-msgstr "Hover Color"
+msgstr ""
 
 #: ../inc/theme-options.php:313
 msgid "Set your desired link hover color."
-msgstr "Set your desired link hover color."
+msgstr ""
 
 #: ../inc/theme-options.php:319
 msgid "Advanced"
-msgstr "Advanced"
+msgstr ""
 
 #: ../inc/theme-options.php:326
 msgid "Use meta description?"
-msgstr "Use meta description?"
+msgstr ""
 
 #: ../inc/theme-options.php:337
 msgid "If Yes, meta tags for description will be loaded in the header (pulled from post excerpt for single posts and pages or from the description for tags and categories).  Use this if you don't plan on using an SEO plugin to handle your meta descriptions."
-msgstr "If Yes, meta tags for description will be loaded in the header (pulled from post excerpt for single posts and pages or from the description for tags and categories).  Use this if you don't plan on using an SEO plugin to handle your meta descriptions."
+msgstr ""
 
 #: ../inc/theme-options.php:337
 msgid "If No, no meta description tags will be loaded.  Use this if you plan on using something to take care of your meta description."
-msgstr "If No, no meta description tags will be loaded.  Use this if you plan on using something to take care of your meta description."
+msgstr ""
 
 #: ../inc/theme-options.php:337
 msgid "More info"
-msgstr "More info"
+msgstr ""
 
 #: ../inc/theme-options.php:345
 msgid "Use meta author?"
-msgstr "Use meta author?"
+msgstr ""
 
 #: ../inc/theme-options.php:356
 msgid "If Yes, meta author tags will be used on all pages (except 404 pages)."
-msgstr "If Yes, meta author tags will be used on all pages (except 404 pages)."
+msgstr ""
 
 #: ../inc/theme-options.php:356
 msgid "If No, meta author tags will be disabled."
-msgstr "If No, meta author tags will be disabled."
+msgstr ""
 
 #: ../inc/theme-options.php:364
 msgid "Use meta generator tag?"
-msgstr "Use meta generator tag?"
+msgstr ""
 
 #: ../inc/theme-options.php:375
 msgid "If Yes, the theme name and version will be added to a meta generator tag.  This is useful in identifying which version of the theme you are using for troubleshooting purposes.  This should be enabled if you need to contact us for support."
-msgstr "If Yes, the theme name and version will be added to a meta generator tag.  This is useful in identifying which version of the theme you are using for troubleshooting purposes.  This should be enabled if you need to contact us for support."
+msgstr ""
 
 #: ../inc/theme-options.php:383
 msgid "Send usage data?"
-msgstr "Send usage data?"
+msgstr ""
 
 #: ../inc/theme-options.php:394
 msgid "For more information visit <a href=\"http://presstrends.io/faq\">PressTrends</a>."
-msgstr "For more information visit <a href=\"http://presstrends.io/faq\">PressTrends</a>."
+msgstr ""
 
 #: ../inc/theme-options.php:400
 msgid "Save Options"
-msgstr "Save Options"
+msgstr ""
 

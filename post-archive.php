@@ -1,15 +1,15 @@
 	<?php if (have_posts()) :
 		$post = $posts[0]; // Hack. Set $post so that the_date() works.
 		/* If this is a category archive */ if (is_category()) { ?>
-		    <h2 class="the_title"><?php echo sprintf( __('Posts filed under %1$s','museum-core'), single_cat_title() ); ?></h2>
+		    <h2 class="the_title"><?php _e('Posts filed under','museum-core'); ?> <?php single_cat_title(); ?></h2>
 			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Posts filed under %1$s','museum-core'), single_tag_title() ); ?></h2>
+			<h2 class="the_title"><?php _e('Posts filed under','museum-core'); ?> <?php single_tag_title(); ?></h2>
 			<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), the_time('j F Y') ); ?></h2>
+			<h2 class="the_title"><?php _e('Archive for','museum-core'); ?> <?php the_time('j F Y'); ?></h2>
 			<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), the_time('F Y') ); ?></h2>
+			<h2 class="the_title"><?php _e('Archive for','museum-core'); ?> <?php the_time('F Y'); ?></h2>
 			<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), the_time('Y') ); ?></h2>
+			<h2 class="the_title"><?php _e('Archive for','museum-core'); ?> <?php the_time('Y'); ?></h2>
 			<?php /* If this is an author archive */ } elseif (is_author()) { ?>
 			<h2 class="the_title"><?php _e('Author Archive','museum-core'); ?></h2>
 			<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
@@ -18,7 +18,7 @@
 	<?php while (have_posts()) : the_post(); ?>
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
     	<h3 class="the_date"><time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time></h3>
-		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php echo sprintf( __('Permanent Link to %1$s','museum-core'), the_title_attribute() ); ?>"><?php the_title(); ?></a></h2>
+		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e('Permanent Link to ','museum-core'); the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 		<section class="entry">
 			<?php if(has_post_thumbnail()) { ?>
 				<div class="alignleft twocol"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a></div>
@@ -26,7 +26,7 @@
 			<?php the_excerpt(); ?>
 		</section>
 		<section class="postmetadata">
-            <?php echo sprintf(__('Posted in %1$s','museum-core'), the_category(', ')); ?> <?php the_tags(__('and tagged ','museum-core'),', ',''); ?><br />
+            <?php _e('Posted in','museum-core'); ?> <?php the_category(', '); ?> <?php the_tags(__('and tagged ','museum-core'),', ',''); ?><br />
             <?php comments_popup_link(__('No Comments &#187;','museum-core'), __('One Comment &#187;','museum-core'), __('% Comments &#187;','museum-core')); ?>
         </section>
     </article>

@@ -38,7 +38,6 @@ There are currently no screenshots.
 * internationalized searchform
 * removed debug code
 * implemented checked() and selected() for theme options
-* fixed (for real this time) internationalization
 
 ### Version 1.0.3
 
