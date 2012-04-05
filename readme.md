@@ -33,6 +33,7 @@ There are currently no screenshots.
 * adds a permalinked (no title) to posts without a title
 * fixed archive headings
 * changed sidebar selection to dropdown
+* changed depth of footer menu to 1 level
 
 ### Version 1.0.4
 

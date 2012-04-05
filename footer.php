@@ -22,7 +22,7 @@
 				</ul>
 			</div>
 			<div class="spacer-10"></div>
-			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'footernav', 'theme_location' => 'footer', 'fallback_cb' => false ) ); ?>
+			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'footernav', 'theme_location' => 'footer', 'fallback_cb' => false, 'depth' => 1 ) ); ?>
 			<div class="credit">
 				<?php if ( $options['footer'] != '' ) {
 				echo $options['footer'];
