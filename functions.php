@@ -334,7 +334,6 @@ function ap_core_get_theme_defaults(){
         // footer text
         'footer' => stripslashes('&copy; ' . date('Y') . ' ' . get_bloginfo('title') . ' . <a href="http://museumthemes.com/" target="_blank" title="Museum Themes">' . __('Museum Themes','museum-core') . '</a> . <a href="http://wordpress.org" target="_blank">' . __('Powered by WordPress','museum-core') . '</a>'),
         // advanced settings
-        'title' => 'true',
         'meta' => 'false',
         'author' => 'false',
         'generator' => 'false',
