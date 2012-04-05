@@ -36,6 +36,7 @@ There are currently no screenshots.
 * changed depth of footer menu to 1 level
 * fixed responsive styles
 * localized 'go' button
+* removed favicon support (for now)
 
 ### Version 1.0.4
 
