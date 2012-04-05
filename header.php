@@ -55,15 +55,6 @@ if ($options['author'] == 'true') {
 				<?php } else { ?>
 
 			<div class="headerimg">
-				<hgroup class="siteinfo">
-					<?php if ($options['alth1'] == 'true') { ?>
-						<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-						<h2><?php bloginfo('description'); ?></h2>
-					<?php } else { ?>
-						<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-						<h2 class="alt"><?php bloginfo('description'); ?></h2>
-					<?php } ?>
-				</hgroup>
 				<?php
 					// Check if this is a post or page, if it has a thumbnail, and if it's a big one
 					if ( is_singular() && current_theme_supports( 'post-thumbnails' ) &&
@@ -75,6 +66,15 @@ if ($options['author'] == 'true') {
 					elseif ( get_header_image() ) : ?>
 						<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
 					<?php endif; ?>
+				<hgroup class="siteinfo">
+					<?php if ($options['alth1'] == 'true') { ?>
+						<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+						<h2><?php bloginfo('description'); ?></h2>
+					<?php } else { ?>
+						<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
+						<h2 class="alt"><?php bloginfo('description'); ?></h2>
+					<?php } ?>
+				</hgroup>
 			</div>
 			<?php } ?>
 			<div class="clear"></div>
