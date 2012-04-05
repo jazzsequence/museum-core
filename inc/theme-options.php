@@ -142,8 +142,8 @@ function ap_core_theme_options_page() {
 	$load_css .= 'table.form-table { height: 475px; }';
 	$load_css .= 'div.tab-wrap { height: 44px; border-bottom: 1px solid #ccc; width: 100%; position: relative; z-index: 0; }';
 	$load_css .= 'ul.nav-tab-wrapper { margin: 0; float: left; }';
-	$load_css .= 'ul.nav-tab-wrapper li { float: left; margin-bottom: 0; }';
-	$load_css .= 'ul.nav-tab-wrapper li.ui-state-active { border-bottom: 5px solid #fff!important; position: relative; z-index: 999; }';
+	$load_css .= 'ul.nav-tab-wrapper li { float: left; margin-bottom: 0; position: relative; z-index: 999; }';
+	$load_css .= 'li.ui-state-active .nav-tab { border-bottom: 5px solid #fff!important; }';
 	$load_css .= '#poststuff .nav-tab-wrapper h2 { margin-top: 8px; margin-bottom: 0; padding: 0 0 2px; }';
 	$load_css .= 'li.ui-state-default a { color: #aaa; }';
 	$load_css .= 'li.ui-state-active a { color: #464646; }';
@@ -407,7 +407,7 @@ function ap_core_theme_options_page() {
 													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
 												} ?>
 										</select><br />
-										<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'For more information visit <a href="http://presstrends.io/faq">PressTrends</a>.', 'museum-core' ); ?></label>
+										<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href="http://presstrends.io/faq">PressTrends</a>.', 'museum-core' ); ?></label>
 									</td>
 								</tr>
 							</table>
