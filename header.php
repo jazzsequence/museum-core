@@ -9,21 +9,7 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <?php $options = get_option( 'ap_core_theme_options' ); ?>
-<?php /* title tag */ ?>
-<?php if ($options['title'] == 'false') { ?>
-	<!-- using Museum Core titles -->
-	<title>
-		<?php
-		$category = get_the_category();
-		if (is_home () ) { bloginfo('name'); }
-		elseif ( is_category() ) { single_cat_title(); echo ' | ' ; bloginfo('name'); }
-		elseif (is_single() ) { single_post_title(); echo ' | '; echo $category[0]->cat_name; }
-		elseif (is_page() ) { single_post_title();}
-		else { wp_title('',true); } ?> | <?php bloginfo('description'); ?>
-	</title>
-<?php } else {
-	echo '<title>'; wp_title(); echo '</title>';
-} ?>
+<title><?php wp_title(); ?></title>
 <?php /* meta description */ ?>
 <?php if ($options['meta'] == 'true') {
 	if ( is_tax() ) {
