@@ -476,8 +476,6 @@ function ap_core_theme_options_validate( $input ) {
 	$input['alt'] = $input['alt'];
 	if ( !array_key_exists( $input['alth1'], ap_core_true_false() ) )
 	$input['alth1'] = $input['alth1'];
-	if ( !array_key_exists( $input['title'], ap_core_true_false() ) )
-	$input['title'] = $input['title'];
 	if ( !array_key_exists( $input['meta'], ap_core_true_false() ) )
 	$input['meta'] = $input['meta'];
 	if ( !array_key_exists( $input['author'], ap_core_true_false() ) )
