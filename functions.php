@@ -113,102 +113,94 @@ function ap_core_setup() {
     if ( is_readable($locale_file) )
     require_once($locale_file);
 
-    if ( function_exists('add_theme_support') ) { // check if 'add_theme_support' exists, then run all the theme support stuff
-        // post thumbnail support
-    	add_theme_support( 'post-thumbnails' );
-    	set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
-        // post formats
-        // register all post formats -- child themes can remove some post formats as they so desire
-        add_theme_support('post-formats',array('aside','gallery','link','image','quote','status','video','audio','chat'));
+    // post thumbnail support
+    add_theme_support( 'post-thumbnails' );
+    set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
+    // post formats
+    // register all post formats -- child themes can remove some post formats as they so desire
+    add_theme_support('post-formats',array('aside','gallery','link','image','quote','status','video','audio','chat'));
 
-        // automatic feed links
-        add_theme_support('automatic-feed-links');
-    }
+    // automatic feed links
+    add_theme_support('automatic-feed-links');
+
 	if ( ! isset( $content_width ) ) $content_width = 1140;
 
-    if ( function_exists('register_nav_menus') ) { // check if custom nav menus is supported, then do the nav menu stuff
-    	// custom nav menus
-    	// This theme uses wp_nav_menu() in three (count them, three!) locations.
-    	register_nav_menus( array(
-    		'top' => __( 'Top Header Navigation', 'museum-core' ),
-    		'main' => __( 'Main Navigation', 'museum-core' ),
-    		'footer' => __( 'Footer Navigation', 'museum-core' ),
-    	) );
+    // custom nav menus
+    // This theme uses wp_nav_menu() in three (count them, three!) locations.
+    register_nav_menus( array(
+    	'top' => __( 'Top Header Navigation', 'museum-core' ),
+    	'main' => __( 'Main Navigation', 'museum-core' ),
+    	'footer' => __( 'Footer Navigation', 'museum-core' ),
+    ) );
 
-    	// This adds a home link option in the Menus
-    	function ap_core_home_page_menu_args( $args ) {
-    	$args['show_home'] = true;
-    	return $args;
-    	}
-    	add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
+    // This adds a home link option in the Menus
+    function ap_core_home_page_menu_args( $args ) {
+        $args['show_home'] = true;
+        return $args;
     }
+    add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
 
-    if ( function_exists('add_custom_background') ) { // check if custom backgrounds are supported, then do background stuff
-    	// This theme allows users to set a custom background
-    	add_custom_background();
-    }
+    // This theme allows users to set a custom background
+    add_custom_background();
 
-    if ( function_exists('add_custom_image_header') ) { // check if custom headers are supported, then do header stuff
-    	// this theme has a custom header thingie
-    	// Your changeable header business starts here
-    	define( 'HEADER_TEXTCOLOR', '' );
-    	// No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
-    	define( 'HEADER_IMAGE', '%s/images/headers/smoke.jpg' );
+    // this theme has a custom header thingie
+    define( 'HEADER_TEXTCOLOR', '' );
+    // No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
+    define( 'HEADER_IMAGE', '%s/images/headers/smoke.jpg' );
 
-    	// The height and width of your custom header. You can hook into the theme's own filters to change these values.
-    	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 1140 ) );
-    	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'core_header_image_height', 200 ) );
+    // The height and width of your custom header. You can hook into the theme's own filters to change these values.
+    define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 1140 ) );
+    define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'core_header_image_height', 200 ) );
 
-    	// We'll be using post thumbnails for custom header images on posts and pages.
-    	// We want them to be 940 pixels wide by 198 pixels tall.
-    	// Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
-    	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
+    // We'll be using post thumbnails for custom header images on posts and pages.
+    // We want them to be 1140 pixels wide by 200 pixels tall.
+    // Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
+    set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
 
-    	// Don't support text inside the header image.
-    	define( 'NO_HEADER_TEXT', true );
+    // Don't support text inside the header image.
+    define( 'NO_HEADER_TEXT', true );
 
-    	// Add a way for the custom header to be styled in the admin panel that controls
-    	// custom headers. See twentyten_admin_header_style(), below.
-    	add_custom_image_header( '', 'core_admin_header_style' );
+    // Add a way for the custom header to be styled in the admin panel that controls
+    // custom headers. See twentyten_admin_header_style(), below.
+    add_custom_image_header( '', 'core_admin_header_style' );
 
-    	// ... and thus ends the changeable header business.
+    // ... and thus ends the changeable header business.
 
-    	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
-    	register_default_headers( array(
-    		'nature' => array(
-    			'url' => '%s/images/headers/nature.jpg',
-    			'thumbnail_url' => '%s/images/headers/nature-thumbnail.jpg',
-    			/* translators: header image description */
-    			'description' => __( 'Nature', 'museum-core' )
-    		),
-    		'smoke' => array(
-    			'url' => '%s/images/headers/smoke.jpg',
-    			'thumbnail_url' => '%s/images/headers/smoke-thumbnail.jpg',
-    			/* translators: header image description */
-    			'description' => __( 'Smoke', 'museum-core' )
-    		),
-    		'lights1' => array(
-    			'url' => '%s/images/headers/lights1.jpg',
-    			'thumbnail_url' => '%s/images/headers/lights1-thumbnail.jpg',
-    			/* translators: header image description */
-    			'description' => __( 'Lights 1', 'museum-core' )
-    		),
+    // Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
+    register_default_headers( array(
+    	'nature' => array(
+    		'url' => '%s/images/headers/nature.jpg',
+    		'thumbnail_url' => '%s/images/headers/nature-thumbnail.jpg',
+    		/* translators: header image description */
+    		'description' => __( 'Nature', 'museum-core' )
+    	),
+    	'smoke' => array(
+    		'url' => '%s/images/headers/smoke.jpg',
+    		'thumbnail_url' => '%s/images/headers/smoke-thumbnail.jpg',
+    		/* translators: header image description */
+    		'description' => __( 'Smoke', 'museum-core' )
+    	),
+    	'lights1' => array(
+			'url' => '%s/images/headers/lights1.jpg',
+    		'thumbnail_url' => '%s/images/headers/lights1-thumbnail.jpg',
+    		/* translators: header image description */
+    		'description' => __( 'Lights 1', 'museum-core' )
+		),
         'lights2' => array(
-          'url' => '%s/images/headers/lights2.jpg',
-          'thumbnail_url' => '%s/images/headers/lights2-thumbnail.jpg',
-          /* translators: header image description */
-          'description' => __( 'Lights 2', 'museum-core' )
+            'url' => '%s/images/headers/lights2.jpg',
+            'thumbnail_url' => '%s/images/headers/lights2-thumbnail.jpg',
+            /* translators: header image description */
+            'description' => __( 'Lights 2', 'museum-core' )
         ),
-    		'lights3' => array(
-    			'url' => '%s/images/headers/lights3.jpg',
-    			'thumbnail_url' => '%s/images/headers/lights3-thumbnail.jpg',
-    			/* translators: header image description */
-    			'description' => __( 'Lights 3', 'museum-core' )
-    		)
-    	) );
-        function core_admin_header_style() {
-            // I don't have any custom header styles...yet.
-        }
+    	'lights3' => array(
+    		'url' => '%s/images/headers/lights3.jpg',
+			'thumbnail_url' => '%s/images/headers/lights3-thumbnail.jpg',
+    		/* translators: header image description */
+    		'description' => __( 'Lights 3', 'museum-core' )
+    	)
+    ) );
+    function core_admin_header_style() {
+        // I don't have any custom header styles...yet.
     }
 
 	// this changes the output of the comments
@@ -244,6 +236,56 @@ function ap_core_setup() {
 
 }
 add_action('after_setup_theme','ap_core_setup');
+
+/**
+ * customized wp_title
+ * @since 1.0.5
+ * @author Chris Reynolds
+ * @uses wp_title
+ * @link http://wordpress.stackexchange.com/questions/32622/when-calling-wp-title-do-you-have-to-create-some-kind-of-title-php-file
+ * replaces default wp_title with a modified version
+ */
+function ap_core_wp_title( $title ) {
+    if ( !is_404() )
+        $category = get_the_category(); // get the category only if we aren't looking at a 404 page
+    $name = get_bloginfo('name');
+    $description = get_bloginfo('description');
+
+    // if we're on the home page...
+    if ( is_home() ) {
+        $ap_core_title = $name;
+    }
+
+    // if we're on a category archive page...
+    elseif ( is_category() ) {
+        $ap_core_title = single_cat_title( '', false ) . ' | ' . $name;
+    }
+
+    // if we're on a single post...
+    elseif ( is_single() ) {
+        $ap_core_title = single_post_title( '', false ) . ' | ' . $category[0]->cat_name;
+    }
+
+    // if we're on a page...
+    elseif ( is_page() ) {
+        $ap_core_title = single_post_title( '', false );
+    }
+
+    // if we're on a 404...
+    elseif ( is_404() ) {
+        $ap_core_title = 'Page not found | ' . $name;
+    }
+    // for everything else...
+    else {
+        $ap_core_title = $name;
+    }
+
+    $ap_core_title .= ' | ' . $description;
+
+    // return new title
+    return $ap_core_title;
+}
+add_filter( 'wp_title', 'ap_core_wp_title' );
 
 /**
  * Meta generator
