@@ -19,6 +19,7 @@ if ( !isset($options['sidebar']) ) {
 	$last = '';
 }
 if ( 'right' == $options['sidebar'] ) {
+	$sidebar = $options['sidebar'];
 	$last = ' last';
 }
 if ( 'left' == $options['sidebar'] ) {

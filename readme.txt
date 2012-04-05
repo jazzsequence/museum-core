@@ -10,7 +10,7 @@ A simple WordPress theme/framework with support for post formats, thumbnails, ba
 
 == Description ==
 
-AP-Museum_Core will be the core framework behind all commercially-released <a href="http://museumthemes.com">Museum Themes</a>.  It supports all built-in WordPress theme options like post thumbnails, post formats, custom backgrounds, etc.
+AP Museum Core will be the core framework behind all commercially-released <a href="http://museumthemes.com">Museum Themes</a>.  It uses a responsive design and supports all built-in WordPress theme options like post thumbnails, post formats, custom backgrounds & header, etc.
 
 == Installation ==
 
