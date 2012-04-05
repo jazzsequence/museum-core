@@ -168,18 +168,16 @@ function ap_core_theme_options_page() {
 							?>
 							<tr valign="top"><th scope="row"><?php _e( 'Sidebar', 'museum-core' ); ?></th>
 								<td>
-									<fieldset><legend class="screen-reader-text"><span><?php _e( 'Sidebar', 'museum-core' ); ?></span></legend>
+									<select name="ap_core_theme_options[sidebar]">
 									<?php
-										if ( ! isset( $checked ) )
-											$checked = '';
+										$selected = $options['sidebar'];
 										foreach ( ap_core_sidebar() as $option ) {
-											$selected = $options['sidebar'];
-											?>
-											<label class="description"><input type="radio" name="ap_core_theme_options[sidebar]" value="<?php esc_attr( $option['value'] ); ?>" <?php checked( $selected, $option['value'] ) ?> /> <?php echo $option['label']; ?></label><br />
-											<?php
+											$label = $option['label'];
+											$value = $option['value'];
+											echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
 										}
 									?>
-									</fieldset>
+									</select>
 								</td>
 							</tr>
 							<?php
