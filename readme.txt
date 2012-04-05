@@ -32,6 +32,7 @@ There are currently no screenshots.
 * fixed postmeta
 * adds a permalinked (no title) to posts without a title
 * fixed archive headings
+* changed sidebar selection to dropdown
 
 = Version 1.0.4 =
 
