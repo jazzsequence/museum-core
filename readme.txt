@@ -31,6 +31,10 @@ There are currently no screenshots.
 = Version 1.0.5 =
 
 * moved ap_core_generator to wp_head
+* moved custom title tag to wp_title
+* localized footer default text & replaced footer fallback with default
+* fixed postmeta
+* adds a permalinked (no title) to posts without a title
 
 = Version 1.0.4 =
 
