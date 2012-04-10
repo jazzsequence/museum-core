@@ -15,6 +15,11 @@
 ?>
 	<h2 class="searchresults the_title"><?php echo sprintf( __( 'We found %1$s results for &ldquo;%2$s&rdquo;', 'museum-core' ), $total_results, get_search_query() ); ?></h2>
 
+	<section class="searchform">
+		<h3 class="alt"><?php _e( 'Not what you were looking for?  Enter your search terms to try again.', 'museum-core' ); ?></h3>
+		<?php get_search_form(); ?>
+	</section>
+
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 		<h3 class="the_date"><time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time></h3>

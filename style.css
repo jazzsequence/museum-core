@@ -1148,6 +1148,10 @@ article.format-audio .entry object {
   text-align: center;
 }
 
+/* search page */
+section.searchform { margin: 20px 0; }
+section.searchform h3 { margin: 0 0 20px; }
+
 /* Comments */
 
 #comments ul.commentlist, #comments ol.commentlist { list-style-type: none; margin: 0; padding: 0; }

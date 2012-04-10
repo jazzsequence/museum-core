@@ -28,6 +28,7 @@ There are currently no screenshots.
 
 * disabled PressTrends by default
 * removes function_exists check in sidebar.php
+* added search box to search results page and changed search box type to "search"
 
 = Version 1.0.5 =
 
