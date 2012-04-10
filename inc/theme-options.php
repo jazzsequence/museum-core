@@ -407,7 +407,7 @@ function ap_core_theme_options_page() {
 													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
 												} ?>
 										</select><br />
-										<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href="http://presstrends.io/faq">PressTrends</a>.', 'museum-core' ); ?></label>
+										<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href="http://presstrends.io/faq">PressTrends</a> or check out the <a href="http://wordpress.org/extend/plugins/presstrends/">plugin</a>.', 'museum-core' ); ?></label>
 									</td>
 								</tr>
 							</table>
@@ -468,7 +468,7 @@ set_transient('presstrends_data', $data, 60*60*24);
 }}
 
 $options = get_option( 'ap_core_theme_options' );
-if ( $options['presstrends'] != 'false' ) {
+if ( $options['presstrends'] == 'true' ) {
 add_action('admin_init', 'ap_core_presstrends');
 }
 

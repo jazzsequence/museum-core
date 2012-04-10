@@ -319,7 +319,7 @@ function ap_core_get_theme_defaults(){
         // sidebar
     	'sidebar' => 'left',
         // theme tracking
-        'presstrends' => 'true',
+        'presstrends' => 'false',
     	// typography options
     	'heading' => 'PTSerif',
     	'body' => 'DroidSans',
