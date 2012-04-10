@@ -1165,6 +1165,7 @@ li.comment { clear: both; }
 li.bypostauthor { background: #efefef; border-bottom: 1px solid #dcdcdc; }
 #comments .reply button { margin: 10px 0; clear: both; }
 #comments .reply button a { color: #333; }
+h3#reply-title { clear: both; }
 
 
 /* Sidebar */
