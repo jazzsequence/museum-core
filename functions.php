@@ -300,7 +300,7 @@ add_filter( 'wp_title', 'ap_core_wp_title' );
 function ap_core_generator() {
     $theme  = get_theme( get_current_theme() );
     $ap_core_version = '<meta name="generator" content="' . get_current_theme() . ' ' . $theme['Version'] . '">';
-    return $ap_core_version;
+    echo $ap_core_version;
 }
 $options = get_option( 'ap_core_theme_options' );
 if ($options['generator'] == 'true') {
