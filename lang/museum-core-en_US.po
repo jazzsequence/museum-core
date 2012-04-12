@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-05 17:02-0700\n"
-"PO-Revision-Date: 2012-04-05 17:03-0700\n"
+"POT-Creation-Date: 2012-04-10 12:33-0700\n"
+"PO-Revision-Date: 2012-04-10 12:34-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
 "MIME-Version: 1.0\n"
@@ -328,6 +328,10 @@ msgstr "Edit this entry"
 msgid "We found %1$s results for &ldquo;%2$s&rdquo;"
 msgstr "We found %1$s results for &ldquo;%2$s&rdquo;"
 
+#: ../post-search.php:19
+msgid "Not what you were looking for?  Enter your search terms to try again."
+msgstr "Not what you were looking for?  Enter your search terms to try again."
+
 #: ../post-single.php:21
 #, php-format
 msgid "Posted in %1$s on %2$s %3$s"
@@ -479,8 +483,8 @@ msgid "Send usage data?"
 msgstr "Send usage data?"
 
 #: ../inc/theme-options.php:410
-msgid "PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href=\"http://presstrends.io/faq\">PressTrends</a>."
-msgstr "PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href=\"http://presstrends.io/faq\">PressTrends</a>."
+msgid "PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href=\"http://presstrends.io/faq\">PressTrends</a> or check out the <a href=\"http://wordpress.org/extend/plugins/presstrends/\">plugin</a>."
+msgstr "PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href=\"http://presstrends.io/faq\">PressTrends</a> or check out the <a href=\"http://wordpress.org/extend/plugins/presstrends/\">plugin</a>."
 
 #: ../inc/theme-options.php:416
 msgid "Save Options"
