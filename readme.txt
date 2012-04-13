@@ -24,6 +24,12 @@ There are currently no screenshots.
 
 == Changelog ==
 
+= Version 1.0.7 =
+
+* fixed generator
+* updated language files
+* added some theme tags
+
 = Version 1.0.6 =
 
 * disabled PressTrends by default
