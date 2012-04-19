@@ -31,6 +31,7 @@ There are currently no screenshots.
 * added some theme tags
 * fixed user meta issue in comments (thanks @anemoone & @alchymyth)
 * fixes an issue with links in the footer not linking correctly (thanks @anemoone)
+* updated default footer text and l10n
 
 ### Version 1.0.6
 

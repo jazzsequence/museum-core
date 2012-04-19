@@ -231,7 +231,7 @@ function ap_core_theme_options_page() {
 										} else {
 											echo $defaults['footer'];
 										} ?></textarea>
-										<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Add your own footer text or leave blank for no text in the footer', 'museum-core' ); ?></label>
+										<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Add your own footer text or leave blank for no text in the footer.  Allowed HTML is <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;em&gt;</code> & <code>&lt;strong&gt;</code>', 'museum-core' ); ?></label>
 									</td>
 								</tr>
 							</table>
