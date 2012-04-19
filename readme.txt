@@ -35,6 +35,7 @@ There are currently no screenshots.
 * added some new styles for viewports smaller than 380px (i.e. iPhones/iPods and probably most other smartphones)
 * added responsive styles for embeds (particularly YouTube videos) for smaller viewports/mobile devices
 * adds support for sub-submenus (thanks @MsWeaver)
+* added search icon with css3 transition to slide it out of the input box onfocus
 
 = Version 1.0.6 =
 
