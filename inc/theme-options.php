@@ -227,7 +227,7 @@ function ap_core_theme_options_page() {
 								<tr valign="top"><th scope="row"><?php _e( 'Footer Text', 'museum-core' ); ?></th>
 									<td>
 										<textarea id="ap_core_theme_options[footer]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[footer]" style="font-family: monospace;"><?php if ($options['footer'] != '') {
-											echo esc_textarea( stripslashes($options['footer']) );
+											echo wp_kses( $options['footer'], array('a' => array('href' => array(),'title' => array()),'br' => array(),'em' => array(),'strong' => array() ) );
 										} else {
 											echo $defaults['footer'];
 										} ?></textarea>

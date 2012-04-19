@@ -29,7 +29,8 @@ There are currently no screenshots.
 * fixed generator
 * updated language files
 * added some theme tags
-* fixed user meta issue in comments
+* fixed user meta issue in comments (thanks @anemoone & @alchymyth)
+* fixes an issue with links in the footer not linking correctly (thanks @anemoone)
 
 ### Version 1.0.6
 

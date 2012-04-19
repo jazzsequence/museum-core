@@ -25,7 +25,7 @@
 			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'footernav', 'theme_location' => 'footer', 'fallback_cb' => false, 'depth' => 1 ) ); ?>
 			<div class="credit">
 				<?php if ( $options['footer'] != '' ) {
-				echo $options['footer'];
+				echo stripcslashes($options['footer']);
 				} else {
 					echo $defaults['footer'];
 				} ?>
