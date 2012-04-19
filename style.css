@@ -1091,6 +1091,16 @@ nav.mainnav li:hover ul,
 nav.mainnav li.sfhover ul {
 	left: auto;
 }
+nav.topnav li:hover li ul,
+nav.mainnav li:hover li ul {
+  left: -999em;
+}
+nav.topnav li li:hover ul,
+nav.mainnav li li:hover ul {
+  left: 180px;
+  top: -5px;
+  z-index: 11;
+}
 
 /* Content */
 

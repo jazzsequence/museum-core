@@ -34,6 +34,7 @@ There are currently no screenshots.
 * updated default footer text and l10n
 * added some new styles for viewports smaller than 380px (i.e. iPhones/iPods and probably most other smartphones)
 * added responsive styles for embeds (particularly YouTube videos) for smaller viewports/mobile devices
+* adds support for sub-submenus (thanks @MsWeaver)
 
 = Version 1.0.6 =
 
