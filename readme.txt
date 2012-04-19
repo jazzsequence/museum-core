@@ -24,6 +24,10 @@ There are currently no screenshots.
 
 == Changelog ==
 
+= Version 1.0.7.1 =
+
+* removed wp.org extend link from default footer
+
 = Version 1.0.7 =
 
 * fixed generator
