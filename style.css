@@ -1274,7 +1274,7 @@ tt, code, .code { padding: 2px 5px; background: #f9f9f9; border: 1px solid #cccc
 @media handheld, only screen and (max-width: 767px) {
 
   body {
-  font-size: 16px;
+  font-size: 14px;
   -webkit-text-size-adjust: none;
   }
 
@@ -1302,6 +1302,14 @@ tt, code, .code { padding: 2px 5px; background: #f9f9f9; border: 1px solid #cccc
   .headerimg { clear: both; background: #222; }
   .headerimg img { min-height: 110px; }
   .headerimg h2 { font-size: 150%; }
+}
+
+/* smaller screens break the tagline -- but this only really matters when we've got a header image */
+@media only screen and (max-width: 380px){
+  hgroup h1 { font-size: 150%; }
+  .headerimg h2, h2.the_title { font-size: 120%; }
+  h3 { font-size: 100%; }
+  nav.topnav, nav.mainnav { font-size: 80%; }
 }
 
 

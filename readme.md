@@ -32,6 +32,7 @@ There are currently no screenshots.
 * fixed user meta issue in comments (thanks @anemoone & @alchymyth)
 * fixes an issue with links in the footer not linking correctly (thanks @anemoone)
 * updated default footer text and l10n
+* added some new styles for viewports smaller than 380px (i.e. iPhones/iPods and probably most other smartphones)
 
 ### Version 1.0.6
 
