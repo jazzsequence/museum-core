@@ -33,6 +33,7 @@ There are currently no screenshots.
 * fixes an issue with links in the footer not linking correctly (thanks @anemoone)
 * updated default footer text and l10n
 * added some new styles for viewports smaller than 380px (i.e. iPhones/iPods and probably most other smartphones)
+* added responsive styles for embeds (particularly YouTube videos) for smaller viewports/mobile devices
 
 ### Version 1.0.6
 

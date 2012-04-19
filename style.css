@@ -1141,8 +1141,10 @@ article.format-aside .human-time-diff { font-style: normal; }
 
 article.format-video .entry embed,
 article.format-video .entry object,
+article.format-video .entry iframe,
 article.format-audio .entry embed,
-article.format-audio .entry object {
+article.format-audio .entry object,
+article.format-audio .entry iframe {
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -1265,6 +1267,11 @@ tt, code, .code { padding: 2px 5px; background: #f9f9f9; border: 1px solid #cccc
   article.sticky {
     padding: 10px 1.8%!important;
     margin: 0 0 20px 0!important;
+  }
+  /*this is a hack that worked out better than I expected */
+  iframe, object, embed {
+    max-width: 98%;
+    max-height: 74%;
   }
   }
 
