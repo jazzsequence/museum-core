@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 3.1  
 Tested up to: 3.3.1  
-Stable tag: 1.0.7.3  
+Stable tag: 1.0.8  
 
 A simple, responsive WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -23,6 +23,11 @@ AP Museum Core will be the core framework behind all commercially-released <a hr
 There are currently no screenshots.
 
 ## Changelog
+
+### Version 1.0.8
+
+* updated theme description
+* added a reset for WordPress rss feed icon (already using one in our stylesheet)
 
 ### Version 1.0.7.2
 
