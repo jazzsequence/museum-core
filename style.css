@@ -341,6 +341,7 @@ td { vertical-align: top; }
 		background-image: url(icons/feed.png);
 	}
 	a[href^="aim:"]  { background-image: url(icons/im.png); }
+  a.rsswidget img { display: none; } /* resets the wp rss feed icon */
 
 } /* closes blueprintCSS styles */
 
