@@ -28,6 +28,8 @@ There are currently no screenshots.
 
 * updated theme description
 * added a reset for WordPress rss feed icon (already using one in our stylesheet)
+* fixes trackbacks on comments
+* hides the (empty) button if there are comments/trackbacks but comments/trackbacks are not enabled (yeah, sort of an edge case but looks weird)
 
 = Version 1.0.7.2 =
 
