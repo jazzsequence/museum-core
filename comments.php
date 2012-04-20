@@ -18,7 +18,7 @@
 	</div>
 
 	<ol class="commentlist">
-	<?php wp_list_comments('type=comment&callback=ap_core_comment'); ?>
+	<?php wp_list_comments('type=all&callback=ap_core_comment'); ?>
 	</ol>
 
 	<div class="navigation">
