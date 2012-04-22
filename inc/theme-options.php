@@ -234,6 +234,25 @@ function ap_core_theme_options_page() {
 										<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Add your own footer text or leave blank for no text in the footer.  Allowed HTML is <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;em&gt;</code> & <code>&lt;strong&gt;</code>', 'museum-core' ); ?></label>
 									</td>
 								</tr>
+								<?php
+								/**
+								 * PressTrends setting
+								 */
+								?>
+								<tr valign="top"><th scope="row"><?php _e( 'Send usage data?', 'museum-core' ); ?></th>
+									<td>
+										<select name="ap_core_theme_options[presstrends]">
+											<?php
+												$selected = $options['presstrends'];
+												foreach ( ap_core_true_false() as $option ) {
+													$label = $option['label'];
+													$value = $option['value'];
+													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												} ?>
+										</select><br />
+										<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href="http://presstrends.io/faq">PressTrends</a> or check out the <a href="http://wordpress.org/extend/plugins/presstrends/">plugin</a>.', 'museum-core' ); ?></label>
+									</td>
+								</tr>
 							</table>
 
 							<table class="form-table" id="tabs-2">
@@ -410,25 +429,7 @@ function ap_core_theme_options_page() {
 										<label class="description" for="ap_core_theme_options[archive-excerpt]"><?php _e( 'Select whether you want full posts on archive pages or excerpts with post thumbnails.', 'museum-core' ); ?></label>
 									</td>
 								</tr>
-								<?php
-								/**
-								 * PressTrends setting
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Send usage data?', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[presstrends]">
-											<?php
-												$selected = $options['presstrends'];
-												foreach ( ap_core_true_false() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href="http://presstrends.io/faq">PressTrends</a> or check out the <a href="http://wordpress.org/extend/plugins/presstrends/">plugin</a>.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
+
 							</table>
 						</div>
 						<p class="submit">

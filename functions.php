@@ -340,6 +340,7 @@ function ap_core_get_theme_defaults(){
         'author' => 'false',
         'generator' => 'false',
         'archive-excerpt' => 'true',
+        'hovercards' => 'true',
     );
     return $defaults;
 }
