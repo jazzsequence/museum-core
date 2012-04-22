@@ -429,7 +429,24 @@ function ap_core_theme_options_page() {
 										<label class="description" for="ap_core_theme_options[archive-excerpt]"><?php _e( 'Select whether you want full posts on archive pages or excerpts with post thumbnails.', 'museum-core' ); ?></label>
 									</td>
 								</tr>
-
+								<?php
+								/**
+								 * Use Twitter hovercards?
+								 */
+								?>
+								<tr valign="top"><th scope="row"><?php _e( 'Use Twitter hovercards?', 'museum-core' ); ?></th>
+									<td>
+										<select name="ap_core_theme_options[hovercards]">
+											<?php
+												$selected = $options['hovercards'];
+												foreach ( ap_core_true_false() as $option ) {
+													$label = $option['label'];
+													$value = $option['value'];
+													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												} ?>
+										</select><br />
+										<label class="description" for="ap_core_theme_options[hovercards]"><?php echo sprintf( __( 'Twitter hovercards display information about a particular Twitter user when the @ symbol is used.  See the %1$sTwitter developer documentation for more information%2$s', 'museum-core' ), '<a href="https://dev.twitter.com/docs/anywhere/welcome#hovercards" target="_blank">', '</a>' ); ?>
+									</td>
 							</table>
 						</div>
 						<p class="submit">

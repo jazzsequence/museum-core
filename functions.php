@@ -59,12 +59,19 @@ add_shortcode('clear','ap_core_clear');
 function ap_core_load_scripts() {
   if ( !is_admin() ) { // instruction to only load if it is not the admin area
   	$theme  = get_theme( get_current_theme() );
-    // this loads the twitter anywhere framework
-    wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
-    wp_enqueue_script('twitter_anywhere');
-    // this loads twitter hovercards, dependent upon twitter anywhere
-    wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','twitter_anywhere',$theme['Version']);
-    wp_enqueue_script('twitter_hovercards');
+    // load the theme options and defaults
+    $defaults = ap_core_get_theme_defaults();
+    $options = get_option( 'ap_core_theme_options' );
+    if ( isset( $options['hovercards'] ) ) {
+        if ( $options['hovercards'] != 'false' ) {
+            // this loads the twitter anywhere framework
+            wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
+            wp_enqueue_script('twitter_anywhere');
+            // this loads twitter hovercards, dependent upon twitter anywhere
+            wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','twitter_anywhere',$theme['Version']);
+            wp_enqueue_script('twitter_hovercards');
+        }
+    }
     // this loads suckerfish.js the dropdown menus
     wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js',false,$theme['Version']);
     wp_enqueue_script('suckerfish');

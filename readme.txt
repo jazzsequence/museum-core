@@ -27,6 +27,7 @@ There are currently no screenshots.
 = Version 1.0.9 =
 
 * adds option for full posts or excerpts on archive pages
+* adds option to disable Twitter hovercards
 
 = Version 1.0.8 =
 
