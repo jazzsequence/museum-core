@@ -24,6 +24,10 @@ There are currently no screenshots.
 
 ## Changelog
 
+### Version 1.0.9
+
+* adds option for full posts or excerpts on archive pages
+
 ### Version 1.0.8
 
 * updated theme description

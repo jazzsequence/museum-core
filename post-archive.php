@@ -24,10 +24,15 @@
 		<?php } ?>
 		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php echo sprintf( __('Permanent Link to %1$s','museum-core'), the_title_attribute() ); ?>"><?php the_title(); ?></a></h2>
 		<section class="entry">
-			<?php if(has_post_thumbnail()) { ?>
-				<div class="alignleft twocol"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a></div>
-			<?php } ?>
-			<?php the_excerpt(); ?>
+			<?php include( AP_CORE_OPTIONS );
+			if ( $archive_excerpt == 'false' ) {
+				the_content(__('Read more &raquo;','museum-core'));
+			} else {
+				if(has_post_thumbnail()) { ?>
+					<div class="alignleft twocol"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a></div>
+				<?php }
+				the_excerpt();
+			} ?>
 		</section>
 		<section class="postmetadata">
 			<?php

@@ -339,6 +339,7 @@ function ap_core_get_theme_defaults(){
         'meta' => 'false',
         'author' => 'false',
         'generator' => 'false',
+        'archive-excerpt' => 'true',
     );
     return $defaults;
 }

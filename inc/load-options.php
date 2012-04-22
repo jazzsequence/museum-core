@@ -12,6 +12,7 @@ $sidebar = '';
 $right = '';
 $last = '';
 $show_excerpt = '';
+$archive_excerpt = '';
 
 if ( !isset($options['sidebar']) ) {
 	$sidebar = $defaults['sidebar'];
@@ -31,5 +32,12 @@ if ( !isset($options['excerpts']) ) {
 	$show_excerpt = $defaults['excerpts'];
 } else {
 	$show_excerpt = $options['excerpts'];
+}
+if ( is_archive() ) {
+	if ( !isset($options['archive-excerpt']) ) {
+		$archive_excerpt = $defaults['archive-excerpt'];
+	} else {
+		$archive_excerpt = $options['archive-excerpt'];
+	}
 }
 ?>

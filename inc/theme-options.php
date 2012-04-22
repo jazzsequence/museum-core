@@ -393,6 +393,25 @@ function ap_core_theme_options_page() {
 								</tr>
 								<?php
 								/**
+								 * Show full posts or excerpts on archive pages
+								 */
+								?>
+								<tr valign="top"><th scope="row"><?php _e( 'Full posts or excerpts on archive pages?', 'museum-core' ); ?></th>
+									<td>
+										<select name="ap_core_theme_options[archive-excerpt]">
+											<?php
+												$selected = $options['archive-excerpt'];
+												foreach ( ap_core_show_excerpts() as $option ) {
+													$label = $option['label'];
+													$value = $option['value'];
+													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+												} ?>
+										</select><br />
+										<label class="description" for="ap_core_theme_options[archive-excerpt]"><?php _e( 'Select whether you want full posts on archive pages or excerpts with post thumbnails.', 'museum-core' ); ?></label>
+									</td>
+								</tr>
+								<?php
+								/**
 								 * PressTrends setting
 								 */
 								?>
