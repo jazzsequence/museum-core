@@ -370,6 +370,7 @@ function ap_core_get_theme_defaults(){
         'generator' => 'false',
         'archive-excerpt' => 'true',
         'hovercards' => 'true',
+        'favicon' => ''
     );
     return $defaults;
 }

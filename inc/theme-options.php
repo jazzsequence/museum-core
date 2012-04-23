@@ -37,7 +37,7 @@ function ap_core_theme_options_add_page() {
  * @since 0.4.5
  * @author Chris Reynolds
  * @link http://theme.fm/blog/2011/08/30/using-the-color-picker-in-your-wordpress-theme-options/
- * loads the farbtastic color picker on the theme options page
+ * loads the farbtastic color picker and other scripts and styles on the theme options page
  */
 function ap_core_admin_scripts() {
 	wp_enqueue_style( 'farbtastic' );
@@ -45,6 +45,10 @@ function ap_core_admin_scripts() {
     wp_enqueue_script( 'ap_core_color_picker', get_template_directory_uri() . '/js/color-picker.js', array( 'farbtastic', 'jquery' ) );
     wp_enqueue_script( 'jquery-ui-tabs' );
     wp_enqueue_style( 'jquery-ui-tabs' );
+    wp_enqueue_script( 'media-upload' );
+    wp_enqueue_script( 'thickbox' );
+    wp_enqueue_style( 'thickbox' );
+    wp_enqueue_script ( 'ap_core_uploader', get_template_directory_uri() . '/js/uploader.js', array( 'jquery', 'media-upload', 'thickbox' ) );
 }
 
 /**
@@ -180,8 +184,12 @@ function ap_core_theme_options_page() {
 									<li><h2><a class="nav-tab" href="#tabs-3">Advanced</a></h2></li>
 								</ul>
 							</div>
+							<?php
+							/**
+							 * General
+							 */
+							?>
 							<table class="form-table" id="tabs-1">
-
 								<?php
 								/**
 								 * Sidebar Settings
@@ -255,7 +263,11 @@ function ap_core_theme_options_page() {
 									</td>
 								</tr>
 							</table>
-
+							<?php
+							/**
+							 * Typography
+							 */
+							?>
 							<table class="form-table" id="tabs-2">
 								<?php
 								/**
@@ -352,8 +364,25 @@ function ap_core_theme_options_page() {
 									</td>
 								</tr>
 							</table>
-
+							<?php
+							/**
+							 * Advanced
+							 */
+							?>
 							<table class="form-table" id="tabs-3">
+								<?php
+								/**
+								 * favicon
+								 */
+								?>
+								<tr valign="top"><th scope="row"><?php _e( 'Custom favicon', 'museum-core' ); ?></th>
+									<td>
+										<input id="upload_image" type="text" size="36" name="ap_core_theme_options[favicon]" value="<?php esc_attr_e( $options['favicon'] ); ?>" />
+										<input id="upload_image_button" type="button" class="button" value="Upload Image" />
+										<br />
+										<label class="description" for="ap_core_theme_options[favicon]"><?php _e( 'Use the uploader to upload a PNG or ICO file to use as a favicon for your site.  If left blank, no favicon will be used. (Other image formats will work but may not be browser-supported.)', 'museum-core' ); ?></label>
+									</td>
+								</tr>
 								<?php
 								/**
 								 * <meta> tags
