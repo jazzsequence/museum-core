@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar  
 Requires at least: 3.1  
 Tested up to: 3.3.1  
-Stable tag: 1.0.8  
+Stable tag: 1.0.9  
 
 A simple, responsive WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
 
@@ -28,6 +28,8 @@ There are currently no screenshots.
 
 * adds option for full posts or excerpts on archive pages
 * adds option to disable Twitter hovercards
+* adds another font option (Lato, apparently good for Polish language)
+* loads all fonts from Google Webfonts instead of embedding them (and supporting international character sets, when available)
 
 ### Version 1.0.8
 

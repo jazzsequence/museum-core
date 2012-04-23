@@ -2,7 +2,7 @@
 Theme Name: Museum Core
 Theme URI: http://www.museumthemes.com
 Description: A simple WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
-Version: 1.0.8
+Version: 1.0.9
 Author: Arcane Palette Creative Design
 Author URI: http://www.arcanepalette.com
 License: GNU General Public License v3.0
@@ -306,7 +306,7 @@ td { vertical-align: top; }
 	   <span class="alt">asdf</span>
 	   Best used on prepositions and ampersands. */
 
-	.alt { color: #666; font-family: 'PTSerif',"Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif; font-weight: normal; }
+	.alt { color: #666; font-family: 'PT Serif',"Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif; font-weight: normal; }
 
 	/* This is the icons plugin for blueprintcss that adds contextual link icons depending on the thing being linked */
 
@@ -1232,8 +1232,8 @@ tt, code, pre, .code, .inconsolata { font-family: 'Inconsolata', monospace; }
 pre { padding: 10px; background: #f9f9f9; border: 1px dashed #cccccc; border-radius: 4px; text-shadow: none; }
 tt, code, .code { padding: 2px 5px; background: #f9f9f9; border: 1px solid #cccccc; text-shadow: none; border-radius: 4px; }
 .ubuntu { font-family: 'Ubuntu', sans-serif; }
-.droid { font-family: 'DroidSans', sans-serif; }
-.ptserif { font-family: 'PTSerif', serif; }
+.droid { font-family: 'Droid Sans', sans-serif; }
+.ptserif { font-family: 'PT Serif', serif; }
 
 /* Boilerplate HTML 5 end of stylesheet stuff starts here */
 

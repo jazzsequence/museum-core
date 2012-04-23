@@ -83,9 +83,31 @@ function ap_core_load_scripts() {
     // loads modernizr for BPH5
     wp_register_script('modernizr',get_bloginfo('template_directory').'/js/modernizr-2.5.3.min.js',false,'2.5.3');
     wp_enqueue_script('modernizr');
-    // this loads the font stack
-    wp_register_style('corefonts',get_bloginfo('template_directory').'/fonts/fonts.css',false,$theme['Version']);
-    wp_enqueue_style('corefonts');
+    // register fonts
+    wp_register_style('droidsans','http://fonts.googleapis.com/css?family=Droid+Sans',false,$theme['Version']);
+    wp_register_style('ptserif','http://fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic',false,$theme['Version']);
+    wp_register_style('inconsolata','http://fonts.googleapis.com/css?family=Inconsolata',false,$theme['Version']);
+    wp_register_style('ubuntu','http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic-ext,greek,greek-ext,latin-ext,cyrillic',false,$theme['Version']);
+    wp_register_style('lato','http://fonts.googleapis.com/css?family=Lato',false,$theme['Version'] );
+    // only enqueue fonts that are actually being used
+    $corefonts = array( $options['heading'], $options['body'], $options['alt'] );
+    //var_dump($corefonts);
+    // if any of these fonts are selected, load their stylesheets
+    if ( in_array( 'Droid Sans', $corefonts ) ) {
+        wp_enqueue_style( 'droidsans' );
+    }
+    if ( in_array( 'PT Serif', $corefonts ) ) {
+        wp_enqueue_style( 'ptserif' );
+    }
+    if ( in_array( 'Inconsolata', $corefonts ) ) {
+        wp_enqueue_style( 'inconsolata' );
+    }
+    if ( in_array( 'Ubuntu', $corefonts ) ) {
+        wp_enqueue_style( 'ubuntu' );
+    }
+    if ( in_array( 'Lato', $corefonts ) ) {
+        wp_enqueue_style( 'lato' );
+    }
     // this loads the style.css
     wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
     wp_enqueue_style('corecss');
@@ -330,8 +352,8 @@ function ap_core_get_theme_defaults(){
         // theme tracking
         'presstrends' => 'false',
     	// typography options
-    	'heading' => 'PTSerif',
-    	'body' => 'DroidSans',
+    	'heading' => 'PT Serif',
+    	'body' => 'Droid Sans',
     	'alt' => 'Ubuntu',
         // link color
         'link' => '#486D96',
@@ -379,7 +401,7 @@ function ap_core_sidebar() {
 function ap_core_fonts() {
     $ap_core_fonts = array(
         'ptserif' => array(
-            'value' => 'PTSerif',
+            'value' => 'PT Serif',
             'label' => 'PT Serif',
             'link' => 'http://www.fontsquirrel.com/fonts/pt-serif'
         ),
@@ -389,7 +411,7 @@ function ap_core_fonts() {
             'link' => 'http://www.fontsquirrel.com/fonts/inconsolata'
         ),
         'droidsans' => array(
-            'value' => 'DroidSans',
+            'value' => 'Droid Sans',
             'label' => 'Droid Sans',
             'link' => 'http://www.fontsquirrel.com/fonts/droid-sans'
         ),
@@ -397,7 +419,13 @@ function ap_core_fonts() {
             'value' => 'Ubuntu',
             'label' => 'Ubuntu',
             'link' => 'http://www.fontsquirrel.com/fonts/ubuntu'
+        ),
+        'lato' => array(
+            'value' => 'Lato',
+            'label' => 'Lato',
+            'link' => 'http://www.fontsquirrel.com/fonts/lato'
         )
+
     );
     return $ap_core_fonts;
 }
@@ -474,7 +502,7 @@ function ap_core_custom_styles() {
     } else {
         $hover = $defaults['hover'];
     }
-    $output = "<style type=\"text/css\" media=\"print,screen\">h1, h2, h3 { font-family: $heading, sans-serif; } h4, h5, h6, .alt, h3 time { font-family: $alt, sans-serif; } body { font-family: $body, sans-serif; } a, a:link, a:visited { color: $link; } a:hover, a:active { color: $hover; } a { text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }</style>";
+    $output = "<style type=\"text/css\" media=\"print,screen\">h1, h2, h3 { font-family: '$heading', sans-serif; } h4, h5, h6, .alt, h3 time { font-family: '$alt', sans-serif; } body { font-family: '$body', sans-serif; } a, a:link, a:visited { color: $link; } a:hover, a:active { color: $hover; } a { text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }</style>";
     echo $output;
 }
 add_action( 'wp_head', 'ap_core_custom_styles' );

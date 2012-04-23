@@ -170,6 +170,7 @@ function ap_core_theme_options_page() {
 						<?php settings_fields( 'AP_CORE_OPTIONS' ); ?>
 						<?php $defaults = ap_core_get_theme_defaults(); ?>
 						<?php $options = get_option( 'ap_core_theme_options', $defaults ); ?>
+
 						<div id="tabs">
 							<div class="tab-wrap">
 								<ul class="nav-tab-wrapper">
