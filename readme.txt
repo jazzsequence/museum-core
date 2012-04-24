@@ -32,6 +32,7 @@ There are currently no screenshots.
 * loads all fonts from Google Webfonts instead of embedding them (and supporting international character sets, when available)
 * added option for uploading favicon
 * removed non-GPL css framework
+* updated PressTrends tracking code
 
 = Version 1.0.8 =
 
