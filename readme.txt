@@ -33,6 +33,7 @@ There are currently no screenshots.
 * added option for uploading favicon
 * removed non-GPL css framework
 * updated PressTrends tracking code
+* added some comment form styling
 
 = Version 1.0.8 =
 

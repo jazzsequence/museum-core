@@ -1118,6 +1118,7 @@ form#searchform input#s:active, form#searchform input#s:focus {
 
 /* Comments */
 
+ul.commentlist, ol.commentlist { clear: both; }
 #comments ul.commentlist, #comments ol.commentlist { list-style-type: none; margin: 0; padding: 0; }
 #comments li div.the_comment { padding: 10px; border-bottom: 1px solid #efefef; margin-bottom: 10px; }
 #comments ul.children { margin: 0 0 0 10px; list-style-type: none; }
@@ -1130,6 +1131,12 @@ li.bypostauthor { background: #efefef; border-bottom: 1px solid #dcdcdc; }
 #comments .reply button { margin: 10px 0; clear: both; }
 #comments .reply button a { color: #333; }
 h3#reply-title { clear: both; }
+form#commentform label { width: 5em; float: left; }
+form#commentform p.comment-form-author, form#commentform p.comment-form-email, form#commentform p.comment-form-url {
+  width: 20em;
+}
+form#commentform span.required { float: right; color: red; }
+form#commentform p.comment-notes span.required { float: none; }
 
 
 /* Sidebar */
