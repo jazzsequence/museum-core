@@ -4,7 +4,7 @@
 */
 get_header();
 include( AP_CORE_OPTIONS ); ?>
-<div class="content ninecol<?php echo $right; ?>">
+<div class="content span-9<?php echo $right; ?>">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post();
 		$post_format = get_post_format();

@@ -652,176 +652,103 @@ optgroup {
   font-weight: normal;
 }
 
-/* ==================================================================================================================== */
-/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
-/* ==================================================================================================================== */
+/**
+ * the grid
+ */
 
 .container {
-padding-left: 20px;
-padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-.row {
-width: 100%;
-max-width: 1140px;
-min-width: 755px;
-margin: 0 auto;
-overflow: hidden;
+#wrap {
+  width: 100%;
+  max-width: 1140px;
+  min-width: 755px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
-margin-right: 3.8%;
-float: left;
-min-height: 1px;
+.span-1,
+.span-2,
+.span-3,
+.span-4,
+.span-5,
+.span-6,
+.span-7,
+.span-8,
+.span-9,
+.span-10,
+.span-11 {
+  margin-right: 3.8%;
+  float: left;
+  min-height: 1px;
 }
 
-.row .onecol {
-width: 4.85%;
+#wrap .span-1 {
+  width: 4.85%;
 }
 
-.row .twocol {
-width: 13.45%;
+#wrap .span-2 {
+  width: 13.45%;
 }
 
-.row .threecol {
-width: 22.05%;
+#wrap .span-3 {
+  width: 22.05%;
 }
 
-.row .fourcol {
-width: 30.75%;
+#wrap .span-4 {
+  width: 30.75%;
 }
 
-.row .fivecol {
-width: 39.45%;
+#wrap .span-5 {
+  width: 39.45%;
 }
 
-.row .sixcol {
-width: 48%;
+#wrap .span-6 {
+  width: 48%;
 }
 
-.row .sevencol {
-width: 56.75%;
+#wrap .span-7 {
+  width: 56.75%;
 }
 
-.row .eightcol {
-width: 65.4%;
+#wrap .span-8 {
+  width: 65.4%;
 }
 
-.row .ninecol {
-width: 74.05%;
+#wrap .span-9 {
+  width: 74.05%;
 }
 
-.row .tencol {
-width: 82.7%;
+#wrap .span-10 {
+  width: 82.7%;
 }
 
-.row .elevencol {
-width: 91.35%;
+#wrap .span-11 {
+  width: 91.35%;
 }
 
-.row .twelvecol {
-width: 100%;
-float: left;
+#wrap .span-12 {
+  width: 100%;
+  float: left;
 }
 
 .last {
-margin-right: 0px;
+  margin-right: 0px;
 }
 
 img, object, embed {
-max-width: 100%;
+  max-width: 100%;
 }
 
 img {
   height: auto;
 }
 
-/* `IE6
-----------------------------------------------------------------------------------------------------*/
-
-/*
-  Everything below this line is for IE6.
-  Delete it if you don't support it! :)
-
-  Classes are added dynamically via JS,
-  because IE6 doesn't support attribute
-  selectors: .ie6_button, .ie6_input, etc.
-
-  Note: These style rules are somewhat
-  duplicated because IE6 bombs out when
-  it sees attribute selectors. Example:
-
-  .ie6_button {
-    This works in IE6.
-  }
-
-  .ie6_button,
-  input[type=submit] {
-    This doesn't work.
-  }
-*/
-
-.ie6_button,
-* html button {
-  background: #ddd url(images/button.png) repeat-x;
-  border: 1px solid;
-  border-color: #ddd #bbb #999;
-  cursor: pointer;
-  color: #333;
-  font: bold 12px/1.2 Arial, sans-serif;
-  padding: 2px 10px 0px;
-  overflow: visible;
-  width: auto;
-}
-
-* html button {
-  padding-top: 1px;
-  padding-bottom: 1px;
-}
-
-.ie6_input,
-* html textarea,
-* html select {
-  background: #fff;
-  border: 1px solid;
-  border-color: #848484 #c1c1c1 #e1e1e1;
-  color: #000;
-  padding: 2px 3px 1px;
-  font-size: 13px;
-  font-family: Arial, sans-serif;
-  vertical-align: top;
-}
-
-* html select {
-  margin-top: 1px;
-}
-
-.placeholder_text,
-.ie6_input_disabled,
-.ie6_button_disabled {
-  color: #888;
-}
-
-.ie6_input_disabled {
-  background: #eee;
-}
-
-/* 1140 Grid for IE lt9 */
-.oldie .onecol { width: 4.7%; }
-.oldie .twocol { width: 13.2%; }
-.oldie .threecol { width: 22.05%; }
-.oldie .fourcol { width: 30.6%; }
-.oldie .fivecol { width: 39%; }
-.oldie .sixcol { width: 48%; }
-.oldie .sevencol { width: 56.75%; }
-.oldie .eightcol { width: 61.6%; }
-.oldie .ninecol { width: 74.05%; }
-.oldie .tencol { width: 82%; }
-.oldie .elevencol { width: 91.35%; }
-
-/* =========================================
-	Actual AP Museum Core CSS starts here
-   ========================================*/
+/**
+ * theme css starts here
+ */
 
 /* Main */
 body {
@@ -838,11 +765,17 @@ body {
 
 a, a:link, a:visited { color: #486D96; }
 a:hover, a:active { color: #333333; }
-a { text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }
+a {
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease!important;
+  -moz-transition: all 0.3s ease!important;
+  -o-transition: all 0.3s ease!important;
+  transition: all  0.3s ease!important;
+}
 
 .clear { clear:both; }
 .spacer-10 { clear:both; height: 10px; }
-.threecolumn {
+.span-3umn {
 	width: 32%;
 	float: left;
 	margin-right: 10px;
@@ -851,7 +784,14 @@ a { text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-tran
 
 h3 { margin: auto; }
 
-span[frown] { -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg); display:inline-block; padding: 0 10px; }
+span[frown] {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  display:inline-block; padding: 0 10px;
+}
 
 /* this stuff is borrowed from Kubrik, the WordPress default theme and handles
    WP-specific stuff. */
@@ -1307,7 +1247,7 @@ tt, code, .code { padding: 2px 5px; background: #f9f9f9; border: 1px solid #cccc
   -webkit-text-size-adjust: none;
   }
 
-  .row, body, .container {
+  #wrap, body, .container {
   width: 100%;
   min-width: 0;
   margin-left: 0px;
@@ -1316,7 +1256,7 @@ tt, code, .code { padding: 2px 5px; background: #f9f9f9; border: 1px solid #cccc
   padding-right: 0px;
   }
 
-  .row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
+  #wrap .span-1, #wrap .span-2, #wrap .span-3, #wrap .span-4, #wrap .span-5, #wrap .span-6, #wrap .span-7, #wrap .span-8, #wrap .span-9, #wrap .span-10, #wrap .span-11, #wrap .span-12 {
   width: auto;
   float: none;
   margin-left: 0px;

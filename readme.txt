@@ -31,6 +31,7 @@ There are currently no screenshots.
 * adds another font option (Lato, apparently good for Polish language)
 * loads all fonts from Google Webfonts instead of embedding them (and supporting international character sets, when available)
 * added option for uploading favicon
+* removed non-GPL css framework
 
 = Version 1.0.8 =
 

@@ -3,19 +3,19 @@
 		$defaults = ap_core_get_theme_defaults();
 		?>
 		<footer class="row">
-			<div class="fourcol" id="leftbox">
+			<div class="span-4" id="leftbox">
 				<ul>
 					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Left Footer Box') ) : ?>
 					<?php endif; ?>
 				</ul>
 			</div>
-			<div class="fourcol" id="middlebox">
+			<div class="span-4" id="middlebox">
 				<ul>
 					 <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Center Footer Box') ) : ?>
 					 <?php endif; ?>
 				</ul>
 			</div>
-			<div class="fourcol last" id="rightbox">
+			<div class="span-4 last" id="rightbox">
 				<ul>
 					 <?php if( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Right Footer Box') ) : ?>
 					 <?php endif; ?>

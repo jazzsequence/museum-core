@@ -39,7 +39,7 @@ if ($options['author'] == 'true') {
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<div class="row container">
+	<div class="container" id="wrap">
 		<header>
 			<div class="header">
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>

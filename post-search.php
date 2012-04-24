@@ -31,7 +31,7 @@
         <div class="clear"></div>
 		<section class="entry">
 			<?php if(has_post_thumbnail()) { ?>
-				<div class="alignleft twocol"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a></div>
+				<div class="alignleft span-2"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(); ?></a></div>
 			<?php } ?>
 			<?php the_excerpt(); ?>
 		</section>

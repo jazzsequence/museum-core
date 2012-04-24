@@ -4,7 +4,7 @@
 */
 get_header();
 include( AP_CORE_OPTIONS ); ?>
-<div class="content single ninecol<?php echo $right; ?>">
+<div class="content single span-9<?php echo $right; ?>">
 
 	<?php get_template_part('post','single'); ?>
 
