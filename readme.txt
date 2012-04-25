@@ -1,7 +1,7 @@
 === Museum Core ===
 Contributors: jazzs3quence
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
-Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar
+Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.1
 Tested up to: 3.3.1
 Stable tag: 1.0.9
@@ -10,7 +10,12 @@ A simple, responsive WordPress theme/framework with support for internationaliza
 
 == Description ==
 
-AP Museum Core will be the core framework behind all commercially-released <a href="http://museumthemes.com">Museum Themes</a>.  It uses a responsive design and supports all built-in WordPress theme options like post thumbnails, post formats, custom backgrounds & header, etc.
+Museum Core is a clean, responsive framework with support for built-in WordPress theme options like post thumbnails, post formats, custom backgrounds & header, etc.  A theme options page lets you customize the typefaces used in the theme, footer credit, sidebar position, link colors and more.  Core can be used as a standalone theme or as a framework for other themes or child themes.
+
+* Polish translation by <a href="http://kratery.com/">anemoone</a>
+
+**Call for translators!**
+If you are interested in helping translate this theme, contact me via the contact form on either the Theme URL or the Theme Author URL (in style.css).
 
 == Installation ==
 
