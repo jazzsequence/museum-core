@@ -137,7 +137,7 @@ function ap_core_theme_options_page() {
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
 	$load_css = '<style type="text/css">';
-	$load_css .= '@import url( "'. get_template_directory_uri() . '/fonts/fonts.css");';
+	$load_css .= '@import url("http://fonts.googleapis.com/css?family=Droid+Sans|Lato|Ubuntu|PT+Serif|Inconsolata");';
 	if ( false !== $_REQUEST['settings-updated'] ) {
 	$load_css .= 'a#fdbk_tab { top: 300px; }';
 	} else {
