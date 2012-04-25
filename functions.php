@@ -359,7 +359,7 @@ function ap_core_get_theme_defaults(){
         // use alt for h1?
         'alth1' => 'false',
         // footer text
-        'footer' => sprintf( __( '%1$s %2$s %3$s . ', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . sprintf( __( 'Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s.', 'museum-core' ), '<a href="http://museumthemes.com/" target="_blank" title="Museum Themes">', '</a>', '<a href="http://wordpress.org" target="_blank">' ),
+        'footer' => sprintf( __( '%1$s %2$s %3$s', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . ' . ' . sprintf( __( 'Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s.', 'museum-core' ), '<a href="http://museumthemes.com/" target="_blank" title="Museum Themes">', '</a>', '<a href="http://wordpress.org" target="_blank">' ),
         // advanced settings
         'meta' => 'false',
         'author' => 'false',

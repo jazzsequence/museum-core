@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-23 09:56-0700\n"
-"PO-Revision-Date: 2012-04-23 09:57-0700\n"
+"POT-Creation-Date: 2012-04-24 20:54-0700\n"
+"PO-Revision-Date: 2012-04-24 20:56-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
 "MIME-Version: 1.0\n"
@@ -98,90 +98,90 @@ msgstr "Right Footer Box"
 msgid "This is the right box in the footer."
 msgstr "This is the right box in the footer."
 
-#: ../functions.php:160
+#: ../functions.php:156
 msgid "Top Header Navigation"
 msgstr "Top Header Navigation"
 
-#: ../functions.php:161
+#: ../functions.php:157
 msgid "Main Navigation"
 msgstr "Main Navigation"
 
-#: ../functions.php:162
+#: ../functions.php:158
 msgid "Footer Navigation"
 msgstr "Footer Navigation"
 
-#: ../functions.php:204
+#: ../functions.php:200
 msgid "Nature"
 msgstr "Nature"
 
-#: ../functions.php:210
+#: ../functions.php:206
 msgid "Smoke"
 msgstr "Smoke"
 
-#: ../functions.php:216
+#: ../functions.php:212
 msgid "Lights 1"
 msgstr "Lights 1"
 
-#: ../functions.php:222
+#: ../functions.php:218
 msgid "Lights 2"
 msgstr "Lights 2"
 
-#: ../functions.php:228
+#: ../functions.php:224
 msgid "Lights 3"
 msgstr "Lights 3"
 
-#: ../functions.php:243
+#: ../functions.php:239
 #, php-format
 msgid "On %1$s at %2$s %3$s said:"
 msgstr "On %1$s at %2$s %3$s said:"
 
-#: ../functions.php:246
+#: ../functions.php:242
 msgid "Your comment is awaiting moderation."
 msgstr "Your comment is awaiting moderation."
 
-#: ../functions.php:250
+#: ../functions.php:246
 msgid "(Edit)"
 msgstr "(Edit)"
 
-#: ../functions.php:254
+#: ../functions.php:250
 msgid "Respond to this"
 msgstr "Respond to this"
 
-#: ../functions.php:264
+#: ../functions.php:260
 msgid "read more"
 msgstr "read more"
 
-#: ../functions.php:366
+#: ../functions.php:362
 #, php-format
-msgid "%1$s %2$s %3$s . "
-msgstr "%1$s %2$s %3$s . "
+msgid "%1$s %2$s %3$s"
+msgstr "%1$s %2$s %3$s"
 
-#: ../functions.php:366
+#: ../functions.php:362
 #, php-format
 msgid "Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
 msgstr "Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
 
-#: ../functions.php:388
+#: ../functions.php:384
 msgid "Left Sidebar"
 msgstr "Left Sidebar"
 
-#: ../functions.php:391
+#: ../functions.php:387
 msgid "Right Sidebar"
 msgstr "Right Sidebar"
 
-#: ../functions.php:444
+#: ../functions.php:440
 msgid "Show Post Excerpts"
 msgstr "Show Post Excerpts"
 
-#: ../functions.php:448
+#: ../functions.php:444
 msgid "Show Full Posts"
 msgstr "Show Full Posts"
 
-#: ../functions.php:464
+#: ../functions.php:460
 msgid "Yes"
 msgstr "Yes"
 
-#: ../functions.php:468
+#: ../functions.php:464
 msgid "No"
 msgstr "No"
 
@@ -369,6 +369,18 @@ msgstr "%s Theme Options"
 msgid "Options saved"
 msgstr "Options saved"
 
+#: ../inc/theme-options.php:182
+msgid "General"
+msgstr "General"
+
+#: ../inc/theme-options.php:183
+msgid "Typography & Fonts"
+msgstr "Typography & Fonts"
+
+#: ../inc/theme-options.php:184
+msgid "Advanced"
+msgstr "Advanced"
+
 #: ../inc/theme-options.php:217
 msgid "Full posts or excerpts?"
 msgstr "Full posts or excerpts?"
@@ -457,6 +469,10 @@ msgstr "Set your desired link hover color."
 msgid "Custom favicon"
 msgstr "Custom favicon"
 
+#: ../inc/theme-options.php:381
+msgid "Upload Image"
+msgstr "Upload Image"
+
 #: ../inc/theme-options.php:383
 msgid "Use the uploader to upload a PNG or ICO file to use as a favicon for your site.  If left blank, no favicon will be used. (Other image formats will work but may not be browser-supported.)"
 msgstr "Use the uploader to upload a PNG or ICO file to use as a favicon for your site.  If left blank, no favicon will be used. (Other image formats will work but may not be browser-supported.)"
@@ -532,15 +548,6 @@ msgstr "Save Options"
 
 #~ msgid " and tagged "
 #~ msgstr " and tagged "
-
-#~ msgid "General"
-#~ msgstr "General"
-
-#~ msgid "Typography & Fonts"
-#~ msgstr "Typography & Fonts"
-
-#~ msgid "Advanced"
-#~ msgstr "Advanced"
 
 #~ msgid ""
 #~ "For more information visit <a href=\"http://presstrends.io/faq"
