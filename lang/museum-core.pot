@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-23 09:55-0700\n"
-"PO-Revision-Date: 2012-04-23 09:55-0700\n"
+"POT-Creation-Date: 2012-04-24 20:21-0700\n"
+"PO-Revision-Date: 2012-04-24 20:21-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
 "MIME-Version: 1.0\n"
@@ -98,90 +98,90 @@ msgstr ""
 msgid "This is the right box in the footer."
 msgstr ""
 
-#: ../functions.php:160
+#: ../functions.php:156
 msgid "Top Header Navigation"
 msgstr ""
 
-#: ../functions.php:161
+#: ../functions.php:157
 msgid "Main Navigation"
 msgstr ""
 
-#: ../functions.php:162
+#: ../functions.php:158
 msgid "Footer Navigation"
 msgstr ""
 
-#: ../functions.php:204
+#: ../functions.php:200
 msgid "Nature"
 msgstr ""
 
-#: ../functions.php:210
+#: ../functions.php:206
 msgid "Smoke"
 msgstr ""
 
-#: ../functions.php:216
+#: ../functions.php:212
 msgid "Lights 1"
 msgstr ""
 
-#: ../functions.php:222
+#: ../functions.php:218
 msgid "Lights 2"
 msgstr ""
 
-#: ../functions.php:228
+#: ../functions.php:224
 msgid "Lights 3"
 msgstr ""
 
-#: ../functions.php:243
+#: ../functions.php:239
 #, php-format
 msgid "On %1$s at %2$s %3$s said:"
 msgstr ""
 
-#: ../functions.php:246
+#: ../functions.php:242
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: ../functions.php:250
+#: ../functions.php:246
 msgid "(Edit)"
 msgstr ""
 
-#: ../functions.php:254
+#: ../functions.php:250
 msgid "Respond to this"
 msgstr ""
 
-#: ../functions.php:264
+#: ../functions.php:260
 msgid "read more"
 msgstr ""
 
-#: ../functions.php:366
+#: ../functions.php:362
 #, php-format
 msgid "%1$s %2$s %3$s . "
 msgstr ""
 
-#: ../functions.php:366
+#: ../functions.php:362
 #, php-format
 msgid "Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
 msgstr ""
 
-#: ../functions.php:388
+#: ../functions.php:384
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../functions.php:391
+#: ../functions.php:387
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../functions.php:444
+#: ../functions.php:440
 msgid "Show Post Excerpts"
 msgstr ""
 
-#: ../functions.php:448
+#: ../functions.php:444
 msgid "Show Full Posts"
 msgstr ""
 
-#: ../functions.php:464
+#: ../functions.php:460
 msgid "Yes"
 msgstr ""
 
-#: ../functions.php:468
+#: ../functions.php:464
 msgid "No"
 msgstr ""
 
@@ -369,6 +369,18 @@ msgstr ""
 msgid "Options saved"
 msgstr ""
 
+#: ../inc/theme-options.php:182
+msgid "General"
+msgstr ""
+
+#: ../inc/theme-options.php:183
+msgid "Typography & Fonts"
+msgstr ""
+
+#: ../inc/theme-options.php:184
+msgid "Advanced"
+msgstr ""
+
 #: ../inc/theme-options.php:217
 msgid "Full posts or excerpts?"
 msgstr ""
@@ -455,6 +467,10 @@ msgstr ""
 
 #: ../inc/theme-options.php:378
 msgid "Custom favicon"
+msgstr ""
+
+#: ../inc/theme-options.php:381
+msgid "Upload Image"
 msgstr ""
 
 #: ../inc/theme-options.php:383

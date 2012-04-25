@@ -34,6 +34,9 @@ There are currently no screenshots.
 * removed non-GPL css framework
 * updated PressTrends tracking code
 * added some comment form styling
+* added Polish language file
+* renamed English language file
+* fixed tabs so they're translatable
 
 ### Version 1.0.8
 

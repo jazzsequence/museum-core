@@ -179,9 +179,9 @@ function ap_core_theme_options_page() {
 							<div class="tab-wrap">
 								<ul class="nav-tab-wrapper">
 									<li><?php screen_icon(); ?></li>
-									<li><h2><a class="nav-tab" href="#tabs-1">General</a></h2></li>
-									<li><h2><a class="nav-tab" href="#tabs-2">Typography & Fonts</a></h2></li>
-									<li><h2><a class="nav-tab" href="#tabs-3">Advanced</a></h2></li>
+									<li><h2><a class="nav-tab" href="#tabs-1"><?php _e('General','museum-core'); ?></a></h2></li>
+									<li><h2><a class="nav-tab" href="#tabs-2"><?php _e('Typography & Fonts','museum-core'); ?></a></h2></li>
+									<li><h2><a class="nav-tab" href="#tabs-3"><?php _e('Advanced','museum-core'); ?></a></h2></li>
 								</ul>
 							</div>
 							<?php
@@ -378,7 +378,7 @@ function ap_core_theme_options_page() {
 								<tr valign="top"><th scope="row"><?php _e( 'Custom favicon', 'museum-core' ); ?></th>
 									<td>
 										<input id="upload_image" type="text" size="36" name="ap_core_theme_options[favicon]" value="<?php esc_attr_e( $options['favicon'] ); ?>" />
-										<input id="upload_image_button" type="button" class="button" value="Upload Image" />
+										<input id="upload_image_button" type="button" class="button" value="<?php _e('Upload Image','museum-core'); ?>" />
 										<br />
 										<label class="description" for="ap_core_theme_options[favicon]"><?php _e( 'Use the uploader to upload a PNG or ICO file to use as a favicon for your site.  If left blank, no favicon will be used. (Other image formats will work but may not be browser-supported.)', 'museum-core' ); ?></label>
 									</td>
