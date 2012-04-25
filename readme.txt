@@ -6,7 +6,7 @@ Requires at least: 3.1
 Tested up to: 3.3.1
 Stable tag: 1.0.9
 
-A simple, responsive WordPress theme/framework with support for post formats, thumbnails, background, header, menus and more...
+A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
 == Description ==
 
