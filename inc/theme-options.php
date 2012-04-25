@@ -566,9 +566,16 @@ function ap_core_theme_options_validate( $input ) {
 	$input['author'] = $input['author'];
 	if ( !array_key_exists( $input['generator'], ap_core_true_false() ) )
 	$input['generator'] = $input['generator'];
+	if ( !array_key_exists( $input['hovercards'], ap_core_true_false() ) )
+	$input['hovercards'] = $input['hovercards'];
+	if ( !array_key_exists( $input['excerpts'], ap_core_show_excerpts() ) )
+	$input['excerpts'] = $input['excerpts'];
+	if ( !array_key_exists( $input['archive-excerpt'], ap_core_show_excerpts() ) )
+	$input['archive-excerpt'] = $input['archive-excerpt'];
 	$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 	$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
 	$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
+	$input['favicon'] = wp_filter_nohtml_kses( $input['favicon'] );
 
     return $input;
 }
