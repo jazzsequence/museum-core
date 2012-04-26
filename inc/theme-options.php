@@ -70,7 +70,7 @@ function ap_core_side_box() {
 	} else {
 		$postbox_before = '	<div id="postbox-container-1" class="postbox-container">';
 		$postbox_after = '	</div>';
-	} bloginfo('version');
+	}
 		echo $postbox_before;
 					echo '<h2 style="margin:0">' . __('What\'s new at Museum Themes', 'museum-core') . '</h2>';
 
