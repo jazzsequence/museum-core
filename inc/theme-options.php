@@ -58,12 +58,20 @@ function ap_core_admin_scripts() {
  * this adds some side boxes for news and twitter feed for the theme options page
  */
 function ap_core_side_box() {
-	?>
-	<div id="side-info-column" class="inner-sidebar">
-		<div id="side-sortables" class="meta-box-sortables ui-sortable">
-			<div class="padding">
-				<div class="infolinks">
-					<?php
+	if ( get_bloginfo('version') < '3.4' ) {
+		$postbox_before = '	<div id="side-info-column" class="inner-sidebar">';
+		$postbox_before .= '		<div id="side-sortables" class="meta-box-sortables ui-sortable">';
+		$postbox_before .= '			<div class="padding">';
+		$postbox_before .= '				<div class="infolinks">';
+		$postbox_after = '					</div>';
+		$postbox_after .= '				</div>';
+		$postbox_after .= '			</div>';
+		$postbox_after .= '	</div>';
+	} else {
+		$postbox_before = '	<div id="postbox-container-1" class="postbox-container">';
+		$postbox_after = '	</div>';
+	} bloginfo('version');
+		echo $postbox_before;
 					echo '<h2 style="margin:0">' . __('What\'s new at Museum Themes', 'museum-core') . '</h2>';
 
 					// Get RSS Feed(s)
@@ -99,10 +107,8 @@ function ap_core_side_box() {
 						  }
 						}).render().setUser('arcanepalette').start();
 						</script>
-				</div>
-			</div>
-		</div>
-	</div>
+		<?php echo $postbox_after; ?>
+
 	<script type="text/javascript" charset="utf-8">
 	  var is_ssl = ("https:" == document.location.protocol);
 	  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
@@ -166,8 +172,8 @@ function ap_core_theme_options_page() {
 		<div class="updated fade"><p><strong><?php _e( 'Options saved', 'museum-core' ); ?></strong></p></div>
 		<?php endif; ?>
 		<div id="poststuff" class="metabox-holder has-right-sidebar">
+			<div id="post-body" class="metabox-holder columns-2">
 			<?php ap_core_side_box(); ?>
-			<div id="post-body">
 				<div id="post-body-content">
 					<form method="post" action="options.php">
 
