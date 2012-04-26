@@ -58,7 +58,7 @@ function ap_core_admin_scripts() {
  * this adds some side boxes for news and twitter feed for the theme options page
  */
 function ap_core_side_box() {
-	if ( get_bloginfo('version') < '3.4' ) {
+	if ( get_bloginfo('version') < '3.4' ) { // if we're not using 3.4 (or higher), set this up the old way
 		$postbox_before = '	<div id="side-info-column" class="inner-sidebar">';
 		$postbox_before .= '		<div id="side-sortables" class="meta-box-sortables ui-sortable">';
 		$postbox_before .= '			<div class="padding">';
@@ -67,10 +67,10 @@ function ap_core_side_box() {
 		$postbox_after .= '				</div>';
 		$postbox_after .= '			</div>';
 		$postbox_after .= '	</div>';
-	} else {
+	} else { // otherwise, set this up the new way (see how much cleaner this is?)
 		$postbox_before = '	<div id="postbox-container-1" class="postbox-container">';
 		$postbox_after = '	</div>';
-	}
+	} // this conditional should be taken out for 3.5
 		echo $postbox_before;
 					echo '<h2 style="margin:0">' . __('What\'s new at Museum Themes', 'museum-core') . '</h2>';
 
