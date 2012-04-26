@@ -757,6 +757,7 @@ body {
 	color: #111111;
 	text-shadow: 2px 2px 2px rgba(200, 200, 200, 0.5);
 }
+
 .container {
 	background: #ffffff;
 	margin: 10px auto;
@@ -1139,6 +1140,13 @@ form#commentform span.required { float: right; color: red; }
 form#commentform p.comment-notes span.required { float: none; }
 #comments p.form-allowed-tags { font-size: 0.8em; }
 #comments .cancel-comment-reply { clear: both; }
+
+/* resets alt style for comments */
+#comments .alt {
+  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+  color: #111111;
+  font-style: normal;
+}
 
 
 /* Sidebar */
