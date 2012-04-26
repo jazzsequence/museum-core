@@ -75,7 +75,7 @@ function ap_core_side_box() {
 					echo '<h2 style="margin:0">' . __('What\'s new at Museum Themes', 'museum-core') . '</h2>';
 
 					// Get RSS Feed(s)
-					@wp_widget_rss_output('http://museumthemes.com/feed/', array('show_date' => 0, 'items' => 3));
+					wp_widget_rss_output('http://museumthemes.com/feed/', array('show_date' => 0, 'items' => 3));
 
 					echo '<h2 style="margin:0">' . __('Follow us on Twitter', 'museum-core') . '</h2>';
 					?>
