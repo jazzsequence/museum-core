@@ -166,7 +166,12 @@ function ap_core_theme_options_page() {
 		});
 	</script>
 	<div class="wrap">
-		<h2><?php echo sprintf( __('%s Theme Options','museum-core'), get_current_theme() ); ?></h2>
+		<?php if ( function_exists( wp_get_theme() ) ) {
+			$theme_name = wp_get_theme('Name');
+		} else {
+			$theme_name = get_current_theme();
+		} ?>
+		<h2><?php echo sprintf( __('%s Theme Options','museum-core'), $theme_name ); ?></h2>
 
 		<?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
 		<div class="updated fade"><p><strong><?php _e( 'Options saved', 'museum-core' ); ?></strong></p></div>
