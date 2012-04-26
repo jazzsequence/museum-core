@@ -488,6 +488,7 @@ function ap_core_theme_options_page() {
 										</select><br />
 										<label class="description" for="ap_core_theme_options[hovercards]"><?php echo sprintf( __( 'Twitter hovercards display information about a particular Twitter user when the @ symbol is used.  See the %1$sTwitter developer documentation for more information%2$s', 'museum-core' ), '<a href="https://dev.twitter.com/docs/anywhere/welcome#hovercards" target="_blank">', '</a>' ); ?>
 									</td>
+								</tr>
 							</table>
 						</div>
 						<p class="submit">
