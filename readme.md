@@ -42,6 +42,7 @@ There are currently no screenshots.
 * added Polish language file
 * renamed English language file
 * fixed tabs so they're translatable
+* adds support for WordPress 3.4 functions, if they exist
 
 ### Version 1.0.8
 
