@@ -166,67 +166,94 @@ function ap_core_setup() {
     add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
 
     // This theme allows users to set a custom background
-    add_custom_background();
+    if ( function_exists( 'get_custom_header' ) ) { // if we're using 3.4, do this the new way (this will be removed with 3.5) -- this is borrowed from p2
 
-    // this theme has a custom header thingie
-    define( 'HEADER_TEXTCOLOR', '' );
-    // No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
-    define( 'HEADER_IMAGE', '%s/images/headers/smoke.jpg' );
+        add_theme_support( 'custom-background', array() );  // 'nuff said. there are no defaults here, so we'll move on to headers
 
-    // The height and width of your custom header. You can hook into the theme's own filters to change these values.
-    define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 1140 ) );
-    define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'core_header_image_height', 200 ) );
+        add_theme_support( 'custom-header', array(
+            // default header image
+            'default-image' => get_template_directory_uri() . '/images/headers/nature.jpg',
+            // header text? no, because we're doing it a different way (though it would probably be good to fix this later)
+            'header-text' => false,
+            // header image width
+            'width' => 1140,
+            // flexible height?  sure
+            'flex-height' => true,
+            // header image height
+            'height' => 200,
+            // admin head callback
+            'admin-head-callback' => 'core_admin_header_style'
+            )
+        );
 
-    // We'll be using post thumbnails for custom header images on posts and pages.
-    // We want them to be 1140 pixels wide by 200 pixels tall.
-    // Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
-    set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
+    } else {
 
-    // Don't support text inside the header image.
-    define( 'NO_HEADER_TEXT', true );
+     // if we're using 3.3, do this the old way
+        add_custom_background();
 
-    // Add a way for the custom header to be styled in the admin panel that controls
-    // custom headers. See twentyten_admin_header_style(), below.
-    add_custom_image_header( '', 'core_admin_header_style' );
+        // this theme has a custom header thingie
+        define( 'HEADER_TEXTCOLOR', '' );
+        // No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
+        define( 'HEADER_IMAGE', '%s/images/headers/smoke.jpg' );
 
-    // ... and thus ends the changeable header business.
+        // The height and width of your custom header. You can hook into the theme's own filters to change these values.
+        define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 1140 ) );
+        define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'core_header_image_height', 200 ) );
 
-    // Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
-    register_default_headers( array(
-    	'nature' => array(
-    		'url' => '%s/images/headers/nature.jpg',
-    		'thumbnail_url' => '%s/images/headers/nature-thumbnail.jpg',
-    		/* translators: header image description */
-    		'description' => __( 'Nature', 'museum-core' )
-    	),
-    	'smoke' => array(
-    		'url' => '%s/images/headers/smoke.jpg',
-    		'thumbnail_url' => '%s/images/headers/smoke-thumbnail.jpg',
-    		/* translators: header image description */
-    		'description' => __( 'Smoke', 'museum-core' )
-    	),
-    	'lights1' => array(
-			'url' => '%s/images/headers/lights1.jpg',
-    		'thumbnail_url' => '%s/images/headers/lights1-thumbnail.jpg',
-    		/* translators: header image description */
-    		'description' => __( 'Lights 1', 'museum-core' )
-		),
-        'lights2' => array(
-            'url' => '%s/images/headers/lights2.jpg',
-            'thumbnail_url' => '%s/images/headers/lights2-thumbnail.jpg',
-            /* translators: header image description */
-            'description' => __( 'Lights 2', 'museum-core' )
-        ),
-    	'lights3' => array(
-    		'url' => '%s/images/headers/lights3.jpg',
-			'thumbnail_url' => '%s/images/headers/lights3-thumbnail.jpg',
-    		/* translators: header image description */
-    		'description' => __( 'Lights 3', 'museum-core' )
-    	)
-    ) );
-    function core_admin_header_style() {
-        // I don't have any custom header styles...yet.
+        // We'll be using post thumbnails for custom header images on posts and pages.
+        // We want them to be 1140 pixels wide by 200 pixels tall.
+        // Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
+        set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
+
+        // Don't support text inside the header image.
+        define( 'NO_HEADER_TEXT', true );
+
+        // Add a way for the custom header to be styled in the admin panel that controls
+        // custom headers. See twentyten_admin_header_style(), below.
+        add_custom_image_header( '', 'core_admin_header_style' );
+
+        // ... and thus ends the changeable header business.
+
     }
+
+        // Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
+        register_default_headers( array(
+        	'nature' => array(
+        		'url' => '%s/images/headers/nature.jpg',
+        		'thumbnail_url' => '%s/images/headers/nature-thumbnail.jpg',
+        		/* translators: header image description */
+        		'description' => __( 'Nature', 'museum-core' )
+        	),
+        	'smoke' => array(
+        		'url' => '%s/images/headers/smoke.jpg',
+        		'thumbnail_url' => '%s/images/headers/smoke-thumbnail.jpg',
+        		/* translators: header image description */
+        		'description' => __( 'Smoke', 'museum-core' )
+        	),
+        	'lights1' => array(
+    			'url' => '%s/images/headers/lights1.jpg',
+        		'thumbnail_url' => '%s/images/headers/lights1-thumbnail.jpg',
+        		/* translators: header image description */
+        		'description' => __( 'Lights 1', 'museum-core' )
+    		),
+            'lights2' => array(
+                'url' => '%s/images/headers/lights2.jpg',
+                'thumbnail_url' => '%s/images/headers/lights2-thumbnail.jpg',
+                /* translators: header image description */
+                'description' => __( 'Lights 2', 'museum-core' )
+            ),
+        	'lights3' => array(
+        		'url' => '%s/images/headers/lights3.jpg',
+    			'thumbnail_url' => '%s/images/headers/lights3-thumbnail.jpg',
+        		/* translators: header image description */
+        		'description' => __( 'Lights 3', 'museum-core' )
+        	)
+        ) );
+
+        function core_admin_header_style() {
+            // I don't have any custom header styles...yet.
+        }
+
 
 	// this changes the output of the comments
 	function ap_core_comment($comment, $args, $depth) {
