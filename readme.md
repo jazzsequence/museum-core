@@ -14,7 +14,7 @@ Museum Core is a clean, responsive framework with support for built-in WordPress
 
 * Polish translation by [http://kratery.com/](anemoone)
 
-**Call for translators!**
+**Call for translators!**  
 If you are interested in helping translate this theme, contact me via the contact form on either the Theme URL or the Theme Author URL (in style.css).
 
 ## Installation
