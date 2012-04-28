@@ -587,7 +587,7 @@ function ap_core_theme_options_validate( $input ) {
 	$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 	$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
 	$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
-	$input['favicon'] = wp_filter_nohtml_kses( $input['favicon'] );
+	$input['favicon'] = esc_url_raw( $input['favicon'] );
 
     return $input;
 }
