@@ -559,7 +559,13 @@ add_action('admin_init', 'ap_core_presstrends');
  * completely rewritten @since 0.4.0
  */
 function ap_core_theme_options_validate( $input ) {
-
+	define('TYPE_WHITELIST', serialize(array(
+	  'image/jpeg',
+	  'image/jpg',
+	  'image/png',
+	  'image/gif',
+	  'image/ico'
+	  )));
     if ( !array_key_exists( $input['sidebar'], ap_core_sidebar() ) )
     $input['sidebar'] = $input['sidebar'];
 	if ( !array_key_exists( $input['presstrends'], ap_core_true_false() ) )
@@ -587,7 +593,10 @@ function ap_core_theme_options_validate( $input ) {
 	$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 	$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
 	$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
-	$input['favicon'] = esc_url_raw( $input['favicon'] );
+	$favicon = getimagesize($input['favicon']);
+	if (in_array($favicon['mime'], unserialize(TYPE_WHITELIST))) {
+		$input['favicon'] = esc_url_raw( $input['favicon'] );
+	} else { $input['favicon'] = ''; }
 
     return $input;
 }
