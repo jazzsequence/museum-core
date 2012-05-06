@@ -32,6 +32,7 @@ There are currently no screenshots.
 = Version 1.0.10 =
 
 * added more secure file validation for favicon uploads
+* fixed issue with gravatars in comments
 
 = Version 1.0.9 =
 
