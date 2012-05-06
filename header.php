@@ -15,8 +15,9 @@
 	if ( is_tax() ) {
 		$term_description = term_description(); ?>
 	<meta name="description" content="<?php echo $term_description; ?>">
-	<?php } elseif (( is_single() ) || ( is_page())) { ?>
-	<meta name="description" content="<?php the_excerpt(); ?>">
+	<?php } elseif (( is_single() ) || ( is_page())) {
+		$meta_description = strip_tags(the_excerpt()); ?>
+	<meta name="description" content="<?php echo $meta_description; ?>">
 <?php }
 }
 if ($options['author'] == 'true') {
