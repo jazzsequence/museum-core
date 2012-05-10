@@ -33,6 +33,7 @@ There are currently no screenshots.
 
 * added more secure file validation for favicon uploads
 * fixed issue with gravatars in comments
+* fixed theme options layout issue in 3.3.2
 
 = Version 1.0.9 =
 

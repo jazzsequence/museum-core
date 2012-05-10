@@ -59,7 +59,8 @@ function ap_core_admin_scripts() {
  */
 function ap_core_side_box() {
 	if ( get_bloginfo('version') < '3.4' ) { // if we're not using 3.4 (or higher), set this up the old way
-		$postbox_before = '	<div id="side-info-column" class="inner-sidebar">';
+		$postbox_before = '';
+		$postbox_before .= '	<div id="side-info-column" class="inner-sidebar">';
 		$postbox_before .= '		<div id="side-sortables" class="meta-box-sortables ui-sortable">';
 		$postbox_before .= '			<div class="padding">';
 		$postbox_before .= '				<div class="infolinks">';
@@ -157,6 +158,7 @@ function ap_core_theme_options_page() {
 	$load_css .= '#poststuff .nav-tab-wrapper h2 { margin-top: 8px; margin-bottom: 0; padding: 0 0 2px; }';
 	$load_css .= 'li.ui-state-default a { color: #aaa; }';
 	$load_css .= 'li.ui-state-active a { color: #464646; }';
+	$load_css .= '.has-right-sidebar #post-body-content form { float: left; }';
 	$load_css .= '</style>';
 	echo $load_css;
 	?>
@@ -166,7 +168,7 @@ function ap_core_theme_options_page() {
 		});
 	</script>
 	<div class="wrap">
-		<?php if ( function_exists( wp_get_theme() ) ) {
+		<?php if ( function_exists( 'wp_get_theme' ) ) {
 			$theme_name = wp_get_theme('Name');
 		} else {
 			$theme_name = get_current_theme();
@@ -179,7 +181,7 @@ function ap_core_theme_options_page() {
 		<div id="poststuff" class="metabox-holder has-right-sidebar">
 			<div id="post-body" class="metabox-holder columns-2">
 			<?php ap_core_side_box(); ?>
-				<div id="post-body-content">
+			<div id="post-body-content">
 					<form method="post" action="options.php">
 
 						<?php settings_fields( 'AP_CORE_OPTIONS' ); ?>
