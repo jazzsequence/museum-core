@@ -161,7 +161,7 @@ function ap_core_options_page_css() {
  */
 function ap_core_theme_options_page() {
 
-	include('actions.php');
+	require_once(get_template_directory() . '/inc/option-setup.php');
 	wp_nonce_field( 'ap-core-settings-page' );
 	if ( ! isset( $_REQUEST['settings-updated'] ) )
 		$_REQUEST['settings-updated'] = false;
