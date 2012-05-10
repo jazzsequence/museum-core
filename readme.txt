@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 1.0.10
+Stable tag: 1.1
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -29,7 +29,7 @@ There are currently no screenshots.
 
 == Changelog ==
 
-= Version 1.0.10 =
+= Version 1.1 =
 
 * added more secure file validation for favicon uploads
 * fixed issue with gravatars in comments
@@ -38,6 +38,8 @@ There are currently no screenshots.
 * removed base color from h tags (conflicted with themeroller stylesheets and overrode body color)
 * removed thead background color (kind of ugly anyway, and looks horrible with certain color palettes)
 * added an option to add custom css
+* changed the version for a major revision
+* rewrote the theme options page so each option is in its own separate function (to make building theme options pages for child themes & using *some* options from Core, but not *all* options easier/possible)
 
 = Version 1.0.9 =
 

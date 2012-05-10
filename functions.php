@@ -549,7 +549,7 @@ add_action( 'wp_head', 'ap_core_custom_styles' );
 
 /**
  * Custom CSS
- * @since 1.0.10
+ * @since 1.1
  * @author Chris Reynolds
  * this allows user-defined CSS rules to be loaded in the theme.  This gets loaded after the custom styles so these can override those settings if you really wanted them to
  */
