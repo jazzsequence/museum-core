@@ -36,6 +36,7 @@ There are currently no screenshots.
 * fixed theme options layout issue in 3.3.2
 * added page template for page with no sidebar
 * removed base color from h tags (conflicted with themeroller stylesheets and overrode body color)
+* removed thead background color (kind of ugly anyway, and looks horrible with certain color palettes)
 
 ### Version 1.0.9
 

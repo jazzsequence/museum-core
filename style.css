@@ -260,7 +260,7 @@ td { vertical-align: top; }
 	p img.right {float:right;margin:1.5em 0 1.5em 1.5em;}
 	a:focus, a:hover {color:#000;}
 	a {color:#009;text-decoration:underline;}
-	blockquote {margin:1.5em;color:#666;font-style:italic;}
+	blockquote {margin:1.5em;font-style:italic;}
 	strong {font-weight:bold;}
 	em, dfn {font-style:italic;}
 	dfn {font-weight:bold;}
@@ -279,7 +279,6 @@ td { vertical-align: top; }
 	dd {margin-left:1.5em;}
 	table {margin-bottom:1.4em;width:100%;}
 	th {font-weight:bold;}
-	thead th {background:#c3d9ff;}
 	th, td, caption {padding:4px 10px 4px 5px;}
 	tfoot {font-style:italic;}
 	caption {background:#eee;}
