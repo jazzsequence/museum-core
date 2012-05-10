@@ -35,6 +35,7 @@ There are currently no screenshots.
 * fixed issue with gravatars in comments
 * fixed theme options layout issue in 3.3.2
 * added page template for page with no sidebar
+* removed base color from h tags (conflicted with themeroller stylesheets and overrode body color)
 
 = Version 1.0.9 =
 
