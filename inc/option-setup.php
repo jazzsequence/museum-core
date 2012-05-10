@@ -568,7 +568,6 @@ function ap_core_general_settings() {
 	ap_core_presstrends_option();
 	echo $options_after;
 }
-add_action( 'ap_core_get_general_tab', 'ap_core_general_settings' );
 
 /**
  * Typography settings
@@ -628,11 +627,12 @@ function ap_core_advanced_settings() {
  * @uses ap_core_advanced_settings
  * this  makes it easier to use each individual setting modularly, which will make it easier to develop child themes that use *some* of the settings from the parent theme, but not others
  */
-function ap_core_do_theme_options() {
-	ap_core_tab_setup();
-	ap_core_general_settings();
-	ap_core_typography_settings();
-	ap_core_advanced_settings();
+if (!function_exists('ap_core_do_theme_options')) {
+	function ap_core_do_theme_options() {
+		ap_core_tab_setup();
+		ap_core_general_settings();
+		ap_core_typography_settings();
+		ap_core_advanced_settings();
+	}
 }
-
 ?>
