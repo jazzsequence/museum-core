@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Tabs
+ * set up the tabs
  * @since 1.1
  * @author Chris Reynolds
  * @uses screen_icon
