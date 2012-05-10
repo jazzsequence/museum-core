@@ -130,25 +130,15 @@ function ap_core_side_box() {
 }
 
 /**
- * Theme options page
- * @since 0.4.0
+ * Options page css
+ * @since 1.1
  * @author Chris Reynolds
- * this displays the actual options page
+ * spits out a bunch of css that is used on the theme options page
  */
-function ap_core_theme_options_page() {
-	global $pagenow;
-
-	wp_nonce_field( 'ap-core-settings-page' );
-
-	if ( ! isset( $_REQUEST['settings-updated'] ) )
-		$_REQUEST['settings-updated'] = false;
+function ap_core_options_page_css() {
 	$load_css = '<style type="text/css">';
 	$load_css .= '@import url("http://fonts.googleapis.com/css?family=Droid+Sans|Lato|Ubuntu|PT+Serif|Inconsolata");';
-	if ( false !== $_REQUEST['settings-updated'] ) {
-	$load_css .= 'a#fdbk_tab { top: 300px; }';
-	} else {
-	$load_css .= 'a#fdbk_tab { top: 240px; }';
-	}
+	$load_css .= 'a#fdbk_tab { top: 35%; }';
 	$load_css .= 'table.form-table { height: 475px; }';
 	$load_css .= 'div.tab-wrap { height: 44px; border-bottom: 1px solid #ccc; width: 100%; position: relative; z-index: 0; }';
 	$load_css .= 'ul.nav-tab-wrapper { margin: 0; float: left; }';
@@ -158,8 +148,24 @@ function ap_core_theme_options_page() {
 	$load_css .= 'li.ui-state-default a { color: #aaa; }';
 	$load_css .= 'li.ui-state-active a { color: #464646; }';
 	$load_css .= '.has-right-sidebar #post-body-content form { float: left; }';
+	$load_css .= '#post-body-content textarea { font-family: monospace; }';
 	$load_css .= '</style>';
 	echo $load_css;
+}
+
+/**
+ * Theme options page
+ * @since 0.4.0
+ * @author Chris Reynolds
+ * this displays the actual options page
+ */
+function ap_core_theme_options_page() {
+
+	include('actions.php');
+	wp_nonce_field( 'ap-core-settings-page' );
+	if ( ! isset( $_REQUEST['settings-updated'] ) )
+		$_REQUEST['settings-updated'] = false;
+	ap_core_options_page_css();
 	?>
 	<script>
 		jQuery(function() {
@@ -182,333 +188,9 @@ function ap_core_theme_options_page() {
 			<?php ap_core_side_box(); ?>
 			<div id="post-body-content">
 					<form method="post" action="options.php">
-
-						<?php settings_fields( 'AP_CORE_OPTIONS' ); ?>
-						<?php $defaults = ap_core_get_theme_defaults(); ?>
-						<?php $options = get_option( 'ap_core_theme_options', $defaults ); ?>
-
 						<div id="tabs">
-							<div class="tab-wrap">
-								<ul class="nav-tab-wrapper">
-									<li><?php screen_icon(); ?></li>
-									<li><h2><a class="nav-tab" href="#tabs-1"><?php _e('General','museum-core'); ?></a></h2></li>
-									<li><h2><a class="nav-tab" href="#tabs-2"><?php _e('Typography & Fonts','museum-core'); ?></a></h2></li>
-									<li><h2><a class="nav-tab" href="#tabs-3"><?php _e('Advanced','museum-core'); ?></a></h2></li>
-								</ul>
-							</div>
-							<?php
-							/**
-							 * General
-							 */
-							?>
-							<table class="form-table" id="tabs-1">
-								<?php
-								/**
-								 * Sidebar Settings
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Sidebar', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[sidebar]">
-										<?php
-											$selected = $options['sidebar'];
-											foreach ( ap_core_sidebar() as $option ) {
-												$label = $option['label'];
-												$value = $option['value'];
-												echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-											}
-										?>
-										</select>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * Show full posts or excerpts
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Full posts or excerpts?', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[excerpts]">
-											<?php
-												$selected = $options['excerpts'];
-												foreach ( ap_core_show_excerpts() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[excerpts]"><?php _e( 'Select whether you want full posts on the blog page or post excerpts with post thumbnails.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * Footer text
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Footer Text', 'museum-core' ); ?></th>
-									<td>
-										<textarea id="ap_core_theme_options[footer]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[footer]" style="font-family: monospace;"><?php if ($options['footer'] != '') {
-											echo wp_kses( $options['footer'], array('a' => array('href' => array(),'title' => array()),'br' => array(),'em' => array(),'strong' => array() ) );
-										} else {
-											echo $defaults['footer'];
-										} ?></textarea>
-										<label class="description" for="ap_core_theme_options[footer]"><?php _e( 'Add your own footer text or leave blank for no text in the footer.  Allowed HTML is <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;em&gt;</code> & <code>&lt;strong&gt;</code>', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * PressTrends setting
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Send usage data?', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[presstrends]">
-											<?php
-												$selected = $options['presstrends'];
-												foreach ( ap_core_true_false() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[presstrends]"><?php _e( 'PressTrends allows theme developers to see how their themes are being used so they can better address the needs of their users. For more information visit <a href="http://presstrends.io/faq">PressTrends</a> or check out the <a href="http://wordpress.org/extend/plugins/presstrends/">plugin</a>.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-							</table>
-							<?php
-							/**
-							 * Typography
-							 */
-							?>
-							<table class="form-table" id="tabs-2">
-								<?php
-								/**
-								 * A Font Settings
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Museum Core Fonts', 'museum-core' ); ?></th>
-									<td>
-										<fieldset>
-											<legend class="screen-reader-text"><span><?php _e( 'Fonts', 'museum-core' ); ?></span></legend>
-											<?php
-												foreach ( ap_core_fonts() as $option ) {
-													$label = $option['label'];
-													$link = $option['link'];
-													$value = $option['value']; ?>
-											<label class="description"><span style="font-family: '<?php echo $value; ?>'; font-size: 1.7em; padding-right: 20px;"><?php echo $label; ?><span style="font-size: 10px; font-family: sans-serif;"> <a href="<?php echo $link; ?>" target="_blank"><?php _e('[link]','museum-core'); ?></a></span></span></label>
-											<?php } ?>
-										</fieldset>
-									</td>
-								</tr>
-								<tr valign="top"><th scope="row"><?php _e( 'Headings Font', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[heading]">
-											<?php
-												$selected = $options['heading'];
-												foreach ( ap_core_fonts() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[heading]"><?php _e( 'Used for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;h3&gt;</code> tags.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<tr valign="top"><th scope="row"><?php _e( 'Body Font', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[body]">
-											<?php
-												$selected = $options['body'];
-												foreach ( ap_core_fonts() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[body]"><?php _e( 'Used for all body text.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<tr valign="top"><th scope="row"><?php _e( 'Alternate Font', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[alt]">
-											<?php
-												$selected = $options['alt'];
-												foreach ( ap_core_fonts() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[alt]"><?php _e( 'Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code> and <code>&lt;h6&gt;</code> tags and anywhere the <code>.alt</code> class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</code>.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<tr valign="top"><th scope="row"><?php _e( 'Use alternate font for H1?', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[alth1]">
-											<?php
-												$selected = $options['alth1'];
-												foreach ( ap_core_true_false() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[alth1]"><?php _e( 'If set to "Yes", the alternate font will be used on the <code>&lt;h1&gt;</code> tag in the header and the heading font will be used for the description.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * Link color
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Link Color', 'museum-core' ); ?></th>
-									<td><?php if ( !isset($options['link']) ) { $options['link'] == '#486D96'; } ?>
-										<input class="medium-text" type="text" name="ap_core_theme_options[link]" value="<?php echo $options['link']; ?>" id="link-color" onfocus="if (this.value == '#'){this.value = '#';}" onblur="if (this.value == '') {this.value = '#';}" />
-										<div id="colorpicker-link"></div>
-										<br /><label class="description" for="ap_core_theme_options[link]"><?php _e( 'Set your desired link color.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<tr valign="top"><th scope="row"><?php _e( 'Hover Color', 'museum-core' ); ?></th>
-									<td><?php if ( !isset($options['hover']) ) { $options['hover'] == '#333333'; } ?>
-										<input class="medium-text" type="text" name="ap_core_theme_options[hover]" value="<?php echo $options['hover']; ?>" id="hover-color" onfocus="if (this.value == '#'){this.value = '#';}" onblur="if (this.value == '') {this.value = '#';}" />
-										<div id="colorpicker-hover"></div>
-										<br /><label class="description" for="ap_core_theme_options[hover]"><?php _e( 'Set your desired link hover color.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-							</table>
-							<?php
-							/**
-							 * Advanced
-							 */
-							?>
-							<table class="form-table" id="tabs-3">
-								<?php
-								/**
-								 * favicon
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Custom favicon', 'museum-core' ); ?></th>
-									<td>
-										<input id="upload_image" type="text" size="36" name="ap_core_theme_options[favicon]" value="<?php esc_attr_e( $options['favicon'] ); ?>" />
-										<input id="upload_image_button" type="button" class="button" value="<?php _e('Upload Image','museum-core'); ?>" />
-										<br />
-										<label class="description" for="ap_core_theme_options[favicon]"><?php _e( 'Use the uploader to upload a PNG or ICO file to use as a favicon for your site.  If left blank, no favicon will be used. (Other image formats will work but may not be browser-supported.)', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * <meta> tags
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Use meta description?', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[meta]">
-											<?php
-												$selected = $options['meta'];
-												foreach ( ap_core_true_false() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[meta]"><?php _e( 'If Yes, meta tags for description will be loaded in the header (pulled from post excerpt for single posts and pages or from the description for tags and categories).  Use this if you don\'t plan on using an SEO plugin to handle your meta descriptions.','museum-core'); ?><br /><?php _e( 'If No, no meta description tags will be loaded.  Use this if you plan on using something to take care of your meta description.', 'museum-core' ); ?>  <a href="http://yoast.com/meta-description-seo-social/" target="_blank"><?php _e('More info','museum-core'); ?></label>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * Author tag
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Use meta author?', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[author]">
-											<?php
-												$selected = $options['author'];
-												foreach ( ap_core_true_false() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[author]"><?php _e( 'If Yes, meta author tags will be used on all pages (except 404 pages).','museum-core'); ?><br /><?php _e( 'If No, meta author tags will be disabled.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * Generator tag
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Use meta generator tag?', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[generator]">
-											<?php
-												$selected = $options['generator'];
-												foreach ( ap_core_true_false() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[generator]"><?php _e( 'If Yes, the theme name and version will be added to a meta generator tag.  This is useful in identifying which version of the theme you are using for troubleshooting purposes.  This should be enabled if you need to contact us for support.','museum-core'); ?></label>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * Show full posts or excerpts on archive pages
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Full posts or excerpts on archive pages?', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[archive-excerpt]">
-											<?php
-												$selected = $options['archive-excerpt'];
-												foreach ( ap_core_show_excerpts() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[archive-excerpt]"><?php _e( 'Select whether you want full posts on archive pages or excerpts with post thumbnails.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * Use Twitter hovercards?
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Use Twitter hovercards?', 'museum-core' ); ?></th>
-									<td>
-										<select name="ap_core_theme_options[hovercards]">
-											<?php
-												$selected = $options['hovercards'];
-												foreach ( ap_core_true_false() as $option ) {
-													$label = $option['label'];
-													$value = $option['value'];
-													echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
-												} ?>
-										</select><br />
-										<label class="description" for="ap_core_theme_options[hovercards]"><?php echo sprintf( __( 'Twitter hovercards display information about a particular Twitter user when the @ symbol is used.  See the %1$sTwitter developer documentation for more information%2$s', 'museum-core' ), '<a href="https://dev.twitter.com/docs/anywhere/welcome#hovercards" target="_blank">', '</a>' ); ?>
-									</td>
-								</tr>
-								<?php
-								/**
-								 * Custom CSS
-								 */
-								?>
-								<tr valign="top"><th scope="row"><?php _e( 'Custom CSS', 'museum-core' ); ?></th>
-									<td>
-										<?php
-											$css_basetext = '/* ' . __( 'add your custom css here', 'museum-core' ) . ' */';
-										?>
-										<textarea id="ap_core_theme_options[css]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[css]" style="font-family: monospace;" onfocus="if (this.value == '<?php echo $css_basetext; ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php echo $css_basetext; ?>';}"><?php if ($options['css'] != '') {
-											echo wp_kses( $options['css'], array() );
-										} else {
-											echo $css_basetext;
-										} ?></textarea>
-										<label class="description" for="ap_core_theme_options[css]"><?php _e( 'Add custom CSS overrides to your theme.  Intended for advanced users with a good working knowledge of <abbr title="Cascading Style Sheets">CSS</abbr>.', 'museum-core' ); ?></label>
-									</td>
-								</tr>
-							</table>
+							<?php settings_fields( 'AP_CORE_OPTIONS' ); ?>
+							<?php ap_core_do_theme_options(); ?>
 						</div>
 						<p class="submit">
 							<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'museum-core' ); ?>" />
