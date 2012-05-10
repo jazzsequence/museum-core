@@ -490,6 +490,24 @@ function ap_core_theme_options_page() {
 										<label class="description" for="ap_core_theme_options[hovercards]"><?php echo sprintf( __( 'Twitter hovercards display information about a particular Twitter user when the @ symbol is used.  See the %1$sTwitter developer documentation for more information%2$s', 'museum-core' ), '<a href="https://dev.twitter.com/docs/anywhere/welcome#hovercards" target="_blank">', '</a>' ); ?>
 									</td>
 								</tr>
+								<?php
+								/**
+								 * Custom CSS
+								 */
+								?>
+								<tr valign="top"><th scope="row"><?php _e( 'Custom CSS', 'museum-core' ); ?></th>
+									<td>
+										<?php
+											$css_basetext = '/* ' . __( 'add your custom css here', 'museum-core' ) . ' */';
+										?>
+										<textarea id="ap_core_theme_options[css]" class="large-text" cols="50" rows="10" name="ap_core_theme_options[css]" style="font-family: monospace;" onfocus="if (this.value == '<?php echo $css_basetext; ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php echo $css_basetext; ?>';}"><?php if ($options['css'] != '') {
+											echo wp_kses( $options['css'], array() );
+										} else {
+											echo $css_basetext;
+										} ?></textarea>
+										<label class="description" for="ap_core_theme_options[css]"><?php _e( 'Add custom CSS overrides to your theme.  Intended for advanced users with a good working knowledge of <abbr title="Cascading Style Sheets">CSS</abbr>.', 'museum-core' ); ?></label>
+									</td>
+								</tr>
 							</table>
 						</div>
 						<p class="submit">
@@ -594,6 +612,7 @@ function ap_core_theme_options_validate( $input ) {
 	$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 	$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
 	$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
+	$input['css'] = wp_filter_nohtml_kses( stripslashes($input['css']) );
 	$favicon = getimagesize($input['favicon']);
 	if (in_array($favicon['mime'], unserialize(TYPE_WHITELIST))) {
 		$input['favicon'] = esc_url_raw( $input['favicon'] );

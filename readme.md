@@ -37,6 +37,7 @@ There are currently no screenshots.
 * added page template for page with no sidebar
 * removed base color from h tags (conflicted with themeroller stylesheets and overrode body color)
 * removed thead background color (kind of ugly anyway, and looks horrible with certain color palettes)
+* added an option to add custom css
 
 ### Version 1.0.9
 

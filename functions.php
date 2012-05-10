@@ -402,7 +402,8 @@ function ap_core_get_theme_defaults(){
         'generator' => 'false',
         'archive-excerpt' => 'true',
         'hovercards' => 'true',
-        'favicon' => ''
+        'favicon' => '',
+        'css' => ''
     );
     return $defaults;
 }
@@ -503,6 +504,12 @@ function ap_core_true_false() {
     return $ap_core_true_false;
 }
 
+/**
+ * Custom styles
+ * @since 0.4.5
+ * @author Chris Reynolds
+ * this fetches the custom color options from the database and spits them out into the header
+ */
 function ap_core_custom_styles() {
     $defaults = ap_core_get_theme_defaults();
     $options = get_option( 'ap_core_theme_options' );
@@ -539,5 +546,24 @@ function ap_core_custom_styles() {
     echo $output;
 }
 add_action( 'wp_head', 'ap_core_custom_styles' );
+
+/**
+ * Custom CSS
+ * @since 1.0.10
+ * @author Chris Reynolds
+ * this allows user-defined CSS rules to be loaded in the theme.  This gets loaded after the custom styles so these can override those settings if you really wanted them to
+ */
+function ap_core_custom_css() {
+    $defaults = ap_core_get_theme_defaults();
+    $options = get_option( 'ap_core_theme_options' );
+
+    if ( !empty($options['css']) ) {
+        $css = '<style type="text/css" media="print, screen">';
+        $css .= $options['css'];
+        $css .= '</style>';
+    }
+    echo $css;
+ }
+add_action( 'wp_head', 'ap_core_custom_css', 11 );
 
 ?>
