@@ -59,8 +59,7 @@ function ap_core_admin_scripts() {
  */
 function ap_core_side_box() {
 	if ( get_bloginfo('version') < '3.4' ) { // if we're not using 3.4 (or higher), set this up the old way
-		$postbox_before = '';
-		$postbox_before .= '	<div id="side-info-column" class="inner-sidebar">';
+		$postbox_before = '	<div id="side-info-column" class="inner-sidebar">';
 		$postbox_before .= '		<div id="side-sortables" class="meta-box-sortables ui-sortable">';
 		$postbox_before .= '			<div class="padding">';
 		$postbox_before .= '				<div class="infolinks">';
