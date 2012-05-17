@@ -175,11 +175,13 @@ if (!function_exists('ap_core_setup')) {
         ) );
 
         // This adds a home link option in the Menus
-        function ap_core_home_page_menu_args( $args ) {
-            $args['show_home'] = true;
-            return $args;
+        if (!function_exists('ap_core_home_page_menu_args')) {
+            function ap_core_home_page_menu_args( $args ) {
+                $args['show_home'] = true;
+                return $args;
+            }
+            add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
         }
-        add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
 
         // This theme allows users to set a custom background
         if ( function_exists( 'get_custom_header' ) ) { // if we're using 3.4, do this the new way (this will be removed with 3.5) -- this is borrowed from p2
@@ -272,35 +274,39 @@ if (!function_exists('ap_core_setup')) {
 
 
     	// this changes the output of the comments
-    	function ap_core_comment($comment, $args, $depth) {
-            $GLOBALS['comment'] = $comment; ?>
-            <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-            <div id="comment-<?php comment_ID(); ?>" class="the_comment">
-                <div class="comment-author vcard">
-                    <?php echo get_avatar($comment,$size='64',$default='' ); ?>
-                    <?php echo sprintf(__('On %1$s at %2$s %3$s said:','museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ?>
+        if (!function_exists('ap_core_comment')) {
+        	function ap_core_comment($comment, $args, $depth) {
+                $GLOBALS['comment'] = $comment; ?>
+                <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+                <div id="comment-<?php comment_ID(); ?>" class="the_comment">
+                    <div class="comment-author vcard">
+                        <?php echo get_avatar($comment,$size='64',$default='' ); ?>
+                        <?php echo sprintf(__('On %1$s at %2$s %3$s said:','museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ?>
+                    </div>
+                    <?php if ($comment->comment_approved == '0') : ?>
+                        <em><?php _e('Your comment is awaiting moderation.', 'museum-core') ?></em>
+                        <br />
+                    <?php endif; ?>
+                    <?php comment_text() ?>
+                    <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)', 'museum-core'),'  ','') ?></div>
+                    <?php if ( comments_open() ) { ?>
+                        <div class="reply"><button>
+                        <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','museum-core'), 'max_depth' => $args['max_depth']))) ?>
+                        </button></div>
+                    <?php } ?>
                 </div>
-                <?php if ($comment->comment_approved == '0') : ?>
-                    <em><?php _e('Your comment is awaiting moderation.', 'museum-core') ?></em>
-                    <br />
-                <?php endif; ?>
-                <?php comment_text() ?>
-                <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)', 'museum-core'),'  ','') ?></div>
-                <?php if ( comments_open() ) { ?>
-                    <div class="reply"><button>
-                    <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','museum-core'), 'max_depth' => $args['max_depth']))) ?>
-                    </button></div>
-                <?php } ?>
-            </div>
-            <?php
+                <?php
+            }
         }
 
     	// this changes the default [...] to be a read more hyperlink
-    	function ap_core_new_excerpt_more($more) {
-            global $post;
-    		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . __('read more','museum-core') . '</a>)';
-    	}
-    	add_filter('excerpt_more', 'ap_core_new_excerpt_more');
+        if (!function_exists('ap_core_new_excerpt_more')) {
+        	function ap_core_new_excerpt_more($more) {
+                global $post;
+        		return '...&nbsp;(<a href="'. get_permalink($post->ID) . '">' . __('read more','museum-core') . '</a>)';
+        	}
+        	add_filter('excerpt_more', 'ap_core_new_excerpt_more');
+        }
 
     }
     add_action('after_setup_theme','ap_core_setup');
