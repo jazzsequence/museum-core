@@ -288,8 +288,7 @@ if (!function_exists('ap_core_setup')) {
           <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)', 'museum-core'),'  ','') ?></div>
           <?php if ( comments_open() ) { ?>
               <div class="reply"><button>
-                 <?php comment_reply_link(array_merge
-        		 ( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','museum-core'), 'max_depth' => $args['max_depth']))) ?>
+                 <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','museum-core'), 'max_depth' => $args['max_depth']))) ?>
               </button></div>
            <?php } ?>
          </div>
