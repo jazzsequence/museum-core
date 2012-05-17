@@ -1,23 +1,16 @@
 <?php
 
 /**
- * Theme options init
- * @since 0.4.1
- * @author Chris Reynolds
- * @link http://themeshaper.com/2010/06/03/sample-theme-options/
- * adds the add_action lines to initialize the theme options and theme options page
- */
-add_action ( 'admin_init', 'ap_core_theme_options_init' );
-add_action ( 'admin_menu', 'ap_core_theme_options_add_page' );
-
-/**
  * Register theme settings
  * @since 0.4.0
  * @author Chris Reynolds
  * registers the settings
  */
-function ap_core_theme_options_init() {
-    register_setting( 'AP_CORE_OPTIONS', 'ap_core_theme_options', 'ap_core_theme_options_validate' );
+if (!function_exists('ap_core_theme_options_init')) {
+	function ap_core_theme_options_init() {
+	    register_setting( 'AP_CORE_OPTIONS', 'ap_core_theme_options', 'ap_core_theme_options_validate' );
+	}
+	add_action ( 'admin_init', 'ap_core_theme_options_init' );
 }
 
 /**
@@ -27,9 +20,12 @@ function ap_core_theme_options_init() {
  * this creates the admin page
  * this also calls the ap_core_admin_scripts() function and adds those scripts to admin_print_scripts for that page
  */
-function ap_core_theme_options_add_page() {
-    $page = add_theme_page( __('Theme Options','museum-core'), __('Theme Options','museum-core'), 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
-    add_action( 'admin_print_scripts-'.$page, 'ap_core_admin_scripts' );
+if (!function_exists('ap_core_theme_options_add_page')) {
+	function ap_core_theme_options_add_page() {
+	    $page = add_theme_page( __('Theme Options','museum-core'), __('Theme Options','museum-core'), 'edit_theme_options', 'theme_options', 'ap_core_theme_options_page' );
+	    add_action( 'admin_print_scripts-'.$page, 'ap_core_admin_scripts' );
+	}
+	add_action ( 'admin_menu', 'ap_core_theme_options_add_page' );
 }
 
 /**
