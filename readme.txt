@@ -32,6 +32,8 @@ There are currently no screenshots.
 = Version 1.1.1 =
 
 * wraps all functions in `if (!function_exists())` checks (for building child themes)
+* adds language_attributes() to ie conditional classes
+* added an option to hide the site title (so you can use the header image by itself, instead)
 
 = Version 1.1 =
 
