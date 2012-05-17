@@ -383,6 +383,7 @@ if (!function_exists('ap_core_link_options')) {
  */
 if (!function_exists('ap_core_favicon_option')) {
 	function ap_core_favicon_option() {
+		$defaults = ap_core_get_theme_defaults();
 		$options = get_option( 'ap_core_theme_options', $defaults );
 
 		ob_start();
