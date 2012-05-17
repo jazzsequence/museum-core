@@ -571,30 +571,17 @@ if (!function_exists('ap_core_custom_styles')) {
         } else {
             $hover = $defaults['hover'];
         }
-        $output = "<style type=\"text/css\" media=\"print,screen\">h1, h2, h3 { font-family: '$heading', sans-serif; } h4, h5, h6, .alt, h3 time { font-family: '$alt', sans-serif; } body { font-family: '$body', sans-serif; } a, a:link, a:visited { color: $link; } a:hover, a:active { color: $hover; } a { text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }</style>";
+        $output = "<style type=\"text/css\" media=\"print,screen\">h1, h2, h3 { font-family: '$heading', sans-serif; } h4, h5, h6, .alt, h3 time { font-family: '$alt', sans-serif; } body { font-family: '$body', sans-serif; } a, a:link, a:visited { color: $link; } a:hover, a:active { color: $hover; } a { text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
+        if ( $options['site-title'] == 'false' ) {
+            $output .= ".headerimg hgroup h1, .headerimg hgroup h2 { float: left; position: absolute; left: -999em; height: 0px; }";
+        }
+        if ( !empty($options['css']) ) {
+            $output .= $options['css'];
+        }
+        $output .= "</style>";
         echo $output;
     }
     add_action( 'wp_head', 'ap_core_custom_styles' );
 }
 
-/**
- * Custom CSS
- * @since 1.1
- * @author Chris Reynolds
- * this allows user-defined CSS rules to be loaded in the theme.  This gets loaded after the custom styles so these can override those settings if you really wanted them to
- */
-if (!function_exists('ap_core_custom_css')) {
-    function ap_core_custom_css() {
-        $defaults = ap_core_get_theme_defaults();
-        $options = get_option( 'ap_core_theme_options' );
-
-        if ( !empty($options['css']) ) {
-            $css = '<style type="text/css" media="print, screen">';
-            $css .= $options['css'];
-            $css .= '</style>';
-        }
-        echo $css;
-     }
-     add_action( 'wp_head', 'ap_core_custom_css', 11 );
- }
 ?>
