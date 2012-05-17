@@ -294,6 +294,8 @@ if (!function_exists('ap_core_theme_options_validate')) {
 		$input['generator'] = $input['generator'];
 		if ( !array_key_exists( $input['hovercards'], ap_core_true_false() ) )
 		$input['hovercards'] = $input['hovercards'];
+		if ( !array_key_exists( $input['site-title'], ap_core_true_false() ) )
+		$input['site-title'] = $input['site-title'];
 		if ( !array_key_exists( $input['excerpts'], ap_core_show_excerpts() ) )
 		$input['excerpts'] = $input['excerpts'];
 		if ( !array_key_exists( $input['archive-excerpt'], ap_core_show_excerpts() ) )
