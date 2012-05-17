@@ -421,7 +421,8 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             'archive-excerpt' => 'true',
             'hovercards' => 'true',
             'favicon' => '',
-            'css' => ''
+            'css' => '',
+            'site-title' => 'true'
         );
         return $defaults;
     }

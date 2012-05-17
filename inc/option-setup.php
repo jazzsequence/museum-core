@@ -578,6 +578,43 @@ if (!function_exists('ap_core_css_option')) {
 }
 
 /**
+ * Hide site title
+ * @since 1.1.1
+ * @author Chris Reynolds
+ * @uses ap_core_get_theme_defaults
+ * @uses get_option
+ * @uses ap_core_true_false
+ * adds an option to hide the site title
+ */
+if (!function_exists('ap_core_hide_site_title_option')) {
+	function ap_core_hide_site_title_option() {
+		$defaults = ap_core_get_theme_defaults();
+		$options = get_option( 'ap_core_theme_options', $defaults );
+
+		ob_start();
+		?>
+			<tr valign="top"><th scope="row"><?php _e( 'Display site title?', 'museum-core' ); ?></th>
+				<td>
+					<select name="ap_core_theme_options[site-title]">
+					<?php
+						$selected = $options['site-title'];
+						foreach ( ap_core_true_false() as $option ) {
+							$label = $option['label'];
+							$value = $option['value'];
+							echo '<option value="' . $value . '" ' . selected( $selected, $value ) . '>' . $label . '</option>';
+						} ?>
+					</select><br />
+					<label class="description" for="ap_core_theme_options[site-title]"><?php _e( 'Set to "No" to hide the site title and tagline.  Use this if you would rather display the header image with no site title.', 'museum-core' ); ?>
+				</td>
+			</tr>
+		<?php
+		$hovercards = ob_get_contents();
+		ob_end_clean();
+		echo $hovercards;
+	}
+}
+
+/**
  * General settings
  * @since 1.1
  * @author Chris Reynolds
@@ -636,6 +673,7 @@ if (!function_exists('ap_core_typography_settings')) {
  * @uses ap_core_archive_excerpts_option
  * @uses ap_core_hovercards_option
  * @uses ap_core_css_option
+ * @uses ap_core_hide_site_title_option
  * loads the options that appear on the Advanced tab
  */
 if (!function_exists('ap_core_advanced_settings')) {
@@ -645,6 +683,7 @@ if (!function_exists('ap_core_advanced_settings')) {
 
 		echo $options_before;
 		ap_core_favicon_option();
+		ap_core_hide_site_title_option();
 		ap_core_meta_options();
 		ap_core_archive_excerpts_option();
 		ap_core_hovercards_option();
