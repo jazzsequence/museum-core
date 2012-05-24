@@ -31,7 +31,8 @@ There are currently no screenshots.
 
 = Version 1.1.2 =
 
-
+* moved optional header meta out of the header.php and into a wp_head action
+* sanitized and stripped tags from content being fed into meta description tags
 
 = Version 1.1.1 =
 
