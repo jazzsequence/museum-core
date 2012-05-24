@@ -353,14 +353,14 @@ if (!function_exists('ap_core_link_options')) {
 		?>
 			<tr valign="top"><th scope="row"><?php _e( 'Link Color', 'museum-core' ); ?></th>
 				<td><?php if ( !isset($options['link']) ) { $options['link'] == $defaults['link']; } ?>
-					<input class="medium-text" type="text" name="ap_core_theme_options[link]" value="<?php echo $options['link']; ?>" id="link-color" onfocus="if (this.value == '#'){this.value = '#';}" onblur="if (this.value == '') {this.value = '#';}" />
+					<input class="medium-text" type="text" name="ap_core_theme_options[link]" value="<?php echo $options['link']; ?>" onfocus="if (this.value == '#'){this.value = '#';} if (this.value == ''){this.value='#';}" onblur="if (this.value == '') {this.value = '#';}" id="link-color" />
 					<div id="colorpicker-link"></div>
 					<br /><label class="description" for="ap_core_theme_options[link]"><?php _e( 'Set your desired link color.', 'museum-core' ); ?></label>
 				</td>
 			</tr>
 			<tr valign="top"><th scope="row"><?php _e( 'Hover Color', 'museum-core' ); ?></th>
 				<td><?php if ( !isset($options['hover']) ) { $options['hover'] == $defaults['hover']; } ?>
-					<input class="medium-text" type="text" name="ap_core_theme_options[hover]" value="<?php echo $options['hover']; ?>" id="hover-color" onfocus="if (this.value == '#'){this.value = '#';}" onblur="if (this.value == '') {this.value = '#';}" />
+					<input class="medium-text" type="text" name="ap_core_theme_options[hover]" value="<?php echo $options['hover']; ?>" onfocus="if (this.value == '#'){this.value = '#';} if (this.value == ''){this.value='#';}" onblur="if (this.value == '') {this.value = '#';}" id="hover-color" />
 					<div id="colorpicker-hover"></div>
 					<br /><label class="description" for="ap_core_theme_options[hover]"><?php _e( 'Set your desired link hover color.', 'museum-core' ); ?></label>
 				</td>
