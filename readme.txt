@@ -36,6 +36,7 @@ There are currently no screenshots.
 * moves favicon out of header.php to a wp_head action and sanitizes url before output
 * added a # to the link color input selection if it's empty for farbtastic
 * only outputs the custom styles if they are set and aren't the default values
+* moved admin css to its own stylesheet
 
 = Version 1.1.1 =
 
