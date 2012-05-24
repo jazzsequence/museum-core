@@ -635,4 +635,22 @@ if (!function_exists('ap_core_header_meta')) {
     add_action( 'wp_head', 'ap_core_header_meta' );
 }
 
+/**
+ * favicon
+ * @since 1.1.2
+ * @author Chris Reynolds
+ * outputs the favicon if set in the options
+ */
+if (!function_exists('ap_core_favicon')) {
+    function ap_core_favicon() {
+        $options = get_option( 'ap_core_theme_options' );
+
+        if ( isset($options['favicon']) ) {
+            $favicon = esc_url($options['favicon']); ?>
+            <link rel="Shortcut Icon" href="<?php echo $favicon; ?>" type="image/x-icon" />
+        <?php }
+    }
+    add_action( 'wp_head', 'ap_core_favicon' );
+}
+
 ?>

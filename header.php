@@ -14,10 +14,6 @@
 <meta name="viewport" content="width=device-width">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_get_archives('type=monthly&format=link'); ?>
-<?php if ( isset($options['favicon']) ) {
-	$favicon = $options['favicon']; ?>
-	<link rel="Shortcut Icon" href="<?php echo $favicon; ?>" type="image/x-icon" />
-<?php } ?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
