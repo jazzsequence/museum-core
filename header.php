@@ -10,25 +10,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <?php $options = get_option( 'ap_core_theme_options' ); ?>
 <title><?php wp_title(); ?></title>
-<?php /* meta description */ ?>
-<?php if ($options['meta'] == 'true') {
-	if ( is_tax() ) {
-		$term_description = term_description(); ?>
-	<meta name="description" content="<?php echo $term_description; ?>">
-	<?php } elseif (( is_single() ) || ( is_page())) {
-		$meta_description = strip_tags(the_excerpt()); ?>
-	<meta name="description" content="<?php echo $meta_description; ?>">
-<?php }
-}
-if ($options['author'] == 'true') {
-	if (!is_404()) {
-		// if there is no post author, this stuff doesn't exist
-		$author_id = $post->post_author;
-		$author = get_userdata($author_id);
-	?>
-	<meta name="author" content="<?php echo $author->display_name; ?>">
-	<?php }
-} ?>
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
 <meta name="viewport" content="width=device-width">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />

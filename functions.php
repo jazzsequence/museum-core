@@ -589,4 +589,50 @@ if (!function_exists('ap_core_custom_styles')) {
     add_action( 'wp_head', 'ap_core_custom_styles' );
 }
 
+/**
+ * Header meta
+ * @since 1.1.2
+ * @author Chris Reynolds
+ * serves up meta data if enabled
+ */
+if (!function_exists('ap_core_header_meta')) {
+    function ap_core_header_meta() {
+        global $post;
+        $options = get_option( 'ap_core_theme_options' );
+
+        /* meta description */
+        if ($options['meta'] == 'true') {
+            if ( is_tax() && term_description() ) {
+                $term_description = term_description(); ?>
+                <meta name="description" content="<?php echo sanitize_text_field($term_description); ?>">
+            <?php } elseif ( is_category() && category_description() ) {
+                $term_description = category_description(); ?>
+                <meta name="description" content="<?php echo sanitize_text_field($term_description); ?>">
+            <?php } elseif (( is_single() ) || ( is_page())) {
+                $this_post = $post;
+                $post_data = get_post($this_post);
+                $post_excerpt = $post_data->post_excerpt;
+                $trim_post_content = wp_trim_words( $post_data->post_content, 55 );
+                if ( $post_excerpt ) {
+                    $meta_description = $post_excerpt;
+                } else {
+                    $meta_description = $trim_post_content;
+                } ?>
+            <meta name="description" content="<?php echo sanitize_text_field($meta_description); ?>">
+        <?php }
+        }
+        /* author meta */
+        if ($options['author'] == 'true') {
+            if (!is_404()) {
+                // if there is no post author, this stuff doesn't exist
+                $author_id = $post->post_author;
+                $author = get_userdata($author_id);
+            ?>
+            <meta name="author" content="<?php echo $author->display_name; ?>">
+            <?php }
+        }
+    }
+    add_action( 'wp_head', 'ap_core_header_meta' );
+}
+
 ?>

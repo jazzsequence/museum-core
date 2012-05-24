@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.2
 Tested up to: 3.3.2
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -28,6 +28,10 @@ If you are interested in helping translate this theme, contact me via the contac
 There are currently no screenshots.
 
 == Changelog ==
+
+= Version 1.1.2 =
+
+
 
 = Version 1.1.1 =
 
