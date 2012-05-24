@@ -31,10 +31,10 @@ There are currently no screenshots.
 
 = Version 1.1.2 =
 
-* moved optional header meta out of the header.php and into a wp_head action
+* moved optional header meta out of the `header.php` and into a `wp_head` action
 * sanitized and stripped tags from content being fed into meta description tags
-* moves favicon out of header.php to a wp_head action and sanitizes url before output
-* added a # to the link color input selection if it's empty for farbtastic
+* moves favicon out of `header.php` to a `wp_head` action and sanitizes url before output
+* added a `#` to the link color input selection if it's empty for farbtastic
 * only outputs the custom styles if they are set and aren't the default values
 * moved admin css to its own stylesheet
 
