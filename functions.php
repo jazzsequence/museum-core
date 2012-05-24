@@ -548,43 +548,46 @@ if (!function_exists('ap_core_custom_styles')) {
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
         // set the heading font
-        if ( isset($options['heading']) ) {
-            $heading = $options['heading'];
-        } else {
-            $heading = $defaults['heading'];
+        if ( $options['heading'] != $defaults['heading'] ) {
+            $heading = sanitize_text_field($options['heading']);
+            $output_heading = "h1, h2, h3 { font-family: '$heading', sans-serif; }";
         }
         // set the body font
-        if ( isset($options['body']) ) {
-            $body = $options['body'];
-        } else {
-            $body = $defaults['body'];
+        if ( $options['body'] != $defaults['body'] ) {
+            $body = sanitize_text_field($options['body']);
+            $output_body = "body { font-family: '$body', sans-serif; }";
         }
         // set the alt font
-        if ( isset($options['alt']) ) {
-            $alt = $options['alt'];
-        } else {
-            $alt = $defaults['alt'];
+        if ( $options['alt'] != $defaults['alt'] ) {
+            $alt = sanitize_text_field($options['alt']);
+            $output_alt = "h4, h5, h6, .alt, h3 time { font-family: '$alt', sans-serif; }";
         }
         // set the link color
-        if ( isset($options['link']) ) {
-            $link = $options['link'];
-        } else {
-            $link = $defaults['link'];
+        if ( $options['link'] && $options['link'] != $defaults['link'] ) {
+            $link = sanitize_text_field($options['link']);
+            $output_link = "a, a:link, a:visited { color: $link; text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
-        if ( isset($options['hover']) ) {
-            $hover = $options['hover'];
-        } else {
-            $hover = $defaults['hover'];
+        if ( $options['hover'] && $options['hover'] != $defaults['hover'] ) {
+            $hover = sanitize_text_field($options['hover']);
+            $output_hover = "a:hover, a:active { color: $hover; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
-        $output = "<style type=\"text/css\" media=\"print,screen\">h1, h2, h3 { font-family: '$heading', sans-serif; } h4, h5, h6, .alt, h3 time { font-family: '$alt', sans-serif; } body { font-family: '$body', sans-serif; } a, a:link, a:visited { color: $link; } a:hover, a:active { color: $hover; } a { text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
+        $output = "<style type=\"text/css\" media=\"print,screen\">"; 
+        $output .= $output_heading;
+        $output .= $output_alt;
+        $output .= $output_body;
+        $output .= $output_link;
+        $output .= $output_hover;
+
         if ( $options['site-title'] == 'false' ) {
             $output .= ".headerimg hgroup h1, .headerimg hgroup h2 { float: left; position: absolute; left: -999em; height: 0px; }";
         }
         if ( !empty($options['css']) ) {
-            $output .= $options['css'];
+            $output .= sanitize_text_field($options['css']);
         }
         $output .= "</style>";
-        echo $output;
+        if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == 'false' || $options['css'] ) {
+            echo $output;
+        }
     }
     add_action( 'wp_head', 'ap_core_custom_styles' );
 }
@@ -628,7 +631,7 @@ if (!function_exists('ap_core_header_meta')) {
                 $author_id = $post->post_author;
                 $author = get_userdata($author_id);
             ?>
-            <meta name="author" content="<?php echo $author->display_name; ?>">
+            <meta name="author" content="<?php echo sanitize_text_field($author->display_name); ?>">
             <?php }
         }
     }
