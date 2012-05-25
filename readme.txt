@@ -29,6 +29,10 @@ There are currently no screenshots.
 
 == Changelog ==
 
+= Version 1.1.3 =
+
+* fixes error on validation if favicon is null
+
 = Version 1.1.2 =
 
 * moved optional header meta out of the `header.php` and into a `wp_head` action

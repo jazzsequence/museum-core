@@ -279,10 +279,12 @@ if (!function_exists('ap_core_theme_options_validate')) {
 		$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
 		$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
 		$input['css'] = wp_filter_nohtml_kses( stripslashes($input['css']) );
-		$favicon = getimagesize($input['favicon']);
-		if (in_array($favicon['mime'], unserialize(TYPE_WHITELIST))) {
-			$input['favicon'] = esc_url_raw( $input['favicon'] );
-		} else { $input['favicon'] = ''; }
+		if ( $input['favicon'] ) {
+			$favicon = getimagesize($input['favicon']);
+			if (in_array($favicon['mime'], unserialize(TYPE_WHITELIST))) {
+				$input['favicon'] = esc_url_raw( $input['favicon'] );
+			} else { $input['favicon'] = ''; }
+		}
 
 	    return $input;
 	}
