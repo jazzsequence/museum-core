@@ -32,6 +32,7 @@ There are currently no screenshots.
 = Version 1.1.3 =
 
 * fixes error on validation if favicon is null
+* removed some old blueprint.css typography styles and set preformatted code, code, and tt font size to 12px
 
 = Version 1.1.2 =
 
