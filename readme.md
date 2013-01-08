@@ -33,6 +33,8 @@ There are currently no screenshots.
 
 * fixes error on validation if favicon is null
 * removed some old blueprint.css typography styles and set preformatted code, code, and tt font size to 12px
+* left padding mistakenly set as right padding instead - fixes issue reported [here](http://wordpress.org/support/topic/remove-envelope-icon-from-email-address-link?replies=2) and [here](http://wordpress.org/support/topic/theme-museum-core-change-positioning-of-icons?replies=8)
+* fixed some undefined variable notices
 
 ### Version 1.1.2
 
