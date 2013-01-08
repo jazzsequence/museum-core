@@ -32,7 +32,14 @@
 					<?php } ?>
 				</hgroup>
 				<?php } else { ?>
-
+			<?php if ( $options['site-title'] == 'false' ) {
+				$headerimg_before = '<a href="' . home_url() . '" title="' . get_bloginfo('title') . '">';
+				$headerimg_after = '</a>';
+			} else {
+				$headerimg_before = null;
+				$headerimg_after = null;
+			} ?>
+			<?php echo $headerimg_before; ?>
 			<div class="headerimg">
 				<?php
 					// Check if this is a post or page, if it has a thumbnail, and if it's a big one
@@ -55,6 +62,7 @@
 					<?php } ?>
 				</hgroup>
 			</div>
+			<?php echo $headerimg_after; ?>
 			<?php } ?>
 			<div class="clear"></div>
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?>
