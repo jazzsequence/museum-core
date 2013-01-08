@@ -545,6 +545,13 @@ if (!function_exists('ap_core_true_false')) {
  */
 if (!function_exists('ap_core_custom_styles')) {
     function ap_core_custom_styles() {
+        $output = null;
+        $output_heading = null;
+        $output_alt = null;
+        $output_body = null;
+        $output_link = null;
+        $output_hover = null;
+
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
         // set the heading font
