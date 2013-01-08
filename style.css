@@ -317,7 +317,7 @@ td { vertical-align: top; }
 	a[href$=".rss"],
 	a[href$=".rdf"],
 	a[href^="aim:"] {
-		padding:2px 22px 2px 0;
+		padding:2px 0 2px 22px;
 		margin:-2px 0;
 		background-repeat: no-repeat;
 		background-position: left center;
