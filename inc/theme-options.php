@@ -280,8 +280,8 @@ if (!function_exists('ap_core_theme_options_validate')) {
 		$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
 		$input['css'] = wp_filter_nohtml_kses( stripslashes($input['css']) );
 		if ( $input['favicon'] ) {
-			$favicon = esc_attr( $input['favicon'] );
-			getimagesize($favicon);
+			$favicon = $input['favicon'];
+			$favicon = getimagesize($favicon);
 			if (in_array($favicon['mime'], unserialize(TYPE_WHITELIST))) {
 				$input['favicon'] = esc_url_raw( $input['favicon'] );
 			} else { $input['favicon'] = ''; }
