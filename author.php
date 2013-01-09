@@ -25,7 +25,7 @@ include( AP_CORE_OPTIONS ); ?>
 		</div>
 		<h3 class="alt"><?php echo sprintf( __( 'All posts by %1$s', 'museum-core' ), get_the_author_meta('display_name') ); ?></h3>
 	</section>
-	<div class="clear"></div>
+	<div class="spacer-10"></div>
 	<?php
 		rewind_posts();
 		get_template_part('post', 'author');
