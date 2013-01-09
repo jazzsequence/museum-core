@@ -5,6 +5,6 @@
 ?>
 <form method="get" id="searchform" action="<?php echo home_url(); ?>/">
 <div><input type="search" value="<?php echo $searchtext; ?>" name="s" id="s" onfocus="<?php echo $onfocus; ?>" onblur="<?php echo $onblur; ?>" />
-<input type="submit" id="searchsubmit" value="<?php _e('Go', 'museum-core'); ?>" />
+<input type="submit" id="searchsubmit" value="<?php esc_attr_e('Go', 'museum-core'); ?>" />
 </div>
 </form>
