@@ -36,6 +36,12 @@ There are currently no screenshots.
 * left padding mistakenly set as right padding instead - fixes issue reported [here](http://wordpress.org/support/topic/remove-envelope-icon-from-email-address-link?replies=2) and [here](http://wordpress.org/support/topic/theme-museum-core-change-positioning-of-icons?replies=8)
 * fixed some undefined variable notices
 * added link to header image if site title is being hidden in the options. fixes [this](http://wordpress.org/support/topic/museum-core-add-link-to-header-image-remove-link-from-photo?replies=4)
+* turns h2s into h1s
+* fixed a bug on the author page where the author name was being echoed incorrectly
+* adds a post author option to display post author in the post meta section
+* switches all pseudo-boolean expressions to be *actual* boolean expressions
+* moves all the template parts into a `/parts` subdirectory
+* minor update to language files to support new changes
 
 ### Version 1.1.2
 
