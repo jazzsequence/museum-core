@@ -248,7 +248,7 @@ td { vertical-align: top; }
 /* typography.css */
 @media screen, projection {
 	h1, h2, h3, h4, h5, h6 {font-weight:normal;}
-	h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
+	h1 {font-size:2em;line-height:1;margin: 0 0 0.75em;}
 	h2 {font-size:2em;margin-bottom:0.75em;}
 	h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
 	h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
@@ -927,10 +927,12 @@ hgroup h1, hgroup h2 { margin: auto!important; }
   right: 20px;
   bottom: 20px;
 }
-.headerimg hgroup h1, .headerimg hgroup h2, .headerimg hgroup a {
+.headerimg hgroup h2, .headerimg hgroup h3, .headerimg hgroup a {
   color: #ffffff;
   text-shadow: 2px 2px 1px #000000;
 }
+hgroup h2 { font-size: 3em; }
+hgroup h3 { font-size: 2em; }
 
 nav.topnav,
 nav.mainnav {

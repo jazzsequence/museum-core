@@ -1,28 +1,28 @@
 	<?php if (have_posts()) :
 		$post = $posts[0]; // Hack. Set $post so that the_date() works.
 		/* If this is a category archive */ if (is_category()) { ?>
-		    <h2 class="the_title"><?php single_cat_title( __('Posts filed under ','museum-core') ); ?></h2>
+		    <h1 class="the_title"><?php single_cat_title( __('Posts filed under ','museum-core') ); ?></h1>
 			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-			<h2 class="the_title"><?php single_tag_title( __('Posts filed under ','museum-core') ); ?></h2>
+			<h1 class="the_title"><?php single_tag_title( __('Posts filed under ','museum-core') ); ?></h1>
 			<?php /* If this is a daily archive */ } elseif (is_day()) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('j F Y') ); ?></h2>
+			<h1 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('j F Y') ); ?></h1>
 			<?php /* If this is a monthly archive */ } elseif (is_month()) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('F Y') ); ?></h2>
+			<h1 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('F Y') ); ?></h1>
 			<?php /* If this is a yearly archive */ } elseif (is_year()) { ?>
-			<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('Y') ); ?></h2>
+			<h1 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('Y') ); ?></h1>
 			<?php /* If this is an author archive */ } elseif (is_author()) { ?>
-			<h2 class="the_title"><?php _e('Author Archive','museum-core'); ?></h2>
+			<h1 class="the_title"><?php _e('Author Archive','museum-core'); ?></h1>
 			<?php /* If this is a paged archive */ } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) { ?>
-			<h2 class="the_title"><?php _e('Blog Archives','museum-core'); ?></h2>
+			<h1 class="the_title"><?php _e('Blog Archives','museum-core'); ?></h1>
 		<?php } ?>
 	<?php while (have_posts()) : the_post(); ?>
     <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
     	<h3 class="the_date"><time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time></h3>
 		<?php $is_title_set = get_the_title();
 		if ( empty( $is_title_set ) ) { ?>
-			<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php echo sprintf( __('Permanent Link to %1$s','museum-core'), the_title_attribute() ); ?>"><?php _e('(no title)', 'museum-core'); ?></a></h2>
+			<h1 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php echo sprintf( __('Permanent Link to %1$s','museum-core'), the_title_attribute() ); ?>"><?php _e('(no title)', 'museum-core'); ?></a></h1>
 		<?php } ?>
-		<h2 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php echo sprintf( __('Permanent Link to %1$s','museum-core'), the_title_attribute() ); ?>"><?php the_title(); ?></a></h2>
+		<h1 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php echo sprintf( __('Permanent Link to %1$s','museum-core'), the_title_attribute() ); ?>"><?php the_title(); ?></a></h1>
 		<section class="entry">
 			<?php include( AP_CORE_OPTIONS );
 			if ( $archive_excerpt == 'false' ) {

@@ -24,11 +24,11 @@
 				<?php if ( (!get_header_image()) && (!has_post_thumbnail( $post->ID )) ) { ?>
 				<hgroup class="siteinfo">
 					<?php if ($options['alth1'] == 'true') { ?>
-						<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-						<h2><?php bloginfo('description'); ?></h2>
+						<h2 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
+						<h3><?php bloginfo('description'); ?></h3>
 					<?php } else { ?>
-						<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-						<h2 class="alt"><?php bloginfo('description'); ?></h2>
+						<h2><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
+						<h3 class="alt"><?php bloginfo('description'); ?></h3>
 					<?php } ?>
 				</hgroup>
 				<?php } else { ?>
@@ -54,11 +54,11 @@
 					<?php endif; ?>
 				<hgroup class="siteinfo">
 					<?php if ($options['alth1'] == 'true') { ?>
-						<h1 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-						<h2><?php bloginfo('description'); ?></h2>
+						<h2 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
+						<h3><?php bloginfo('description'); ?></h3>
 					<?php } else { ?>
-						<h1><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h1>
-						<h2 class="alt"><?php bloginfo('description'); ?></h2>
+						<h2><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
+						<h3 class="alt"><?php bloginfo('description'); ?></h3>
 					<?php } ?>
 				</hgroup>
 			</div>
