@@ -17,10 +17,19 @@
 		<section class="postmetadata">
 			<span class="human-time-diff alt"><?php echo sprintf(__('%1$s ago','museum-core'), human_time_diff( get_the_time('U'), current_time('timestamp') )); ?></span><br />
 			<?php
+				$options = get_option( 'ap_core_theme_options' );
 				$categories = get_the_category_list( __(', ', 'museum-core') );
 				$tags = get_the_tag_list( __('and tagged ', 'museum-core'),', ' );
-				$postmeta = __('Filed under %1$s %2$s', 'museum-core');
-				printf( $postmeta, $categories, $tags );
+				$author_name = get_the_author_meta('display_name');
+				$author_ID = get_the_author_meta('ID');
+				$author_link = '<a href="' . get_author_posts_url($author_ID) . '">' . $author_name . '</a>';
+				$author = '- posted by ' . $author_link;
+				if ( $options['post-author'] ) {
+					$postmeta = __('Filed under %1$s %2$s %3$s', 'museum-core');
+				} else {
+					$postmeta = __('Filed under %1$s %2$s', 'museum-core');
+				}
+				printf( $postmeta, $categories, $tags, $author );
 			?>
 			<br />
             <?php comments_popup_link(__('No Comments &#187;','museum-core'), __('One Comment &#187;','museum-core'), __('% Comments &#187;','museum-core')); ?>
