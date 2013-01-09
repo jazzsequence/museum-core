@@ -152,7 +152,7 @@ if (!function_exists('ap_core_theme_options_page')) {
 		</script>
 		<div class="wrap">
 			<?php if ( function_exists( 'wp_get_theme' ) ) {
-				$theme_name = wp_get_theme($name);
+				$theme_name = wp_get_theme()->Name;
 			} else {
 				$theme_name = get_current_theme();
 			} ?>
@@ -171,7 +171,7 @@ if (!function_exists('ap_core_theme_options_page')) {
 								<?php ap_core_do_theme_options(); ?>
 							</div>
 							<p class="submit">
-								<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'museum-core' ); ?>" />
+								<input type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Options', 'museum-core' ); ?>" />
 								<input type="hidden" name="ap-core-settings-submit" value="Y" />
 							</p>
 						</form>
@@ -280,7 +280,8 @@ if (!function_exists('ap_core_theme_options_validate')) {
 		$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
 		$input['css'] = wp_filter_nohtml_kses( stripslashes($input['css']) );
 		if ( $input['favicon'] ) {
-			$favicon = getimagesize($input['favicon']);
+			$favicon = esc_attr( $input['favicon'] );
+			getimagesize($favicon);
 			if (in_array($favicon['mime'], unserialize(TYPE_WHITELIST))) {
 				$input['favicon'] = esc_url_raw( $input['favicon'] );
 			} else { $input['favicon'] = ''; }
