@@ -29,7 +29,11 @@
 				$author_ID = get_the_author_meta('ID');
 				$author_link = '<a href="' . get_author_posts_url($author_ID) . '">' . $author_name . '</a>';
 				$author = 'by ' . $author_link;
-				$postmeta = __('Posted in %1$s %2$s %3$s', 'museum-core');
+				if ( $options['post-author'] ) {
+					$postmeta = __('Posted in %1$s %2$s %3$s', 'museum-core');
+				} else {
+					$postmeta = __('Posted in %1$s %2$s', 'museum-core');
+				}
 				printf( $postmeta, $categories, $tags, $author );
 			?>
             <br />
