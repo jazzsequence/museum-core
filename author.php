@@ -28,7 +28,7 @@ include( AP_CORE_OPTIONS ); ?>
 	<div class="spacer-10"></div>
 	<?php
 		rewind_posts();
-		get_template_part('post', 'author');
+		get_template_part('post', 'parts/author');
 	?>
 
 </div>

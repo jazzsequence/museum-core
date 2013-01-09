@@ -6,7 +6,7 @@ get_header();
 include( AP_CORE_OPTIONS ); ?>
 <div class="content single span-9<?php echo $right; ?>">
 
-	<?php get_template_part('post','single'); ?>
+	<?php get_template_part('post','parts/single'); ?>
 
 </div>
 <?php get_sidebar(); ?>
