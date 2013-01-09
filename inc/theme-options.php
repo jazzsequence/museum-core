@@ -37,7 +37,7 @@ if (!function_exists('ap_core_theme_options_add_page')) {
  */
 if (!function_exists('ap_core_admin_scripts')) {
 	function ap_core_admin_scripts() {
-		wp_register_style('ap_core_admin_css', get_bloginfo('template_directory').'/inc/admin.css','false','1.1.1');
+		wp_register_style('ap_core_admin_css', get_template_directory_uri() .'/inc/admin.css','false','1.1.1');
 		wp_enqueue_style( 'ap_core_admin_css' );
 		wp_enqueue_style( 'farbtastic' );
 	    wp_enqueue_script( 'farbtastic' );
