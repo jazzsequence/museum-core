@@ -390,8 +390,8 @@ if (!function_exists('ap_core_favicon_option')) {
 		?>
 			<tr valign="top"><th scope="row"><?php _e( 'Custom favicon', 'museum-core' ); ?></th>
 				<td>
-					<input id="upload_image" type="text" size="36" name="ap_core_theme_options[favicon]" value="<?php esc_attr_e( $options['favicon'] ); ?>" />
-					<input id="upload_image_button" type="button" class="button" value="<?php _e('Upload Image','museum-core'); ?>" />
+					<input id="upload_image" type="text" size="36" name="ap_core_theme_options[favicon]" value="<?php echo $options['favicon']; ?>" />
+					<input id="upload_image_button" type="button" class="button" value="<?php esc_attr_e('Upload Image','museum-core'); ?>" />
 					<br />
 					<label class="description" for="ap_core_theme_options[favicon]"><?php _e( 'Use the uploader to upload a PNG or ICO file to use as a favicon for your site.  If left blank, no favicon will be used. (Other image formats will work but may not be browser-supported.)', 'museum-core' ); ?></label>
 				</td>
