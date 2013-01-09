@@ -3,7 +3,7 @@ Contributors: jazzs3quence
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.2
-Tested up to: 3.3.2
+Tested up to: 3.5
 Stable tag: 1.1.3
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
@@ -33,6 +33,15 @@ There are currently no screenshots.
 
 * fixes error on validation if favicon is null
 * removed some old blueprint.css typography styles and set preformatted code, code, and tt font size to 12px
+* left padding mistakenly set as right padding instead - fixes issue reported [here](http://wordpress.org/support/topic/remove-envelope-icon-from-email-address-link?replies=2) and [here](http://wordpress.org/support/topic/theme-museum-core-change-positioning-of-icons?replies=8)
+* fixed some undefined variable notices
+* added link to header image if site title is being hidden in the options. fixes [this](http://wordpress.org/support/topic/museum-core-add-link-to-header-image-remove-link-from-photo?replies=4)
+* turns h2s into h1s
+* fixed a bug on the author page where the author name was being echoed incorrectly
+* adds a post author option to display post author in the post meta section
+* switches all pseudo-boolean expressions to be *actual* boolean expressions
+* moves all the template parts into a `/parts` subdirectory
+* minor update to language files to support new changes
 
 = Version 1.1.2 =
 
