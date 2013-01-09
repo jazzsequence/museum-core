@@ -77,7 +77,7 @@ if (!function_exists('ap_core_load_scripts')) {
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
         if ( isset( $options['hovercards'] ) ) {
-            if ( $options['hovercards'] != 'false' ) {
+            if ( $options['hovercards'] != false ) {
                 // this loads the twitter anywhere framework
                 wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
                 wp_enqueue_script('twitter_anywhere');
@@ -387,7 +387,7 @@ if (!function_exists('ap_core_generator')) {
         echo $ap_core_version;
     }
     $options = get_option( 'ap_core_theme_options' );
-    if ($options['generator'] == 'true') {
+    if ($options['generator'] == true) {
         add_action( 'wp_head', 'ap_core_generator' );
     }
 }
@@ -405,7 +405,7 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             // sidebar
         	'sidebar' => 'left',
             // theme tracking
-            'presstrends' => 'false',
+            'presstrends' => false,
         	// typography options
         	'heading' => 'PT Serif',
         	'body' => 'Droid Sans',
@@ -414,20 +414,21 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             'link' => '#486D96',
             'hover' => '#333333',
             // excerpts or full posts
-            'excerpts' => 'true',
+            'excerpts' => true,
             // use alt for h1?
-            'alth1' => 'false',
+            'alth1' => false,
             // footer text
             'footer' => sprintf( __( '%1$s %2$s %3$s', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . ' . ' . sprintf( __( 'Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s.', 'museum-core' ), '<a href="http://museumthemes.com/" target="_blank" title="Museum Themes">', '</a>', '<a href="http://wordpress.org" target="_blank">' ),
             // advanced settings
-            'meta' => 'false',
-            'author' => 'false',
-            'generator' => 'false',
-            'archive-excerpt' => 'true',
-            'hovercards' => 'true',
+            'meta' => false,
+            'author' => false,
+            'generator' => false,
+            'archive-excerpt' => true,
+            'hovercards' => true,
             'favicon' => '',
             'css' => '',
-            'site-title' => 'true'
+            'site-title' => true,
+            'post-author' => true
         );
         return $defaults;
     }
@@ -502,12 +503,12 @@ if (!function_exists('ap_core_fonts')) {
 if (!function_exists('ap_core_show_excerpts')) {
     function ap_core_show_excerpts() {
         $ap_core_show_excerpts = array(
-            'true' => array(
-                'value' => 'true',
+            true => array(
+                'value' => true,
                 'label' => __('Show Post Excerpts','museum-core')
             ),
-            'false' => array(
-                'value' => 'false',
+            false => array(
+                'value' => false,
                 'label' => __('Show Full Posts','museum-core')
             )
         );
@@ -524,12 +525,12 @@ if (!function_exists('ap_core_show_excerpts')) {
 if (!function_exists('ap_core_true_false')) {
     function ap_core_true_false() {
         $ap_core_true_false = array(
-            'true' => array(
-                'value' => 'true',
+            true => array(
+                'value' => true,
                 'label' => __('Yes','museum-core')
             ),
-            'false' => array(
-                'value' => 'false',
+            false => array(
+                'value' => false,
                 'label' => __('No','museum-core')
             )
         );
@@ -585,14 +586,14 @@ if (!function_exists('ap_core_custom_styles')) {
         $output .= $output_link;
         $output .= $output_hover;
 
-        if ( $options['site-title'] == 'false' ) {
+        if ( $options['site-title'] == false ) {
             $output .= ".headerimg hgroup h1, .headerimg hgroup h2 { float: left; position: absolute; left: -999em; height: 0px; }";
         }
         if ( !empty($options['css']) ) {
             $output .= sanitize_text_field($options['css']);
         }
         $output .= "</style>";
-        if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == 'false' || $options['css'] ) {
+        if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == false || $options['css'] ) {
             echo $output;
         }
     }
@@ -611,7 +612,7 @@ if (!function_exists('ap_core_header_meta')) {
         $options = get_option( 'ap_core_theme_options' );
 
         /* meta description */
-        if ($options['meta'] == 'true') {
+        if ($options['meta'] == true) {
             if ( is_tax() && term_description() ) {
                 $term_description = term_description(); ?>
                 <meta name="description" content="<?php echo sanitize_text_field($term_description); ?>">
@@ -632,7 +633,7 @@ if (!function_exists('ap_core_header_meta')) {
         <?php }
         }
         /* author meta */
-        if ($options['author'] == 'true') {
+        if ($options['author'] == true) {
             if (!is_404()) {
                 // if there is no post author, this stuff doesn't exist
                 $author_id = $post->post_author;
