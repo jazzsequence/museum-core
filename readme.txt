@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.2
 Tested up to: 3.5
-Stable tag: 1.1.3.1
+Stable tag: 1.1.3.2
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -29,10 +29,15 @@ There are currently no screenshots.
 
 == Changelog ==
 
+= Version 1.1.3.2 =
+
+* fixes undefined variable notices for blank custom styles
+* fixes get_template_part
+* removes negative left margin on sticky posts
+
 = Version 1.1.3.1 =
 
 * sanitizes variable output on theme options page
-* fixes undefined variable notices for blank custom styles
 
 = Version 1.1.3 =
 
