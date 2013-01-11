@@ -6,7 +6,7 @@ get_header();
 ?>
 <div class="content span-12">
 
-	<?php get_template_part('post', 'parts/page'); ?>
+	<?php get_template_part('parts/post', 'page'); ?>
 
 </div>
 <div class="clear"></div>

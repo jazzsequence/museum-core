@@ -8,7 +8,7 @@ include( AP_CORE_OPTIONS ); ?>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post();
 		$post_format = get_post_format();
-		get_template_part('post','parts/' . $post_format);
+		get_template_part('parts/post', $post_format);
 		endwhile; ?>
 	<nav class="navigation">
 		<?php  if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
