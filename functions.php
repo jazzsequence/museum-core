@@ -592,7 +592,7 @@ if (!function_exists('ap_core_custom_styles')) {
         $output .= $output_hover;
 
         if ( $options['site-title'] == false ) {
-            $output .= ".headerimg hgroup h1, .headerimg hgroup h2 { float: left; position: absolute; left: -999em; height: 0px; }";
+            $output .= ".headerimg hgroup h2, .headerimg hgroup h3 { float: left; position: absolute; left: -999em; height: 0px; }";
         }
         if ( !empty($options['css']) ) {
             $output .= sanitize_text_field($options['css']);
