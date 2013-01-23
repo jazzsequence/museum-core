@@ -9,7 +9,7 @@
         <div class="clear"></div>
 		<section class="entry">
 			<?php include( AP_CORE_OPTIONS );
-			if ( $show_excerpt == 'false' ) {
+			if ( $show_excerpt == false ) {
 				the_content(__('Read more &raquo;','museum-core'));
 			} else {
 				if(has_post_thumbnail()) { ?>

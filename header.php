@@ -23,7 +23,7 @@
 				<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
 				<?php if ( (!get_header_image()) && (!has_post_thumbnail( $post->ID )) ) { ?>
 				<hgroup class="siteinfo">
-					<?php if ($options['alth1'] == 'true') { ?>
+					<?php if ($options['alth1'] == true) { ?>
 						<h2 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
 						<h3><?php bloginfo('description'); ?></h3>
 					<?php } else { ?>
@@ -32,7 +32,7 @@
 					<?php } ?>
 				</hgroup>
 				<?php } else { ?>
-			<?php if ( $options['site-title'] == 'false' ) {
+			<?php if ( $options['site-title'] == false ) {
 				$headerimg_before = '<a href="' . home_url() . '" title="' . get_bloginfo('title') . '">';
 				$headerimg_after = '</a>';
 			} else {
@@ -53,7 +53,7 @@
 						<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
 					<?php endif; ?>
 				<hgroup class="siteinfo">
-					<?php if ($options['alth1'] == 'true') { ?>
+					<?php if ($options['alth1'] == true) { ?>
 						<h2 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
 						<h3><?php bloginfo('description'); ?></h3>
 					<?php } else { ?>
