@@ -68,11 +68,7 @@ if (!function_exists('ap_core_clear')) {
 if (!function_exists('ap_core_load_scripts')) {
     function ap_core_load_scripts() {
       if ( !is_admin() ) { // instruction to only load if it is not the admin area
-        if ( function_exists( 'wp_get_theme' ) ) {
-             $theme = wp_get_theme();
-        } else {
-      	     $theme  = get_theme( get_current_theme() );
-         }
+        $theme = wp_get_theme();
         // load the theme options and defaults
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
@@ -335,8 +331,6 @@ if (!function_exists('ap_core_wp_title')) {
  * Meta generator
  * @since 0.4.5
  * @author Chris Reynolds
- * @uses get_theme() (deprecated)
- * @uses get_current_theme() (deprecated)
  * @uses wp_get_theme()
  * returns a generator meta tag that is added in the header which pulls automatically from the theme version
  * (replaces the original method which was updating this generator tag manually)
@@ -344,13 +338,9 @@ if (!function_exists('ap_core_wp_title')) {
  */
 if (!function_exists('ap_core_generator')) {
     function ap_core_generator() {
-        if ( function_exists( 'wp_get_theme' ) ) {
-            $theme = wp_get_theme();
-            $ap_core_version = '<meta name="generator" content="' . $theme['Name'] . ' ' . $theme['Version'] . '">';
-        } else {
-            $theme  = get_theme( get_current_theme() );
-            $ap_core_version = '<meta name="generator" content="' . get_current_theme() . ' ' . $theme['Version'] . '">';
-        }
+        $theme = wp_get_theme();
+        $ap_core_version = '<meta name="generator" content="' . $theme['Name'] . ' ' . $theme['Version'] . '">';
+
         echo $ap_core_version;
     }
     $options = get_option( 'ap_core_theme_options' );
