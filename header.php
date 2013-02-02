@@ -17,6 +17,7 @@
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php do_action( 'body_open' ); ?>
 	<div class="container" id="wrap">
 		<header>
 			<div class="header">
