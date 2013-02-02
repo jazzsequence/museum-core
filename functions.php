@@ -184,55 +184,22 @@ if (!function_exists('ap_core_setup')) {
         }
 
         // This theme allows users to set a custom background
-        if ( function_exists( 'get_custom_header' ) ) { // if we're using 3.4, do this the new way (this will be removed with 3.5) -- this is borrowed from p2
+        add_theme_support( 'custom-background', array() );  // 'nuff said. there are no defaults here, so we'll move on to headers
 
-            add_theme_support( 'custom-background', array() );  // 'nuff said. there are no defaults here, so we'll move on to headers
-
-            add_theme_support( 'custom-header', array(
-                // default header image
-                'default-image' => get_template_directory_uri() . '/images/headers/nature.jpg',
-                // header text? no, because we're doing it a different way (though it would probably be good to fix this later)
-                'header-text' => false,
-                // header image width
-                'width' => 1140,
-                // flexible height?  sure
-                'flex-height' => true,
-                // header image height
-                'height' => 200,
-                // admin head callback
-                'admin-head-callback' => 'core_admin_header_style'
-                )
-            );
-
-        } else {
-
-         // if we're using 3.3, do this the old way
-            add_custom_background();
-
-            // this theme has a custom header thingie
-            define( 'HEADER_TEXTCOLOR', '' );
-            // No CSS, just IMG call. The %s is a placeholder for the theme template directory URI.
-            define( 'HEADER_IMAGE', '%s/images/headers/smoke.jpg' );
-
-            // The height and width of your custom header. You can hook into the theme's own filters to change these values.
-            define( 'HEADER_IMAGE_WIDTH', apply_filters( 'core_header_image_width', 1140 ) );
-            define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'core_header_image_height', 200 ) );
-
-            // We'll be using post thumbnails for custom header images on posts and pages.
-            // We want them to be 1140 pixels wide by 200 pixels tall.
-            // Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
-            set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
-
-            // Don't support text inside the header image.
-            define( 'NO_HEADER_TEXT', true );
-
-            // Add a way for the custom header to be styled in the admin panel that controls
-            // custom headers. See twentyten_admin_header_style(), below.
-            add_custom_image_header( '', 'core_admin_header_style' );
-
-            // ... and thus ends the changeable header business.
-
-        }
+        add_theme_support( 'custom-header', array(
+            // default header image
+            'default-image' => get_template_directory_uri() . '/images/headers/nature.jpg',
+            // header text? no, because we're doing it a different way (though it would probably be good to fix this later)
+            'header-text' => false,
+            // header image width
+            'width' => 1140,
+            // flexible height?  sure
+            'flex-height' => true,
+            // header image height
+            'height' => 200,
+            // admin head callback
+            'admin-head-callback' => 'core_admin_header_style' )
+        );
 
             // Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
             register_default_headers( array(
