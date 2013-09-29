@@ -283,6 +283,48 @@ if (!function_exists('ap_core_body_option')) {
 }
 
 /**
+ * Font subset
+ * @since 2.0
+ * @author Chris Reynolds
+ * @uses ap_core_get_theme_defaults
+ * @uses get_option
+ * @uses ap_core_font_subsets
+ * allows the user to set a specific font subset for i18n
+ */
+if ( !function_exists( 'ap_core_font_subset_option' ) ) {
+	function ap_core_font_subset_option() {
+
+		$defaults = ap_core_get_theme_defaults();
+		$options = get_option( 'ap_core_theme_options', $defaults );
+
+		ob_start();
+		?>
+			<tr valign="top"><th scope="row"><?php _e( 'Font subset', 'museum-core' ); ?></th>
+				<td>
+					<select name="ap_core_theme_options[font_subset]">
+					<?php
+						$selected = $options['font_subset'];
+						foreach( ap_core_font_subsets() as $option ) {
+
+							$label = $option['label'];
+							$value = $option['value'];
+
+							echo '<option value="' . esc_attr($value) . '" ' . selected( $selected, $value ) . '>' . esc_attr($label) . '</option>';
+
+						} ?>
+					</select><br />
+					<label class="description" for="ap_core_theme_options[font_subset]"><?php _e( 'This allows you to load a specific font subset for other languages. If you do not know what this is, leave this on the default (Latin). <strong>Note:</strong> Not all fonts support all font subsets.', 'museum-core' ); ?></label>
+				</td>
+			</tr>
+		<?php
+		$subset = ob_get_contents();
+		ob_end_clean();
+		echo $subset;
+
+	}
+}
+
+/**
  * alternate font options
  * @since 1.1
  * @author Chris Reynolds
@@ -696,6 +738,7 @@ if (!function_exists('ap_core_typography_settings')) {
 		ap_core_display_fonts();
 		ap_core_heading_option();
 		ap_core_body_option();
+		ap_core_font_subset_option();
 		ap_core_alt_option();
 		ap_core_link_options();
 		echo $options_after;
