@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-08 17:54-0700\n"
-"PO-Revision-Date: 2013-01-08 17:56-0700\n"
+"POT-Creation-Date: 2013-07-17 11:16-0700\n"
+"PO-Revision-Date: 2013-07-17 11:20-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: anemoone <chris@arcanepalette.com>\n"
 "Language: pl_PL\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -104,65 +104,65 @@ msgstr "Prawy panel w stopce"
 msgid "This is the right box in the footer."
 msgstr "To jest prawy panel w stopce."
 
-#: ../functions.php:172
+#: ../functions.php:168
 msgid "Top Header Navigation"
 msgstr "Nawigacja ponad nagłówkiem "
 
-#: ../functions.php:173
+#: ../functions.php:169
 msgid "Main Navigation"
 msgstr "Główna nawigacja"
 
-#: ../functions.php:174
+#: ../functions.php:170
 msgid "Footer Navigation"
 msgstr "Nawigacja w stopce"
 
-#: ../functions.php:243
+#: ../functions.php:206
 msgid "Nature"
 msgstr "Natura"
 
-#: ../functions.php:249
+#: ../functions.php:212
 msgid "Smoke"
 msgstr "Dym"
 
-#: ../functions.php:255
+#: ../functions.php:218
 msgid "Lights 1"
 msgstr "Światła 1"
 
-#: ../functions.php:261
+#: ../functions.php:224
 msgid "Lights 2"
 msgstr "Światła 2"
 
-#: ../functions.php:267
+#: ../functions.php:230
 msgid "Lights 3"
 msgstr "Światła 3"
 
-#: ../functions.php:284
+#: ../functions.php:247
 #, php-format
 msgid "On %1$s at %2$s %3$s said:"
 msgstr "W dniu %1$s o %2$s %3$s powiedział/a:"
 
-#: ../functions.php:287
+#: ../functions.php:250
 msgid "Your comment is awaiting moderation."
 msgstr "Twój komentarz oczekuje na zatwierdzenie."
 
-#: ../functions.php:291
+#: ../functions.php:254
 msgid "(Edit)"
 msgstr "(Edytuj)"
 
-#: ../functions.php:294
+#: ../functions.php:257
 msgid "Respond to this"
 msgstr "Odpowiedz"
 
-#: ../functions.php:306
+#: ../functions.php:269
 msgid "read more"
 msgstr "czytaj dalej"
 
-#: ../functions.php:421
+#: ../functions.php:378
 #, php-format
 msgid "%1$s %2$s %3$s"
 msgstr "%1$s %2$s %3$s"
 
-#: ../functions.php:421
+#: ../functions.php:378
 #, php-format
 msgid ""
 "Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
@@ -170,29 +170,33 @@ msgstr ""
 "Museum Core od %1$sMuseum Themes%2$s jest dumnie wspierany przez "
 "%3$sWordPress%2$s. "
 
-#: ../functions.php:448
+#: ../functions.php:405
 msgid "Left Sidebar"
 msgstr "Panel boczny po lewej"
 
-#: ../functions.php:451
+#: ../functions.php:408
 msgid "Right Sidebar"
 msgstr "Panel boczny po prawej"
 
-#: ../functions.php:508
+#: ../functions.php:465
 msgid "Show Post Excerpts"
 msgstr "Pokaż fragmenty wpisów"
 
-#: ../functions.php:512
+#: ../functions.php:469
 msgid "Show Full Posts"
 msgstr "Pokaż pełne wpisy"
 
-#: ../functions.php:530
+#: ../functions.php:487
 msgid "Yes"
 msgstr "Tak"
 
-#: ../functions.php:534
+#: ../functions.php:491
 msgid "No"
 msgstr "Nie"
+
+#: ../functions.php:744
+msgid "There is no excerpt because this is a protected post."
+msgstr ""
 
 #: ../index.php:15 ../parts/post-archive.php:61 ../parts/post-author.php:46
 #: ../parts/post-search.php:64
@@ -207,10 +211,6 @@ msgstr "Nowsze wpisy &raquo;"
 #: ../searchform.php:2
 msgid "Search this site"
 msgstr "Szukaj na stronie"
-
-#: ../searchform.php:8
-msgid "Go"
-msgstr "Idź"
 
 #: ../inc/option-setup.php:18
 msgid "General"
@@ -347,10 +347,6 @@ msgstr "Ustaw pożądany kolor linków po najechaniu kursorem."
 #: ../inc/option-setup.php:391
 msgid "Custom favicon"
 msgstr "Własna favikona"
-
-#: ../inc/option-setup.php:394
-msgid "Upload Image"
-msgstr "Prześlij obrazek"
 
 #: ../inc/option-setup.php:396
 msgid ""
@@ -505,10 +501,6 @@ msgstr " %s Opcje Szablonu"
 msgid "Options saved"
 msgstr "Ustawienia zostały zapisane"
 
-#: ../inc/theme-options.php:174
-msgid "Save Options"
-msgstr "Zapisz ustawienia"
-
 #: ../parts/post-archive.php:4 ../parts/post-archive.php:6
 msgid "Posts filed under "
 msgstr "Wpisy z kategorii"
@@ -659,3 +651,12 @@ msgstr "Napisane w %1$s w dniu %2$s %3$s %4$s"
 #, php-format
 msgid "Posted in %1$s on %2$s %3$s"
 msgstr "Napisane w %1$s w dniu %2$s %3$s "
+
+#~ msgid "Go"
+#~ msgstr "Idź"
+
+#~ msgid "Upload Image"
+#~ msgstr "Prześlij obrazek"
+
+#~ msgid "Save Options"
+#~ msgstr "Zapisz ustawienia"

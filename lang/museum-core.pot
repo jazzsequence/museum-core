@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-08 17:54-0700\n"
-"PO-Revision-Date: 2013-01-08 17:54-0700\n"
+"POT-Creation-Date: 2013-07-17 11:16-0700\n"
+"PO-Revision-Date: 2013-07-17 11:18-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
 "Language: en_US\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-SearchPath-1: ../inc\n"
 
@@ -100,92 +100,96 @@ msgstr ""
 msgid "This is the right box in the footer."
 msgstr ""
 
-#: ../functions.php:172
+#: ../functions.php:168
 msgid "Top Header Navigation"
 msgstr ""
 
-#: ../functions.php:173
+#: ../functions.php:169
 msgid "Main Navigation"
 msgstr ""
 
-#: ../functions.php:174
+#: ../functions.php:170
 msgid "Footer Navigation"
 msgstr ""
 
-#: ../functions.php:243
+#: ../functions.php:206
 msgid "Nature"
 msgstr ""
 
-#: ../functions.php:249
+#: ../functions.php:212
 msgid "Smoke"
 msgstr ""
 
-#: ../functions.php:255
+#: ../functions.php:218
 msgid "Lights 1"
 msgstr ""
 
-#: ../functions.php:261
+#: ../functions.php:224
 msgid "Lights 2"
 msgstr ""
 
-#: ../functions.php:267
+#: ../functions.php:230
 msgid "Lights 3"
 msgstr ""
 
-#: ../functions.php:284
+#: ../functions.php:247
 #, php-format
 msgid "On %1$s at %2$s %3$s said:"
 msgstr ""
 
-#: ../functions.php:287
+#: ../functions.php:250
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: ../functions.php:291
+#: ../functions.php:254
 msgid "(Edit)"
 msgstr ""
 
-#: ../functions.php:294
+#: ../functions.php:257
 msgid "Respond to this"
 msgstr ""
 
-#: ../functions.php:306
+#: ../functions.php:269
 msgid "read more"
 msgstr ""
 
-#: ../functions.php:421
+#: ../functions.php:378
 #, php-format
 msgid "%1$s %2$s %3$s"
 msgstr ""
 
-#: ../functions.php:421
+#: ../functions.php:378
 #, php-format
 msgid ""
 "Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
 msgstr ""
 
-#: ../functions.php:448
+#: ../functions.php:405
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../functions.php:451
+#: ../functions.php:408
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../functions.php:508
+#: ../functions.php:465
 msgid "Show Post Excerpts"
 msgstr ""
 
-#: ../functions.php:512
+#: ../functions.php:469
 msgid "Show Full Posts"
 msgstr ""
 
-#: ../functions.php:530
+#: ../functions.php:487
 msgid "Yes"
 msgstr ""
 
-#: ../functions.php:534
+#: ../functions.php:491
 msgid "No"
+msgstr ""
+
+#: ../functions.php:744
+msgid "There is no excerpt because this is a protected post."
 msgstr ""
 
 #: ../index.php:15 ../parts/post-archive.php:61 ../parts/post-author.php:46
@@ -200,10 +204,6 @@ msgstr ""
 
 #: ../searchform.php:2
 msgid "Search this site"
-msgstr ""
-
-#: ../searchform.php:8
-msgid "Go"
 msgstr ""
 
 #: ../inc/option-setup.php:18
@@ -321,10 +321,6 @@ msgstr ""
 
 #: ../inc/option-setup.php:391
 msgid "Custom favicon"
-msgstr ""
-
-#: ../inc/option-setup.php:394
-msgid "Upload Image"
 msgstr ""
 
 #: ../inc/option-setup.php:396
@@ -455,10 +451,6 @@ msgstr ""
 
 #: ../inc/theme-options.php:162
 msgid "Options saved"
-msgstr ""
-
-#: ../inc/theme-options.php:174
-msgid "Save Options"
 msgstr ""
 
 #: ../parts/post-archive.php:4 ../parts/post-archive.php:6
