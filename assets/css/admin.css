@@ -1,0 +1,12 @@
+@import url("http://fonts.googleapis.com/css?family=Droid+Sans|Lato|Ubuntu|PT+Serif|Inconsolata|Open+Sans|Noto+Serif");
+a#fdbk_tab { top: 35%; }
+table.form-table { height: 475px; }
+div.tab-wrap { height: 44px; border-bottom: 1px solid #ccc; width: 100%; position: relative; z-index: 0; }
+ul.nav-tab-wrapper { margin: 0; float: left; }
+ul.nav-tab-wrapper li { float: left; margin-bottom: 0; position: relative; z-index: 999; }
+li.ui-state-active .nav-tab { border-bottom: 5px solid #fff!important; }
+#poststuff .nav-tab-wrapper h2 { margin-top: 8px; margin-bottom: 0; padding: 0 0 2px; }
+li.ui-state-default a { color: #aaa; }
+li.ui-state-active a { color: #464646; }
+.has-right-sidebar #post-body-content form { float: left; }
+#post-body-content textarea { font-family: monospace; }
