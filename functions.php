@@ -61,44 +61,38 @@ if (!function_exists('ap_core_clear')) {
  * @uses wp_register_style()
  * @uses wp_enqueue_style
  * loads all the styles and scripts for the theme
- * twitter_anywhere = loads the twitter @anywhere framework
- * twitter_hovercards = loads twitter hovercards from @anywhere
- * suckerfish = loads suckerfish from the theme's /js files
 */
 if (!function_exists('ap_core_load_scripts')) {
     function ap_core_load_scripts() {
       if ( !is_admin() ) { // instruction to only load if it is not the admin area
+        global $is_IE;
+
         $theme = wp_get_theme();
         // load the theme options and defaults
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
-        if ( isset( $options['hovercards'] ) ) {
-            if ( $options['hovercards'] != false ) {
-                // this loads the twitter anywhere framework
-                wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
-                wp_enqueue_script('twitter_anywhere');
-                // this loads twitter hovercards, dependent upon twitter anywhere
-                wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','twitter_anywhere',$theme['Version']);
-                wp_enqueue_script('twitter_hovercards');
-            }
+        if ( isset( $options['font_subset'] ) ) {
+            $font_subset = $options['font_subset'];
+        } else {
+            $font_subset = $defaults['font_subset'];
         }
-        // this loads suckerfish.js the dropdown menus
-        wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js',false,$theme['Version']);
-        wp_enqueue_script('suckerfish');
-        // this loads jquery (for formalize, among other things)
+
+        // this loads jquery (for bootstrap, among other things)
         wp_enqueue_script('jquery');
-        // this loads the formalize js
-        wp_register_script('formalize',get_bloginfo('template_directory').'/js/jquery.formalize.min.js',false,$theme['Version']);
-        wp_enqueue_script('formalize');
+        // load boostrap
+        wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ), '3.0.0', true );
+        wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', false, '3.0.0' );
         // loads modernizr for BPH5
-        wp_register_script('modernizr',get_bloginfo('template_directory').'/js/modernizr-2.5.3.min.js',false,'2.5.3');
+        wp_register_script('modernizr',get_template_directory_uri() . '/assets/js/modernizr-2.5.3.min.js',false,'2.5.3');
         wp_enqueue_script('modernizr');
         // register fonts
-        wp_register_style('droidsans','http://fonts.googleapis.com/css?family=Droid+Sans',false,$theme['Version']);
-        wp_register_style('ptserif','http://fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic',false,$theme['Version']);
-        wp_register_style('inconsolata','http://fonts.googleapis.com/css?family=Inconsolata',false,$theme['Version']);
-        wp_register_style('ubuntu','http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic-ext,greek,greek-ext,latin-ext,cyrillic',false,$theme['Version']);
-        wp_register_style('lato','http://fonts.googleapis.com/css?family=Lato',false,$theme['Version'] );
+        wp_register_style('droidsans','http://fonts.googleapis.com/css?family=Droid+Sans&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('ptserif','http://fonts.googleapis.com/css?family=PT+Serif&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('inconsolata','http://fonts.googleapis.com/css?family=Inconsolata&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('ubuntu','http://fonts.googleapis.com/css?family=Ubuntu&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('lato','http://fonts.googleapis.com/css?family=Lato&subset=' . $font_subset,false,$theme['Version'] );
+        wp_register_style( 'notoserif','http://fonts.googleapis.com/css?family=Noto+Serif&subset=' . $font_subset,false, $theme['Version']  );
+        wp_register_style( 'opensans', 'http://fonts.googleapis.com/css?family=Open+Sans&subset=' . $font_subset, false, $theme['Version'] );
         // only enqueue fonts that are actually being used
         $corefonts = array( $options['heading'], $options['body'], $options['alt'] );
         //var_dump($corefonts);
@@ -118,8 +112,17 @@ if (!function_exists('ap_core_load_scripts')) {
         if ( in_array( 'Lato', $corefonts ) ) {
             wp_enqueue_style( 'lato' );
         }
+        if ( in_array( 'Open Sans', $corefonts ) ) {
+            wp_enqueue_style( 'opensans' );
+        }
+        if ( in_array( 'Noto Serif', $corefonts ) ) {
+            wp_enqueue_style( 'notoserif' );
+        }
         // this loads the style.css
-        wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
+        wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', false, '3.2.1' );
+        if ( $is_IE )
+            wp_enqueue_style( 'fontawesome-ie7', get_template_directory_uri() . '/assets/css/font-awesome-ie7.min.css', array( 'fontawesome' ), '3.2.1' );
+        wp_register_style('corecss', get_stylesheet_uri(),false,$theme['Version']);
         wp_enqueue_style('corecss');
         // loads the comment reply script
         if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -362,30 +365,31 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             // sidebar
         	'sidebar' => 'left',
             // theme tracking
-            'presstrends' => false,
+            'presstrends' => 0,
         	// typography options
-        	'heading' => 'PT Serif',
-        	'body' => 'Droid Sans',
-        	'alt' => 'Ubuntu',
+        	'heading' => 'notoserif',
+        	'body' => 'opensans',
+        	'alt' => 'lato',
             // link color
-            'link' => '#486D96',
-            'hover' => '#333333',
+            'link' => '#428bca',
+            'hover' => '#2a6496',
             // excerpts or full posts
-            'excerpts' => true,
+            'excerpts' => 1,
             // use alt for h1?
-            'alth1' => false,
+            'alth1' => 0,
             // footer text
-            'footer' => sprintf( __( '%1$s %2$s %3$s', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . ' . ' . sprintf( __( 'Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s.', 'museum-core' ), '<a href="http://museumthemes.com/" target="_blank" title="Museum Themes">', '</a>', '<a href="http://wordpress.org" target="_blank">' ),
+            'footer' => sprintf( _x( '%1$s %2$s %3$s', '1: copyright, 2: year, 3: blog title', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . ' . ' . sprintf( __( 'Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s.', 'museum-core' ), '<a href="http://museumthemes.com/" target="_blank" title="Museum Themes">', '</a>', '<a href="http://wordpress.org" target="_blank">' ),
             // advanced settings
-            'meta' => false,
-            'author' => false,
-            'generator' => false,
-            'archive-excerpt' => true,
-            'hovercards' => true,
+            'meta' => 0,
+            'author' => 0,
+            'generator' => 0,
+            'archive-excerpt' => 1,
+            'hovercards' => 1,
             'favicon' => '',
             'css' => '',
-            'site-title' => true,
-            'post-author' => true
+            'site-title' => 1,
+            'post-author' => 1,
+            'font_subset' => 'latin'
         );
         return $defaults;
     }
@@ -399,15 +403,11 @@ if (!function_exists('ap_core_get_theme_defaults')) {
  */
 if (!function_exists('ap_core_sidebar')) {
     function ap_core_sidebar() {
-        $ap_core_sidebar = array(
-            'left' => array(
-                'value' => 'left',
-                'label' => __('Left Sidebar','museum-core')),
-            'right' => array(
-                'value' => 'right',
-                'label' => __('Right Sidebar','museum-core'))
+        $sidebar = array(
+            'left' => __( 'Left Sidebar', 'museum-core' ),
+            'right' => __( 'Right Sidebar', 'museum-core' )
         );
-        return $ap_core_sidebar;
+        return $sidebar;
     }
 }
 
@@ -420,34 +420,39 @@ if (!function_exists('ap_core_sidebar')) {
 if (!function_exists('ap_core_fonts')) {
     function ap_core_fonts() {
         $ap_core_fonts = array(
-            'ptserif' => array(
-                'value' => 'PT Serif',
-                'label' => 'PT Serif',
-                'link' => 'http://www.fontsquirrel.com/fonts/pt-serif'
-            ),
-            'inconsolata' => array(
-                'value' => 'Inconsolata',
-                'label' => 'Inconsolata',
-                'link' => 'http://www.fontsquirrel.com/fonts/inconsolata'
-            ),
-            'droidsans' => array(
-                'value' => 'Droid Sans',
-                'label' => 'Droid Sans',
-                'link' => 'http://www.fontsquirrel.com/fonts/droid-sans'
-            ),
-            'ubuntu' => array(
-                'value' => 'Ubuntu',
-                'label' => 'Ubuntu',
-                'link' => 'http://www.fontsquirrel.com/fonts/ubuntu'
-            ),
-            'lato' => array(
-                'value' => 'Lato',
-                'label' => 'Lato',
-                'link' => 'http://www.fontsquirrel.com/fonts/lato'
-            )
-
+            'ptserif' => 'PT Serif',
+            'inconsolata' => 'Inconsolata',
+            'droidsans' => 'Droid Sans',
+            'ubuntu' => 'Ubuntu',
+            'lato' => 'Lato',
+            'notoserif' => 'Noto Serif',
+            'opensans' => 'Open Sans',
         );
         return $ap_core_fonts;
+    }
+}
+
+/**
+ * Font subset
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * allows the user to choose a specific font subset for i18n
+ */
+if ( !function_exists( 'ap_core_font_subset' ) ) {
+    function ap_core_font_subset() {
+
+        $font_subsets = array(
+            'latin' => __( 'Latin', 'museum-core' ),
+            'latin-ext' => __( 'Latin Extended', 'museum-core' ),
+            'cyrillic' => __( 'Cyrillic', 'museum-core' ),
+            'cyrillic-ext' => __( 'Cyrillic Extended', 'museum-core' ),
+            'greek' => __( 'Greek', 'museum-core' ),
+            'greek-ext' => __( 'Greek Extended', 'museum-core' ),
+            'vietnamese' => __( 'Vietnamese', 'museum-core' )
+        );
+
+        return $font_subsets;
+
     }
 }
 
@@ -460,14 +465,8 @@ if (!function_exists('ap_core_fonts')) {
 if (!function_exists('ap_core_show_excerpts')) {
     function ap_core_show_excerpts() {
         $ap_core_show_excerpts = array(
-            true => array(
-                'value' => true,
-                'label' => __('Show Post Excerpts','museum-core')
-            ),
-            false => array(
-                'value' => false,
-                'label' => __('Show Full Posts','museum-core')
-            )
+            true => __('Show Post Excerpts','museum-core'),
+            false => __('Show Full Posts','museum-core')
         );
         return $ap_core_show_excerpts;
     }
@@ -482,14 +481,8 @@ if (!function_exists('ap_core_show_excerpts')) {
 if (!function_exists('ap_core_true_false')) {
     function ap_core_true_false() {
         $ap_core_true_false = array(
-            true => array(
-                'value' => true,
-                'label' => __('Yes','museum-core')
-            ),
-            false => array(
-                'value' => false,
-                'label' => __('No','museum-core')
-            )
+            true => __('Yes','museum-core'),
+            false => __('No','museum-core')
         );
         return $ap_core_true_false;
     }
@@ -541,7 +534,7 @@ if (!function_exists('ap_core_custom_styles')) {
             $hover = sanitize_text_field($options['hover']);
             $output_hover = "a:hover, a:active { color: $hover; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
-        $output = "<style type=\"text/css\" media=\"print,screen\">"; 
+        $output = "<style type=\"text/css\" media=\"print,screen\">";
         $output .= $output_heading;
         $output .= $output_alt;
         $output .= $output_body;
@@ -572,38 +565,24 @@ if (!function_exists('ap_core_header_meta')) {
     function ap_core_header_meta() {
         global $post;
         $options = get_option( 'ap_core_theme_options' );
+        $author_id = null;
+        $author = null;
 
-        /* meta description */
-        if ($options['meta'] == true) {
-            if ( is_tax() && term_description() ) {
-                $term_description = term_description(); ?>
-                <meta name="description" content="<?php echo sanitize_text_field($term_description); ?>">
-            <?php } elseif ( is_category() && category_description() ) {
-                $term_description = category_description(); ?>
-                <meta name="description" content="<?php echo sanitize_text_field($term_description); ?>">
-            <?php } elseif (( is_single() ) || ( is_page())) {
-                $this_post = $post;
-                $post_data = get_post($this_post);
-                $post_excerpt = $post_data->post_excerpt;
-                $trim_post_content = wp_trim_words( $post_data->post_content, 55 );
-                if ( $post_excerpt ) {
-                    $meta_description = $post_excerpt;
-                } else {
-                    $meta_description = $trim_post_content;
-                } ?>
-            <meta name="description" content="<?php echo sanitize_text_field($meta_description); ?>">
-        <?php }
-        }
         /* author meta */
         if ($options['author'] == true) {
             if (!is_404()) {
                 // if there is no post author, this stuff doesn't exist
-                $author_id = $post->post_author;
-                $author = get_userdata($author_id);
-            ?>
-            <meta name="author" content="<?php echo sanitize_text_field($author->display_name); ?>">
-            <?php }
-        }
+                if ( $post->post_author ) {
+                    $author_id = $post->post_author;
+                    $author = get_userdata($author_id);
+                }
+                if ( $author ) {
+                    ?>
+                    <meta name="author" content="<?php echo sanitize_text_field($author->display_name); ?>">
+                    <?php
+                } // ends author check
+            } // ends 404 check
+        } // ends author option check
     }
     add_action( 'wp_head', 'ap_core_header_meta' );
 }

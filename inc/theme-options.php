@@ -14,6 +14,312 @@ if (!function_exists('ap_core_theme_options_init')) {
 }
 
 /**
+ * Use the theme customizer
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * @link http://ottopress.com/2012/how-to-leverage-the-theme-customizer-in-your-own-themes/
+ * uses the customizer for all the settings
+ */
+if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
+
+	function ap_core_theme_customizer_init( $wp_customize ) {
+
+		$defaults = ap_core_get_theme_defaults();
+
+		/* add sections */
+		$wp_customize->add_section( 'ap_core_layout', array(
+
+			'title' => __( 'Layout options', 'museum-core' ),
+			'priority' => 35
+
+		) );
+
+		$wp_customize->add_section( 'ap_core_typography', array(
+
+			'title' => __( 'Typography options', 'museum-core' ),
+			'priority' => 36
+
+		) );
+
+		$wp_customize->add_section( 'ap_core_advanced', array(
+
+			'title' => __( 'Advanced settings', 'museum-core' ),
+			'priority' => 120
+
+		) );
+
+
+		/* add settings */
+		$wp_customize->add_setting( 'ap_core_theme_options[sidebar]', array(
+
+			'default' => $defaults['sidebar'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[excerpts]', array(
+
+			'default' => $defaults['excerpts'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+
+		$wp_customize->add_setting( 'ap_core_theme_options[archive-excerpt]', array(
+
+			'default' => $defaults['archive-excerpt'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[site-title]', array(
+
+			'default' => $defaults['site-title'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[post-author]', array(
+
+			'default' => $defaults['post-author'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[heading]', array(
+
+			'default' => $defaults['heading'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[body]', array(
+
+			'default' => $defaults['body'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[alt]', array(
+
+			'default' => $defaults['alt'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[alth1]', array(
+
+			'default' => $defaults['alth1'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[font_subset]', array(
+
+			'default' => $defaults['font_subset'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[link]', array(
+
+			'default' => $defaults['link'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[hover]', array(
+
+			'default' => $defaults['hover'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[author]', array(
+
+			'default' => $defaults['author'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[footer]', array(
+
+			'default' => $defaults['footer'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		/* add controls */
+		$wp_customize->add_control( 'ap_core_theme_options[sidebar]', array(
+
+			'label' => __( 'Sidebar', 'museum-core' ),
+			'section' => 'ap_core_layout',
+			'settings' => 'ap_core_theme_options[sidebar]',
+			'type' => 'select',
+			'choices' => ap_core_sidebar()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[excerpts]', array(
+
+			'label' => __( 'Full posts or excerpts on blog home?', 'museum-core' ),
+			'section' => 'ap_core_layout',
+			'settings' => 'ap_core_theme_options[excerpts]',
+			'type' => 'select',
+			'choices' => ap_core_show_excerpts()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[archive-excerpt]', array(
+
+			'label' => __( 'Full posts or excerpts on archive pages?', 'museum-core' ),
+			'section' => 'ap_core_layout',
+			'settings' => 'ap_core_theme_options[archive-excerpt]',
+			'type' => 'select',
+			'choices' => ap_core_show_excerpts()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[site-title]', array(
+
+			'label' => __( 'Show site title?', 'museum-core' ),
+			'section' => 'title_tagline',
+			'settings' => 'ap_core_theme_options[site-title]',
+			'type' => 'select',
+			'choices' => ap_core_true_false()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[post-author]', array(
+
+			'label' => __( 'Display post author?', 'museum-core' ),
+			'section' => 'ap_core_layout',
+			'settings' => 'ap_core_theme_options[post-author]',
+			'type' => 'select',
+			'choices' => ap_core_true_false()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[heading]', array(
+
+			'label' => __( 'Heading font', 'museum-core' ),
+			'section' => 'ap_core_typography',
+			'settings' => 'ap_core_theme_options[heading]',
+			'type' => 'select',
+			'choices' => ap_core_fonts()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[body]', array(
+
+			'label' => __( 'Body font', 'museum-core' ),
+			'section' => 'ap_core_typography',
+			'settings' => 'ap_core_theme_options[body]',
+			'type' => 'select',
+			'choices' => ap_core_fonts()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[alt]', array(
+
+			'label' => __( 'Alternate font', 'museum-core' ),
+			'section' => 'ap_core_typography',
+			'settings' => 'ap_core_theme_options[alt]',
+			'type' => 'select',
+			'choices' => ap_core_fonts()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[alth1]', array(
+
+			'label' => __( 'Use alternate font for H1?', 'museum-core' ),
+			'section' => 'ap_core_typography',
+			'settings' => 'ap_core_theme_options[alth1]',
+			'type' => 'select',
+			'choices' => ap_core_true_false()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[font_subset]', array(
+
+			'label' => __( 'Font subset', 'museum-core' ),
+			'section' => 'ap_core_typography',
+			'settings' => 'ap_core_theme_options[font_subset]',
+			'type' => 'select',
+			'choices' => ap_core_font_subset()
+
+		) );
+
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[link]', array(
+
+			'label' => __( 'Link color', 'museum-core' ),
+			'section' => 'colors',
+			'settings' => 'ap_core_theme_options[link]'
+
+		) ) );
+
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[hover]', array(
+
+			'label' => __( 'Hover color', 'museum-core' ),
+			'section' => 'colors',
+			'settings' => 'ap_core_theme_options[hover]'
+
+		) ) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[author]', array(
+
+			'label' => __( 'Use author meta tags?', 'museum-core' ),
+			'section' => 'ap_core_advanced',
+			'settings' => 'ap_core_theme_options[author]',
+			'type' => 'select',
+			'choices' => ap_core_true_false()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[footer]', array(
+
+			'label' => __( 'Footer text', 'museum-core' ),
+			'section' => 'ap_core_advanced',
+			'settings' => 'ap_core_theme_options[author]',
+			'type' => 'text'
+
+		) );
+
+	}
+	add_action( 'customize_register', 'ap_core_theme_customizer_init' );
+
+}
+
+
+/**
  * Theme options page
  * @since 0.1
  * @author Chris Reynolds
@@ -37,97 +343,17 @@ if (!function_exists('ap_core_theme_options_add_page')) {
  */
 if (!function_exists('ap_core_admin_scripts')) {
 	function ap_core_admin_scripts() {
-		wp_register_style('ap_core_admin_css', get_template_directory_uri() .'/inc/admin.css',false,'1.1.1');
+		wp_register_style('ap_core_admin_css', get_template_directory_uri() .'/assets/css/admin.css',false,'2.0');
 		wp_enqueue_style( 'ap_core_admin_css' );
-		wp_enqueue_style( 'farbtastic' );
-	    wp_enqueue_script( 'farbtastic' );
-	    wp_enqueue_script( 'ap_core_color_picker', get_template_directory_uri() . '/js/color-picker.js', array( 'farbtastic', 'jquery' ) );
+		//wp_enqueue_style( 'farbtastic' );
+	    //wp_enqueue_script( 'farbtastic' );
+	    //wp_enqueue_script( 'ap_core_color_picker', get_template_directory_uri() . '/assets/js/color-picker.js', array( 'farbtastic', 'jquery' ) );
 	    wp_enqueue_script( 'jquery-ui-tabs' );
 	    wp_enqueue_style( 'jquery-ui-tabs' );
 	    wp_enqueue_script( 'media-upload' );
 	    wp_enqueue_script( 'thickbox' );
 	    wp_enqueue_style( 'thickbox' );
-	    wp_enqueue_script ( 'ap_core_uploader', get_template_directory_uri() . '/js/uploader.js', array( 'jquery', 'media-upload', 'thickbox' ) );
-	}
-}
-
-/**
- * Side box
- * @since 0.4.5
- * @author Chris Reynolds
- * this adds some side boxes for news and twitter feed for the theme options page
- */
-if (!function_exists('ap_core_side_box')) {
-	function ap_core_side_box() {
-		if ( get_bloginfo('version') < '3.4' ) { // if we're not using 3.4 (or higher), set this up the old way
-			$postbox_before = '	<div id="side-info-column" class="inner-sidebar">';
-			$postbox_before .= '		<div id="side-sortables" class="meta-box-sortables ui-sortable">';
-			$postbox_before .= '			<div class="padding">';
-			$postbox_before .= '				<div class="infolinks">';
-			$postbox_after = '					</div>';
-			$postbox_after .= '				</div>';
-			$postbox_after .= '			</div>';
-			$postbox_after .= '	</div>';
-		} else { // otherwise, set this up the new way (see how much cleaner this is?)
-			$postbox_before = '	<div id="postbox-container-1" class="postbox-container">';
-			$postbox_after = '	</div>';
-		} // this conditional should be taken out for 3.5
-			echo $postbox_before;
-						echo '<h2 style="margin:0">' . __('What\'s new at Museum Themes', 'museum-core') . '</h2>';
-
-						// Get RSS Feed(s)
-						wp_widget_rss_output('http://museumthemes.com/feed/', array('show_date' => 0, 'items' => 3));
-
-						echo '<h2 style="margin:0">' . __('Follow us on Twitter', 'museum-core') . '</h2>';
-						?>
-							<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-							<script>
-							new TWTR.Widget({
-							  version: 2,
-							  type: 'profile',
-							  rpp: 1,
-							  interval: 30000,
-							  width: 280,
-							  height: 150,
-							  theme: {
-							    shell: {
-							      background: '#ffffff',
-							      color: '#333333'
-							    },
-							    tweets: {
-							      background: '#ffffff',
-							      color: '#333333',
-							      links: '#21749b'
-							    }
-							  },
-							  features: {
-							    scrollbar: false,
-							    loop: false,
-							    live: false,
-							    behavior: 'default'
-							  }
-							}).render().setUser('arcanepalette').start();
-							</script>
-			<?php echo $postbox_after; ?>
-
-		<script type="text/javascript" charset="utf-8">
-		  var is_ssl = ("https:" == document.location.protocol);
-		  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
-		  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-
-		<script type="text/javascript" charset="utf-8">
-		  var feedback_widget_options = {};
-
-		  feedback_widget_options.display = "overlay";
-		  feedback_widget_options.company = "museum_themes";
-		  feedback_widget_options.placement = "right";
-		  feedback_widget_options.color = "#444444";
-		  feedback_widget_options.style = "question";
-
-		  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-		</script>
-		<?php
+	    wp_enqueue_script ( 'ap_core_uploader', get_template_directory_uri() . '/assets/js/uploader.js', array( 'jquery', 'media-upload', 'thickbox' ) );
 	}
 }
 
@@ -163,7 +389,6 @@ if (!function_exists('ap_core_theme_options_page')) {
 			<?php endif; ?>
 			<div id="poststuff" class="metabox-holder has-right-sidebar">
 				<div id="post-body" class="metabox-holder columns-2">
-				<?php ap_core_side_box(); ?>
 				<div id="post-body-content">
 						<form method="post" action="options.php">
 							<div id="tabs">
@@ -242,6 +467,9 @@ if (!function_exists('ap_core_presstrends')) {
  */
 if (!function_exists('ap_core_theme_options_validate')) {
 	function ap_core_theme_options_validate( $input ) {
+
+		$defaults = ap_core_get_theme_defaults();
+
 		define('TYPE_WHITELIST', serialize(array(
 		  'image/jpeg',
 		  'image/jpg',
@@ -250,31 +478,33 @@ if (!function_exists('ap_core_theme_options_validate')) {
 		  'image/ico'
 		  )));
 	    if ( !array_key_exists( $input['sidebar'], ap_core_sidebar() ) )
-	    $input['sidebar'] = $input['sidebar'];
+	    	$input['sidebar'] = $defaults['sidebar'];
 		if ( !array_key_exists( $input['presstrends'], ap_core_true_false() ) )
-		$input['presstrends'] = $input['presstrends'];
+			$input['presstrends'] = $defaults['presstrends'];
 		if ( !array_key_exists( $input['heading'], ap_core_fonts() ) )
-		$input['heading'] = $input['heading'];
+			$input['heading'] = $defaults['heading'];
 		if ( !array_key_exists( $input['body'], ap_core_fonts() ) )
-		$input['body'] = $input['body'];
+			$input['body'] = $defaults['body'];
 		if ( !array_key_exists( $input['alt'], ap_core_fonts() ) )
-		$input['alt'] = $input['alt'];
+			$input['alt'] = $defaults['alt'];
+		if ( !array_key_exists( $input['font_subset'], ap_core_font_subsets() ) )
+			$input['font_subset'] = $defaults['font_subset'];
 		if ( !array_key_exists( $input['alth1'], ap_core_true_false() ) )
-		$input['alth1'] = $input['alth1'];
+			$input['alth1'] = $defaults['alth1'];
 		if ( !array_key_exists( $input['meta'], ap_core_true_false() ) )
-		$input['meta'] = $input['meta'];
+			$input['meta'] = $defaults['meta'];
 		if ( !array_key_exists( $input['author'], ap_core_true_false() ) )
-		$input['author'] = $input['author'];
+			$input['author'] = $defaults['author'];
 		if ( !array_key_exists( $input['generator'], ap_core_true_false() ) )
-		$input['generator'] = $input['generator'];
+			$input['generator'] = $defaults['generator'];
 		if ( !array_key_exists( $input['hovercards'], ap_core_true_false() ) )
-		$input['hovercards'] = $input['hovercards'];
+			$input['hovercards'] = $defaults['hovercards'];
 		if ( !array_key_exists( $input['site-title'], ap_core_true_false() ) )
-		$input['site-title'] = $input['site-title'];
+			$input['site-title'] = $input['defaultse-title'];
 		if ( !array_key_exists( $input['excerpts'], ap_core_show_excerpts() ) )
-		$input['excerpts'] = $input['excerpts'];
+			$input['excerpts'] = $defaults['excerpts'];
 		if ( !array_key_exists( $input['archive-excerpt'], ap_core_show_excerpts() ) )
-		$input['archive-excerpt'] = $input['archive-excerpt'];
+			$input['archive-excerpt'] = $input['defaultse-excerpt'];
 		$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 		$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
 		$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );

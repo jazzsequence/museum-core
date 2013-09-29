@@ -8,17 +8,21 @@
 
 $defaults = ap_core_get_theme_defaults();
 $options = get_option( 'ap_core_theme_options' );
-$sidebar = '';
+if ( $options['sidebar'] ) {
+	$sidebar = $options['sidebar'];
+} else {
+	$sidebar = $defaults['sidebar'];
+}
 $right = '';
 $last = '';
 $show_excerpt = '';
 $archive_excerpt = '';
-
+/*
 if ( !isset($options['sidebar']) ) {
 	$sidebar = $defaults['sidebar'];
 	$right = ' the_right last';
 	$last = '';
-}
+}*/
 if ( 'right' == $options['sidebar'] ) {
 	$sidebar = $options['sidebar'];
 	$last = ' last';
@@ -28,6 +32,7 @@ if ( 'left' == $options['sidebar'] ) {
 	$right = ' the_right last';
 	$last = '';
 }
+
 if ( !isset($options['excerpts']) ) {
 	$show_excerpt = $defaults['excerpts'];
 } else {
