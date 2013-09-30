@@ -544,11 +544,9 @@ if (!function_exists('ap_core_custom_styles')) {
         if ( $options['site-title'] == false ) {
             $output .= ".headerimg hgroup h2, .headerimg hgroup h3 { float: left; position: absolute; left: -999em; height: 0px; }";
         }
-        if ( !empty($options['css']) ) {
-            $output .= sanitize_text_field($options['css']);
-        }
+
         $output .= "</style>";
-        if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == false || $options['css'] ) {
+        if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == false ) {
             echo $output;
         }
     }
@@ -604,5 +602,4 @@ if (!function_exists('ap_core_favicon')) {
     }
     add_action( 'wp_head', 'ap_core_favicon' );
 }
-
 ?>
