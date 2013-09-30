@@ -1,10 +1,10 @@
 # Museum Core
-Contributors: <a href="https://github.com/jazzsequence">jazzsequence</a>  
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6  
-Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready  
-Requires at least: 3.2  
-Tested up to: 3.5  
-Stable tag: 1.1.3.4  
+Contributors: <a href="https://github.com/jazzsequence">jazzsequence</a>
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
+Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
+Requires at least: 3.2
+Tested up to: 3.5
+Stable tag: 2.0
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -12,10 +12,10 @@ A simple, responsive WordPress theme/framework with support for internationaliza
 
 Museum Core is a clean, responsive framework with support for built-in WordPress theme options like post thumbnails, post formats, custom backgrounds & header, etc.  A theme options page lets you customize the typefaces used in the theme, footer credit, sidebar position, link colors and more.  Core can be used as a standalone theme or as a framework for other themes or child themes.
 
-* Polish translation by [http://kratery.com/](anemoone)
+* Polish translation by [anemoone](http://kratery.com/)
 
-**Call for translators!**  
-If you are interested in helping translate this theme, contact me via the contact form on either the Theme URL or the Theme Author URL (in style.css).
+**Call for translators!**
+If you are interested in helping translate this theme, contact me at hello@chrisreynolds.io.
 
 ## Installation
 
@@ -423,3 +423,21 @@ There are currently no screenshots.
 * removed link to non-existant fonts.css (but may add another one later)
 * renamed /blueprint to /css
 * removed tweet button and dynamic twitter variable in sharing block (might remove the sharing block entirely, anyway, since -- again -- sharedaddy is included in Jetpack)
+
+## Upgrade Notice
+
+2.0 is an almost complete rewrite of Museum Core. Please be aware of these major changes:
+
+* The responsive grid system has been removed and replaced with Twitter Bootstrap 3.0.
+* The icons have been removed and replaced with FontAwesome (all the filetype icons that appeared next to file links have been removed completely).
+* Theme Options page has been removed in favor of the theme Customizer.
+* Custom CSS box has been removed. Please use [My Custom CSS](http://wordpress.org/plugins/my-custom-css/) or [Jetpack](http://wordpress.org/plugins/jetpack). Your custom CSS will be available to copy in Advanced settings in the customizer.
+* Meta description has been removed. Please use [WordPress SEO by Yoast](http://wordpress.org/plugins/wordpress-seo/).
+* "Use meta generator tag" has been renamed to "Debug mode active".
+* Twitter hovercards have been removed. Support has been discontinued from Twitter.
+* Though it's unlikely, you *may* need to resave some of your stored settings on upgrading to 2.0.
+
+### Translators wanted!
+
+If you can help with the translation project, please get in touch with me!
+hello@chrisreynolds.io
