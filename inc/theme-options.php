@@ -8,19 +8,26 @@
  */
 if (!function_exists('ap_core_theme_options_init')) {
 	function ap_core_theme_options_init() {
-	    register_setting( 'AP_CORE_OPTIONS', 'ap_core_theme_options', 'ap_core_theme_options_validate' );
+	    register_setting( 'AP_CORE_OPTIONS', 'ap_core_theme_options' );
 	}
 	add_action ( 'admin_init', 'ap_core_theme_options_init' );
 }
 
+
 /**
- * Customizer Textarea Control
+ * Use the theme customizer
  * @since 2.0.0
  * @author Chris Reynolds
- * @link http://ottopress.com/2012/making-a-custom-control-for-the-theme-customizer/
- * adds a new control for the theme customizer for textareas
+ * @link http://ottopress.com/2012/how-to-leverage-the-theme-customizer-in-your-own-themes/
+ * uses the customizer for all the settings
  */
-if ( !class_exists( 'AP_Core_Textarea_Control' ) ) {
+if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
+
+	function ap_core_theme_customizer_init( $wp_customize ) {
+
+		$defaults = ap_core_get_theme_defaults();
+
+
 	class AP_Core_Textarea_Control extends WP_Customize_Control {
 
 		public $type = 'textarea';
@@ -35,15 +42,6 @@ if ( !class_exists( 'AP_Core_Textarea_Control' ) ) {
 		}
 
 	}
-}
-
-/**
- * Customizer Legacy CSS Control
- * @since 2.0.0
- * @author Chris Reynolds
- * if the user had used custom CSS previously, display that css to be copied/pasted into My Custom CSS or Jetpack
- */
-if ( !class_exists( 'AP_Core_Legacy_CSS_Control' ) ) {
 
 	class AP_Core_Legacy_CSS_Control extends WP_Customize_Control {
 
@@ -67,21 +65,6 @@ if ( !class_exists( 'AP_Core_Legacy_CSS_Control' ) ) {
 		}
 
 	}
-
-}
-
-/**
- * Use the theme customizer
- * @since 2.0.0
- * @author Chris Reynolds
- * @link http://ottopress.com/2012/how-to-leverage-the-theme-customizer-in-your-own-themes/
- * uses the customizer for all the settings
- */
-if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
-
-	function ap_core_theme_customizer_init( $wp_customize ) {
-
-		$defaults = ap_core_get_theme_defaults();
 
 		/* add sections */
 		$wp_customize->add_section( 'ap_core_layout', array(
@@ -304,7 +287,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'title_tagline',
 			'settings' => 'ap_core_theme_options[site-title]',
 			'type' => 'select',
-			'choices' => ap_core_true_false()
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -314,7 +298,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_layout',
 			'settings' => 'ap_core_theme_options[post-author]',
 			'type' => 'select',
-			'choices' => ap_core_true_false()
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -354,7 +339,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[alth1]',
 			'type' => 'select',
-			'choices' => ap_core_true_false()
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -390,7 +376,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[author]',
 			'type' => 'select',
-			'choices' => ap_core_true_false()
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -417,7 +404,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[presstrends]',
 			'type' => 'select',
-			'choices' => ap_core_true_false()
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -427,7 +415,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[generator]',
 			'type' => 'select',
-			'choices' => ap_core_true_false()
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -549,10 +538,26 @@ if (!function_exists('ap_core_presstrends')) {
 }
 
 /**
+ * Validate true/false
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * @link http://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/
+ * validates true/false options
+ */
+function ap_core_validate_true_false( $value ) {
+	if ( ! in_array( $value, array( true, false ) ) )
+		$value = null;
+
+	return $value;
+}
+
+
+
+/**
  * Validate options
  * completely rewritten @since 0.4.0
  */
-if (!function_exists('ap_core_theme_options_validate')) {
+
 	function ap_core_theme_options_validate( $input ) {
 
 		$defaults = ap_core_get_theme_defaults();
@@ -564,33 +569,33 @@ if (!function_exists('ap_core_theme_options_validate')) {
 		  'image/gif',
 		  'image/ico'
 		  )));
-	    if ( !array_key_exists( $input['sidebar'], ap_core_sidebar() ) )
+	    if ( !isset( $input['sidebar'] ) || !in_array( $input['sidebar'], ap_core_sidebar() ) )
 	    	$input['sidebar'] = $defaults['sidebar'];
-		if ( !array_key_exists( $input['presstrends'], ap_core_true_false() ) )
+		if ( !isset( $input['presstrends'] ) || !in_array( $input['presstrends'], array( true, false ) ) )
 			$input['presstrends'] = $defaults['presstrends'];
-		if ( !array_key_exists( $input['heading'], ap_core_fonts() ) )
+		if ( !isset( $input['heading'] ) || !in_array( $input['heading'], ap_core_fonts() ) )
 			$input['heading'] = $defaults['heading'];
-		if ( !array_key_exists( $input['body'], ap_core_fonts() ) )
+		if ( !isset( $input['body'] ) || !in_array( $input['body'], ap_core_fonts() ) )
 			$input['body'] = $defaults['body'];
-		if ( !array_key_exists( $input['alt'], ap_core_fonts() ) )
+		if ( !isset( $input['alt'] ) || !in_array( $input['alt'], ap_core_fonts() ) )
 			$input['alt'] = $defaults['alt'];
-		if ( !array_key_exists( $input['font_subset'], ap_core_font_subsets() ) )
+		if ( !isset( $input['font_subset'] ) || !in_array( $input['font_subset'], ap_core_font_subsets() ) )
 			$input['font_subset'] = $defaults['font_subset'];
-		if ( !array_key_exists( $input['alth1'], ap_core_true_false() ) )
+		if ( !isset( $input['alth1'] ) || !in_array( $input['alth1'], array( true, false ) ) )
 			$input['alth1'] = $defaults['alth1'];
-		if ( !array_key_exists( $input['meta'], ap_core_true_false() ) )
+		if ( !isset( $input['meta'] ) || !in_array( $input['meta'], array( true, false ) ) )
 			$input['meta'] = $defaults['meta'];
-		if ( !array_key_exists( $input['author'], ap_core_true_false() ) )
+		if ( !isset( $input['author'] ) || !in_array( $input['author'], array( true, false ) ) )
 			$input['author'] = $defaults['author'];
-		if ( !array_key_exists( $input['generator'], ap_core_true_false() ) )
+		if ( !isset( $input['generator'] ) || !in_array( $input['generator'], array( true, false ) ) )
 			$input['generator'] = $defaults['generator'];
-		if ( !array_key_exists( $input['hovercards'], ap_core_true_false() ) )
+		if ( !isset( $input['hovercards'] ) || !in_array( $input['hovercards'], array( true, false ) ) )
 			$input['hovercards'] = $defaults['hovercards'];
-		if ( !array_key_exists( $input['site-title'], ap_core_true_false() ) )
-			$input['site-title'] = $input['defaultse-title'];
-		if ( !array_key_exists( $input['excerpts'], ap_core_show_excerpts() ) )
+		if ( !isset( $input['site-title'] ) || !in_array( $input['site-title'], array( true, false ) ) )
+			$input['site-title'] = $defaults['site-title'];
+		if ( !isset( $input['excerpts'] ) || !in_array( $input['excerpts'], ap_core_show_excerpts() ) )
 			$input['excerpts'] = $defaults['excerpts'];
-		if ( !array_key_exists( $input['archive-excerpt'], ap_core_show_excerpts() ) )
+		if ( !isset( $input['archive-excerpt'] ) || !in_array( $input['archive-excerpt'], ap_core_show_excerpts() ) )
 			$input['archive-excerpt'] = $defaults['archive-excerpt'];
 		$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 		$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
@@ -603,8 +608,6 @@ if (!function_exists('ap_core_theme_options_validate')) {
 			} else { $input['favicon'] = ''; }
 		}
 
+var_dump($input);
 	    return $input;
 	}
-}
-
-?>
