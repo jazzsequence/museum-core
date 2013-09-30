@@ -1,5 +1,5 @@
 # Museum Core
-Contributors: <a href="https://github.com/jazzsequence">jazzsequence</a>
+Contributors: [jazzsequence](https://github.com/jazzsequence)
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.2
