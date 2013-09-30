@@ -252,6 +252,15 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+		$wp_customize->add_setting( 'ap_core_theme_options[generator]', array(
+
+			'default' => $defaults['generator'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
 		$wp_customize->add_setting( 'ap_core_theme_options[css]', array(
 
 			'capability' => 'edit_theme_options'
@@ -407,6 +416,16 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'label' => __( 'Send usage data?', 'museum-core' ),
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[presstrends]',
+			'type' => 'select',
+			'choices' => ap_core_true_false()
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[generator]', array(
+
+			'label' => __( 'Debug mode active', 'museum-core' ),
+			'section' => 'ap_core_advanced',
+			'settings' => 'ap_core_theme_options[generator]',
 			'type' => 'select',
 			'choices' => ap_core_true_false()
 
