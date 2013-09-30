@@ -14,6 +14,63 @@ if (!function_exists('ap_core_theme_options_init')) {
 }
 
 /**
+ * Customizer Textarea Control
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * @link http://ottopress.com/2012/making-a-custom-control-for-the-theme-customizer/
+ * adds a new control for the theme customizer for textareas
+ */
+if ( !class_exists( 'AP_Core_Textarea_Control' ) ) {
+	class AP_Core_Textarea_Control extends WP_Customize_Control {
+
+		public $type = 'textarea';
+
+		public function render_content() {
+			?>
+			<label>
+				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<textarea rows="10" style="width:100%; font-family: monospace;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+			</label>
+			<?php
+		}
+
+	}
+}
+
+/**
+ * Customizer Legacy CSS Control
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * if the user had used custom CSS previously, display that css to be copied/pasted into My Custom CSS or Jetpack
+ */
+if ( !class_exists( 'AP_Core_Legacy_CSS_Control' ) ) {
+
+	class AP_Core_Legacy_CSS_Control extends WP_Customize_Control {
+
+		public $type = 'ap-legacy-css';
+
+		public function render_content() {
+
+			$options = get_option( 'ap_core_theme_options' );
+
+			if ( isset( $options['css'] ) ) {
+				echo '<label>';
+				echo '<span class="customize-control-title">' . __( 'Custom CSS is no longer supported by this theme.', 'museum-core' ) . '</span><br />';
+				echo sprintf( _x( 'Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is displayed below.', '1: link to My Custom CSS, 2: closing <a> tag, 3: link to Jetpack', 'museum-core' ), '<a href="wordpress.org/plugins/my-custom-css/" target="_blank">', '</a>', '<a href="http://wordpress.org/plugins/jetpack" target="_blank">' );
+				echo '<pre>';
+				echo $options['css'];
+				echo '</pre>';
+				echo '</label>';
+			}
+
+
+		}
+
+	}
+
+}
+
+/**
  * Use the theme customizer
  * @since 2.0.0
  * @author Chris Reynolds
