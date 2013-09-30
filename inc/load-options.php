@@ -17,12 +17,12 @@ $right = '';
 $last = '';
 $show_excerpt = '';
 $archive_excerpt = '';
-/*
+
 if ( !isset($options['sidebar']) ) {
 	$sidebar = $defaults['sidebar'];
 	$right = ' the_right last';
 	$last = '';
-}*/
+}
 if ( 'right' == $options['sidebar'] ) {
 	$sidebar = $options['sidebar'];
 	$last = ' last';
