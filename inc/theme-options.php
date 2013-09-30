@@ -591,11 +591,10 @@ if (!function_exists('ap_core_theme_options_validate')) {
 		if ( !array_key_exists( $input['excerpts'], ap_core_show_excerpts() ) )
 			$input['excerpts'] = $defaults['excerpts'];
 		if ( !array_key_exists( $input['archive-excerpt'], ap_core_show_excerpts() ) )
-			$input['archive-excerpt'] = $input['defaultse-excerpt'];
+			$input['archive-excerpt'] = $defaults['archive-excerpt'];
 		$input['link'] = wp_filter_nohtml_kses( $input['link'] );
 		$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
 		$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
-		$input['css'] = wp_filter_nohtml_kses( stripslashes($input['css']) );
 		if ( $input['favicon'] ) {
 			$favicon = $input['favicon'];
 			$favicon = getimagesize($favicon);
