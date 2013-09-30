@@ -202,7 +202,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 			'default' => $defaults['link'],
 			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
+			'transport' => 'postMessage',
 			'type' => 'option'
 
 		) );
@@ -211,7 +211,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 			'default' => $defaults['hover'],
 			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
+			'transport' => 'postMessage',
 			'type' => 'option'
 
 		) );
@@ -229,8 +229,32 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 			'default' => $defaults['footer'],
 			'capability' => 'edit_theme_options',
+			'transport' => 'postMessage',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[favicon]', array(
+
+			'default' => $defaults['favicon'],
+			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
 			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[presstrends]', array(
+
+			'default' => $defaults['presstrends'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[css]', array(
+
+			'capability' => 'edit_theme_options'
 
 		) );
 
@@ -361,20 +385,96 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
-		$wp_customize->add_control( 'ap_core_theme_options[footer]', array(
+		$wp_customize->add_control( new AP_Core_Textarea_Control( $wp_customize, 'ap_core_theme_options[footer]', array(
 
 			'label' => __( 'Footer text', 'museum-core' ),
 			'section' => 'ap_core_advanced',
-			'settings' => 'ap_core_theme_options[author]',
-			'type' => 'text'
+			'settings' => 'ap_core_theme_options[footer]',
+			'type' => 'textarea'
+
+		) ) );
+
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ap_core_theme_options[favicon]', array(
+
+			'label' => __( 'Custom favicon', 'museum-core' ),
+			'section' => 'ap_core_advanced',
+			'settings' => 'ap_core_theme_options[favicon]',
+
+		) ) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[presstrends]', array(
+
+			'label' => __( 'Send usage data?', 'museum-core' ),
+			'section' => 'ap_core_advanced',
+			'settings' => 'ap_core_theme_options[presstrends]',
+			'type' => 'select',
+			'choices' => ap_core_true_false()
 
 		) );
+
+		$wp_customize->add_control( new AP_Core_Legacy_CSS_Control( $wp_customize, 'ap_core_theme_options[css]', array(
+
+			'section' => 'ap_core_advanced'
+
+		) ) );
+
+		// adds live refresh on site title and tagline
+		$wp_customize->get_setting('blogname')->transport='postMessage';
+		$wp_customize->get_setting('blogdescription')->transport='postMessage';
+
+		// adds live refresh business
+		if ( $wp_customize->is_preview() && ! is_admin() )
+    		add_action( 'wp_footer', 'ap_core_customize_preview', 21);
 
 	}
 	add_action( 'customize_register', 'ap_core_theme_customizer_init' );
 
 }
 
+/**
+ * Customize preview
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * @link http://ottopress.com/2012/how-to-leverage-the-theme-customizer-in-your-own-themes/
+ * makes live-refreshing settings live refresh
+ */
+if ( !function_exists( 'ap_core_customize_preview' ) ) {
+
+	function ap_core_customize_preview() {
+		?>
+		<script type="text/javascript">
+			( function( $ ){
+				wp.customize('ap_core_theme_options[footer]',function( value ) {
+					value.bind(function(to) {
+						$('footer .credit').html(to);
+					});
+				});
+				wp.customize('blogname',function( value ) {
+					value.bind(function(to) {
+						$('.siteinfo h2').html(to);
+					});
+				});
+				wp.customize('blogdescription',function( value ) {
+					value.bind(function(to) {
+						$('.siteinfo h3').html(to);
+					});
+				});
+				wp.customize('ap_core_theme_options[link]',function( value ) {
+					value.bind(function(to) {
+						$('.content a, .sidebar a').css('color', to ? to : '');
+					});
+				});
+				wp.customize('ap_core_theme_options[link]',function( value ) {
+					value.bind(function(to) {
+						$('.content a:hover, .sidebar a:hover').css('color', to ? to : '');
+					});
+				});
+			} )( jQuery )
+		</script>
+		<?php
+	}
+
+}
 
 /**
  * Theme options page
