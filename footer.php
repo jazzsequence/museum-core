@@ -6,19 +6,19 @@
 		<?php tha_footer_before(); ?>
 		<footer class="row">
 			<?php tha_footer_top(); ?>
-			<div class="span-4" id="leftbox">
+			<div class="col-md-4" id="leftbox">
 				<ul>
 					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Left Footer Box') ) : ?>
 					<?php endif; ?>
 				</ul>
 			</div>
-			<div class="span-4" id="middlebox">
+			<div class="col-md-4" id="middlebox">
 				<ul>
 					 <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Center Footer Box') ) : ?>
 					 <?php endif; ?>
 				</ul>
 			</div>
-			<div class="span-4 last" id="rightbox">
+			<div class="col-md-4 last" id="rightbox">
 				<ul>
 					 <?php if( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Right Footer Box') ) : ?>
 					 <?php endif; ?>
