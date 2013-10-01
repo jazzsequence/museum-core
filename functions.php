@@ -511,26 +511,26 @@ if (!function_exists('ap_core_custom_styles')) {
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
         // set the heading font
-        if ( $options['heading'] != $defaults['heading'] ) {
+        if ( isset( $options['heading'] ) && $options['heading'] != $defaults['heading'] ) {
             $heading = sanitize_text_field($options['heading']);
             $output_heading = "h1, h2, h3 { font-family: '$heading', sans-serif; }";
         }
         // set the body font
-        if ( $options['body'] != $defaults['body'] ) {
+        if ( isset( $options['body'] ) && $options['body'] != $defaults['body'] ) {
             $body = sanitize_text_field($options['body']);
             $output_body = "body { font-family: '$body', sans-serif; }";
         }
         // set the alt font
-        if ( $options['alt'] != $defaults['alt'] ) {
+        if ( isset( $options['alt'] ) && $options['alt'] != $defaults['alt'] ) {
             $alt = sanitize_text_field($options['alt']);
             $output_alt = "h4, h5, h6, .alt, h3 time { font-family: '$alt', sans-serif; }";
         }
         // set the link color
-        if ( $options['link'] && $options['link'] != $defaults['link'] ) {
+        if ( isset( $options['link'] ) && $options['link'] != $defaults['link'] ) {
             $link = sanitize_text_field($options['link']);
-            $output_link = "a, a:link, a:visited { color: $link; text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
+            $output_link = "a, a:link, a:visited { color: $link; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
-        if ( $options['hover'] && $options['hover'] != $defaults['hover'] ) {
+        if ( isset( $options['hover'] ) && $options['hover'] != $defaults['hover'] || $options['link'] ) {
             $hover = sanitize_text_field($options['hover']);
             $output_hover = "a:hover, a:active { color: $hover; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
@@ -541,7 +541,7 @@ if (!function_exists('ap_core_custom_styles')) {
         $output .= $output_link;
         $output .= $output_hover;
 
-        if ( $options['site-title'] == false ) {
+        if ( isset( $options['site-title'] ) && $options['site-title'] == false ) {
             $output .= ".headerimg hgroup h2, .headerimg hgroup h3 { float: left; position: absolute; left: -999em; height: 0px; }";
         }
 
