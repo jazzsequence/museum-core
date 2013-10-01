@@ -10,7 +10,7 @@ if (!function_exists('ap_core_theme_options_init')) {
 	function ap_core_theme_options_init() {
 	    register_setting( 'AP_CORE_OPTIONS', 'ap_core_theme_options' );
 	}
-	add_action ( 'admin_init', 'ap_core_theme_options_init' );
+	add_action ( 'admin_init', 'ap_core_theme_options_init', 'ap_core_theme_options_validate' );
 }
 
 
@@ -545,7 +545,7 @@ if (!function_exists('ap_core_presstrends')) {
  * validates true/false options
  */
 function ap_core_validate_true_false( $value ) {
-	if ( ! in_array( $value, array( true, false ) ) )
+	if ( ! array_key_exists( $value, ap_core_true_false() ) )
 		$value = null;
 
 	return $value;
@@ -558,7 +558,7 @@ function ap_core_validate_true_false( $value ) {
  * completely rewritten @since 0.4.0
  */
 
-	function ap_core_theme_options_validate( $input ) {
+	function ap_core_theme_options_validate( $value ) {
 
 		$defaults = ap_core_get_theme_defaults();
 
@@ -569,45 +569,44 @@ function ap_core_validate_true_false( $value ) {
 		  'image/gif',
 		  'image/ico'
 		  )));
-	    if ( !isset( $input['sidebar'] ) || !in_array( $input['sidebar'], ap_core_sidebar() ) )
-	    	$input['sidebar'] = $defaults['sidebar'];
-		if ( !isset( $input['presstrends'] ) || !in_array( $input['presstrends'], array( true, false ) ) )
-			$input['presstrends'] = $defaults['presstrends'];
-		if ( !isset( $input['heading'] ) || !in_array( $input['heading'], ap_core_fonts() ) )
-			$input['heading'] = $defaults['heading'];
-		if ( !isset( $input['body'] ) || !in_array( $input['body'], ap_core_fonts() ) )
-			$input['body'] = $defaults['body'];
-		if ( !isset( $input['alt'] ) || !in_array( $input['alt'], ap_core_fonts() ) )
-			$input['alt'] = $defaults['alt'];
-		if ( !isset( $input['font_subset'] ) || !in_array( $input['font_subset'], ap_core_font_subsets() ) )
-			$input['font_subset'] = $defaults['font_subset'];
-		if ( !isset( $input['alth1'] ) || !in_array( $input['alth1'], array( true, false ) ) )
-			$input['alth1'] = $defaults['alth1'];
-		if ( !isset( $input['meta'] ) || !in_array( $input['meta'], array( true, false ) ) )
-			$input['meta'] = $defaults['meta'];
-		if ( !isset( $input['author'] ) || !in_array( $input['author'], array( true, false ) ) )
-			$input['author'] = $defaults['author'];
-		if ( !isset( $input['generator'] ) || !in_array( $input['generator'], array( true, false ) ) )
-			$input['generator'] = $defaults['generator'];
-		if ( !isset( $input['hovercards'] ) || !in_array( $input['hovercards'], array( true, false ) ) )
-			$input['hovercards'] = $defaults['hovercards'];
-		if ( !isset( $input['site-title'] ) || !in_array( $input['site-title'], array( true, false ) ) )
-			$input['site-title'] = $defaults['site-title'];
-		if ( !isset( $input['excerpts'] ) || !in_array( $input['excerpts'], ap_core_show_excerpts() ) )
-			$input['excerpts'] = $defaults['excerpts'];
-		if ( !isset( $input['archive-excerpt'] ) || !in_array( $input['archive-excerpt'], ap_core_show_excerpts() ) )
-			$input['archive-excerpt'] = $defaults['archive-excerpt'];
-		$input['link'] = wp_filter_nohtml_kses( $input['link'] );
-		$input['hover'] = wp_filter_nohtml_kses( $input['hover'] );
-		$input['footer'] = wp_filter_post_kses( stripslashes($input['footer']) );
-		if ( $input['favicon'] ) {
-			$favicon = $input['favicon'];
+	    if ( !isset( $value['sidebar'] ) || !in_array( $value['sidebar'], ap_core_sidebar() ) )
+	    	$value['sidebar'] = $defaults['sidebar'];
+		if ( !isset( $value['presstrends'] ) || !in_array( $value['presstrends'], array( true, false ) ) )
+			$value['presstrends'] = $defaults['presstrends'];
+		if ( !isset( $value['heading'] ) || !in_array( $value['heading'], ap_core_fonts() ) )
+			$value['heading'] = $defaults['heading'];
+		if ( !isset( $value['body'] ) || !in_array( $value['body'], ap_core_fonts() ) )
+			$value['body'] = $defaults['body'];
+		if ( !isset( $value['alt'] ) || !in_array( $value['alt'], ap_core_fonts() ) )
+			$value['alt'] = $defaults['alt'];
+		if ( !isset( $value['font_subset'] ) || !in_array( $value['font_subset'], ap_core_font_subsets() ) )
+			$value['font_subset'] = $defaults['font_subset'];
+		if ( !isset( $value['alth1'] ) || !in_array( $value['alth1'], array( true, false ) ) )
+			$value['alth1'] = $defaults['alth1'];
+		if ( !isset( $value['meta'] ) || !in_array( $value['meta'], array( true, false ) ) )
+			$value['meta'] = $defaults['meta'];
+		if ( !isset( $value['author'] ) || !in_array( $value['author'], array( true, false ) ) )
+			$value['author'] = $defaults['author'];
+		if ( !isset( $value['generator'] ) || !in_array( $value['generator'], array( true, false ) ) )
+			$value['generator'] = $defaults['generator'];
+		if ( !isset( $value['hovercards'] ) || !in_array( $value['hovercards'], array( true, false ) ) )
+			$value['hovercards'] = $defaults['hovercards'];
+		if ( !isset( $value['site-title'] ) || !in_array( $value['site-title'], array( true, false ) ) )
+			$value['site-title'] = $defaults['site-title'];
+		if ( !isset( $value['excerpts'] ) || !in_array( $value['excerpts'], ap_core_show_excerpts() ) )
+			$value['excerpts'] = $defaults['excerpts'];
+		if ( !isset( $value['archive-excerpt'] ) || !in_array( $value['archive-excerpt'], ap_core_show_excerpts() ) )
+			$value['archive-excerpt'] = $defaults['archive-excerpt'];
+		$value['link'] = wp_filter_nohtml_kses( $value['link'] );
+		$value['hover'] = wp_filter_nohtml_kses( $value['hover'] );
+		$value['footer'] = wp_filter_post_kses( stripslashes($value['footer']) );
+		if ( $value['favicon'] ) {
+			$favicon = $value['favicon'];
 			$favicon = getimagesize($favicon);
 			if (in_array($favicon['mime'], unserialize(TYPE_WHITELIST))) {
-				$input['favicon'] = esc_url_raw( $input['favicon'] );
-			} else { $input['favicon'] = ''; }
+				$value['favicon'] = esc_url_raw( $value['favicon'] );
+			} else { $value['favicon'] = ''; }
 		}
 
-var_dump($input);
-	    return $input;
+	    return $value;
 	}
