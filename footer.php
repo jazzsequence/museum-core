@@ -2,6 +2,7 @@
 		$options = get_option( 'ap_core_theme_options' );
 		$defaults = ap_core_get_theme_defaults();
 		?>
+		</div>
 		<footer class="row">
 			<div class="span-4" id="leftbox">
 				<ul>
@@ -34,5 +35,6 @@
 	</div><!-- closes .container -->
 
 		<?php wp_footer(); ?>
+		<?php tha_body_bottom(); ?>
 </body>
 </html>

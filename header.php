@@ -92,3 +92,4 @@
 			<?php tha_header_bottom(); ?>
 		</header>
 		<?php tha_header_after(); ?>
+		<div class="row">
