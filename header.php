@@ -11,6 +11,16 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <?php $options = get_option( 'ap_core_theme_options' ); ?>
+<?php
+	$headerimg = null;
+	if ( $options['site-title'] == false ) {
+		$headerimg_before = '<a href="' . home_url() . '" title="' . get_bloginfo('title') . '">';
+		$headerimg_after = '</a>';
+	} else {
+		$headerimg_before = null;
+		$headerimg_after = null;
+	}
+?>
 <title><?php wp_title(); ?></title>
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
 <meta name="viewport" content="width=device-width">
@@ -26,49 +36,58 @@
 		<header>
 			<?php tha_header_top(); ?>
 			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
-			<?php if ( (!get_header_image()) && (!has_post_thumbnail( $post->ID )) ) { ?>
-				<hgroup class="siteinfo">
-					<?php if ($options['alth1'] == true) { ?>
-						<h2 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
-						<h3><?php bloginfo('description'); ?></h3>
-					<?php } else { ?>
-						<h2><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
-						<h3 class="alt"><?php bloginfo('description'); ?></h3>
-					<?php } ?>
-				</hgroup>
-			<?php } else { ?>
-				<?php if ( $options['site-title'] == false ) {
-					$headerimg_before = '<a href="' . home_url() . '" title="' . get_bloginfo('title') . '">';
-					$headerimg_after = '</a>';
-				} else {
-					$headerimg_before = null;
-					$headerimg_after = null;
-				} ?>
-				<?php echo $headerimg_before; ?>
+			<?php if ( function_exists( 'get_custom_header' ) ) {
+				$header_image_width = get_theme_support( 'custom-header', 'width' );
+			} else {
+				$header_image_width = HEADER_IMAGE_WIDTH;
+			}
+			// Check if this is a post or page, if it has a thumbnail, and if it's a big one
+			if ( is_singular() && current_theme_supports( 'post-thumbnails' ) && has_post_thumbnail( $post->ID ) && ( $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
+							$image[1] >= $header_image_width ) :
+				// there's a header image
+				$headerimg = true;
+				?>
+
 				<div class="headerimg">
-					<?php
-					// Check if this is a post or page, if it has a thumbnail, and if it's a big one
-					if ( is_singular() && current_theme_supports( 'post-thumbnails' ) &&
-							has_post_thumbnail( $post->ID ) &&
-							( /* $src, $width, $height */ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-							$image[1] >= HEADER_IMAGE_WIDTH ) :
-						// Houston, we have a new header image!
-						echo get_the_post_thumbnail( $post->ID );
-					elseif ( get_header_image() ) : ?>
-						<img src="<?php header_image(); ?>" width="<?php echo HEADER_IMAGE_WIDTH; ?>" height="<?php echo HEADER_IMAGE_HEIGHT; ?>" alt="" />
-					<?php endif; ?>
-					<hgroup class="siteinfo">
-						<?php if ($options['alth1'] == true) { ?>
-							<h2 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
-							<h3><?php bloginfo('description'); ?></h3>
-						<?php } else { ?>
-							<h2><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
-							<h3 class="alt"><?php bloginfo('description'); ?></h3>
-						<?php } ?>
-					</hgroup>
+
+					<?php echo $headerimg_before; ?>
+					<?php echo get_the_post_thumbnail( $post->ID ); ?>
+					<?php echo $headerimg_after; ?>
+
+
+			<?php elseif ( get_header_image() ) :
+
+				$headerimg = true;
+				if ( function_exists( 'get_custom_header' ) ) {
+					$header_image_width = get_custom_header()->width;
+					$header_image_height = get_custom_header()->height;
+				} else {
+					$header_image_width = HEADER_IMAGE_WIDTH;
+					$header_image_height = HEADER_IMAGE_HEIGHT;
+				} ?>
+
+				<div class="headerimg">
+
+					<?php echo $headerimg_before; ?>
+					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+					<?php echo $headerimg_after; ?>
+
+			<?php endif; ?>
+
+			<hgroup class="siteinfo">
+				<?php if ($options['alth1'] == true) { ?>
+					<h2 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
+					<h3><?php bloginfo('description'); ?></h3>
+				<?php } else { ?>
+					<h2><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
+					<h3 class="alt"><?php bloginfo('description'); ?></h3>
+				<?php } ?>
+			</hgroup>
+
+			<?php if ( $headerimg ) { ?>
 				</div>
-				<?php echo $headerimg_after; ?>
 			<?php } ?>
+
 			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?>
 			<?php tha_header_bottom(); ?>
 		</header>
