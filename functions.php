@@ -373,6 +373,8 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             // link color
             'link' => '#428bca',
             'hover' => '#2a6496',
+            // content area background color
+            'content-color' => '#fff',
             // excerpts or full posts
             'excerpts' => 1,
             // use alt for h1?
@@ -380,13 +382,11 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             // footer text
             'footer' => sprintf( _x( '%1$s %2$s %3$s', '1: copyright, 2: year, 3: blog title', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . ' . ' . sprintf( __( 'Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s.', 'museum-core' ), '<a href="http://museumthemes.com/" target="_blank" title="Museum Themes">', '</a>', '<a href="http://wordpress.org" target="_blank">' ),
             // advanced settings
-            'meta' => 0,
             'author' => 0,
             'generator' => 0,
             'archive-excerpt' => 1,
             'hovercards' => 1,
             'favicon' => '',
-            'css' => '',
             'site-title' => 1,
             'post-author' => 1,
             'font_subset' => 'latin'
@@ -500,6 +500,7 @@ if (!function_exists('ap_core_custom_styles')) {
         $output_heading = null;
         $output_alt = null;
         $output_body = null;
+        $output_content_bg = null;
         $output_link = null;
         $output_hover = null;
         $heading = null;
@@ -507,6 +508,7 @@ if (!function_exists('ap_core_custom_styles')) {
         $alt = null;
         $link = null;
         $hover = null;
+        $content_bg = null;
 
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
@@ -525,6 +527,11 @@ if (!function_exists('ap_core_custom_styles')) {
             $alt = sanitize_text_field($options['alt']);
             $output_alt = "h4, h5, h6, .alt, h3 time { font-family: '$alt', sans-serif; }";
         }
+        // set the content background color
+        if ( isset( $options['content-color'] ) && $options['content-color'] != $defaults['content-color'] ) {
+            $content_bg = sanitize_text_field( $options['content-color'] );
+            $output_content_bg = ".container { background: $content_bg; }";
+        }
         // set the link color
         if ( isset( $options['link'] ) && $options['link'] != $defaults['link'] ) {
             $link = sanitize_text_field($options['link']);
@@ -538,6 +545,7 @@ if (!function_exists('ap_core_custom_styles')) {
         $output .= $output_heading;
         $output .= $output_alt;
         $output .= $output_body;
+        $output .= $output_content_bg;
         $output .= $output_link;
         $output .= $output_hover;
 
