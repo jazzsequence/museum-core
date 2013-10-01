@@ -372,7 +372,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[link]', array(
 
-			'label' => __( 'Link color', 'museum-core' ),
+			'label' => __( 'Link Color', 'museum-core' ),
 			'section' => 'colors',
 			'settings' => 'ap_core_theme_options[link]',
 			'sanitize_callback' => 'sanitize_hex_color'
@@ -381,7 +381,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[hover]', array(
 
-			'label' => __( 'Hover color', 'museum-core' ),
+			'label' => __( 'Hover Color', 'museum-core' ),
 			'section' => 'colors',
 			'settings' => 'ap_core_theme_options[hover]',
 			'sanitize_callback' => 'sanitize_hex_color'
