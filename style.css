@@ -42,7 +42,7 @@ Git Repo: https://github.com/ArcanePalette/AP-Museum_Core
    Base
    ========================================================================== */
 
-body { margin: 0; font-size: 1em; line-height: 1.4; }
+body { margin: 0; font-size: 14px; line-height: 1.6em; }
 
 /*
  * Remove text-shadow in selection highlight: h5bp.com/i
@@ -738,7 +738,6 @@ tt, code, .code { padding: 2px 5px; background: #f9f9f9; border: 1px solid #cccc
 @media only screen and (max-width: 1023px) {
 
   body {
-  font-size: 0.8em;
   line-height: 1.5em;
   }
 .container {
