@@ -481,7 +481,7 @@ msgstr ""
 #: ../parts/post-single.php:6 ../parts/post-video.php:5
 #: ../parts/post-video.php:7 ../parts/post.php:5 ../parts/post.php:7
 #, php-format
-msgid "Permanent Link to %1$s"
+msgid "Permanent Link to %s"
 msgstr ""
 
 #: ../parts/post-archive.php:23 ../parts/post-audio.php:5
