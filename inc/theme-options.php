@@ -181,6 +181,15 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+		$wp_customize->add_setting( 'ap_core_theme_options[font-color]', array(
+
+			'default' => $defaults['font-color'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'postMessage',
+			'type' => 'option'
+
+		) );
+
 		$wp_customize->add_setting( 'ap_core_theme_options[link]', array(
 
 			'default' => $defaults['link'],
@@ -370,6 +379,15 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[font-color]', array(
+
+			'label' => __( 'Font Color', 'museum-core' ),
+			'section' => 'colors',
+			'settings' => 'ap_core_theme_options[font-color]',
+			'sanitize_callback' => 'sanitize_hex_color'
+
+		) ) );
+
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[link]', array(
 
 			'label' => __( 'Link Color', 'museum-core' ),
@@ -494,6 +512,11 @@ if ( !function_exists( 'ap_core_customize_preview' ) ) {
 				wp.customize('blogdescription',function( value ) {
 					value.bind(function(to) {
 						$('.siteinfo h3').html(to);
+					});
+				});
+				wp.customize('ap_core_theme_options[font-color]',function( value ) {
+					value.bind(function(to) {
+						$('body').css('color', to ? to : '');
 					});
 				});
 				wp.customize('ap_core_theme_options[link]',function( value ) {

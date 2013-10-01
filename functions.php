@@ -373,8 +373,9 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             // link color
             'link' => '#428bca',
             'hover' => '#2a6496',
-            // content area background color
+            // content area colors
             'content-color' => '#fff',
+            'font-color' => '#111',
             // excerpts or full posts
             'excerpts' => 1,
             // use alt for h1?
@@ -501,6 +502,7 @@ if (!function_exists('ap_core_custom_styles')) {
         $output_alt = null;
         $output_body = null;
         $output_content_bg = null;
+        $output_font = null;
         $output_link = null;
         $output_hover = null;
         $heading = null;
@@ -508,6 +510,7 @@ if (!function_exists('ap_core_custom_styles')) {
         $alt = null;
         $link = null;
         $hover = null;
+        $font = null;
         $content_bg = null;
 
         $defaults = ap_core_get_theme_defaults();
@@ -518,9 +521,20 @@ if (!function_exists('ap_core_custom_styles')) {
             $output_heading = "h1, h2, h3 { font-family: '$heading', sans-serif; }";
         }
         // set the body font
-        if ( isset( $options['body'] ) && $options['body'] != $defaults['body'] ) {
-            $body = sanitize_text_field($options['body']);
-            $output_body = "body { font-family: '$body', sans-serif; }";
+        if ( isset( $options['body'] ) && $options['body'] != $defaults['body'] || isset( $options['font-color'] ) && $options['font-color'] != $defaults['font-color'] ) {
+            $output_body = 'body {';
+
+            if ( isset( $options['body'] ) ) {
+                $body = sanitize_text_field($options['body']);
+                $output_body .= "font-family: '$body', sans-serif;";
+            }
+
+            if ( isset( $options['font-color'] ) ) {
+                $font = sanitize_text_field( $options['font-color'] );
+                $output_body .= "color: $font;";
+            }
+
+            $output_body .= '}';
         }
         // set the alt font
         if ( isset( $options['alt'] ) && $options['alt'] != $defaults['alt'] ) {
