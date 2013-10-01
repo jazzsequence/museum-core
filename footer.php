@@ -3,7 +3,9 @@
 		$defaults = ap_core_get_theme_defaults();
 		?>
 		</div>
+		<?php tha_footer_before(); ?>
 		<footer class="row">
+			<?php tha_footer_top(); ?>
 			<div class="span-4" id="leftbox">
 				<ul>
 					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Left Footer Box') ) : ?>
@@ -31,7 +33,9 @@
 					echo $defaults['footer'];
 				} ?>
 			</div>
+			<?php tha_footer_bottom(); ?>
 		</footer>
+		<?php tha_footer_after(); ?>
 	</div><!-- closes .container -->
 
 		<?php wp_footer(); ?>
