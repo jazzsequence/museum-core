@@ -194,7 +194,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 			'default' => $defaults['hover'],
 			'capability' => 'edit_theme_options',
-			'transport' => 'postMessage',
+			'transport' => 'refresh',
 			'type' => 'option'
 
 		) );
@@ -499,11 +499,6 @@ if ( !function_exists( 'ap_core_customize_preview' ) ) {
 				wp.customize('ap_core_theme_options[link]',function( value ) {
 					value.bind(function(to) {
 						$('.content a, .sidebar a').css('color', to ? to : '');
-					});
-				});
-				wp.customize('ap_core_theme_options[hover]',function( value ) {
-					value.bind(function(to) {
-						$('.content a:hover, .sidebar a:hover').css('color', to ? to : '');
 					});
 				});
 				wp.customize('ap_core_theme_options[content-color]',function( value ) {
