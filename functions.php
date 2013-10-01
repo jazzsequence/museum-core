@@ -420,13 +420,13 @@ if (!function_exists('ap_core_sidebar')) {
 if (!function_exists('ap_core_fonts')) {
     function ap_core_fonts() {
         $ap_core_fonts = array(
-            'ptserif' => 'PT Serif',
-            'inconsolata' => 'Inconsolata',
-            'droidsans' => 'Droid Sans',
-            'ubuntu' => 'Ubuntu',
-            'lato' => 'Lato',
-            'notoserif' => 'Noto Serif',
-            'opensans' => 'Open Sans',
+            'PT Serif' => 'PT Serif',
+            'Inconsolata' => 'Inconsolata',
+            'Droid Sans' => 'Droid Sans',
+            'Ubuntu' => 'Ubuntu',
+            'Lato' => 'Lato',
+            'Noto Serif' => 'Noto Serif',
+            'Open Sans' => 'Open Sans',
         );
         return $ap_core_fonts;
     }
