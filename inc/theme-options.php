@@ -501,7 +501,7 @@ if ( !function_exists( 'ap_core_customize_preview' ) ) {
 						$('.content a, .sidebar a').css('color', to ? to : '');
 					});
 				});
-				wp.customize('ap_core_theme_options[link]',function( value ) {
+				wp.customize('ap_core_theme_options[hover]',function( value ) {
 					value.bind(function(to) {
 						$('.content a:hover, .sidebar a:hover').css('color', to ? to : '');
 					});
