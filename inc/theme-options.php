@@ -257,7 +257,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_layout',
 			'settings' => 'ap_core_theme_options[sidebar]',
 			'type' => 'select',
-			'choices' => ap_core_sidebar()
+			'choices' => ap_core_sidebar(),
+			'sanitize_callback' => 'ap_core_validate_sidebar'
 
 		) );
 
@@ -267,7 +268,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_layout',
 			'settings' => 'ap_core_theme_options[excerpts]',
 			'type' => 'select',
-			'choices' => ap_core_show_excerpts()
+			'choices' => ap_core_show_excerpts(),
+			'sanitize_callback' => 'ap_core_validate_excerpts'
 
 		) );
 
@@ -277,7 +279,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_layout',
 			'settings' => 'ap_core_theme_options[archive-excerpt]',
 			'type' => 'select',
-			'choices' => ap_core_show_excerpts()
+			'choices' => ap_core_show_excerpts(),
+			'sanitize_callback' => 'ap_core_validate_excerpts'
 
 		) );
 
@@ -309,7 +312,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[heading]',
 			'type' => 'select',
-			'choices' => ap_core_fonts()
+			'choices' => ap_core_fonts(),
+			'sanitize_callback' => 'ap_core_validate_fonts'
 
 		) );
 
@@ -319,7 +323,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[body]',
 			'type' => 'select',
-			'choices' => ap_core_fonts()
+			'choices' => ap_core_fonts(),
+			'sanitize_callback' => 'ap_core_validate_fonts'
 
 		) );
 
@@ -329,7 +334,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[alt]',
 			'type' => 'select',
-			'choices' => ap_core_fonts()
+			'choices' => ap_core_fonts(),
+			'sanitize_callback' => 'ap_core_validate_fonts'
 
 		) );
 
@@ -350,7 +356,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[font_subset]',
 			'type' => 'select',
-			'choices' => ap_core_font_subset()
+			'choices' => ap_core_font_subset(),
+			'sanitize_callback' => 'ap_core_validate_subset'
 
 		) );
 
@@ -358,7 +365,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 			'label' => __( 'Link color', 'museum-core' ),
 			'section' => 'colors',
-			'settings' => 'ap_core_theme_options[link]'
+			'settings' => 'ap_core_theme_options[link]',
+			'sanitize_callback' => 'sanitize_hex_color'
 
 		) ) );
 
@@ -366,7 +374,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 			'label' => __( 'Hover color', 'museum-core' ),
 			'section' => 'colors',
-			'settings' => 'ap_core_theme_options[hover]'
+			'settings' => 'ap_core_theme_options[hover]',
+			'sanitize_callback' => 'sanitize_hex_color'
 
 		) ) );
 
@@ -386,7 +395,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'label' => __( 'Footer text', 'museum-core' ),
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[footer]',
-			'type' => 'textarea'
+			'type' => 'textarea',
+			'sanitize_callback' => 'esc_textarea'
 
 		) ) );
 
@@ -395,6 +405,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'label' => __( 'Custom favicon', 'museum-core' ),
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[favicon]',
+			'sanitize_callback' => 'ap_core_validate_favicon'
 
 		) ) );
 
@@ -542,7 +553,6 @@ if (!function_exists('ap_core_presstrends')) {
  * @since 2.0.0
  * @author Chris Reynolds
  * @link http://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/
- * validates true/false options
  */
 function ap_core_validate_true_false( $value ) {
 	if ( ! array_key_exists( $value, ap_core_true_false() ) )
@@ -551,62 +561,83 @@ function ap_core_validate_true_false( $value ) {
 	return $value;
 }
 
+/**
+ * Validate font options
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * @link http://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/
+ */
+function ap_core_validate_fonts( $value ) {
+	if ( ! array_key_exists( $value, ap_core_fonts() ) )
+		$value = null;
 
+	return $value;
+}
 
 /**
- * Validate options
- * completely rewritten @since 0.4.0
+ * Validate excerpts options
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * @link http://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/
  */
+function ap_core_validate_excerpts( $value ) {
+	if ( !array_key_exists( $value, ap_core_show_excerpts() ) )
+		$value = null;
 
-	function ap_core_theme_options_validate( $value ) {
+	return $value;
+}
 
-		$defaults = ap_core_get_theme_defaults();
+/**
+ * Validate sidebar options
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * @link http://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/
+ */
+function ap_core_validate_sidebar( $value ) {
+	if ( !array_key_exists( $value, ap_core_sidebar() ) )
+		$value = null;
 
-		define('TYPE_WHITELIST', serialize(array(
-		  'image/jpeg',
-		  'image/jpg',
-		  'image/png',
-		  'image/gif',
-		  'image/ico'
-		  )));
-	    if ( !isset( $value['sidebar'] ) || !in_array( $value['sidebar'], ap_core_sidebar() ) )
-	    	$value['sidebar'] = $defaults['sidebar'];
-		if ( !isset( $value['presstrends'] ) || !in_array( $value['presstrends'], array( true, false ) ) )
-			$value['presstrends'] = $defaults['presstrends'];
-		if ( !isset( $value['heading'] ) || !in_array( $value['heading'], ap_core_fonts() ) )
-			$value['heading'] = $defaults['heading'];
-		if ( !isset( $value['body'] ) || !in_array( $value['body'], ap_core_fonts() ) )
-			$value['body'] = $defaults['body'];
-		if ( !isset( $value['alt'] ) || !in_array( $value['alt'], ap_core_fonts() ) )
-			$value['alt'] = $defaults['alt'];
-		if ( !isset( $value['font_subset'] ) || !in_array( $value['font_subset'], ap_core_font_subsets() ) )
-			$value['font_subset'] = $defaults['font_subset'];
-		if ( !isset( $value['alth1'] ) || !in_array( $value['alth1'], array( true, false ) ) )
-			$value['alth1'] = $defaults['alth1'];
-		if ( !isset( $value['meta'] ) || !in_array( $value['meta'], array( true, false ) ) )
-			$value['meta'] = $defaults['meta'];
-		if ( !isset( $value['author'] ) || !in_array( $value['author'], array( true, false ) ) )
-			$value['author'] = $defaults['author'];
-		if ( !isset( $value['generator'] ) || !in_array( $value['generator'], array( true, false ) ) )
-			$value['generator'] = $defaults['generator'];
-		if ( !isset( $value['hovercards'] ) || !in_array( $value['hovercards'], array( true, false ) ) )
-			$value['hovercards'] = $defaults['hovercards'];
-		if ( !isset( $value['site-title'] ) || !in_array( $value['site-title'], array( true, false ) ) )
-			$value['site-title'] = $defaults['site-title'];
-		if ( !isset( $value['excerpts'] ) || !in_array( $value['excerpts'], ap_core_show_excerpts() ) )
-			$value['excerpts'] = $defaults['excerpts'];
-		if ( !isset( $value['archive-excerpt'] ) || !in_array( $value['archive-excerpt'], ap_core_show_excerpts() ) )
-			$value['archive-excerpt'] = $defaults['archive-excerpt'];
-		$value['link'] = wp_filter_nohtml_kses( $value['link'] );
-		$value['hover'] = wp_filter_nohtml_kses( $value['hover'] );
-		$value['footer'] = wp_filter_post_kses( stripslashes($value['footer']) );
-		if ( $value['favicon'] ) {
-			$favicon = $value['favicon'];
-			$favicon = getimagesize($favicon);
-			if (in_array($favicon['mime'], unserialize(TYPE_WHITELIST))) {
-				$value['favicon'] = esc_url_raw( $value['favicon'] );
-			} else { $value['favicon'] = ''; }
+	return $value;
+}
+
+/**
+ * Validate font subset
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * @link http://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/
+ */
+function ap_core_validate_subset( $value ) {
+	if ( !array_key_exists( $value, ap_core_font_subsets() ) )
+		$value = null;
+
+	return $value;
+}
+
+/**
+ * Validate favicon
+ * @since 0.4.0
+ * @author Chris Reynolds
+ * @link http://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/
+ */
+function ap_core_validate_favicon( $value ) {
+
+	define('TYPE_WHITELIST', serialize(array(
+		'image/jpeg',
+		'image/jpg',
+		'image/png',
+		'image/gif',
+		'image/ico'
+	)));
+
+	if ( isset( $value['favicon'] ) ) {
+		$favicon = $value['favicon'];
+		$favicon = getimagesize($favicon);
+		if (in_array($favicon['mime'], unserialize(TYPE_WHITELIST))) {
+			$value['favicon'] = esc_url_raw( $value['favicon'] );
+		} else {
+			$value['favicon'] = null;
 		}
-
-	    return $value;
 	}
+
+    return $value;
+}
