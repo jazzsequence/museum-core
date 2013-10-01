@@ -69,21 +69,21 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 		/* add sections */
 		$wp_customize->add_section( 'ap_core_layout', array(
 
-			'title' => __( 'Layout options', 'museum-core' ),
+			'title' => __( 'Layout Options', 'museum-core' ),
 			'priority' => 35
 
 		) );
 
 		$wp_customize->add_section( 'ap_core_typography', array(
 
-			'title' => __( 'Typography options', 'museum-core' ),
+			'title' => __( 'Typography Options', 'museum-core' ),
 			'priority' => 36
 
 		) );
 
 		$wp_customize->add_section( 'ap_core_advanced', array(
 
-			'title' => __( 'Advanced settings', 'museum-core' ),
+			'title' => __( 'Advanced Settings', 'museum-core' ),
 			'priority' => 120
 
 		) );
@@ -317,7 +317,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( 'ap_core_theme_options[heading]', array(
 
-			'label' => __( 'Heading font', 'museum-core' ),
+			'label' => __( 'Heading Font', 'museum-core' ),
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[heading]',
 			'type' => 'select',
@@ -328,7 +328,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( 'ap_core_theme_options[body]', array(
 
-			'label' => __( 'Body font', 'museum-core' ),
+			'label' => __( 'Body Font', 'museum-core' ),
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[body]',
 			'type' => 'select',
@@ -339,7 +339,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( 'ap_core_theme_options[alt]', array(
 
-			'label' => __( 'Alternate font', 'museum-core' ),
+			'label' => __( 'Alternate Font', 'museum-core' ),
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[alt]',
 			'type' => 'select',
@@ -361,7 +361,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( 'ap_core_theme_options[font_subset]', array(
 
-			'label' => __( 'Font subset', 'museum-core' ),
+			'label' => __( 'Font Subset', 'museum-core' ),
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[font_subset]',
 			'type' => 'select',
@@ -390,7 +390,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[content-color]', array(
 
-			'label' => __( 'Content background color', 'museum-core' ),
+			'label' => __( 'Content Background color', 'museum-core' ),
 			'section' => 'colors',
 			'settings' => 'ap_core_theme_options[content-color]',
 			'sanitize_callback' => 'sanitize_hex_color'
@@ -410,7 +410,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( new AP_Core_Textarea_Control( $wp_customize, 'ap_core_theme_options[footer]', array(
 
-			'label' => __( 'Footer text', 'museum-core' ),
+			'label' => __( 'Footer Text', 'museum-core' ),
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[footer]',
 			'type' => 'textarea',
@@ -420,7 +420,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ap_core_theme_options[favicon]', array(
 
-			'label' => __( 'Custom favicon', 'museum-core' ),
+			'label' => __( 'Custom Favicon', 'museum-core' ),
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[favicon]',
 			'sanitize_callback' => 'ap_core_validate_favicon'
@@ -440,7 +440,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( 'ap_core_theme_options[generator]', array(
 
-			'label' => __( 'Debug mode active', 'museum-core' ),
+			'label' => __( 'Debug Mode Active', 'museum-core' ),
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[generator]',
 			'type' => 'select',
