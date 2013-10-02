@@ -1,7 +1,7 @@
 <?php
 $format = get_post_format();
-$no_date_formats = array( 'chat', 'gallery', 'image' );
-<?php if ( in_array( $format, $no_date_formats ) ) { ?>
+$no_date_formats = array( 'chat', 'gallery', 'image' ); ?>
+<?php if ( !in_array( $format, $no_date_formats ) ) { ?>
     <h3 class="the_date"><time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time></h3>
 <?php } ?>
 
