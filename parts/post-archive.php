@@ -35,7 +35,9 @@
 
 		<?php get_template_part( 'parts/part', 'title' ); ?>
 
+		<?php tha_entry_before(); ?>
 		<section class="entry media">
+			<?php tha_entry_top(); ?>
 
 			<?php include( AP_CORE_OPTIONS );
 			$format = get_post_format();
@@ -55,7 +57,9 @@
 
 			<?php } ?>
 
+			<?php tha_entry_bottom(); ?>
 		</section>
+		<?php tha_entry_after(); ?>
 
 		<?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
