@@ -3,11 +3,13 @@
 	This is the author page template
 */
 get_header();
+tha_content_before();
 include( AP_CORE_OPTIONS );
 $description = null;
 $url = null;
 ?>
 <div class="content col-md-9<?php echo $right; ?>">
+	<?php tha_content_top(); ?>
 
 	<?php if ( have_posts() ) the_post();
 		$description = get_the_author_meta('description');
@@ -34,6 +36,8 @@ $url = null;
 		get_template_part('parts/post', 'author');
 	?>
 
+	<?php tha_content_bottom(); ?>
 </div>
+<?php tha_content_after(); ?>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
