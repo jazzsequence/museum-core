@@ -3,21 +3,22 @@
 	This is the main index template
 */
 get_header();
+tha_content_before();
 include( AP_CORE_OPTIONS ); ?>
 <div class="content col-md-9<?php echo $right; ?>">
+	<?php tha_content_top(); ?>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post();
 		$post_format = get_post_format();
 		get_template_part('parts/post', $post_format);
 		endwhile; ?>
-	<nav class="navigation">
-		<?php  if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
-		<div class="alignleft"><?php next_posts_link(__('&laquo; Older Entries','museum-core')) ?></div>
-		<div class="alignright"><?php previous_posts_link(__('Newer Entries &raquo;','museum-core')) ?></div>
-		<?php } ?>
-	</nav>
+
+		<?php get_template_part( 'parts/part', 'navigation' ); ?>
+
 	<?php endif; ?>
 
+	<?php tha_content_bottom(); ?>
 </div>
+<?php tha_content_after(); ?>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
