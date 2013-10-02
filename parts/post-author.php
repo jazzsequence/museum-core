@@ -4,7 +4,10 @@
 
 		<?php get_template_part( 'parts/part', 'title' ); ?>
 
+		<?php tha_entry_before(); ?>
 		<section class="entry media">
+			<?php tha_entry_top(); ?>
+
 			<?php include( AP_CORE_OPTIONS );
 			if ( $show_excerpt == false ) {
 				the_content(__('Read more &raquo;','museum-core'));
@@ -19,9 +22,11 @@
 
 			<?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
+		<?php tha_entry_bottom(); ?>
 	</article>
+	<?php tha_entry_after(); ?>
 
 	<?php
 	endwhile;
 	get_template_part( 'parts/part', 'navigation' );
-	endif; ?>
+endif; ?>
