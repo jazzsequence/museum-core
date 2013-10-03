@@ -703,7 +703,9 @@ ul.sidebar, .sidebar ul  {
 .the_left { float: left; }
 .the_right { float: right; }
 
+.widget { word-break: break-word; }
 .sidebar .widget { margin-bottom: 20px; }
+.widget select { max-width: 100%; }
 
 /* Footer */
 
