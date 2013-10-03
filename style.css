@@ -675,19 +675,20 @@ form#commentform p.comment-notes span.required { float: none; }
   background-color: #ffffff;
   border-color: #cccccc;
 }
-.form-submit input#submit:focus {
+input[type="submit"]:focus,
+input#submit:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-.form-submit input#submit:hover,
-.form-submit input#submit:focus {
+input[type="submit"]:hover,
+input#submit:hover,
+input[type="submit"]:focus,
+input#submit:focus {
   color: #333333;
   background-color: #ebebeb;
   border-color: #adadad;
 }
-
-
 
 /* Sidebar */
 
