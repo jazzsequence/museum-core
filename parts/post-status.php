@@ -11,6 +11,6 @@
 	</section>
 	<?php tha_entry_after(); ?>
 
-	<?php get_template_part( 'parts/part', 'micropostmeta' ); ?>
+	<div class="icon icon-bullhorn pull-left"></div><?php get_template_part( 'parts/part', 'micropostmeta' ); ?>
 
 </article>
