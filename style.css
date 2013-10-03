@@ -558,14 +558,14 @@ section.searchform { margin: 20px 0; }
 section.searchform h3 { margin: 0 0 20px; }
 form#searchform input#s { width: 155px; }
 form#searchform input#s {
-  background: url('images/search.png') 130px 1px no-repeat;
+  background: url('images/search.png') 128px 6px no-repeat;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all  0.3s ease;
 }
 form#searchform input#s:active, form#searchform input#s:focus {
-  background: url('images/search.png') 170px 1px no-repeat;
+  background: url('images/search.png') 170px 6px no-repeat;
 }
 
 /* Comments */
