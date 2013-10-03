@@ -314,13 +314,13 @@ div.aligncenter {
 .wp-caption {
 	border: 1px solid #ddd;
 	text-align: center;
-	background-color: #f3f3f3;
+	background-color: #fff;
 	padding-top: 4px;
 	margin: 10px;
-	-moz-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
+	-moz-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
 }
 
 .wp-caption img {
