@@ -336,11 +336,24 @@ div.aligncenter {
 	margin: 0;
 }
 
-.gallery img { border: 1px solid #999999!important; box-shadow: 2px 2px 2px #cccccc; }
+.gallery img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: auto;
+  max-width: 100%;
+  padding: 4px;
+  line-height: 1.428571429;
+  background-color: #fff;
+  border: 1px solid #ddd!important; /* !important is the only way to override the default border on gallery images */
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
 
 /* Header */
 header {
-  margin: 20px 0;
+  margin: 10px 0 20px;
 }
 hgroup { clear: both; padding: 5px 10px; }
 hgroup h1, hgroup h2 { margin: auto!important; }
@@ -575,6 +588,42 @@ form#commentform p.comment-notes span.required { float: none; }
   color: #111111;
   font-style: normal;
 }
+
+.form-submit input#submit {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+.form-submit input#submit:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.form-submit input#submit:hover,
+.form-submit input#submit:focus {
+  color: #333333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+
 
 
 /* Sidebar */
