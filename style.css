@@ -336,6 +336,7 @@ div.aligncenter {
 	-khtml-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
+  color: #333;
 }
 
 .wp-caption img {
@@ -577,6 +578,7 @@ article.format-audio .entry iframe {
 }
 .chat-text p {
   margin-bottom: 0;
+  color: #333;
 }
 
 .chat-transcript > .chat-row:nth-child(odd) {
