@@ -36,7 +36,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			?>
 			<label>
 				<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-				<textarea rows="10" style="width:100%; font-family: monospace;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
+				<textarea rows="10" style="width:100%; font-family: monospace;" <?php $this->link(); ?>><?php echo esc_textarea( stripslashes_deep( $this->value() ) ); ?></textarea>
 			</label>
 			<?php
 		}
@@ -51,13 +51,18 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 			$options = get_option( 'ap_core_theme_options' );
 
-			if ( isset( $options['css'] ) ) {
-				echo '<label>';
-				echo '<span class="customize-control-title">' . __( 'Custom CSS is no longer supported by this theme.', 'museum-core' ) . '</span><br />';
+			if ( isset( $options['css'] ) && ( $options['css'] != '1' ) ) {
+				echo '<div style="background-color: #fcf8e3; border: 1px solid #fbeed5; border-radius: 4px; padding: 2px 7px;"><label>';
+				echo '<span class="customize-control-title">' . __( 'Custom CSS is no longer supported.', 'museum-core' ) . '</span>';
 				echo sprintf( _x( 'Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is displayed below.', '1: link to My Custom CSS, 2: closing <a> tag, 3: link to Jetpack', 'museum-core' ), '<a href="wordpress.org/plugins/my-custom-css/" target="_blank">', '</a>', '<a href="http://wordpress.org/plugins/jetpack" target="_blank">' );
-				echo '<pre>';
+				echo '</label>';
+				echo '<pre style="overflow-x: scroll;">';
 				echo $options['css'];
 				echo '</pre>';
+				echo '</div>';
+				echo '<label>';
+				echo '<input type="checkbox" value="" data-customize-setting-link="ap_core_theme_options[css]" /> ' . __( 'I\'ve copied my CSS. Dismiss this message.', 'museum-core' );
+
 				echo '</label>';
 			}
 
@@ -264,7 +269,9 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_setting( 'ap_core_theme_options[css]', array(
 
-			'capability' => 'edit_theme_options'
+			'default' => '',
+			'capability' => 'edit_theme_options',
+			'type' => 'option'
 
 		) );
 
@@ -469,7 +476,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( new AP_Core_Legacy_CSS_Control( $wp_customize, 'ap_core_theme_options[css]', array(
 
-			'section' => 'ap_core_advanced'
+			'section' => 'ap_core_advanced',
+			'settings' => 'ap_core_theme_options[css]'
 
 		) ) );
 
