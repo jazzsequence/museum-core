@@ -17,7 +17,7 @@
 				<?php the_excerpt(); ?>
 			</div>
 		<?php } ?>
-		<?php wp_link_pages(); ?>
+		<?php get_template_part( 'parts/part', 'link-pages' ); ?>
 
 		<?php tha_entry_bottom(); ?>
 	</section>

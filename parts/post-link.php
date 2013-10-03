@@ -6,7 +6,7 @@
 		<?php tha_entry_top(); ?>
 
 		<?php the_content(__('Read more &raquo;','museum-core')); ?>
-		<?php wp_link_pages(); ?>
+		<?php get_template_part( 'parts/part', 'link-pages' ); ?>
 
 		<?php tha_entry_bottom(); ?>
 	</section>
