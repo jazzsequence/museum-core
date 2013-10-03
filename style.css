@@ -533,14 +533,16 @@ h1.the_title {
 }
 
 /* post formats */
-article.format-aside {
-  border: 1px solid #cccccc;
-  background: #efefef;
-  border-radius: 5px;
-  padding: 10px;
-  font-style: italic;
+article.format-aside,
+article.format-status {
+  border-left: 5px solid;
+  border-bottom: 1px solid;
+  border-color: #f1e7bc;
+  background: #fefbed;
+  padding: 15px 30px 15px 15px;
+  margin: 20px 0;
+  color: #4E3E22;
 }
-article.format-aside .human-time-diff { font-style: normal; }
 
 article.format-video .entry embed,
 article.format-video .entry object,
