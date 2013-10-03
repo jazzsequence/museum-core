@@ -248,7 +248,9 @@ if (!function_exists('ap_core_setup')) {
                 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
                 <div id="comment-<?php comment_ID(); ?>" class="the_comment">
                     <div class="comment-author vcard">
-                        <?php echo get_avatar($comment,$size='64',$default='' ); ?>
+                        <?php if ( get_avatar($comment) ) : ?>
+                            <div class="thumbnail"><?php echo get_avatar($comment,$size='64',$default='' ); ?></div>
+                        <?php endif; ?>
                         <?php echo sprintf(_x('On %1$s at %2$s %3$s said:', '1: date, 2: time, 3:author', 'museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ?>
                     </div>
                     <?php if ($comment->comment_approved == '0') : ?>
@@ -257,11 +259,14 @@ if (!function_exists('ap_core_setup')) {
                     <?php endif; ?>
                     <?php comment_text() ?>
                     <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)', 'museum-core'),'  ','') ?></div>
-                    <?php if ( comments_open() ) { ?>
-                        <div class="reply"><button class="btn btn-default">
-                        <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','museum-core'), 'max_depth' => $args['max_depth']))) ?>
-                        </button></div>
-                    <?php } ?>
+                    <?php if ( comments_open() ) {
+                        if ( $depth < $args['max_depth'] ) { ?>
+                            <div class="reply"><button class="btn btn-default">
+                            <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','museum-core'), 'max_depth' => $args['max_depth']))) ?>
+                            </button></div>
+                        <?php }
+                    } ?>
+                    <small><a href="<?php echo get_comment_link(); ?>"><?php _e( 'Permalink', 'museum-core' ); ?></a></small>
                 </div>
                 <?php
             }
