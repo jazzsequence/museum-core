@@ -13,6 +13,6 @@
 	</section>
 	<?php tha_entry_after(); ?>
 
-	<div class="icon icon-lightbulb pull-left"></div><?php get_template_part( 'parts/part', 'micropostmeta' ); ?>
+	<div class="icon icon-lightbulb pull-left" title="<?php _e( 'Aside', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'micropostmeta' ); ?>
 
 </article>

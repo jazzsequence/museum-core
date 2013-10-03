@@ -12,6 +12,6 @@
 	</section>
 	<?php tha_entry_after(); ?>
 
-	<div class="icon icon-link pull-left"></div><?php get_template_part( 'parts/part', 'micropostmeta' ); ?>
+	<div class="icon icon-link pull-left" title="<?php _e( 'Link', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'micropostmeta' ); ?>
 
 </article>

@@ -5,9 +5,9 @@
 		if ( 'gallery' == get_post_format() || 'image' == get_post_format() ) { ?>
 			<span class="the_date"><time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time></span><br />
 			<?php if ( 'gallery' == get_post_format() ) { ?>
-				<div class="icon icon-picture pull-left"></div>
+				<div class="icon icon-picture pull-left" title="<?php _e( 'Gallery', 'museum-core' ); ?>"></div>
 			<?php } else { ?>
-				<div class="icon icon-camera pull-left"></div>
+				<div class="icon icon-camera pull-left" title="<?php _e( 'Image', 'museum-core' ); ?>"></div>
 			<?php }
 		}
 		$time = '<time datetime=' . get_the_time('Y-m-d') . '>' . get_the_time('j F Y') . '</time>';

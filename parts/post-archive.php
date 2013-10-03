@@ -61,7 +61,7 @@
 		</section>
 		<?php tha_entry_after(); ?>
 
-		<?php get_template_part( 'parts/part', 'postmetadata' ); ?>
+		<div class="icon icon-archive pull-left" title="<?php _e( 'Archive', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
     </article>
 
