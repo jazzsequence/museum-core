@@ -1,6 +1,8 @@
 <nav class="navigation clearfix">
 	<?php  if(function_exists('wp_pagenavi')) { wp_pagenavi(); } else { ?>
-	<div class="alignleft"><?php next_posts_link(__('&laquo; Older Entries','museum-core')) ?></div>
-	<div class="alignright"><?php previous_posts_link(__('Newer Entries &raquo;','museum-core')) ?></div>
+		<ul class="pager">
+			<li class="previous"><?php next_posts_link(__('&larr; Older Entries','museum-core')) ?></li>
+			<li class="next"><?php previous_posts_link(__('Newer Entries &rarr;','museum-core')) ?></li>
+		</ul>
 	<?php } ?>
 </nav>
