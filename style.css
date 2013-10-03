@@ -189,6 +189,10 @@ body {
 	margin: auto;
 }
 
+.content {
+  word-wrap: break-word;
+}
+
 a {
   text-decoration: none;
   -webkit-transition: all 0.3s ease!important;
@@ -532,6 +536,7 @@ time {
 h1.the_title {
 	line-height: 100%;
 	margin: 0 0 20px;
+  word-wrap: break-word;
 }
 
 .postmetadata {
@@ -703,7 +708,7 @@ ul.sidebar, .sidebar ul  {
 .the_left { float: left; }
 .the_right { float: right; }
 
-.widget { word-break: break-word; }
+.widget { word-wrap: break-word; }
 .sidebar .widget { margin-bottom: 20px; }
 .widget select { max-width: 100%; }
 
