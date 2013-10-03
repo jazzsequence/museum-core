@@ -252,12 +252,23 @@ img.alignleft {
 	float: left;
 	}
 /* Calendar */
-/* this is still using styles from Kubrick because I can't be bothered to test the calendar */
 #wp-calendar {
 	empty-cells: show;
 	margin: 10px auto 0;
-	width: 155px;
+	width: 100%;
 	}
+
+#wp-calendar th[scope="col"] {
+  text-align: center;
+}
+
+#wp-calendar thead tr {
+  border-bottom: 1px solid #ccc;
+}
+
+#wp-calendar tbody tr {
+  border-bottom: 1px solid #eee;
+}
 
 #wp-calendar #next a {
 	padding-right: 10px;
