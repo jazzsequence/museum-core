@@ -553,19 +553,52 @@ article.format-audio .entry iframe {
   text-align: center;
 }
 
+.chat-author {
+  font-weight: bold;
+  margin-right: .5em;
+}
+.chat-text p {
+  margin-bottom: 0;
+}
+
+.chat-transcript > .chat-row:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.chat-speaker-1 .chat-author {
+  color: #428bca;
+}
+.chat-speaker-2 .chat-author {
+  color: #d9534f;
+}
+.chat-speaker-3 .chat-author {
+  color: #5cb85c;
+}
+.chat-speaker-4 .chat-author {
+  color: ##563d7c;
+}
+.chat-speaker-5 .chat-author {
+  color: #f0ad4e;
+}
+.chat-speaker-6 .chat-author {
+  color: #5bc0de;
+}
+
+.icon { margin-top: 4px; }
+
 /* search page */
 section.searchform { margin: 20px 0; }
 section.searchform h3 { margin: 0 0 20px; }
 form#searchform input#s { width: 155px; }
 form#searchform input#s {
-  background: url('images/search.png') 128px 6px no-repeat;
+  background: #fff url('images/search.png') 128px 6px no-repeat;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all  0.3s ease;
 }
 form#searchform input#s:active, form#searchform input#s:focus {
-  background: url('images/search.png') 170px 6px no-repeat;
+  background: #fff url('images/search.png') 170px 6px no-repeat;
 }
 
 /* Comments */
