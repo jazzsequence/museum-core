@@ -626,19 +626,42 @@ form#searchform input#s:active, form#searchform input#s:focus {
 ul.commentlist, ol.commentlist { clear: both; }
 #comments ul.commentlist, #comments ol.commentlist { list-style-type: none; margin: 0; padding: 0; }
 #comments li div.the_comment { padding: 10px; border-bottom: 1px solid #efefef; margin-bottom: 10px; }
-#comments ul.children { margin: 0 0 0 10px; list-style-type: none; }
+#comments ul.children { margin: 0 0 0 10px; list-style-type: none; padding-left: 20px; }
 #comments ul.children li { border-left: 5px solid #efefef; }
-#comments ul.children li.bypostauthor { border-left: 5px solid #dcdcdc; }
-.odd .avatar { float: left; margin-right: 10px; }
-.even .avatar { float: right; margin-left: 10px; }
+#comments ul.children li.bypostauthor { border-left: 5px solid #f1e7bc; }
+.comment-author .thumbnail {
+  width: 64px;
+  height: 64px;
+  float: right;
+}
+.odd .thumbnail { float: left; margin-right: 10px; margin-bottom: 10px; }
+.even .thumbnail { float: right; margin-left: 10px; margin-bottom: 10px; }
+.comment-meta { clear: both; }
 li.comment { clear: both; }
-li.bypostauthor { background: #efefef; border-bottom: 1px solid #dcdcdc; }
+li.bypostauthor { background: #fefbed; color: #4E3E22; }
+#comments li.bypostauthor div.the_comment { border-bottom: 1px solid #f1e7bc; }
 #comments .reply button { margin: 10px 0; clear: both; }
 #comments .reply button a { color: #333; }
-h3#reply-title { clear: both; }
-form#commentform label { width: 5em; float: left; }
-form#commentform p.comment-form-author, form#commentform p.comment-form-email, form#commentform p.comment-form-url {
-  width: 20em;
+h3#comments { word-wrap: break-word; clear: both; }
+form#commentform label { width: 4em; margin-right: 2em; }
+form#commentform label[for="comment"] { width: auto; margin-right: 0; }
+input,
+form#commentform input {
+  padding: 6px 12px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  --webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s
+}
+input:focus,
+form#commentform input:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
 form#commentform span.required { float: right; color: red; }
 form#commentform p.comment-notes span.required { float: none; }
@@ -647,12 +670,13 @@ form#commentform p.comment-notes span.required { float: none; }
 
 /* resets alt style for comments */
 #comments .alt {
-  font-family: 'Droid Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   color: #111111;
   font-style: normal;
 }
-
-.form-submit input#submit {
+li.pingback, #comments li.pingback.alt { background: #f0f7fd; color: #3a87ad; border-left: 5px solid; }
+input[type="submit"],
+input#submit {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
