@@ -184,6 +184,19 @@ body {
 	color: #111;
 }
 
+body.bs-fixed-nav {
+  padding-top: 70px;
+}
+
+body.bs-fixed-nav.admin-bar {
+  padding-top: 68px;
+}
+
+body.bs-fixed-nav.admin-bar .topnav {
+  margin-top: 28px;
+}
+}
+
 .container {
 	background: #ffffff;
 	margin: auto;
@@ -396,6 +409,9 @@ hgroup h3 { font-size: 2em; }
 
 .navbar-nav>li>.dropdown-menu {
   margin-top: -1px;
+}
+.bs-fixed-nav .navbar-nav>li>.dropdown-menu {
+  margin-top: 0;
 }
 
 /* Content */

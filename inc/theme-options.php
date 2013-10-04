@@ -104,6 +104,15 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+		$wp_customize->add_setting( 'ap_core_theme_options[nav-menu]', array(
+
+			'default' => $defaults['nav-menu'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
 		$wp_customize->add_setting( 'ap_core_theme_options[excerpts]', array(
 
 			'default' => $defaults['excerpts'],
@@ -222,6 +231,33 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+		$wp_customize->add_setting( 'ap_core_theme_options[navbar-color]', array(
+
+			'default' => $defaults['navbar-color'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'postMessage',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[navbar-inverse]', array(
+
+			'default' => $defaults['navbar-inverse'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[navbar-link]', array(
+
+			'default' => $defaults['navbar-link'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'postMessage',
+			'type' => 'option'
+
+		) );
+
 		$wp_customize->add_setting( 'ap_core_theme_options[author]', array(
 
 			'default' => $defaults['author'],
@@ -284,6 +320,17 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'type' => 'select',
 			'choices' => ap_core_sidebar(),
 			'sanitize_callback' => 'ap_core_validate_sidebar'
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[nav-menu]', array(
+
+			'label' => __( 'Fixed nav menu?', 'museum-core' ),
+			'section' => 'ap_core_layout',
+			'settings' => 'ap_core_theme_options[nav-menu]',
+			'type' => 'select',
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -422,6 +469,35 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) ) );
 
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[navbar-color]', array(
+
+			'label' => __( 'Navbar (top) Background Color', 'museum-core' ),
+			'section' => 'colors',
+			'settings' => 'ap_core_theme_options[navbar-color]',
+			'sanitize_callback' => 'sanitize_hex_color'
+
+		) ) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[navbar-inverse]', array(
+
+			'label' => __( 'Inverted navbar?', 'museum-core' ),
+			'section' => 'colors',
+			'settings' => 'ap_core_theme_options[navbar-inverse]',
+			'type' => 'select',
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
+
+		) );
+
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[navbar-link]', array(
+
+			'label' => __( 'Navbar Link Color', 'museum-core' ),
+			'section' => 'colors',
+			'settings' => 'ap_core_theme_options[navbar-link]',
+			'sanitize_callback' => 'sanitize_hex_color'
+
+		) ) );
+
 		$wp_customize->add_control( 'ap_core_theme_options[author]', array(
 
 			'label' => __( 'Use author meta tags?', 'museum-core' ),
@@ -535,6 +611,16 @@ if ( !function_exists( 'ap_core_customize_preview' ) ) {
 				wp.customize('ap_core_theme_options[content-color]',function( value ) {
 					value.bind(function(to) {
 						$('.container').css('background', to ? to : '');
+					});
+				});
+				wp.customize('ap_core_theme_options[navbar-color]',function( value ) {
+					value.bind(function(to) {
+						$('.topnav').css('background', to ? to : '');
+					});
+				});
+				wp.customize('ap_core_theme_options[navbar-link]',function( value ) {
+					value.bind(function(to) {
+						$('.topnav .navbar-nav>li>a').css('color', to ? to : '');
 					});
 				});
 			} )( jQuery )

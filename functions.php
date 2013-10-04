@@ -592,7 +592,11 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             'favicon' => '',
             'site-title' => 1,
             'post-author' => 1,
-            'font_subset' => 'latin'
+            'font_subset' => 'latin',
+            'nav-menu' => 0,
+            'navbar-inverse' => 0,
+            'navbar-color' => '',
+            'navbar-link' => ''
         );
         return $defaults;
     }
@@ -707,6 +711,8 @@ if (!function_exists('ap_core_custom_styles')) {
         $output_font = null;
         $output_link = null;
         $output_hover = null;
+        $output_navbar = null;
+        $output_navbar_link = null;
         $heading = null;
         $body = null;
         $alt = null;
@@ -714,6 +720,8 @@ if (!function_exists('ap_core_custom_styles')) {
         $hover = null;
         $font = null;
         $content_bg = null;
+        $navbar_color = null;
+        $navbar_link = null;
 
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
@@ -757,6 +765,20 @@ if (!function_exists('ap_core_custom_styles')) {
             $hover = sanitize_text_field($options['hover']);
             $output_hover = "a:hover, a:active { color: $hover; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
+        if ( isset( $options['navbar-color'] ) ) {
+            $navbar_color = sanitize_text_field( $options['navbar-color'] );
+            $output_navbar = ".topnav { background-color: $navbar_color; }";
+        }
+        if ( isset( $options['navbar-link'] ) ) {
+            $navbar_link = sanitize_text_field( $options['navbar-link'] );
+            $output_navbar_link .= ".topnav .navbar-nav>li>a { color: $navbar_link; }";
+            if ( true == $options['navbar-inverse'] ) {
+                $output_navbar_link .= '.topnav .navbar-nav>li>a:hover { color: #fff; }';
+            } else {
+                $output_navbar_link .= '.topnav .navbar-nav>li>a:hover { color: #333; }';
+            }
+        }
+
         $output = "<style type=\"text/css\" media=\"print,screen\">";
         $output .= $output_heading;
         $output .= $output_alt;
@@ -764,6 +786,8 @@ if (!function_exists('ap_core_custom_styles')) {
         $output .= $output_content_bg;
         $output .= $output_link;
         $output .= $output_hover;
+        $output .= $output_navbar;
+        $output .= $output_navbar_link;
 
         if ( isset( $options['site-title'] ) && $options['site-title'] == false ) {
             $output .= ".headerimg hgroup h2, .headerimg hgroup h3 { float: left; position: absolute; left: -999em; height: 0px; }";

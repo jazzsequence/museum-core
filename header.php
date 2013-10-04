@@ -20,6 +20,18 @@
 		$headerimg_before = null;
 		$headerimg_after = null;
 	}
+
+	$fixed_nav = null;
+	if ( isset( $options['nav-menu'] ) && ( true == $options['nav-menu'] ) ) {
+		$fixed_nav = 'bs-fixed-nav';
+	}
+
+	$navbar_inverse = null;
+	if ( isset( $options['navbar-inverse'] ) && ( true == $options['navbar-inverse'] ) ) {
+		$navbar_inverse = 'navbar-inverse';
+	} else {
+		$navbar_invers = 'navbar-default';
+	}
 ?>
 <title><?php wp_title(); ?></title>
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
@@ -29,13 +41,21 @@
 <?php wp_head(); ?>
 <?php tha_head_bottom(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class( $fixed_nav ); ?>>
 <?php tha_body_top(); ?>
 	<div class="container" id="wrap">
 		<?php tha_header_before(); ?>
 		<header>
 			<?php tha_header_top(); ?>
-			<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav collapse navbar-collapse navbar-ex1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() ) ); ?>
+			<?php
+				$default = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $navbar_inverse . ' collapse navbar-collapse navbar-ex1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
+				$fixed = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $navbar_inverse . ' navbar navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
+			if ( $fixed_nav ) {
+				// if the nav menu is fixed
+				wp_nav_menu( $fixed );
+			} else {
+				wp_nav_menu( $default );
+			} ?>
 			<?php if ( function_exists( 'get_custom_header' ) ) {
 				$header_image_width = get_theme_support( 'custom-header', 'width' );
 			} else {
