@@ -432,7 +432,7 @@ article.sticky {
 .single article {
   border-bottom: none;
 }
-article.post h3 {
+article h3 {
   margin-bottom: 1em;
 }
 
