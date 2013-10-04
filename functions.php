@@ -596,7 +596,8 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             'nav-menu' => 0,
             'navbar-inverse' => 0,
             'navbar-color' => '',
-            'navbar-link' => ''
+            'navbar-link' => '',
+            'breadcrumbs' => 0
         );
         return $defaults;
     }
@@ -799,6 +800,113 @@ if (!function_exists('ap_core_custom_styles')) {
         }
     }
     add_action( 'wp_head', 'ap_core_custom_styles' );
+}
+
+/**
+ * Breadcrumbs
+ * @since 2.0.0
+ * @author Rachel Baker
+ * @link https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/blob/master/functions.php
+ * Adds breadcrumbs and hooks them into tha_content_top if enabled.
+ * Based on Rachel Baker's Twitter Bootstrap for WordPress theme
+ */
+if ( !function_exists( 'ap_core_breadcrumbs' ) ) {
+    $options = get_option( 'ap_core_theme_options' );
+
+    function ap_core_breadcrumbs() {
+        global $post;
+
+        // this sets up some breadcrumbs for posts & pages that support Twitter Bootstrap styles
+        echo '<ul xmlns:v="http://rdf.data-vocabulary.org/#" class="breadcrumb">';
+
+        if ( !is_home() || !is_front_page() || !is_paged() ) {
+
+            echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_home_url() . '">' . __( 'Home', 'museum-core' ) . '</a></span></li>';
+
+            if ( is_category() ) {
+                $category = get_the_category();
+                if ($category) {
+                    foreach($category as $category) {
+                    echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></span></li>';
+                    }
+                }
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . sprintf( __( 'Posts filed under <q>%s</q>', 'museum-core' ), single_cat_title( '', false ) ) . '</span></li>';
+            } elseif ( is_day() ) {
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_year_link( get_the_time('Y') ) . '">' . get_the_time('Y') . '</a></span></li>';
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_month_link( get_the_time('Y'), get_the_time('m') ) . '">' . get_the_time('F') . '</a></span></li>';
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_time('d') . '</span></li>';
+            } elseif ( is_month() ) {
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_year_link( get_the_time('Y') ) . '">' . get_the_time('Y') . '</a></span></li>';
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_time('F') . '</span></li>';
+            } elseif ( is_year() ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_time('Y') . '</span></li>';
+            } elseif ( is_single() && !is_attachment() ) {
+                if ( get_post_type() != 'post' ) {
+                    $post_type = get_post_type_object( get_post_type() );
+                    $slug = $post_type->rewrite;
+                    echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . home_url() . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a></span></li>';
+                    echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+                } else {
+                    $category = get_the_category();
+                    if ($category) {
+                        foreach($category as $category) {
+                        echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></span></li>';
+                        }
+                    }
+                    echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+                }
+            } elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
+                $post_type = get_post_type_object( get_post_type() );
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . $post_type->labels->singular_name . '</span></li>';
+            } elseif ( is_attachment() ) {
+                $parent = get_post( $post->post_parent );
+                $category = get_the_category( $parent->ID );
+                if ( $category ) {
+                    foreach($category as $category) {
+                    echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></span></li>';
+                    }
+                }
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+            } elseif ( is_page() && !$post->post_parent ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+            } elseif ( is_page() && $post->post_parent ) {
+                $parent_id = $post->post_parent;
+                $breadcrumbs = array();
+                while ( $parent_id ) {
+                    $page = get_post($parent_id);
+                    $breadcrumbs[] = '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_permalink($page->ID) . '">' . get_the_title( $page->ID ) . '</a></span></li>';
+                }
+                $breadcrumbs = array_reverse( $breadcrumbs );
+                foreach ( $breadcrumbs as $crumb ) {
+                    echo $crumb;
+                }
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+            } elseif ( is_search() ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . sprintf( __( 'Search results for <q>%s</q>', 'museum-core' ), esc_attr( get_search_query() ) ) . '</span></li>';
+            } elseif ( is_tag() ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . sprintf( __( 'Posts tagged <q>%s</q>', 'museum-core' ), single_tag_title( '', false ) ) . '</span></li>';
+            } elseif ( is_author() ) {
+                global $author;
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . sprintf( __( 'All posts by %s', 'museum-core' ), get_the_author_meta('display_name',$author) ) . '</span></li>';
+            } elseif ( is_404() ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . __( 'Error 404', 'museum-core' ) . '</span></li>';
+            }
+            if ( get_query_var('paged') ) {
+                if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
+                    echo '<li class="active paged">(' . sprintf( __( 'Page %s', 'museum-core' ), get_query_var('paged') ) . ')</li>';
+                }
+            }
+        }
+
+        echo '</ul>';
+
+    }
+
+    if ( isset( $options['breadcrumbs'] )  && ( true == $options['breadcrumbs'] ) ) :
+
+        add_action( 'tha_content_top', 'ap_core_breadcrumbs' );
+
+    endif;
 }
 
 /**

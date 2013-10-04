@@ -95,6 +95,18 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 
 		/* add settings */
+
+		// site title & tagline
+		$wp_customize->add_setting( 'ap_core_theme_options[site-title]', array(
+
+			'default' => $defaults['site-title'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		// layout options
 		$wp_customize->add_setting( 'ap_core_theme_options[sidebar]', array(
 
 			'default' => $defaults['sidebar'],
@@ -107,6 +119,15 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 		$wp_customize->add_setting( 'ap_core_theme_options[nav-menu]', array(
 
 			'default' => $defaults['nav-menu'],
+			'capability' => 'edit_theme_options',
+			'transport' => 'refresh',
+			'type' => 'option'
+
+		) );
+
+		$wp_customize->add_setting( 'ap_core_theme_options[breadcrumbs]', array(
+
+			'default' => $defaults['breadcrumbs'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
 			'type' => 'option'
@@ -132,15 +153,6 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
-		$wp_customize->add_setting( 'ap_core_theme_options[site-title]', array(
-
-			'default' => $defaults['site-title'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
-			'type' => 'option'
-
-		) );
-
 		$wp_customize->add_setting( 'ap_core_theme_options[post-author]', array(
 
 			'default' => $defaults['post-author'],
@@ -150,6 +162,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+		// typography options
 		$wp_customize->add_setting( 'ap_core_theme_options[heading]', array(
 
 			'default' => $defaults['heading'],
@@ -195,6 +208,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+		// colors
 		$wp_customize->add_setting( 'ap_core_theme_options[font-color]', array(
 
 			'default' => $defaults['font-color'],
@@ -258,6 +272,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+		// advanced options
 		$wp_customize->add_setting( 'ap_core_theme_options[author]', array(
 
 			'default' => $defaults['author'],
@@ -312,6 +327,20 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 		) );
 
 		/* add controls */
+
+		// site title & tagline
+		$wp_customize->add_control( 'ap_core_theme_options[site-title]', array(
+
+			'label' => __( 'Show site title?', 'museum-core' ),
+			'section' => 'title_tagline',
+			'settings' => 'ap_core_theme_options[site-title]',
+			'type' => 'select',
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
+
+		) );
+
+		// layout options
 		$wp_customize->add_control( 'ap_core_theme_options[sidebar]', array(
 
 			'label' => __( 'Sidebar', 'museum-core' ),
@@ -328,6 +357,17 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'label' => __( 'Fixed nav menu?', 'museum-core' ),
 			'section' => 'ap_core_layout',
 			'settings' => 'ap_core_theme_options[nav-menu]',
+			'type' => 'select',
+			'choices' => ap_core_true_false(),
+			'sanitize_callback' => 'ap_core_validate_true_false'
+
+		) );
+
+		$wp_customize->add_control( 'ap_core_theme_options[breadcrumbs]', array(
+
+			'label' => __( 'Enable breadcrumbs?', 'museum-core' ),
+			'section' => 'ap_core_layout',
+			'settings' => 'ap_core_theme_options[breadcrumbs]',
 			'type' => 'select',
 			'choices' => ap_core_true_false(),
 			'sanitize_callback' => 'ap_core_validate_true_false'
@@ -356,17 +396,6 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
-		$wp_customize->add_control( 'ap_core_theme_options[site-title]', array(
-
-			'label' => __( 'Show site title?', 'museum-core' ),
-			'section' => 'title_tagline',
-			'settings' => 'ap_core_theme_options[site-title]',
-			'type' => 'select',
-			'choices' => ap_core_true_false(),
-			'sanitize_callback' => 'ap_core_validate_true_false'
-
-		) );
-
 		$wp_customize->add_control( 'ap_core_theme_options[post-author]', array(
 
 			'label' => __( 'Display post author?', 'museum-core' ),
@@ -378,6 +407,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+
+		// typography options
 		$wp_customize->add_control( 'ap_core_theme_options[heading]', array(
 
 			'label' => __( 'Heading Font', 'museum-core' ),
@@ -433,6 +464,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
+		// colors
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[font-color]', array(
 
 			'label' => __( 'Font Color', 'museum-core' ),
@@ -498,6 +530,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) ) );
 
+		// advanced options
 		$wp_customize->add_control( 'ap_core_theme_options[author]', array(
 
 			'label' => __( 'Use author meta tags?', 'museum-core' ),
