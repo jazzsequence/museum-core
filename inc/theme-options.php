@@ -10,7 +10,7 @@ if (!function_exists('ap_core_theme_options_init')) {
 	function ap_core_theme_options_init() {
 	    register_setting( 'AP_CORE_OPTIONS', 'ap_core_theme_options' );
 	}
-	add_action ( 'admin_init', 'ap_core_theme_options_init', 'ap_core_theme_options_validate' );
+	add_action ( 'admin_init', 'ap_core_theme_options_init' );
 }
 
 
