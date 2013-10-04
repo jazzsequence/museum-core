@@ -29,6 +29,40 @@ There are currently no screenshots.
 
 ## Changelog
 
+### Version 2.0
+
+** Major update! Please read the Upgrade Notice for specific update notes. **
+
+* Moved all external js, css and font files to new `/assets` directory
+* Removed admin.css, color-picker.js, hovercards.js, formalize.js, suckerfish.js, uploader.js
+* Added new font subset option for better font i18n handling
+* Removed blueprint.css and formalize.css styles
+* Removed 1140 grid layout
+* Added Twitter Bootstrap 3.0 framework
+* Removed custom css option (use [My Custom CSS](http://wordpress.org/plugins/my-custom-css/) or [Jetpack](http://wordpress.org/plugins/jetpack/))
+* Removed default link colors (inherits from Bootstrap)
+* Replaced Theme Options page with full Customizer support
+* Removed `/inc/option-setup.php`
+* Renamed Generator option (to identify version for troubleshooting) to "Debug Mode"
+* Added support for 2 new fonts (Open Sans and Noto Serif)
+* Added support for customization of content area background color and font color
+* Removed old image icons and automatic filetype link images
+* Fixed an issue with the permalink title attribute
+* Added [Theme Hook Alliance](https://github.com/zamoose/themehookalliance) hooks
+* Removed normalize.css styles that were duplicated with Bootstrap from H5BP css framework
+* Updated handling of the header image and large post thumbnail support
+* Bootstrap-izes various styles throughout the theme
+* Added new template parts for navigation, postmeta, title, and link pages
+* Added FontAwesome icon font
+* Fixed an issue with captioned images going off the page if they are wider than the body container
+* Updated wp-caption, gallery and calendar styles
+* Added icons for all post formats
+* Added Justin Tadlock & David Chandra's chat format filter for better chat post handling
+* Fixed an issue where very long words would extend out of their containers
+* Added Bootstrap progress bars for my [Progress Bar](http://wordpress.org/plugins/progress-bar/) plugin
+* Refreshed comment styling
+* If you have saved custom CSS, added an area in the customizer to copy the code & a setting to remove the message when you're done
+
 ### Version 1.1.3.4
 
 * fixes true/false booleans that weren't actual booleans
