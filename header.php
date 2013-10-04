@@ -35,7 +35,7 @@
 		<?php tha_header_before(); ?>
 		<header>
 			<?php tha_header_top(); ?>
-			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'topnav', 'theme_location' => 'top', 'fallback_cb' => false ) ); ?>
+			<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav collapse navbar-collapse navbar-ex1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() ) ); ?>
 			<?php if ( function_exists( 'get_custom_header' ) ) {
 				$header_image_width = get_theme_support( 'custom-header', 'width' );
 			} else {
@@ -88,7 +88,7 @@
 				</div>
 			<?php } ?>
 
-			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'mainnav', 'theme_location' => 'main', 'fallback_cb' => false ) ); ?>
+			<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'mainnav collapse navbar-collapse navbar-ex1-collapse', 'theme_location' => 'main', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() ) ); ?>
 			<?php tha_header_bottom(); ?>
 		</header>
 		<?php tha_header_after(); ?>
