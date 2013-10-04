@@ -366,7 +366,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		$wp_customize->add_control( 'ap_core_theme_options[alth1]', array(
 
-			'label' => __( 'Use alternate font for H1?', 'museum-core' ),
+			'label' => __( 'Use alternate font for site title?', 'museum-core' ),
 			'section' => 'ap_core_typography',
 			'settings' => 'ap_core_theme_options[alth1]',
 			'type' => 'select',
