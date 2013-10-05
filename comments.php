@@ -52,7 +52,17 @@
 	echo sprintf( __('You must be %1$slogged in%$2s to post a comment.','museum-core'), $anchor, $anchorclose ); ?></p>
 <?php else : ?>
 
-<?php comment_form(); ?>
+<?php
+
+	$comment_form = '<div class="form-group"><label for="comment">' . __( 'Comment', 'museum-core' ) . '</label>';
+	$comment_form .= '<textarea class="form-control" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>';
+	$comment_form .= '</div>';
+
+	$comment_notes_after = '<div class="form-group form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s', 'museum-core' ), ' <pre>' . allowed_tags() . '</pre>' ) . '</div>';
+
+?>
+
+<?php comment_form( array( 'comment_field' => $comment_form, 'comment_notes_after' => $comment_notes_after ) ); ?>
 
 <?php endif; // If registration required and not logged in ?>
 

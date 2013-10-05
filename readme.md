@@ -1,10 +1,10 @@
 # Museum Core
-Contributors: <a href="https://github.com/jazzsequence">jazzsequence</a>  
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6  
-Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready  
-Requires at least: 3.2  
-Tested up to: 3.5  
-Stable tag: 1.1.3.4  
+Contributors: [jazzsequence](https://github.com/jazzsequence)
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
+Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
+Requires at least: 3.2
+Tested up to: 3.5
+Stable tag: 2.0
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -12,10 +12,10 @@ A simple, responsive WordPress theme/framework with support for internationaliza
 
 Museum Core is a clean, responsive framework with support for built-in WordPress theme options like post thumbnails, post formats, custom backgrounds & header, etc.  A theme options page lets you customize the typefaces used in the theme, footer credit, sidebar position, link colors and more.  Core can be used as a standalone theme or as a framework for other themes or child themes.
 
-* Polish translation by [http://kratery.com/](anemoone)
+* Polish translation by [anemoone](http://kratery.com/)
 
-**Call for translators!**  
-If you are interested in helping translate this theme, contact me via the contact form on either the Theme URL or the Theme Author URL (in style.css).
+**Call for translators!**
+If you are interested in helping translate this theme, contact me at hello@chrisreynolds.io.
 
 ## Installation
 
@@ -28,6 +28,44 @@ If you are interested in helping translate this theme, contact me via the contac
 There are currently no screenshots.
 
 ## Changelog
+
+### Version 2.0
+
+** Major update! Please read the Upgrade Notice for specific update notes. **
+
+* Moved all external js, css and font files to new `/assets` directory
+* Removed admin.css, color-picker.js, hovercards.js, formalize.js, suckerfish.js, uploader.js
+* Added new font subset option for better font i18n handling
+* Removed blueprint.css and formalize.css styles
+* Removed 1140 grid layout
+* Added Twitter Bootstrap 3.0 framework
+* Removed custom css option (use [My Custom CSS](http://wordpress.org/plugins/my-custom-css/) or [Jetpack](http://wordpress.org/plugins/jetpack/))
+* Removed default link colors (inherits from Bootstrap)
+* Replaced Theme Options page with full Customizer support
+* Removed `/inc/option-setup.php`
+* Renamed Generator option (to identify version for troubleshooting) to "Debug Mode"
+* Added support for 2 new fonts (Open Sans and Noto Serif)
+* Added support for customization of content area background color and font color
+* Removed old image icons and automatic filetype link images
+* Fixed an issue with the permalink title attribute
+* Added [Theme Hook Alliance](https://github.com/zamoose/themehookalliance) hooks
+* Removed normalize.css styles that were duplicated with Bootstrap from H5BP css framework
+* Updated handling of the header image and large post thumbnail support
+* Bootstrap-izes various styles throughout the theme
+* Added new template parts for navigation, postmeta, title, and link pages
+* Added FontAwesome icon font
+* Fixed an issue with captioned images going off the page if they are wider than the body container
+* Updated wp-caption, gallery and calendar styles
+* Added icons for all post formats
+* Added Justin Tadlock & David Chandra's chat format filter for better chat post handling
+* Fixed an issue where very long words would extend out of their containers
+* Added Bootstrap progress bars for my [Progress Bar](http://wordpress.org/plugins/progress-bar/) plugin
+* Refreshed comment styling
+* If you have saved custom CSS, added an area in the customizer to copy the code & a setting to remove the message when you're done
+* Removed text shadows from everything
+* Added [wp-bootstrap-navwalker class](https://github.com/twittem/wp-bootstrap-navwalker) by [twittem](https://github.com/twittem) for Bootstrap nav menu support
+* Added navbar customization options (positioning, colors)
+* Added support for breadcrumbs
 
 ### Version 1.1.3.4
 
@@ -423,3 +461,21 @@ There are currently no screenshots.
 * removed link to non-existant fonts.css (but may add another one later)
 * renamed /blueprint to /css
 * removed tweet button and dynamic twitter variable in sharing block (might remove the sharing block entirely, anyway, since -- again -- sharedaddy is included in Jetpack)
+
+## Upgrade Notice
+
+2.0 is an almost complete rewrite of Museum Core. Please be aware of these major changes:
+
+* The responsive grid system has been removed and replaced with Twitter Bootstrap 3.0.
+* The icons have been removed and replaced with FontAwesome (all the filetype icons that appeared next to file links have been removed completely).
+* Theme Options page has been removed in favor of the theme Customizer.
+* Custom CSS box has been removed. Please use [My Custom CSS](http://wordpress.org/plugins/my-custom-css/) or [Jetpack](http://wordpress.org/plugins/jetpack). Your custom CSS will be available to copy in Advanced settings in the customizer.
+* Meta description has been removed. Please use [WordPress SEO by Yoast](http://wordpress.org/plugins/wordpress-seo/).
+* "Use meta generator tag" has been renamed to "Debug mode active".
+* Twitter hovercards have been removed. Support has been discontinued from Twitter.
+* Though it's unlikely, you *may* need to resave some of your stored settings on upgrading to 2.0.
+
+### Translators wanted!
+
+If you can help with the translation project, please get in touch with me!
+hello@chrisreynolds.io

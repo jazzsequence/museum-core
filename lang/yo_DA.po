@@ -2,15 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 10:35-0700\n"
-"PO-Revision-Date: 2013-10-05 10:36-0700\n"
+"POT-Creation-Date: 2013-10-05 10:15-0700\n"
+"PO-Revision-Date: 2013-10-05 10:35-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
-"Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
-"Language: en_US\n"
+"Language-Team: Rebel Alliance <chris@arcanepalette.com>\n"
+"Language: yo_DA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _e;__;_n:1,2\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x;esc_attr_e;esc_attr_x;esc_html_e;"
+"esc_html_x\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -20,47 +21,49 @@ msgstr ""
 
 #: ../404.php:12
 msgid "Whoops! I couldn't find the page you were looking for."
-msgstr "Whoops! I couldn't find the page you were looking for."
+msgstr "Mmm! Find the page you were looking for, I could not."
 
 #: ../404.php:14
 msgid "Try a search or one of the links below."
-msgstr "Try a search or one of the links below."
+msgstr "Links below or search you may try."
 
 #: ../404.php:20
 msgid "Archives by Month"
-msgstr "Archives by Month"
+msgstr "By month, these posts are"
 
 #: ../404.php:27
 msgid "Archives by Subject"
-msgstr "Archives by Subject"
+msgstr "By subject, these posts are"
 
 #: ../author.php:27
 msgid "Website"
-msgstr "Website"
+msgstr "Site this is"
 
 #: ../author.php:33 ../functions.php:895
 #, php-format
 msgid "All posts by %s"
-msgstr "All posts by %s"
+msgstr "By %s these posts are"
 
 #: ../comments.php:4
 msgid "This post is password protected. Enter the password to view comments."
-msgstr "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Protected by password this post is. The password you must enter if viewing "
+"comments is your wish."
 
 #: ../comments.php:13
 #, php-format
 msgid "One Response to %2$s"
 msgid_plural "%1$s Responses to %2$s"
-msgstr[0] "One Response to %2$s"
-msgstr[1] "%1$s Responses to %2$s"
+msgstr[0] "To %2$s, one response there is"
+msgstr[1] "To %2$s, %1$s responses there are"
 
 #: ../comments.php:36
 msgid "Comments are closed."
-msgstr "Comments are closed."
+msgstr "Closed these comments are."
 
 #: ../comments.php:52
 msgid "You must be %1$slogged in%$2s to post a comment."
-msgstr "You must be %1$slogged in%$2s to post a comment."
+msgstr "%1$sLogged in%2$s you must be if posting comment is your wish."
 
 #: ../comments.php:57
 msgid "Comment"
@@ -72,8 +75,8 @@ msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
 msgstr ""
-"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
-"and attributes: %s"
+"Use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and "
+"attributes you may: %s"
 
 #: ../functions.php:5 ../sidebar.php:11 ../inc/theme-options.php:346
 msgid "Sidebar"
@@ -81,43 +84,43 @@ msgstr "Sidebar"
 
 #: ../functions.php:6
 msgid "This is the regular, widgetized sidebar"
-msgstr "This is the regular, widgetized sidebar"
+msgstr "Widgetized sidebar, this is"
 
 #: ../functions.php:13
 msgid "Left Footer Box"
-msgstr "Left Footer Box"
+msgstr "Box Footer Left"
 
 #: ../functions.php:14
 msgid "This is the left box in the footer."
-msgstr "This is the left box in the footer."
+msgstr "In the footer, the left box this is."
 
 #: ../functions.php:21
 msgid "Center Footer Box"
-msgstr "Center Footer Box"
+msgstr "Box Footer Center"
 
 #: ../functions.php:22
 msgid "This is the center box in the footer."
-msgstr "This is the center box in the footer."
+msgstr "In the footer, the center box this is."
 
 #: ../functions.php:29
 msgid "Right Footer Box"
-msgstr "Right Footer Box"
+msgstr "Box Footer Right"
 
 #: ../functions.php:30
 msgid "This is the right box in the footer."
-msgstr "This is the right box in the footer."
+msgstr "In the footer, the right box this is."
 
 #: ../functions.php:180
 msgid "Top Header Navigation"
-msgstr "Top Header Navigation"
+msgstr "Navigation Header Top"
 
 #: ../functions.php:181
 msgid "Main Navigation"
-msgstr "Main Navigation"
+msgstr "Navigation Main"
 
 #: ../functions.php:182
 msgid "Footer Navigation"
-msgstr "Footer Navigation"
+msgstr "Navigation Footer"
 
 #: ../functions.php:218
 msgid "Nature"
@@ -142,11 +145,11 @@ msgstr "Lights 3"
 #: ../functions.php:261
 #, php-format
 msgid "On %1$s at %2$s %3$s said:"
-msgstr "On %1$s at %2$s %3$s said:"
+msgstr "At %2$s on %1$s, %3$s said:"
 
 #: ../functions.php:264
 msgid "Your comment is awaiting moderation."
-msgstr "Your comment is awaiting moderation."
+msgstr "Awaiting moderation, your comment is."
 
 #: ../functions.php:268
 msgid "(Edit)"
@@ -154,7 +157,7 @@ msgstr "(Edit)"
 
 #: ../functions.php:272
 msgid "Respond to this"
-msgstr "Respond to this"
+msgstr "To this respond"
 
 #: ../functions.php:276
 msgid "Permalink"
@@ -162,7 +165,7 @@ msgstr "Permalink"
 
 #: ../functions.php:286
 msgid "read more"
-msgstr "read more"
+msgstr "more is there to read"
 
 #: ../functions.php:358
 msgid "Pages:"
@@ -178,15 +181,16 @@ msgstr "%1$s %2$s %3$s"
 msgid ""
 "Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
 msgstr ""
-"Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
+"By %3$sWordPress%2$s is Museum Core by %1$sMuseum Themes%2$s is proudly "
+"powered"
 
 #: ../functions.php:620
 msgid "Left Sidebar"
-msgstr "Left Sidebar"
+msgstr "Sidebar Left"
 
 #: ../functions.php:621
 msgid "Right Sidebar"
-msgstr "Right Sidebar"
+msgstr "Sidebar Right"
 
 #: ../functions.php:658
 msgid "Latin"
@@ -218,11 +222,11 @@ msgstr "Vietnamese"
 
 #: ../functions.php:681
 msgid "Show Post Excerpts"
-msgstr "Show Post Excerpts"
+msgstr "Post Excerpts Show"
 
 #: ../functions.php:682
 msgid "Show Full Posts"
-msgstr "Show Full Posts"
+msgstr "Full Posts Show"
 
 #: ../functions.php:697
 msgid "Yes"
@@ -239,21 +243,21 @@ msgstr "Home"
 #: ../functions.php:838
 #, php-format
 msgid "Posts filed under <q>%s</q>"
-msgstr "Posts filed under <q>%s</q>"
+msgstr "Under <q>%s</q> are these posts filed"
 
 #: ../functions.php:890
 #, php-format
 msgid "Search results for <q>%s</q>"
-msgstr "Search results for <q>%s</q>"
+msgstr "For <q>%s</q> are these search results"
 
 #: ../functions.php:892
 #, php-format
 msgid "Posts tagged <q>%s</q>"
-msgstr "Posts tagged <q>%s</q>"
+msgstr "With <q>%s</q> are these posts tagged"
 
 #: ../functions.php:897
 msgid "Error 404"
-msgstr "Error 404"
+msgstr "A disturbance in the force there is"
 
 #: ../functions.php:903 ../functions.php:907
 #, php-format
@@ -262,11 +266,11 @@ msgstr "Page %s"
 
 #: ../functions.php:906
 msgid "Blog"
-msgstr "Blog"
+msgstr ""
 
 #: ../searchform.php:2
 msgid "Search this site"
-msgstr "Search this site"
+msgstr "Search you may"
 
 #: ../searchform.php:10
 msgid "Go"
@@ -274,7 +278,7 @@ msgstr "Go"
 
 #: ../inc/theme-options.php:56
 msgid "Custom CSS is no longer supported."
-msgstr "Custom CSS is no longer supported."
+msgstr "Supported custom CSS no longer is."
 
 #: ../inc/theme-options.php:57
 #, php-format
@@ -283,123 +287,123 @@ msgid ""
 "or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is "
 "displayed below."
 msgstr ""
-"Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s "
-"or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is "
-"displayed below."
+"Supports custom CSS Museum Core does not. Use you may %1$sMy Custom CSS%2$s "
+"or %3$sJetpack%2$s if adding custom CSS is your wish. Displayed below your "
+"custom CSS is."
 
 #: ../inc/theme-options.php:64
 msgid "I've copied my CSS. Dismiss this message."
-msgstr "I've copied my CSS. Dismiss this message."
+msgstr "Copied my CSS, I have. Trouble me not."
 
 #: ../inc/theme-options.php:77
 msgid "Layout Options"
-msgstr "Layout Options"
+msgstr "Options Layout"
 
 #: ../inc/theme-options.php:84
 msgid "Typography Options"
-msgstr "Typography Options"
+msgstr "Options Typography"
 
 #: ../inc/theme-options.php:91
 msgid "Advanced Settings"
-msgstr "Advanced Settings"
+msgstr "Settings Advanced"
 
 #: ../inc/theme-options.php:334
 msgid "Show site title?"
-msgstr "Show site title?"
+msgstr "Site title do you wish to show?"
 
 #: ../inc/theme-options.php:357
 msgid "Fixed nav menu?"
-msgstr "Fixed nav menu?"
+msgstr "Fixed do you wish your nav menu to be?"
 
 #: ../inc/theme-options.php:368
 msgid "Enable breadcrumbs?"
-msgstr "Enable breadcrumbs?"
+msgstr "Breadcrumbs do you wish to show?"
 
 #: ../inc/theme-options.php:379
 msgid "Full posts or excerpts on blog home?"
-msgstr "Full posts or excerpts on blog home?"
+msgstr "On blog home, full posts or excerpts show?"
 
 #: ../inc/theme-options.php:390
 msgid "Full posts or excerpts on archive pages?"
-msgstr "Full posts or excerpts on archive pages?"
+msgstr "On archive pages, full posts or excerpts show?"
 
 #: ../inc/theme-options.php:401
 msgid "Display post author?"
-msgstr "Display post author?"
+msgstr "Post author show?"
 
 #: ../inc/theme-options.php:414
 msgid "Heading Font"
-msgstr "Heading Font"
+msgstr "For Headings This Font"
 
 #: ../inc/theme-options.php:425
 msgid "Body Font"
-msgstr "Body Font"
+msgstr "For Body This Font"
 
 #: ../inc/theme-options.php:436
 msgid "Alternate Font"
-msgstr "Alternate Font"
+msgstr "To Alternate This Font"
 
 #: ../inc/theme-options.php:447
 msgid "Use alternate font for site title?"
-msgstr "Use alternate font for site title?"
+msgstr "For site title, alternate font use?"
 
 #: ../inc/theme-options.php:458
 msgid "Font Subset"
-msgstr "Font Subset"
+msgstr "Subset This Font"
 
 #: ../inc/theme-options.php:470
 msgid "Font Color"
-msgstr "Font Color"
+msgstr "Color Font"
 
 #: ../inc/theme-options.php:479
 msgid "Link Color"
-msgstr "Link Color"
+msgstr "Color Link"
 
 #: ../inc/theme-options.php:488
 msgid "Hover Color"
-msgstr "Hover Color"
+msgstr "Color Hover"
 
 #: ../inc/theme-options.php:497
 msgid "Content Background color"
-msgstr "Content Background color"
+msgstr "Color Content Backgroiund"
 
 #: ../inc/theme-options.php:506
 msgid "Navbar (top) Background Color"
-msgstr "Navbar (top) Background Color"
+msgstr "Color Navbar (top) Background"
 
 #: ../inc/theme-options.php:515
 msgid "Inverted navbar?"
-msgstr "Inverted navbar?"
+msgstr "Inverted do you wish the navbar to be?"
 
 #: ../inc/theme-options.php:526
 msgid "Navbar Link Color"
-msgstr "Navbar Link Color"
+msgstr "Color Navbar Link"
 
 #: ../inc/theme-options.php:536
 msgid "Use author meta tags?"
-msgstr "Use author meta tags?"
+msgstr "Author meta tags you wish to use?"
 
 #: ../inc/theme-options.php:547
 msgid "Footer Text"
-msgstr "Footer Text"
+msgstr "Text Footer"
 
 #: ../inc/theme-options.php:557
 msgid "Custom Favicon"
-msgstr "Custom Favicon"
+msgstr "Favicon Custom"
 
 #: ../inc/theme-options.php:566
 msgid "Send usage data?"
-msgstr "Send usage data?"
+msgstr "Usage data you wish to send?"
 
 #: ../inc/theme-options.php:577
 msgid "Debug Mode Active"
-msgstr "Debug Mode Active"
+msgstr "If the Force is not strong, debug mode wish you to use?"
 
 #: ../parts/part-micropostmeta.php:2 ../parts/part-title.php:10
 #: ../parts/part-title.php:12 ../parts/post-single.php:7
 #, php-format
 msgid "Permanent Link to %s"
-msgstr "Permanent Link to %s"
+msgstr "To %s this permanent link is"
 
 #: ../parts/part-micropostmeta.php:4
 #, php-format
@@ -408,11 +412,11 @@ msgstr "%1$s ago"
 
 #: ../parts/part-navigation.php:4
 msgid "&larr; Older Entries"
-msgstr "&larr; Older Entries"
+msgstr "&larr; Entries Past"
 
 #: ../parts/part-navigation.php:5
 msgid "Newer Entries &rarr;"
-msgstr "Newer Entries &rarr;"
+msgstr "Entries Future &rarr;"
 
 #: ../parts/part-postmetadata.php:8
 msgid "Gallery"
@@ -428,93 +432,97 @@ msgstr ", "
 
 #: ../parts/part-postmetadata.php:15
 msgid "and tagged "
-msgstr "and tagged "
+msgstr "&nbsp;"
 
 #: ../parts/part-postmetadata.php:19
 #, php-format
 msgid "by %s"
-msgstr "by %s"
+msgstr "%s"
 
 #: ../parts/part-postmetadata.php:22
 #, php-format
 msgid "Posted in %1$s on %2$s %3$s %4$s"
-msgstr "Posted in %1$s on %2$s %3$s %4$s"
+msgstr "By %4$s, on %2$s posted in %1$s  %3$s this was."
 
 #: ../parts/part-postmetadata.php:24
 #, php-format
 msgid "Filed under %1$s %2$s %3$s"
-msgstr "Filed under %1$s %2$s %3$s"
+msgstr "By %3$s, under %1$s%2$s, filed this is."
 
 #: ../parts/part-postmetadata.php:26
 #, php-format
 msgid "Displayed in %1$s %2$s %3$s"
-msgstr "Displayed in %1$s %2$s %3$s"
+msgstr "By %3$s, in %1$s%2$s, displayed this is."
 
 #: ../parts/part-postmetadata.php:28
 #, php-format
 msgid "Posted in %1$s %2$s %3$s"
-msgstr "Posted in %1$s %2$s %3$s"
+msgstr "In %1$s%2$s, by %3$s posted this was."
 
 #: ../parts/part-postmetadata.php:32
 #, php-format
 msgid "Posted in %1$s on %2$s %3$s"
-msgstr "Posted in %1$s on %2$s %3$s"
+msgstr "In %1$s%2$s, by %3$s posted this was."
 
 #: ../parts/part-postmetadata.php:34
 #, php-format
 msgid "Filed under %1$s %2$s"
-msgstr "Filed under %1$s %2$s"
+msgstr "Under %2$s%1$s, filed this is."
 
 #: ../parts/part-postmetadata.php:36
 #, php-format
 msgid "Displayed in %1$s %2$s"
-msgstr "Displayed in %1$s %2$s"
+msgstr "In %2$s%1$s, displayed this is."
 
 #: ../parts/part-postmetadata.php:38
 #, php-format
 msgid "Posted in %1$s %2$s"
-msgstr "Posted in %1$s %2$s"
+msgstr "In %2$s%1$s posted this is."
 
 #: ../parts/part-postmetadata.php:48
 msgid "No Comments &#187;"
-msgstr "No Comments &#187;"
+msgstr "Comments, there are not &#187;"
 
 #: ../parts/part-postmetadata.php:48
 msgid "One Comment &#187;"
-msgstr "One Comment &#187;"
+msgstr "One Comment There Is &#187;"
 
 #: ../parts/part-postmetadata.php:48
 msgid "% Comments &#187;"
-msgstr "% Comments &#187;"
+msgstr "% Comments There Are &#187;"
 
 #: ../parts/part-postmetadata.php:50 ../parts/post-page.php:20
 msgid "Edit this entry"
-msgstr "Edit this entry"
+msgstr "Edit this entry, you may"
 
 #: ../parts/part-title.php:10
 msgid "(no title)"
-msgstr "(no title)"
+msgstr "(title there is not)"
 
-#: ../parts/post-archive.php:7 ../parts/post-archive.php:16
+#: ../parts/post-archive.php:5
 #, php-format
 msgid "Posts filed under %s"
-msgstr "Posts filed under %s"
+msgstr "Under %s are these posts filed"
 
-#: ../parts/post-archive.php:20 ../parts/post-archive.php:24
-#: ../parts/post-archive.php:28
+#: ../parts/post-archive.php:9
+msgid "Posts filed under "
+msgstr ""
+
+#: ../parts/post-archive.php:13 ../parts/post-archive.php:17
+#: ../parts/post-archive.php:21
 #, php-format
 msgid "Archive for %1$s"
-msgstr "Archive for %1$s"
+msgstr "For %1$s archive, this is"
 
-#: ../parts/post-archive.php:32
+#: ../parts/post-archive.php:25
 msgid "Author Archive"
-msgstr "Author Archive"
+msgstr "For author, archive this is"
 
-#: ../parts/post-archive.php:36
+#: ../parts/post-archive.php:29
 msgid "Blog Archives"
-msgstr "Blog Archives"
+msgstr "For blog, archive this is"
 
-#: ../parts/post-archive.php:53 ../parts/post-aside.php:9
+#: ../parts/post-archive.php:46 ../parts/post-aside.php:9
 #: ../parts/post-audio.php:9 ../parts/post-author.php:13
 #: ../parts/post-chat.php:11 ../parts/post-gallery.php:9
 #: ../parts/post-image.php:9 ../parts/post-link.php:8
@@ -522,9 +530,9 @@ msgstr "Blog Archives"
 #: ../parts/post-single.php:14 ../parts/post-status.php:7
 #: ../parts/post-video.php:9 ../parts/post.php:11
 msgid "Read more &raquo;"
-msgstr "Read more &raquo;"
+msgstr "More to read, there is &raquo;"
 
-#: ../parts/post-archive.php:71
+#: ../parts/post-archive.php:64
 msgid "Archive"
 msgstr "Archive"
 
@@ -555,11 +563,13 @@ msgstr "Quote"
 #: ../parts/post-search.php:17
 #, php-format
 msgid "We found %1$s results for <q>%2$s</q>"
-msgstr "We found %1$s results for <q>%2$s</q>"
+msgstr "For <q>%2$s</q>, %1$s results I found."
 
 #: ../parts/post-search.php:20
 msgid "Not what you were looking for?  Enter your search terms to try again."
-msgstr "Not what you were looking for?  Enter your search terms to try again."
+msgstr ""
+"Searching for this is not? Your search terms enter, or enter not. There is "
+"no try."
 
 #: ../parts/post-search.php:45
 msgid "Search"

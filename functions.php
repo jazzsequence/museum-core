@@ -61,44 +61,38 @@ if (!function_exists('ap_core_clear')) {
  * @uses wp_register_style()
  * @uses wp_enqueue_style
  * loads all the styles and scripts for the theme
- * twitter_anywhere = loads the twitter @anywhere framework
- * twitter_hovercards = loads twitter hovercards from @anywhere
- * suckerfish = loads suckerfish from the theme's /js files
 */
 if (!function_exists('ap_core_load_scripts')) {
     function ap_core_load_scripts() {
       if ( !is_admin() ) { // instruction to only load if it is not the admin area
+        global $is_IE;
+
         $theme = wp_get_theme();
         // load the theme options and defaults
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
-        if ( isset( $options['hovercards'] ) ) {
-            if ( $options['hovercards'] != false ) {
-                // this loads the twitter anywhere framework
-                wp_register_script('twitter_anywhere','http://platform.twitter.com/anywhere.js?id=3O4tZx3uFiEPp5fk2QGq1A',false,$theme['Version'] );
-                wp_enqueue_script('twitter_anywhere');
-                // this loads twitter hovercards, dependent upon twitter anywhere
-                wp_register_script('twitter_hovercards',get_bloginfo('template_directory').'/js/hovercards.js','twitter_anywhere',$theme['Version']);
-                wp_enqueue_script('twitter_hovercards');
-            }
+        if ( isset( $options['font_subset'] ) ) {
+            $font_subset = $options['font_subset'];
+        } else {
+            $font_subset = $defaults['font_subset'];
         }
-        // this loads suckerfish.js the dropdown menus
-        wp_register_script('suckerfish',get_bloginfo('template_directory').'/js/suckerfish.js',false,$theme['Version']);
-        wp_enqueue_script('suckerfish');
-        // this loads jquery (for formalize, among other things)
+
+        // this loads jquery (for bootstrap, among other things)
         wp_enqueue_script('jquery');
-        // this loads the formalize js
-        wp_register_script('formalize',get_bloginfo('template_directory').'/js/jquery.formalize.min.js',false,$theme['Version']);
-        wp_enqueue_script('formalize');
+        // load boostrap
+        wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ), '3.0.0', true );
+        wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', false, '3.0.0' );
         // loads modernizr for BPH5
-        wp_register_script('modernizr',get_bloginfo('template_directory').'/js/modernizr-2.5.3.min.js',false,'2.5.3');
+        wp_register_script('modernizr',get_template_directory_uri() . '/assets/js/modernizr-2.5.3.min.js',false,'2.5.3');
         wp_enqueue_script('modernizr');
         // register fonts
-        wp_register_style('droidsans','http://fonts.googleapis.com/css?family=Droid+Sans',false,$theme['Version']);
-        wp_register_style('ptserif','http://fonts.googleapis.com/css?family=PT+Serif&subset=latin,cyrillic',false,$theme['Version']);
-        wp_register_style('inconsolata','http://fonts.googleapis.com/css?family=Inconsolata',false,$theme['Version']);
-        wp_register_style('ubuntu','http://fonts.googleapis.com/css?family=Ubuntu&subset=latin,cyrillic-ext,greek,greek-ext,latin-ext,cyrillic',false,$theme['Version']);
-        wp_register_style('lato','http://fonts.googleapis.com/css?family=Lato',false,$theme['Version'] );
+        wp_register_style('droidsans','http://fonts.googleapis.com/css?family=Droid+Sans&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('ptserif','http://fonts.googleapis.com/css?family=PT+Serif&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('inconsolata','http://fonts.googleapis.com/css?family=Inconsolata&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('ubuntu','http://fonts.googleapis.com/css?family=Ubuntu&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('lato','http://fonts.googleapis.com/css?family=Lato&subset=' . $font_subset,false,$theme['Version'] );
+        wp_register_style( 'notoserif','http://fonts.googleapis.com/css?family=Noto+Serif&subset=' . $font_subset,false, $theme['Version']  );
+        wp_register_style( 'opensans', 'http://fonts.googleapis.com/css?family=Open+Sans&subset=' . $font_subset, false, $theme['Version'] );
         // only enqueue fonts that are actually being used
         $corefonts = array( $options['heading'], $options['body'], $options['alt'] );
         //var_dump($corefonts);
@@ -118,8 +112,17 @@ if (!function_exists('ap_core_load_scripts')) {
         if ( in_array( 'Lato', $corefonts ) ) {
             wp_enqueue_style( 'lato' );
         }
+        if ( in_array( 'Open Sans', $corefonts ) ) {
+            wp_enqueue_style( 'opensans' );
+        }
+        if ( in_array( 'Noto Serif', $corefonts ) ) {
+            wp_enqueue_style( 'notoserif' );
+        }
         // this loads the style.css
-        wp_register_style('corecss',get_bloginfo('stylesheet_url'),false,$theme['Version']);
+        wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', false, '3.2.1' );
+        if ( $is_IE )
+            wp_enqueue_style( 'fontawesome-ie7', get_template_directory_uri() . '/assets/css/font-awesome-ie7.min.css', array( 'fontawesome' ), '3.2.1' );
+        wp_register_style('corecss', get_stylesheet_uri(),false,$theme['Version']);
         wp_enqueue_style('corecss');
         // loads the comment reply script
         if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -146,9 +149,18 @@ if (!function_exists('ap_core_setup')) {
         define( "AP_CORE_OPTIONS", get_template_directory() . '/inc/load-options.php' );
         // load up the theme options
         require_once ( get_template_directory() . '/inc/theme-options.php' );
+        // include theme hook alliance hooks
+        require_once( get_template_directory() . '/inc/hooks.php' );
+        // include bootstrap nav walker class
+        require_once( get_template_directory() . '/inc/class-bootstrap-nav-walker.php' );
 
         // i18n stuff
-        load_theme_textdomain('museum-core', get_template_directory() .'/lang');
+        $locale = get_locale();
+        if ( file_exists( WP_LANG_DIR . '/museum-core/' . $locale . '.mo' ) ) {
+            load_theme_textdomain( 'museum-core', WP_LANG_DIR . '/museum-core' );
+        } else {
+            load_theme_textdomain('museum-core', get_template_directory() .'/lang');
+        }
 
         // post thumbnail support
         add_theme_support( 'post-thumbnails' );
@@ -243,8 +255,10 @@ if (!function_exists('ap_core_setup')) {
                 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
                 <div id="comment-<?php comment_ID(); ?>" class="the_comment">
                     <div class="comment-author vcard">
-                        <?php echo get_avatar($comment,$size='64',$default='' ); ?>
-                        <?php echo sprintf(__('On %1$s at %2$s %3$s said:','museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ?>
+                        <?php if ( get_avatar($comment) ) : ?>
+                            <div class="thumbnail"><?php echo get_avatar($comment,$size='64',$default='' ); ?></div>
+                        <?php endif; ?>
+                        <?php echo sprintf(_x('On %1$s at %2$s %3$s said:', '1: date, 2: time, 3:author', 'museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ?>
                     </div>
                     <?php if ($comment->comment_approved == '0') : ?>
                         <em><?php _e('Your comment is awaiting moderation.', 'museum-core') ?></em>
@@ -252,11 +266,14 @@ if (!function_exists('ap_core_setup')) {
                     <?php endif; ?>
                     <?php comment_text() ?>
                     <div class="comment-meta commentmetadata"><?php edit_comment_link(__('(Edit)', 'museum-core'),'  ','') ?></div>
-                    <?php if ( comments_open() ) { ?>
-                        <div class="reply"><button>
-                        <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','museum-core'), 'max_depth' => $args['max_depth']))) ?>
-                        </button></div>
-                    <?php } ?>
+                    <?php if ( comments_open() ) {
+                        if ( $depth < $args['max_depth'] ) { ?>
+                            <div class="reply"><button class="btn btn-default">
+                            <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'reply_text' => __('Respond to this','museum-core'), 'max_depth' => $args['max_depth']))) ?>
+                            </button></div>
+                        <?php }
+                    } ?>
+                    <small><a href="<?php echo get_comment_link(); ?>"><?php _e( 'Permalink', 'museum-core' ); ?></a></small>
                 </div>
                 <?php
             }
@@ -328,6 +345,199 @@ if (!function_exists('ap_core_wp_title')) {
 }
 
 /**
+ * Link Pages
+ * @author toscha
+ * @since 2.0.0
+ * @link http://wordpress.stackexchange.com/questions/14406/how-to-style-current-page-number-wp-link-pages
+ * @param  array $args
+ * @return void
+ * Modification of wp_link_pages() with an extra element to highlight the current page.
+ */
+function ap_core_link_pages( $args = array () ) {
+    $defaults = array(
+        'before'      => '<p>' . __('Pages:'),
+        'after'       => '</p>',
+        'before_link' => '',
+        'after_link'  => '',
+        'current_before' => '',
+        'current_after' => '',
+        'link_before' => '',
+        'link_after'  => '',
+        'pagelink'    => '%',
+        'echo'        => 1
+    );
+
+    $r = wp_parse_args( $args, $defaults );
+    $r = apply_filters( 'wp_link_pages_args', $r );
+    extract( $r, EXTR_SKIP );
+
+    global $page, $numpages, $multipage, $more, $pagenow;
+
+    if ( ! $multipage )
+    {
+        return;
+    }
+
+    $output = $before;
+
+    for ( $i = 1; $i < ( $numpages + 1 ); $i++ )
+    {
+        $j       = str_replace( '%', $i, $pagelink );
+        $output .= ' ';
+
+        if ( $i != $page || ( ! $more && 1 == $page ) )
+        {
+            $output .= "{$before_link}" . _wp_link_page( $i ) . "{$link_before}{$j}{$link_after}</a>{$after_link}";
+        }
+        else
+        {
+            $output .= "{$current_before}{$link_before}<a>{$j}</a>{$link_after}{$current_after}";
+        }
+    }
+
+    print $output . $after;
+}
+
+/* Filter the content of chat posts. */
+add_filter( 'the_content', 'ap_core_chat_content' );
+
+/* Auto-add paragraphs to the chat text. */
+add_filter( 'ap_core_chat_text', 'wpautop' );
+
+/**
+ * This function filters the post content when viewing a post with the "chat" post format.  It formats the
+ * content with structured HTML markup to make it easy for theme developers to style chat posts.  The
+ * advantage of this solution is that it allows for more than two speakers (like most solutions).  You can
+ * have 100s of speakers in your chat post, each with their own, unique classes for styling.
+ *
+ * @author David Chandra
+ * @link http://www.turtlepod.org
+ * @author Justin Tadlock
+ * @link http://justintadlock.com
+ * @copyright Copyright (c) 2012
+ * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @link http://justintadlock.com/archives/2012/08/21/post-formats-chat
+ *
+ * @global array $_post_format_chat_ids An array of IDs for the chat rows based on the author.
+ * @param string $content The content of the post.
+ * @return string $chat_output The formatted content of the post.
+ */
+function ap_core_chat_content( $content ) {
+    global $_post_format_chat_ids;
+
+    /* If this is not a 'chat' post, return the content. */
+    if ( !has_post_format( 'chat' ) )
+        return $content;
+
+    /* Set the global variable of speaker IDs to a new, empty array for this chat. */
+    $_post_format_chat_ids = array();
+
+    /* Allow the separator (separator for speaker/text) to be filtered. */
+    $separator = apply_filters( 'ap_core_chat_separator', ':' );
+
+    /* Open the chat transcript div and give it a unique ID based on the post ID. */
+    $chat_output = "\n\t\t\t" . '<ul id="chat-transcript-' . esc_attr( get_the_ID() ) . '" class="chat-transcript list-group">';
+
+    /* Split the content to get individual chat rows. */
+    $chat_rows = preg_split( "/(\r?\n)+|(<br\s*\/?>\s*)+/", $content );
+
+    /* Loop through each row and format the output. */
+    foreach ( $chat_rows as $chat_row ) {
+
+        /* If a speaker is found, create a new chat row with speaker and text. */
+        if ( strpos( $chat_row, $separator ) ) {
+
+            /* Split the chat row into author/text. */
+            $chat_row_split = explode( $separator, trim( $chat_row ), 2 );
+
+            /* Get the chat author and strip tags. */
+            $chat_author = strip_tags( trim( $chat_row_split[0] ) );
+
+            /* Get the chat text. */
+            $chat_text = trim( $chat_row_split[1] );
+
+            /* Get the chat row ID (based on chat author) to give a specific class to each row for styling. */
+            $speaker_id = ap_core_chat_row_id( $chat_author );
+
+            /* Open the chat row. */
+            $chat_output .= "\n\t\t\t\t" . '<li class="list-group-item chat-row ' . sanitize_html_class( "chat-speaker-{$speaker_id}" ) . '">';
+
+            /* Add the chat row author. */
+            $chat_output .= "\n\t\t\t\t\t" . '<div class="pull-left chat-author ' . sanitize_html_class( strtolower( "chat-author-{$chat_author}" ) ) . ' vcard"><cite class="fn">' . apply_filters( 'ap_core_chat_author', $chat_author, $speaker_id ) . '</cite>' . $separator . '</div>';
+
+            /* Add the chat row text. */
+            $chat_output .= "\n\t\t\t\t\t" . '<div class="chat-text">' . str_replace( array( "\r", "\n", "\t" ), '', apply_filters( 'ap_core_chat_text', $chat_text, $chat_author, $speaker_id ) ) . '</div>';
+
+            /* Close the chat row. */
+            $chat_output .= "\n\t\t\t\t" . '</li><!-- .chat-row -->';
+        }
+
+        /**
+         * If no author is found, assume this is a separate paragraph of text that belongs to the
+         * previous speaker and label it as such, but let's still create a new row.
+         */
+        else {
+
+            /* Make sure we have text. */
+            if ( !empty( $chat_row ) ) {
+
+                /* Open the chat row. */
+                $chat_output .= "\n\t\t\t\t" . '<li class="list-group-item chat-row ' . sanitize_html_class( "chat-speaker-{$speaker_id}" ) . '">';
+
+                /* Don't add a chat row author.  The label for the previous row should suffice. */
+
+                /* Add the chat row text. */
+                $chat_output .= "\n\t\t\t\t\t" . '<div class="chat-text">' . str_replace( array( "\r", "\n", "\t" ), '', apply_filters( 'ap_core_chat_text', $chat_row, $chat_author, $speaker_id ) ) . '</div>';
+
+                /* Close the chat row. */
+                $chat_output .= "\n\t\t\t</li><!-- .chat-row -->";
+            }
+        }
+    }
+
+    /* Close the chat transcript div. */
+    $chat_output .= "\n\t\t\t</ul><!-- .chat-transcript -->\n";
+
+    /* Return the chat content and apply filters for developers. */
+    return apply_filters( 'ap_core_chat_content', $chat_output );
+}
+
+/**
+ * This function returns an ID based on the provided chat author name.  It keeps these IDs in a global
+ * array and makes sure we have a unique set of IDs.  The purpose of this function is to provide an "ID"
+ * that will be used in an HTML class for individual chat rows so they can be styled.  So, speaker "John"
+ * will always have the same class each time he speaks.  And, speaker "Mary" will have a different class
+ * from "John" but will have the same class each time she speaks.
+ *
+ * @author David Chandra
+ * @link http://www.turtlepod.org
+ * @author Justin Tadlock
+ * @link http://justintadlock.com
+ * @copyright Copyright (c) 2012
+ * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @link http://justintadlock.com/archives/2012/08/21/post-formats-chat
+ *
+ * @global array $_post_format_chat_ids An array of IDs for the chat rows based on the author.
+ * @param string $chat_author Author of the current chat row.
+ * @return int The ID for the chat row based on the author.
+ */
+function ap_core_chat_row_id( $chat_author ) {
+    global $_post_format_chat_ids;
+
+    /* Let's sanitize the chat author to avoid craziness and differences like "John" and "john". */
+    $chat_author = strtolower( strip_tags( $chat_author ) );
+
+    /* Add the chat author to the array. */
+    $_post_format_chat_ids[] = $chat_author;
+
+    /* Make sure the array only holds unique values. */
+    $_post_format_chat_ids = array_unique( $_post_format_chat_ids );
+
+    /* Return the array key for the chat author and add "1" to avoid an ID of "0". */
+    return absint( array_search( $chat_author, $_post_format_chat_ids ) ) + 1;
+}
+
+/**
  * Meta generator
  * @since 0.4.5
  * @author Chris Reynolds
@@ -362,30 +572,37 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             // sidebar
         	'sidebar' => 'left',
             // theme tracking
-            'presstrends' => false,
+            'presstrends' => 0,
         	// typography options
-        	'heading' => 'PT Serif',
-        	'body' => 'Droid Sans',
-        	'alt' => 'Ubuntu',
+        	'heading' => 'notoserif',
+        	'body' => 'opensans',
+        	'alt' => 'lato',
             // link color
-            'link' => '#486D96',
-            'hover' => '#333333',
+            'link' => '#428bca',
+            'hover' => '#2a6496',
+            // content area colors
+            'content-color' => '#fff',
+            'font-color' => '#111',
             // excerpts or full posts
-            'excerpts' => true,
+            'excerpts' => 1,
             // use alt for h1?
-            'alth1' => false,
+            'alth1' => 0,
             // footer text
-            'footer' => sprintf( __( '%1$s %2$s %3$s', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . ' . ' . sprintf( __( 'Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s.', 'museum-core' ), '<a href="http://museumthemes.com/" target="_blank" title="Museum Themes">', '</a>', '<a href="http://wordpress.org" target="_blank">' ),
+            'footer' => sprintf( _x( '%1$s %2$s %3$s', '1: copyright, 2: year, 3: blog title', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . ' . ' . sprintf( __( 'Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s.', 'museum-core' ), '<a href="http://museumthemes.com/" target="_blank" title="Museum Themes">', '</a>', '<a href="http://wordpress.org" target="_blank">' ),
             // advanced settings
-            'meta' => false,
-            'author' => false,
-            'generator' => false,
-            'archive-excerpt' => true,
-            'hovercards' => true,
+            'author' => 0,
+            'generator' => 0,
+            'archive-excerpt' => 1,
+            'hovercards' => 1,
             'favicon' => '',
-            'css' => '',
-            'site-title' => true,
-            'post-author' => true
+            'site-title' => 1,
+            'post-author' => 1,
+            'font_subset' => 'latin',
+            'nav-menu' => 0,
+            'navbar-inverse' => 0,
+            'navbar-color' => '',
+            'navbar-link' => '',
+            'breadcrumbs' => 0
         );
         return $defaults;
     }
@@ -399,15 +616,11 @@ if (!function_exists('ap_core_get_theme_defaults')) {
  */
 if (!function_exists('ap_core_sidebar')) {
     function ap_core_sidebar() {
-        $ap_core_sidebar = array(
-            'left' => array(
-                'value' => 'left',
-                'label' => __('Left Sidebar','museum-core')),
-            'right' => array(
-                'value' => 'right',
-                'label' => __('Right Sidebar','museum-core'))
+        $sidebar = array(
+            'left' => __( 'Left Sidebar', 'museum-core' ),
+            'right' => __( 'Right Sidebar', 'museum-core' )
         );
-        return $ap_core_sidebar;
+        return $sidebar;
     }
 }
 
@@ -420,34 +633,39 @@ if (!function_exists('ap_core_sidebar')) {
 if (!function_exists('ap_core_fonts')) {
     function ap_core_fonts() {
         $ap_core_fonts = array(
-            'ptserif' => array(
-                'value' => 'PT Serif',
-                'label' => 'PT Serif',
-                'link' => 'http://www.fontsquirrel.com/fonts/pt-serif'
-            ),
-            'inconsolata' => array(
-                'value' => 'Inconsolata',
-                'label' => 'Inconsolata',
-                'link' => 'http://www.fontsquirrel.com/fonts/inconsolata'
-            ),
-            'droidsans' => array(
-                'value' => 'Droid Sans',
-                'label' => 'Droid Sans',
-                'link' => 'http://www.fontsquirrel.com/fonts/droid-sans'
-            ),
-            'ubuntu' => array(
-                'value' => 'Ubuntu',
-                'label' => 'Ubuntu',
-                'link' => 'http://www.fontsquirrel.com/fonts/ubuntu'
-            ),
-            'lato' => array(
-                'value' => 'Lato',
-                'label' => 'Lato',
-                'link' => 'http://www.fontsquirrel.com/fonts/lato'
-            )
-
+            'PT Serif' => 'PT Serif',
+            'Inconsolata' => 'Inconsolata',
+            'Droid Sans' => 'Droid Sans',
+            'Ubuntu' => 'Ubuntu',
+            'Lato' => 'Lato',
+            'Noto Serif' => 'Noto Serif',
+            'Open Sans' => 'Open Sans',
         );
         return $ap_core_fonts;
+    }
+}
+
+/**
+ * Font subset
+ * @since 2.0.0
+ * @author Chris Reynolds
+ * allows the user to choose a specific font subset for i18n
+ */
+if ( !function_exists( 'ap_core_font_subset' ) ) {
+    function ap_core_font_subset() {
+
+        $font_subsets = array(
+            'latin' => __( 'Latin', 'museum-core' ),
+            'latin-ext' => __( 'Latin Extended', 'museum-core' ),
+            'cyrillic' => __( 'Cyrillic', 'museum-core' ),
+            'cyrillic-ext' => __( 'Cyrillic Extended', 'museum-core' ),
+            'greek' => __( 'Greek', 'museum-core' ),
+            'greek-ext' => __( 'Greek Extended', 'museum-core' ),
+            'vietnamese' => __( 'Vietnamese', 'museum-core' )
+        );
+
+        return $font_subsets;
+
     }
 }
 
@@ -460,14 +678,8 @@ if (!function_exists('ap_core_fonts')) {
 if (!function_exists('ap_core_show_excerpts')) {
     function ap_core_show_excerpts() {
         $ap_core_show_excerpts = array(
-            true => array(
-                'value' => true,
-                'label' => __('Show Post Excerpts','museum-core')
-            ),
-            false => array(
-                'value' => false,
-                'label' => __('Show Full Posts','museum-core')
-            )
+            true => __('Show Post Excerpts','museum-core'),
+            false => __('Show Full Posts','museum-core')
         );
         return $ap_core_show_excerpts;
     }
@@ -482,14 +694,8 @@ if (!function_exists('ap_core_show_excerpts')) {
 if (!function_exists('ap_core_true_false')) {
     function ap_core_true_false() {
         $ap_core_true_false = array(
-            true => array(
-                'value' => true,
-                'label' => __('Yes','museum-core')
-            ),
-            false => array(
-                'value' => false,
-                'label' => __('No','museum-core')
-            )
+            true => __('Yes','museum-core'),
+            false => __('No','museum-core')
         );
         return $ap_core_true_false;
     }
@@ -507,59 +713,210 @@ if (!function_exists('ap_core_custom_styles')) {
         $output_heading = null;
         $output_alt = null;
         $output_body = null;
+        $output_content_bg = null;
+        $output_font = null;
         $output_link = null;
         $output_hover = null;
+        $output_navbar = null;
+        $output_navbar_link = null;
         $heading = null;
         $body = null;
         $alt = null;
         $link = null;
         $hover = null;
+        $font = null;
+        $content_bg = null;
+        $navbar_color = null;
+        $navbar_link = null;
 
         $defaults = ap_core_get_theme_defaults();
         $options = get_option( 'ap_core_theme_options' );
         // set the heading font
-        if ( $options['heading'] != $defaults['heading'] ) {
+        if ( isset( $options['heading'] ) && $options['heading'] != $defaults['heading'] ) {
             $heading = sanitize_text_field($options['heading']);
             $output_heading = "h1, h2, h3 { font-family: '$heading', sans-serif; }";
         }
         // set the body font
-        if ( $options['body'] != $defaults['body'] ) {
-            $body = sanitize_text_field($options['body']);
-            $output_body = "body { font-family: '$body', sans-serif; }";
+        if ( isset( $options['body'] ) && $options['body'] != $defaults['body'] || isset( $options['font-color'] ) && $options['font-color'] != $defaults['font-color'] ) {
+            $output_body = 'body {';
+
+            if ( isset( $options['body'] ) ) {
+                $body = sanitize_text_field($options['body']);
+                $output_body .= "font-family: '$body', sans-serif;";
+            }
+
+            if ( isset( $options['font-color'] ) ) {
+                $font = sanitize_text_field( $options['font-color'] );
+                $output_body .= "color: $font;";
+            }
+
+            $output_body .= '}';
         }
         // set the alt font
-        if ( $options['alt'] != $defaults['alt'] ) {
+        if ( isset( $options['alt'] ) && $options['alt'] != $defaults['alt'] ) {
             $alt = sanitize_text_field($options['alt']);
             $output_alt = "h4, h5, h6, .alt, h3 time { font-family: '$alt', sans-serif; }";
         }
-        // set the link color
-        if ( $options['link'] && $options['link'] != $defaults['link'] ) {
-            $link = sanitize_text_field($options['link']);
-            $output_link = "a, a:link, a:visited { color: $link; text-decoration:none; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
+        // set the content background color
+        if ( isset( $options['content-color'] ) && $options['content-color'] != $defaults['content-color'] ) {
+            $content_bg = sanitize_text_field( $options['content-color'] );
+            $output_content_bg = ".container { background: $content_bg; }";
         }
-        if ( $options['hover'] && $options['hover'] != $defaults['hover'] ) {
+        // set the link color
+        if ( isset( $options['link'] ) && $options['link'] != $defaults['link'] ) {
+            $link = sanitize_text_field($options['link']);
+            $output_link = "a, a:link, a:visited { color: $link; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
+        }
+        if ( isset( $options['hover'] ) && $options['hover'] != $defaults['hover'] || $options['link'] ) {
             $hover = sanitize_text_field($options['hover']);
             $output_hover = "a:hover, a:active { color: $hover; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
-        $output = "<style type=\"text/css\" media=\"print,screen\">"; 
+        if ( isset( $options['navbar-color'] ) ) {
+            $navbar_color = sanitize_text_field( $options['navbar-color'] );
+            $output_navbar = ".topnav { background-color: $navbar_color; }";
+        }
+        if ( isset( $options['navbar-link'] ) ) {
+            $navbar_link = sanitize_text_field( $options['navbar-link'] );
+            $output_navbar_link .= ".topnav .navbar-nav>li>a { color: $navbar_link; }";
+            if ( true == $options['navbar-inverse'] ) {
+                $output_navbar_link .= '.topnav .navbar-nav>li>a:hover { color: #fff; }';
+            } else {
+                $output_navbar_link .= '.topnav .navbar-nav>li>a:hover { color: #333; }';
+            }
+        }
+
+        $output = "<style type=\"text/css\" media=\"print,screen\">";
         $output .= $output_heading;
         $output .= $output_alt;
         $output .= $output_body;
+        $output .= $output_content_bg;
         $output .= $output_link;
         $output .= $output_hover;
+        $output .= $output_navbar;
+        $output .= $output_navbar_link;
 
-        if ( $options['site-title'] == false ) {
+        if ( isset( $options['site-title'] ) && $options['site-title'] == false ) {
             $output .= ".headerimg hgroup h2, .headerimg hgroup h3 { float: left; position: absolute; left: -999em; height: 0px; }";
         }
-        if ( !empty($options['css']) ) {
-            $output .= sanitize_text_field($options['css']);
-        }
+
         $output .= "</style>";
-        if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == false || $options['css'] ) {
+        if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == false ) {
             echo $output;
         }
     }
     add_action( 'wp_head', 'ap_core_custom_styles' );
+}
+
+/**
+ * Breadcrumbs
+ * @since 2.0.0
+ * @author Rachel Baker
+ * @link https://github.com/rachelbaker/bootstrapwp-Twitter-Bootstrap-for-WordPress/blob/master/functions.php
+ * Adds breadcrumbs and hooks them into tha_content_top if enabled.
+ * Based on Rachel Baker's Twitter Bootstrap for WordPress theme
+ */
+if ( !function_exists( 'ap_core_breadcrumbs' ) ) {
+    $options = get_option( 'ap_core_theme_options' );
+
+    function ap_core_breadcrumbs() {
+        global $post, $paged;
+
+        // this sets up some breadcrumbs for posts & pages that support Twitter Bootstrap styles
+        echo '<ul xmlns:v="http://rdf.data-vocabulary.org/#" class="breadcrumb">';
+
+        if ( !is_home() || !is_front_page() || !is_paged() ) {
+
+            echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_home_url() . '">' . __( 'Home', 'museum-core' ) . '</a></span></li>';
+
+            if ( is_category() ) {
+                $category = get_the_category();
+                if ($category) {
+                    foreach($category as $category) {
+                    echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></span></li>';
+                    }
+                }
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . sprintf( __( 'Posts filed under <q>%s</q>', 'museum-core' ), single_cat_title( '', false ) ) . '</span></li>';
+            } elseif ( is_day() ) {
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_year_link( get_the_time('Y') ) . '">' . get_the_time('Y') . '</a></span></li>';
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_month_link( get_the_time('Y'), get_the_time('m') ) . '">' . get_the_time('F') . '</a></span></li>';
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_time('d') . '</span></li>';
+            } elseif ( is_month() ) {
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_year_link( get_the_time('Y') ) . '">' . get_the_time('Y') . '</a></span></li>';
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_time('F') . '</span></li>';
+            } elseif ( is_year() ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_time('Y') . '</span></li>';
+            } elseif ( is_single() && !is_attachment() ) {
+                if ( get_post_type() != 'post' ) {
+                    $post_type = get_post_type_object( get_post_type() );
+                    $slug = $post_type->rewrite;
+                    echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . home_url() . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a></span></li>';
+                    echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+                } else {
+                    $category = get_the_category();
+                    if ($category) {
+                        foreach($category as $category) {
+                        echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></span></li>';
+                        }
+                    }
+                    echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+                }
+            } elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
+                $post_type = get_post_type_object( get_post_type() );
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . $post_type->labels->singular_name . '</span></li>';
+            } elseif ( is_attachment() ) {
+                $parent = get_post( $post->post_parent );
+                $category = get_the_category( $parent->ID );
+                if ( $category ) {
+                    foreach($category as $category) {
+                    echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></span></li>';
+                    }
+                }
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+            } elseif ( is_page() && !$post->post_parent ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+            } elseif ( is_page() && $post->post_parent ) {
+                $parent_id = $post->post_parent;
+                $breadcrumbs = array();
+                while ( $parent_id ) {
+                    $page = get_post($parent_id);
+                    $breadcrumbs[] = '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_permalink($page->ID) . '">' . get_the_title( $page->ID ) . '</a></span></li>';
+                }
+                $breadcrumbs = array_reverse( $breadcrumbs );
+                foreach ( $breadcrumbs as $crumb ) {
+                    echo $crumb;
+                }
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
+            } elseif ( is_search() ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . sprintf( __( 'Search results for <q>%s</q>', 'museum-core' ), esc_attr( get_search_query() ) ) . '</span></li>';
+            } elseif ( is_tag() ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . sprintf( __( 'Posts tagged <q>%s</q>', 'museum-core' ), single_tag_title( '', false ) ) . '</span></li>';
+            } elseif ( is_author() ) {
+                global $author;
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . sprintf( __( 'All posts by %s', 'museum-core' ), get_the_author_meta('display_name',$author) ) . '</span></li>';
+            } elseif ( is_404() ) {
+                echo '<li class="active"><span typeof="v:Breadcrumb">' . __( 'Error 404', 'museum-core' ) . '</span></li>';
+            }
+        }
+        if ( is_paged() ) {
+            $front_page_ID = get_option( 'page_for_posts' );
+            if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
+                echo '&nbsp;<span class="active paged">(' . sprintf( __( 'Page %s', 'museum-core' ), esc_attr( $paged ) ) . ')</li>';
+            } else {
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_home_url() . '">' . __( 'Home', 'museum-core' ) . '</a></span></li>';
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_home_url() . '/?p=' . $front_page_ID . '">' . __( 'Blog', 'museum-core' ) . '</a></span></li>';
+                echo '<li class="active paged">' . sprintf( __( 'Page %s', 'museum-core' ), esc_attr( $paged ) ) . '</li>';
+            }
+        }
+
+        echo '</ul>';
+
+    }
+
+    if ( isset( $options['breadcrumbs'] )  && ( true == $options['breadcrumbs'] ) ) :
+
+        add_action( 'tha_content_top', 'ap_core_breadcrumbs' );
+
+    endif;
 }
 
 /**
@@ -572,38 +929,24 @@ if (!function_exists('ap_core_header_meta')) {
     function ap_core_header_meta() {
         global $post;
         $options = get_option( 'ap_core_theme_options' );
+        $author_id = null;
+        $author = null;
 
-        /* meta description */
-        if ($options['meta'] == true) {
-            if ( is_tax() && term_description() ) {
-                $term_description = term_description(); ?>
-                <meta name="description" content="<?php echo sanitize_text_field($term_description); ?>">
-            <?php } elseif ( is_category() && category_description() ) {
-                $term_description = category_description(); ?>
-                <meta name="description" content="<?php echo sanitize_text_field($term_description); ?>">
-            <?php } elseif (( is_single() ) || ( is_page())) {
-                $this_post = $post;
-                $post_data = get_post($this_post);
-                $post_excerpt = $post_data->post_excerpt;
-                $trim_post_content = wp_trim_words( $post_data->post_content, 55 );
-                if ( $post_excerpt ) {
-                    $meta_description = $post_excerpt;
-                } else {
-                    $meta_description = $trim_post_content;
-                } ?>
-            <meta name="description" content="<?php echo sanitize_text_field($meta_description); ?>">
-        <?php }
-        }
         /* author meta */
         if ($options['author'] == true) {
             if (!is_404()) {
                 // if there is no post author, this stuff doesn't exist
-                $author_id = $post->post_author;
-                $author = get_userdata($author_id);
-            ?>
-            <meta name="author" content="<?php echo sanitize_text_field($author->display_name); ?>">
-            <?php }
-        }
+                if ( $post->post_author ) {
+                    $author_id = $post->post_author;
+                    $author = get_userdata($author_id);
+                }
+                if ( $author ) {
+                    ?>
+                    <meta name="author" content="<?php echo sanitize_text_field($author->display_name); ?>">
+                    <?php
+                } // ends author check
+            } // ends 404 check
+        } // ends author option check
     }
     add_action( 'wp_head', 'ap_core_header_meta' );
 }
@@ -625,5 +968,4 @@ if (!function_exists('ap_core_favicon')) {
     }
     add_action( 'wp_head', 'ap_core_favicon' );
 }
-
 ?>

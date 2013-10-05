@@ -1,12 +1,17 @@
-	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-		<time datetime=<?php the_time('Y-m-d'); ?>></time>
-		<section class="entry">
-			<?php the_content(__('Read more &raquo;','museum-core')); ?>
-			<div class="clear"></div>
-			<?php wp_link_pages(); ?>
-		</section>
-		<section class="postmetadata">
-			<span class="human-time-diff alt"><?php echo sprintf(__('%1$s ago','museum-core'), human_time_diff( get_the_time('U'), current_time('timestamp') )); ?></span>
-		</section>
-	</article>
-    <div class="clear"></div>
+<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+	<time datetime=<?php the_time('Y-m-d'); ?>></time>
+
+	<?php tha_entry_before(); ?>
+	<section class="entry">
+		<?php tha_entry_top(); ?>
+
+		<?php the_content(__('Read more &raquo;','museum-core')); ?>
+		<?php get_template_part( 'parts/part', 'link-pages' ); ?>
+
+		<?php tha_entry_bottom(); ?>
+	</section>
+	<?php tha_entry_after(); ?>
+
+	<div class="icon icon-link pull-left" title="<?php _e( 'Link', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'micropostmeta' ); ?>
+
+</article>
