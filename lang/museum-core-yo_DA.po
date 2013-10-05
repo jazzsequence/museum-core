@@ -1,0 +1,803 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Museum Core\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-04 15:45-0700\n"
+"PO-Revision-Date: 2013-10-05 08:23-0700\n"
+"Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
+"Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: ../inc\n"
+
+#: ../404.php:12
+msgid "Whoops! I couldn't find the page you were looking for."
+msgstr "Mmm! Find the page you were looking for, I could not."
+
+#: ../404.php:14
+msgid "Try a search or one of the links below."
+msgstr "Links below or search you may try."
+
+#: ../404.php:20
+msgid "Archives by Month"
+msgstr "By month, these posts are"
+
+#: ../404.php:27
+msgid "Archives by Subject"
+msgstr "By subject, these posts are"
+
+#: ../author.php:27
+msgid "Website"
+msgstr "Site this is"
+
+#: ../author.php:33 ../functions.php:890
+#, php-format
+msgid "All posts by %s"
+msgstr "By %s these posts are"
+
+#: ../comments.php:4
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Protected by password this post is. The password you must enter if viewing "
+"comments is your wish."
+
+#: ../comments.php:13
+#, php-format
+msgid "One Response to %2$s"
+msgid_plural "%1$s Responses to %2$s"
+msgstr[0] "To %2$s, one response there is"
+msgstr[1] "To %2$s, %1$s responses there are"
+
+#: ../comments.php:36
+msgid "Comments are closed."
+msgstr "Closed these comments are."
+
+#: ../comments.php:52
+msgid "You must be %1$slogged in%$2s to post a comment."
+msgstr "%1$sLogged in%2$s you must be if posting comment is your wish."
+
+#: ../comments.php:57
+msgid "Comment"
+msgstr "Comment"
+
+#: ../comments.php:61
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+"Use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and "
+"attributes you may: %s"
+
+#: ../functions.php:5 ../sidebar.php:11 ../inc/theme-options.php:346
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: ../functions.php:6
+msgid "This is the regular, widgetized sidebar"
+msgstr "Widgetized sidebar, this is"
+
+#: ../functions.php:13
+msgid "Left Footer Box"
+msgstr "Box Footer Left"
+
+#: ../functions.php:14
+msgid "This is the left box in the footer."
+msgstr "In the footer, the left box this is."
+
+#: ../functions.php:21
+msgid "Center Footer Box"
+msgstr "Box Footer Center"
+
+#: ../functions.php:22
+msgid "This is the center box in the footer."
+msgstr "In the footer, the center box this is."
+
+#: ../functions.php:29
+msgid "Right Footer Box"
+msgstr "Box Footer Right"
+
+#: ../functions.php:30
+msgid "This is the right box in the footer."
+msgstr "In the footer, the right box this is."
+
+#: ../functions.php:175
+msgid "Top Header Navigation"
+msgstr "Navigation Header Top"
+
+#: ../functions.php:176
+msgid "Main Navigation"
+msgstr "Navigation Main"
+
+#: ../functions.php:177
+msgid "Footer Navigation"
+msgstr "Navigation Footer"
+
+#: ../functions.php:213
+msgid "Nature"
+msgstr "Nature"
+
+#: ../functions.php:219
+msgid "Smoke"
+msgstr "Smoke"
+
+#: ../functions.php:225
+msgid "Lights 1"
+msgstr "Lights 1"
+
+#: ../functions.php:231
+msgid "Lights 2"
+msgstr "Lights 2"
+
+#: ../functions.php:237
+msgid "Lights 3"
+msgstr "Lights 3"
+
+#: ../functions.php:256
+#, php-format
+msgid "On %1$s at %2$s %3$s said:"
+msgstr "At %2$s on %1$s, %3$s said:"
+
+#: ../functions.php:259
+msgid "Your comment is awaiting moderation."
+msgstr "Awaiting moderation, your comment is."
+
+#: ../functions.php:263
+msgid "(Edit)"
+msgstr "(Edit)"
+
+#: ../functions.php:267
+msgid "Respond to this"
+msgstr "To this respond"
+
+#: ../functions.php:271
+msgid "Permalink"
+msgstr "Permalink"
+
+#: ../functions.php:281
+msgid "read more"
+msgstr "more is there to read"
+
+#: ../functions.php:353
+msgid "Pages:"
+msgstr "Pages:"
+
+#: ../functions.php:586
+#, php-format
+msgid "%1$s %2$s %3$s"
+msgstr "%1$s %2$s %3$s"
+
+#: ../functions.php:586
+#, php-format
+msgid ""
+"Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
+msgstr ""
+"By %3$sWordPress%2$s is Museum Core by %1$sMuseum Themes%2$s is proudly "
+"powered"
+
+#: ../functions.php:615
+msgid "Left Sidebar"
+msgstr "Sidebar Left"
+
+#: ../functions.php:616
+msgid "Right Sidebar"
+msgstr "Sidebar Right"
+
+#: ../functions.php:653
+msgid "Latin"
+msgstr "Latin"
+
+#: ../functions.php:654
+msgid "Latin Extended"
+msgstr "Latin Extended"
+
+#: ../functions.php:655
+msgid "Cyrillic"
+msgstr "Cyrillic"
+
+#: ../functions.php:656
+msgid "Cyrillic Extended"
+msgstr "Cyrillic Extended"
+
+#: ../functions.php:657
+msgid "Greek"
+msgstr "Greek"
+
+#: ../functions.php:658
+msgid "Greek Extended"
+msgstr "Greek Extended"
+
+#: ../functions.php:659
+msgid "Vietnamese"
+msgstr "Vietnamese"
+
+#: ../functions.php:676
+msgid "Show Post Excerpts"
+msgstr "Post Excerpts Show"
+
+#: ../functions.php:677
+msgid "Show Full Posts"
+msgstr "Full Posts Show"
+
+#: ../functions.php:692
+msgid "Yes"
+msgstr "Yes"
+
+#: ../functions.php:693
+msgid "No"
+msgstr "No"
+
+#: ../functions.php:824
+msgid "Home"
+msgstr "Home"
+
+#: ../functions.php:833
+#, php-format
+msgid "Posts filed under <q>%s</q>"
+msgstr "Under <q>%s</q> are these posts filed"
+
+#: ../functions.php:885
+#, php-format
+msgid "Search results for <q>%s</q>"
+msgstr "For <q>%s</q> are these search results"
+
+#: ../functions.php:887
+#, php-format
+msgid "Posts tagged <q>%s</q>"
+msgstr "With <q>%s</q> are these posts tagged"
+
+#: ../functions.php:892
+msgid "Error 404"
+msgstr "A disturbance in the force there is"
+
+#: ../functions.php:896
+#, php-format
+msgid "Page %s"
+msgstr "Page %s"
+
+#: ../searchform.php:2
+msgid "Search this site"
+msgstr "Search you may"
+
+#: ../inc/theme-options.php:56
+msgid "Custom CSS is no longer supported."
+msgstr "Supported custom CSS no longer is."
+
+#: ../inc/theme-options.php:57
+#, php-format
+msgid ""
+"Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s "
+"or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is "
+"displayed below."
+msgstr ""
+"Supports custom CSS Museum Core does not. Use you may %1$sMy Custom CSS%2$s "
+"or %3$sJetpack%2$s if adding custom CSS is your wish. Displayed below your "
+"custom CSS is."
+
+#: ../inc/theme-options.php:64
+msgid "I've copied my CSS. Dismiss this message."
+msgstr "Copied my CSS, I have. Trouble me not."
+
+#: ../inc/theme-options.php:77
+msgid "Layout Options"
+msgstr "Options Layout"
+
+#: ../inc/theme-options.php:84
+msgid "Typography Options"
+msgstr "Options Typography"
+
+#: ../inc/theme-options.php:91
+msgid "Advanced Settings"
+msgstr "Settings Advanced"
+
+#: ../inc/theme-options.php:334
+msgid "Show site title?"
+msgstr "Site title do you wish to show?"
+
+#: ../inc/theme-options.php:357
+msgid "Fixed nav menu?"
+msgstr "Fixed do you wish your nav menu to be?"
+
+#: ../inc/theme-options.php:368
+msgid "Enable breadcrumbs?"
+msgstr "Breadcrumbs do you wish to show?"
+
+#: ../inc/theme-options.php:379
+msgid "Full posts or excerpts on blog home?"
+msgstr "On blog home, full posts or excerpts show?"
+
+#: ../inc/theme-options.php:390
+msgid "Full posts or excerpts on archive pages?"
+msgstr "On archive pages, full posts or excerpts show?"
+
+#: ../inc/theme-options.php:401
+msgid "Display post author?"
+msgstr "Post author show?"
+
+#: ../inc/theme-options.php:414
+msgid "Heading Font"
+msgstr "For Headings This Font"
+
+#: ../inc/theme-options.php:425
+msgid "Body Font"
+msgstr "For Body This Font"
+
+#: ../inc/theme-options.php:436
+msgid "Alternate Font"
+msgstr "To Alternate This Font"
+
+#: ../inc/theme-options.php:447
+msgid "Use alternate font for site title?"
+msgstr "For site title, alternate font use?"
+
+#: ../inc/theme-options.php:458
+msgid "Font Subset"
+msgstr "Subset This Font"
+
+#: ../inc/theme-options.php:470
+msgid "Font Color"
+msgstr "Color Font"
+
+#: ../inc/theme-options.php:479
+msgid "Link Color"
+msgstr "Color Link"
+
+#: ../inc/theme-options.php:488
+msgid "Hover Color"
+msgstr "Color Hover"
+
+#: ../inc/theme-options.php:497
+msgid "Content Background color"
+msgstr "Color Content Backgroiund"
+
+#: ../inc/theme-options.php:506
+msgid "Navbar (top) Background Color"
+msgstr "Color Navbar (top) Background"
+
+#: ../inc/theme-options.php:515
+msgid "Inverted navbar?"
+msgstr "Inverted do you wish the navbar to be?"
+
+#: ../inc/theme-options.php:526
+msgid "Navbar Link Color"
+msgstr "Color Navbar Link"
+
+#: ../inc/theme-options.php:536
+msgid "Use author meta tags?"
+msgstr "Author meta tags you wish to use?"
+
+#: ../inc/theme-options.php:547
+msgid "Footer Text"
+msgstr "Text Footer"
+
+#: ../inc/theme-options.php:557
+msgid "Custom Favicon"
+msgstr "Favicon Custom"
+
+#: ../inc/theme-options.php:566
+msgid "Send usage data?"
+msgstr "Usage data you wish to send?"
+
+#: ../inc/theme-options.php:577
+msgid "Debug Mode Active"
+msgstr "If the Force is not strong, debug mode wish you to use?"
+
+#: ../parts/part-micropostmeta.php:2 ../parts/part-title.php:10
+#: ../parts/part-title.php:12 ../parts/post-single.php:7
+#, php-format
+msgid "Permanent Link to %s"
+msgstr "To %s this permanent link is"
+
+#: ../parts/part-micropostmeta.php:4
+#, php-format
+msgid "%1$s ago"
+msgstr "%1$s ago"
+
+#: ../parts/part-navigation.php:4
+msgid "&larr; Older Entries"
+msgstr "&larr; Entries Past"
+
+#: ../parts/part-navigation.php:5
+msgid "Newer Entries &rarr;"
+msgstr "Entries Future &rarr;"
+
+#: ../parts/part-postmetadata.php:8
+msgid "Gallery"
+msgstr "Gallery"
+
+#: ../parts/part-postmetadata.php:10
+msgid "Image"
+msgstr "Image"
+
+#: ../parts/part-postmetadata.php:14
+msgid ", "
+msgstr ", "
+
+#: ../parts/part-postmetadata.php:15
+msgid "and tagged "
+msgstr "tagged "
+
+#: ../parts/part-postmetadata.php:19
+#, php-format
+msgid "by %s"
+msgstr "%s"
+
+#: ../parts/part-postmetadata.php:22
+#, php-format
+msgid "Posted in %1$s on %2$s %3$s %4$s"
+msgstr "%4$s, on %2$s posted in %1$s  %3$sthis was"
+
+#: ../parts/part-postmetadata.php:24
+#, php-format
+msgid "Filed under %1$s %2$s %3$s"
+msgstr "On %2$s under %1$s, %3$s filed this is."
+
+#: ../parts/part-postmetadata.php:26
+#, php-format
+msgid "Displayed in %1$s %2$s %3$s"
+msgstr "On %2$s in %1$s, %3$s displayed this is."
+
+#: ../parts/part-postmetadata.php:28
+#, php-format
+msgid "Posted in %1$s %2$s %3$s"
+msgstr "On %2$s in %1$s, %3$s posted this was."
+
+#: ../parts/part-postmetadata.php:32
+#, php-format
+msgid "Posted in %1$s on %2$s %3$s"
+msgstr "On %2$s in %1$s, %3$s posted this was."
+
+#: ../parts/part-postmetadata.php:34
+#, php-format
+msgid "Filed under %1$s %2$s"
+msgstr "Under %2$s%1$s, filed this is."
+
+#: ../parts/part-postmetadata.php:36
+#, php-format
+msgid "Displayed in %1$s %2$s"
+msgstr "In %2$s%1$s, displayed this is."
+
+#: ../parts/part-postmetadata.php:38
+#, php-format
+msgid "Posted in %1$s %2$s"
+msgstr "In %2$s%1$s posted this is."
+
+#: ../parts/part-postmetadata.php:48
+msgid "No Comments &#187;"
+msgstr "Comments, there are not &#187;"
+
+#: ../parts/part-postmetadata.php:48
+msgid "One Comment &#187;"
+msgstr "One Comment There Is &#187;"
+
+#: ../parts/part-postmetadata.php:48
+msgid "% Comments &#187;"
+msgstr "% Comments There Are &#187;"
+
+#: ../parts/part-postmetadata.php:50 ../parts/post-page.php:20
+msgid "Edit this entry"
+msgstr "This entry you may edit"
+
+#: ../parts/part-title.php:10
+msgid "(no title)"
+msgstr "(title there is not)"
+
+#: ../parts/post-archive.php:5 ../parts/post-archive.php:9
+msgid "Posts filed under "
+msgstr ""
+
+#: ../parts/post-archive.php:13 ../parts/post-archive.php:17
+#: ../parts/post-archive.php:21
+#, php-format
+msgid "Archive for %1$s"
+msgstr "For %1$s archive, this is"
+
+#: ../parts/post-archive.php:25
+msgid "Author Archive"
+msgstr "For author, archive this is"
+
+#: ../parts/post-archive.php:29
+msgid "Blog Archives"
+msgstr "For blog, archive this is"
+
+#: ../parts/post-archive.php:46 ../parts/post-aside.php:9
+#: ../parts/post-audio.php:9 ../parts/post-author.php:13
+#: ../parts/post-chat.php:11 ../parts/post-gallery.php:9
+#: ../parts/post-image.php:9 ../parts/post-link.php:8
+#: ../parts/post-page.php:12 ../parts/post-quote.php:7
+#: ../parts/post-single.php:14 ../parts/post-status.php:7
+#: ../parts/post-video.php:9 ../parts/post.php:11
+msgid "Read more &raquo;"
+msgstr "More to read, there is &raquo;"
+
+#: ../parts/post-archive.php:64
+msgid "Archive"
+msgstr "Archive"
+
+#: ../parts/post-aside.php:16
+msgid "Aside"
+msgstr "Aside"
+
+#: ../parts/post-audio.php:16
+msgid "Audio"
+msgstr "Audio"
+
+#: ../parts/post-author.php:23
+msgid "Author"
+msgstr "Author"
+
+#: ../parts/post-chat.php:18
+msgid "Chat"
+msgstr "Chat"
+
+#: ../parts/post-link.php:15
+msgid "Link"
+msgstr "Link"
+
+#: ../parts/post-quote.php:14
+msgid "Quote"
+msgstr "Quote"
+
+#: ../parts/post-search.php:17
+#, php-format
+msgid "We found %1$s results for <q>%2$s</q>"
+msgstr "For <q>%2$s</q>, %1$s results I found."
+
+#: ../parts/post-search.php:20
+msgid "Not what you were looking for?  Enter your search terms to try again."
+msgstr ""
+"Searching for this is not? Your search terms enter, or enter not. There is "
+"no try."
+
+#: ../parts/post-search.php:45
+msgid "Search"
+msgstr "Search"
+
+#: ../parts/post-status.php:14
+msgid "Status"
+msgstr "Status"
+
+#: ../parts/post-video.php:16
+msgid "Video"
+msgstr "Video"
+
+#~ msgid "The page you were looking for could not be found."
+#~ msgstr "The page you were looking for could not be found."
+
+#~ msgid ""
+#~ "The page you were looking for is missing or doesn't exist.  Here are some "
+#~ "links to help you back on your way."
+#~ msgstr ""
+#~ "The page you were looking for is missing or doesn't exist.  Here are some "
+#~ "links to help you back on your way."
+
+#~ msgid "Go"
+#~ msgstr "Go"
+
+#~ msgid "General"
+#~ msgstr "General"
+
+#~ msgid ""
+#~ "Select whether you want full posts on the blog page or post excerpts with "
+#~ "post thumbnails."
+#~ msgstr ""
+#~ "Select whether you want full posts on the blog page or post excerpts with "
+#~ "post thumbnails."
+
+#~ msgid ""
+#~ "Add your own footer text or leave blank for no text in the footer.  "
+#~ "Allowed HTML is <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, "
+#~ "<code>&lt;em&gt;</code> & <code>&lt;strong&gt;</code>"
+#~ msgstr ""
+#~ "Add your own footer text or leave blank for no text in the footer.  "
+#~ "Allowed HTML is <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, "
+#~ "<code>&lt;em&gt;</code> & <code>&lt;strong&gt;</code>"
+
+#~ msgid ""
+#~ "PressTrends allows theme developers to see how their themes are being "
+#~ "used so they can better address the needs of their users. For more "
+#~ "information visit <a href=\"http://presstrends.io/faq\">PressTrends</a> "
+#~ "or check out the <a href=\"http://wordpress.org/extend/plugins/"
+#~ "presstrends/\">plugin</a>."
+#~ msgstr ""
+#~ "PressTrends allows theme developers to see how their themes are being "
+#~ "used so they can better address the needs of their users. For more "
+#~ "information visit <a href=\"http://presstrends.io/faq\">PressTrends</a> "
+#~ "or check out the <a href=\"http://wordpress.org/extend/plugins/"
+#~ "presstrends/\">plugin</a>."
+
+#~ msgid "Museum Core Fonts"
+#~ msgstr "Museum Core Fonts"
+
+#~ msgid "[link]"
+#~ msgstr "[link]"
+
+#~ msgid ""
+#~ "Used for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;"
+#~ "h3&gt;</code> tags."
+#~ msgstr ""
+#~ "Used for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;"
+#~ "h3&gt;</code> tags."
+
+#~ msgid "Used for all body text."
+#~ msgstr "Used for all body text."
+
+#~ msgid ""
+#~ "Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</"
+#~ "code> and <code>&lt;h6&gt;</code> tags and anywhere the <code>.alt</code> "
+#~ "class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</"
+#~ "code>."
+#~ msgstr ""
+#~ "Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</"
+#~ "code> and <code>&lt;h6&gt;</code> tags and anywhere the <code>.alt</code> "
+#~ "class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</"
+#~ "code>."
+
+#~ msgid ""
+#~ "If set to \"Yes\", the alternate font will be used on the <code>&lt;h1&gt;"
+#~ "</code> tag in the header and the heading font will be used for the "
+#~ "description."
+#~ msgstr ""
+#~ "If set to \"Yes\", the alternate font will be used on the <code>&lt;h1&gt;"
+#~ "</code> tag in the header and the heading font will be used for the "
+#~ "description."
+
+#~ msgid "Set your desired link color."
+#~ msgstr "Set your desired link color."
+
+#~ msgid "Set your desired link hover color."
+#~ msgstr "Set your desired link hover color."
+
+#~ msgid "Upload Image"
+#~ msgstr "Upload Image"
+
+#~ msgid ""
+#~ "Use the uploader to upload a PNG or ICO file to use as a favicon for your "
+#~ "site.  If left blank, no favicon will be used. (Other image formats will "
+#~ "work but may not be browser-supported.)"
+#~ msgstr ""
+#~ "Use the uploader to upload a PNG or ICO file to use as a favicon for your "
+#~ "site.  If left blank, no favicon will be used. (Other image formats will "
+#~ "work but may not be browser-supported.)"
+
+#~ msgid "Use meta description?"
+#~ msgstr "Use meta description?"
+
+#~ msgid ""
+#~ "If Yes, meta tags for description will be loaded in the header (pulled "
+#~ "from post excerpt for single posts and pages or from the description for "
+#~ "tags and categories).  Use this if you don't plan on using an SEO plugin "
+#~ "to handle your meta descriptions."
+#~ msgstr ""
+#~ "If Yes, meta tags for description will be loaded in the header (pulled "
+#~ "from post excerpt for single posts and pages or from the description for "
+#~ "tags and categories).  Use this if you don't plan on using an SEO plugin "
+#~ "to handle your meta descriptions."
+
+#~ msgid ""
+#~ "If No, no meta description tags will be loaded.  Use this if you plan on "
+#~ "using something to take care of your meta description."
+#~ msgstr ""
+#~ "If No, no meta description tags will be loaded.  Use this if you plan on "
+#~ "using something to take care of your meta description."
+
+#~ msgid "More info"
+#~ msgstr "More info"
+
+#~ msgid "Use meta author?"
+#~ msgstr "Use meta author?"
+
+#~ msgid ""
+#~ "If Yes, meta author tags will be used on all pages (except 404 pages)."
+#~ msgstr ""
+#~ "If Yes, meta author tags will be used on all pages (except 404 pages)."
+
+#~ msgid "If No, meta author tags will be disabled."
+#~ msgstr "If No, meta author tags will be disabled."
+
+#~ msgid "Use meta generator tag?"
+#~ msgstr "Use meta generator tag?"
+
+#~ msgid ""
+#~ "If Yes, the theme name and version will be added to a meta generator "
+#~ "tag.  This is useful in identifying which version of the theme you are "
+#~ "using for troubleshooting purposes.  This should be enabled if you need "
+#~ "to contact us for support."
+#~ msgstr ""
+#~ "If Yes, the theme name and version will be added to a meta generator "
+#~ "tag.  This is useful in identifying which version of the theme you are "
+#~ "using for troubleshooting purposes.  This should be enabled if you need "
+#~ "to contact us for support."
+
+#~ msgid ""
+#~ "Select whether you want full posts on archive pages or excerpts with post "
+#~ "thumbnails."
+#~ msgstr ""
+#~ "Select whether you want full posts on archive pages or excerpts with post "
+#~ "thumbnails."
+
+#~ msgid "Use Twitter hovercards?"
+#~ msgstr "Use Twitter hovercards?"
+
+#~ msgid ""
+#~ "Twitter hovercards display information about a particular Twitter user "
+#~ "when the @ symbol is used.  See the %1$sTwitter developer documentation "
+#~ "for more information%2$s"
+#~ msgstr ""
+#~ "Twitter hovercards display information about a particular Twitter user "
+#~ "when the @ symbol is used.  See the %1$sTwitter developer documentation "
+#~ "for more information%2$s"
+
+#~ msgid "Custom CSS"
+#~ msgstr "Custom CSS"
+
+#~ msgid "add your custom css here"
+#~ msgstr "add your custom css here"
+
+#~ msgid ""
+#~ "Add custom CSS overrides to your theme.  Intended for advanced users with "
+#~ "a good working knowledge of <abbr title=\"Cascading Style Sheets\">CSS</"
+#~ "abbr>."
+#~ msgstr ""
+#~ "Add custom CSS overrides to your theme.  Intended for advanced users with "
+#~ "a good working knowledge of <abbr title=\"Cascading Style Sheets\">CSS</"
+#~ "abbr>."
+
+#~ msgid ""
+#~ "Set to \"No\" to hide the site title and tagline.  Use this if you would "
+#~ "rather display the header image with no site title."
+#~ msgstr ""
+#~ "Set to \"No\" to hide the site title and tagline.  Use this if you would "
+#~ "rather display the header image with no site title."
+
+#~ msgid ""
+#~ "If this is set to \"Yes\", the post author will be displayed in the post "
+#~ "meta and link to an author archive page."
+#~ msgstr ""
+#~ "If this is set to \"Yes\", the post author will be displayed in the post "
+#~ "meta and link to an author archive page."
+
+#~ msgid "Theme Options"
+#~ msgstr "Theme Options"
+
+#~ msgid "What's new at Museum Themes"
+#~ msgstr "What's new at Museum Themes"
+
+#~ msgid "Follow us on Twitter"
+#~ msgstr "Follow us on Twitter"
+
+#~ msgid "%s Theme Options"
+#~ msgstr "%s Theme Options"
+
+#~ msgid "Options saved"
+#~ msgstr "Options saved"
+
+#~ msgid "Museum Themes"
+#~ msgstr "Museum Themes"
+
+#~ msgid "Powered by WordPress"
+#~ msgstr "Powered by WordPress"
+
+#~ msgid "Add your own footer text or leave blank for no text in the footer"
+#~ msgstr "Add your own footer text or leave blank for no text in the footer"
+
+#~ msgid "Posted in %1$s"
+#~ msgstr "Posted in %1$s"
+
+#~ msgid " and tagged "
+#~ msgstr " and tagged "
+
+#~ msgid ""
+#~ "For more information visit <a href=\"http://presstrends.io/faq"
+#~ "\">PressTrends</a>."
+#~ msgstr ""
+#~ "For more information visit <a href=\"http://presstrends.io/faq"
+#~ "\">PressTrends</a>."
