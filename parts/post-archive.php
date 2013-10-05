@@ -1,12 +1,19 @@
 <?php if ( have_posts() ) : ?>
 
 	<?php /* If this is a category archive */
-	if ( is_category() ) { ?>
-	    <h1 class="the_title"><?php single_cat_title( __('Posts filed under ','museum-core') ); ?></h1>
+	if ( is_category() ) {
+		$category = get_the_category();
+		$category = $category[0]->cat_name; ?>
+	    <h1 class="the_title"><?php echo sprintf( __( 'Posts filed under %s','museum-core'), $category ); ?></h1>
 
 	<?php /* If this is a tag archive */
-	} elseif( is_tag() ) { ?>
-		<h1 class="the_title"><?php single_tag_title( __('Posts filed under ','museum-core') ); ?></h1>
+	} elseif( is_tag() ) {
+		$tags = get_the_tags();
+		$tag_name = array();
+		foreach ( $tags as $tag ) {
+			$tag_name = $tag->name; // only one should get pulled
+		} ?>
+		<h1 class="the_title"><?php echo sprintf( __('Posts filed under %s','museum-core'), $tag_name ); ?></h1>
 
 	<?php /* If this is a daily archive */
 	} elseif ( is_day() ) { ?>
