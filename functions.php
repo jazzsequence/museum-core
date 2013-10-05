@@ -819,7 +819,7 @@ if ( !function_exists( 'ap_core_breadcrumbs' ) ) {
     $options = get_option( 'ap_core_theme_options' );
 
     function ap_core_breadcrumbs() {
-        global $post;
+        global $post, $paged;
 
         // this sets up some breadcrumbs for posts & pages that support Twitter Bootstrap styles
         echo '<ul xmlns:v="http://rdf.data-vocabulary.org/#" class="breadcrumb">';
@@ -896,10 +896,15 @@ if ( !function_exists( 'ap_core_breadcrumbs' ) ) {
             } elseif ( is_404() ) {
                 echo '<li class="active"><span typeof="v:Breadcrumb">' . __( 'Error 404', 'museum-core' ) . '</span></li>';
             }
-            if ( get_query_var('paged') ) {
-                if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
-                    echo '<li class="active paged">(' . sprintf( __( 'Page %s', 'museum-core' ), get_query_var('paged') ) . ')</li>';
-                }
+        }
+        if ( is_paged() ) {
+            $front_page_ID = get_option( 'page_for_posts' );
+            if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
+                echo '&nbsp;<span class="active paged">(' . sprintf( __( 'Page %s', 'museum-core' ), esc_attr( $paged ) ) . ')</li>';
+            } else {
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_home_url() . '">' . __( 'Home', 'museum-core' ) . '</a></span></li>';
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_home_url() . '/?p=' . $front_page_ID . '">' . __( 'Blog', 'museum-core' ) . '</a></span></li>';
+                echo '<li class="active paged">' . sprintf( __( 'Page %s', 'museum-core' ), esc_attr( $paged ) ) . '</li>';
             }
         }
 
