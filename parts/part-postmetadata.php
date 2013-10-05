@@ -21,21 +21,21 @@
 			if ( is_singular() ) {
 				$postmeta = __('Posted in %1$s on %2$s %3$s %4$s', 'museum-core');
 			} elseif ( 'chat' == get_post_format() ) {
-				$postmeta = _x( 'Filed under %1$s %2$s %3$s', '1: comma-separated category list, 2: "and tagged" tag list, 3: by (author)', 'museum-core' );
+				$postmeta = __( 'Filed under %1$s %2$s %3$s', 'museum-core' );
 			} elseif ( 'gallery' == get_post_format() || 'image' == get_post_format() ) {
-				$postmeta = _x( 'Displayed in %1$s %2$s %3$s', '1: comma-separated category list, 2: "and tagged" tag list, 3: by (author)', 'museum-core' );
+				$postmeta = __( 'Displayed in %1$s %2$s %3$s', 'museum-core' );
 			} else {
-				$postmeta = _x('Posted in %1$s %2$s %3$s', '1: comma-separated category list, 2: "and tagged" tag list, 3: by (author)', 'museum-core');
+				$postmeta = __('Posted in %1$s %2$s %3$s', 'museum-core');
 			}
 		} else {
 			if ( is_singular() ) {
 				$postmeta = __('Posted in %1$s on %2$s %3$s', 'museum-core');
 			} elseif ( 'chat' == get_post_format() ) {
-				$postmeta = _x( 'Filed under %1$s %2$s', '1: comma-separated category list, 2: "and tagged" tag list', 'museum-core' );
+				$postmeta = __( 'Filed under %1$s %2$s', 'museum-core' );
 			} elseif ( 'gallery' == get_post_format() || 'image' == get_post_format() ) {
-				$postmeta = _x( 'Displayed in %1$s %2$s', '1: comma-separated category list, 2: "and tagged" tag list', 'museum-core' );
+				$postmeta = __( 'Displayed in %1$s %2$s', 'museum-core' );
 			} else {
-				$postmeta = _x('Posted in %1$s %2$s', '1: comma-separated category list, 2: "and tagged" tag list', 'museum-core');
+				$postmeta = __('Posted in %1$s %2$s', 'museum-core');
 			}
 		}
 		if ( is_singular() ) {
