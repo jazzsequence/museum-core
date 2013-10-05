@@ -1,20 +1,4 @@
 <?php
-/**
- * Load language files
- * @since 0.1
- * @author Chris Reynolds
- * loads language files _the_right_way() updated in 2.0.0
- */
-function ap_core_textdomain() {
-    $theme_dir = dirname( get_template_directory() );
-    $locale = get_locale();
-
-    load_textdomain( 'museum-core', WP_LANG_DIR . '/museum-core-' . $locale . '.mo' );
-    load_theme_textdomain( 'museum-core', $theme_dir . '/lang/' );
-}
-add_action( 'plugins_loaded', 'ap_core_textdomain' );
-
-
 if (!function_exists('ap_core_register_sidebars')) {
     function ap_core_register_sidebars() {
         register_sidebar(array(
@@ -169,6 +153,14 @@ if (!function_exists('ap_core_setup')) {
         require_once( get_template_directory() . '/inc/hooks.php' );
         // include bootstrap nav walker class
         require_once( get_template_directory() . '/inc/class-bootstrap-nav-walker.php' );
+
+        // i18n stuff
+        $locale = get_locale();
+        if ( file_exists( WP_LANG_DIR . '/museum-core/' . $locale . '.mo' ) ) {
+            load_theme_textdomain( 'museum-core', WP_LANG_DIR . '/museum-core' );
+        } else {
+            load_theme_textdomain('museum-core', get_template_directory() .'/lang');
+        }
 
         // post thumbnail support
         add_theme_support( 'post-thumbnails' );

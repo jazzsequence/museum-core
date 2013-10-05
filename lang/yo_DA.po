@@ -1,74 +1,72 @@
-# Translation of Museum Core in Polish
-# This file is distributed under the same license as the Museum Core package.
 msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-04 15:45-0700\n"
-"PO-Revision-Date: 2013-10-04 15:48-0700\n"
+"POT-Creation-Date: 2013-10-05 08:49-0700\n"
+"PO-Revision-Date: 2013-10-05 08:57-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
-"Language-Team: anemoone <chris@arcanepalette.com>\n"
-"Language: pl_PL\n"
+"Language-Team: Rebel Alliance <chris@arcanepalette.com>\n"
+"Language: yo_DA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.7\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPath-1: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: ../inc\n"
 
 #: ../404.php:12
 msgid "Whoops! I couldn't find the page you were looking for."
-msgstr ""
+msgstr "Mmm! Find the page you were looking for, I could not."
 
 #: ../404.php:14
 msgid "Try a search or one of the links below."
-msgstr ""
+msgstr "Links below or search you may try."
 
 #: ../404.php:20
 msgid "Archives by Month"
-msgstr "Archiwa miesięczne"
+msgstr "By month, these posts are"
 
 #: ../404.php:27
 msgid "Archives by Subject"
-msgstr "Archiwa tematyczne"
+msgstr "By subject, these posts are"
 
 #: ../author.php:27
 msgid "Website"
-msgstr "Strona internetowa"
+msgstr "Site this is"
 
-#: ../author.php:33 ../functions.php:890
-#, fuzzy, php-format
+#: ../author.php:33 ../functions.php:895
+#, php-format
 msgid "All posts by %s"
-msgstr "Wszystkie wpisy autora %1$s"
+msgstr "By %s these posts are"
 
 #: ../comments.php:4
 msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
-"Ten wpis jest chroniony hasłem. Wprowadź hasło, aby zobaczyć komentarze."
+"Protected by password this post is. The password you must enter if viewing "
+"comments is your wish."
 
 #: ../comments.php:13
 #, php-format
 msgid "One Response to %2$s"
 msgid_plural "%1$s Responses to %2$s"
-msgstr[0] "Jeden komentarz do %2$s"
-msgstr[1] "%1$s komentarze do %2$s"
-msgstr[2] "%1$s komentarzy do %2$s"
+msgstr[0] "To %2$s, one response there is"
+msgstr[1] "To %2$s, %1$s responses there are"
 
 #: ../comments.php:36
 msgid "Comments are closed."
-msgstr "Komentarze są wyłączone."
+msgstr "Closed these comments are."
 
 #: ../comments.php:52
 msgid "You must be %1$slogged in%$2s to post a comment."
-msgstr "Musisz być %1$zalogowany/a%$2s, aby przesłać komentarz."
+msgstr "%1$sLogged in%2$s you must be if posting comment is your wish."
 
 #: ../comments.php:57
 msgid "Comment"
-msgstr ""
+msgstr "Comment"
 
 #: ../comments.php:61
 #, php-format
@@ -76,200 +74,206 @@ msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
 msgstr ""
+"Use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and "
+"attributes you may: %s"
 
 #: ../functions.php:5 ../sidebar.php:11 ../inc/theme-options.php:346
 msgid "Sidebar"
-msgstr "Panel boczny"
+msgstr "Sidebar"
 
 #: ../functions.php:6
 msgid "This is the regular, widgetized sidebar"
-msgstr "To jest podstawowy panel boczny"
+msgstr "Widgetized sidebar, this is"
 
 #: ../functions.php:13
 msgid "Left Footer Box"
-msgstr "Lewy panel w stopce"
+msgstr "Box Footer Left"
 
 #: ../functions.php:14
 msgid "This is the left box in the footer."
-msgstr "To jest lewy panel w stopce."
+msgstr "In the footer, the left box this is."
 
 #: ../functions.php:21
 msgid "Center Footer Box"
-msgstr "Środkowy panel w stopce"
+msgstr "Box Footer Center"
 
 #: ../functions.php:22
 msgid "This is the center box in the footer."
-msgstr "To jest środkowy panel w stopce."
+msgstr "In the footer, the center box this is."
 
 #: ../functions.php:29
 msgid "Right Footer Box"
-msgstr "Prawy panel w stopce"
+msgstr "Box Footer Right"
 
 #: ../functions.php:30
 msgid "This is the right box in the footer."
-msgstr "To jest prawy panel w stopce."
+msgstr "In the footer, the right box this is."
 
-#: ../functions.php:175
+#: ../functions.php:180
 msgid "Top Header Navigation"
-msgstr "Nawigacja ponad nagłówkiem "
+msgstr "Navigation Header Top"
 
-#: ../functions.php:176
+#: ../functions.php:181
 msgid "Main Navigation"
-msgstr "Główna nawigacja"
+msgstr "Navigation Main"
 
-#: ../functions.php:177
+#: ../functions.php:182
 msgid "Footer Navigation"
-msgstr "Nawigacja w stopce"
+msgstr "Navigation Footer"
 
-#: ../functions.php:213
+#: ../functions.php:218
 msgid "Nature"
-msgstr "Natura"
+msgstr "Nature"
 
-#: ../functions.php:219
+#: ../functions.php:224
 msgid "Smoke"
-msgstr "Dym"
+msgstr "Smoke"
 
-#: ../functions.php:225
+#: ../functions.php:230
 msgid "Lights 1"
-msgstr "Światła 1"
+msgstr "Lights 1"
 
-#: ../functions.php:231
+#: ../functions.php:236
 msgid "Lights 2"
-msgstr "Światła 2"
+msgstr "Lights 2"
 
-#: ../functions.php:237
+#: ../functions.php:242
 msgid "Lights 3"
-msgstr "Światła 3"
+msgstr "Lights 3"
 
-#: ../functions.php:256
+#: ../functions.php:261
 #, php-format
 msgid "On %1$s at %2$s %3$s said:"
-msgstr "W dniu %1$s o %2$s %3$s powiedział/a:"
+msgstr "At %2$s on %1$s, %3$s said:"
 
-#: ../functions.php:259
+#: ../functions.php:264
 msgid "Your comment is awaiting moderation."
-msgstr "Twój komentarz oczekuje na zatwierdzenie."
+msgstr "Awaiting moderation, your comment is."
 
-#: ../functions.php:263
+#: ../functions.php:268
 msgid "(Edit)"
-msgstr "(Edytuj)"
+msgstr "(Edit)"
 
-#: ../functions.php:267
+#: ../functions.php:272
 msgid "Respond to this"
-msgstr "Odpowiedz"
+msgstr "To this respond"
 
-#: ../functions.php:271
+#: ../functions.php:276
 msgid "Permalink"
-msgstr ""
+msgstr "Permalink"
 
-#: ../functions.php:281
+#: ../functions.php:286
 msgid "read more"
-msgstr "czytaj dalej"
+msgstr "more is there to read"
 
-#: ../functions.php:353
+#: ../functions.php:358
 msgid "Pages:"
-msgstr ""
+msgstr "Pages:"
 
-#: ../functions.php:586
+#: ../functions.php:591
 #, php-format
 msgid "%1$s %2$s %3$s"
 msgstr "%1$s %2$s %3$s"
 
-#: ../functions.php:586
+#: ../functions.php:591
 #, php-format
 msgid ""
 "Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
 msgstr ""
-"Museum Core od %1$sMuseum Themes%2$s jest dumnie wspierany przez "
-"%3$sWordPress%2$s. "
+"By %3$sWordPress%2$s is Museum Core by %1$sMuseum Themes%2$s is proudly "
+"powered"
 
-#: ../functions.php:615
+#: ../functions.php:620
 msgid "Left Sidebar"
-msgstr "Panel boczny po lewej"
+msgstr "Sidebar Left"
 
-#: ../functions.php:616
+#: ../functions.php:621
 msgid "Right Sidebar"
-msgstr "Panel boczny po prawej"
-
-#: ../functions.php:653
-msgid "Latin"
-msgstr ""
-
-#: ../functions.php:654
-msgid "Latin Extended"
-msgstr ""
-
-#: ../functions.php:655
-msgid "Cyrillic"
-msgstr ""
-
-#: ../functions.php:656
-msgid "Cyrillic Extended"
-msgstr ""
-
-#: ../functions.php:657
-msgid "Greek"
-msgstr ""
+msgstr "Sidebar Right"
 
 #: ../functions.php:658
-msgid "Greek Extended"
-msgstr ""
+msgid "Latin"
+msgstr "Latin"
 
 #: ../functions.php:659
+msgid "Latin Extended"
+msgstr "Latin Extended"
+
+#: ../functions.php:660
+msgid "Cyrillic"
+msgstr "Cyrillic"
+
+#: ../functions.php:661
+msgid "Cyrillic Extended"
+msgstr "Cyrillic Extended"
+
+#: ../functions.php:662
+msgid "Greek"
+msgstr "Greek"
+
+#: ../functions.php:663
+msgid "Greek Extended"
+msgstr "Greek Extended"
+
+#: ../functions.php:664
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamese"
 
-#: ../functions.php:676
+#: ../functions.php:681
 msgid "Show Post Excerpts"
-msgstr "Pokaż fragmenty wpisów"
+msgstr "Post Excerpts Show"
 
-#: ../functions.php:677
+#: ../functions.php:682
 msgid "Show Full Posts"
-msgstr "Pokaż pełne wpisy"
+msgstr "Full Posts Show"
 
-#: ../functions.php:692
+#: ../functions.php:697
 msgid "Yes"
-msgstr "Tak"
+msgstr "Yes"
 
-#: ../functions.php:693
+#: ../functions.php:698
 msgid "No"
-msgstr "Nie"
+msgstr "No"
 
-#: ../functions.php:824
+#: ../functions.php:829
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
-#: ../functions.php:833
-#, fuzzy, php-format
+#: ../functions.php:838
+#, php-format
 msgid "Posts filed under <q>%s</q>"
-msgstr "Wpisy z kategorii"
+msgstr "Under <q>%s</q> are these posts filed"
 
-#: ../functions.php:885
+#: ../functions.php:890
 #, php-format
 msgid "Search results for <q>%s</q>"
-msgstr ""
-
-#: ../functions.php:887
-#, php-format
-msgid "Posts tagged <q>%s</q>"
-msgstr ""
+msgstr "For <q>%s</q> are these search results"
 
 #: ../functions.php:892
-msgid "Error 404"
-msgstr ""
+#, php-format
+msgid "Posts tagged <q>%s</q>"
+msgstr "With <q>%s</q> are these posts tagged"
 
-#: ../functions.php:896
+#: ../functions.php:897
+msgid "Error 404"
+msgstr "A disturbance in the force there is"
+
+#: ../functions.php:901
 #, php-format
 msgid "Page %s"
-msgstr ""
+msgstr "Page %s"
 
 #: ../searchform.php:2
 msgid "Search this site"
-msgstr "Szukaj na stronie"
+msgstr "Search you may"
+
+#: ../searchform.php:10
+msgid "Go"
+msgstr "Go"
 
 #: ../inc/theme-options.php:56
 msgid "Custom CSS is no longer supported."
-msgstr ""
+msgstr "Supported custom CSS no longer is."
 
 #: ../inc/theme-options.php:57
 #, php-format
@@ -278,245 +282,235 @@ msgid ""
 "or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is "
 "displayed below."
 msgstr ""
+"Supports custom CSS Museum Core does not. Use you may %1$sMy Custom CSS%2$s "
+"or %3$sJetpack%2$s if adding custom CSS is your wish. Displayed below your "
+"custom CSS is."
 
 #: ../inc/theme-options.php:64
 msgid "I've copied my CSS. Dismiss this message."
-msgstr ""
+msgstr "Copied my CSS, I have. Trouble me not."
 
 #: ../inc/theme-options.php:77
-#, fuzzy
 msgid "Layout Options"
-msgstr "Zapisz ustawienia"
+msgstr "Options Layout"
 
 #: ../inc/theme-options.php:84
-#, fuzzy
 msgid "Typography Options"
-msgstr "Typografia i czcionki"
+msgstr "Options Typography"
 
 #: ../inc/theme-options.php:91
-#, fuzzy
 msgid "Advanced Settings"
-msgstr "Zaawansowane"
+msgstr "Settings Advanced"
 
 #: ../inc/theme-options.php:334
 msgid "Show site title?"
-msgstr ""
+msgstr "Site title do you wish to show?"
 
 #: ../inc/theme-options.php:357
 msgid "Fixed nav menu?"
-msgstr ""
+msgstr "Fixed do you wish your nav menu to be?"
 
 #: ../inc/theme-options.php:368
 msgid "Enable breadcrumbs?"
-msgstr ""
+msgstr "Breadcrumbs do you wish to show?"
 
 #: ../inc/theme-options.php:379
-#, fuzzy
 msgid "Full posts or excerpts on blog home?"
-msgstr "Pełne wpisy czy fragmenty?"
+msgstr "On blog home, full posts or excerpts show?"
 
 #: ../inc/theme-options.php:390
 msgid "Full posts or excerpts on archive pages?"
-msgstr "Pełne wpisy czy fragmenty na stronach archiwów?"
+msgstr "On archive pages, full posts or excerpts show?"
 
 #: ../inc/theme-options.php:401
-#, fuzzy
 msgid "Display post author?"
-msgstr "Używać meta-tagu author? "
+msgstr "Post author show?"
 
 #: ../inc/theme-options.php:414
-#, fuzzy
 msgid "Heading Font"
-msgstr "Czcionki nagłówków"
+msgstr "For Headings This Font"
 
 #: ../inc/theme-options.php:425
 msgid "Body Font"
-msgstr "Czcionka podstawowa"
+msgstr "For Body This Font"
 
 #: ../inc/theme-options.php:436
 msgid "Alternate Font"
-msgstr "Czcionka uzupełniająca"
+msgstr "To Alternate This Font"
 
 #: ../inc/theme-options.php:447
-#, fuzzy
 msgid "Use alternate font for site title?"
-msgstr "Użyć czcionki uzupełniającej dla H1?"
+msgstr "For site title, alternate font use?"
 
 #: ../inc/theme-options.php:458
-#, fuzzy
 msgid "Font Subset"
-msgstr "Czcionki"
+msgstr "Subset This Font"
 
 #: ../inc/theme-options.php:470
-#, fuzzy
 msgid "Font Color"
-msgstr "Kolor linków"
+msgstr "Color Font"
 
 #: ../inc/theme-options.php:479
 msgid "Link Color"
-msgstr "Kolor linków"
+msgstr "Color Link"
 
 #: ../inc/theme-options.php:488
 msgid "Hover Color"
-msgstr "Kolor linków po najechaniu kursorem"
+msgstr "Color Hover"
 
 #: ../inc/theme-options.php:497
 msgid "Content Background color"
-msgstr ""
+msgstr "Color Content Backgroiund"
 
 #: ../inc/theme-options.php:506
 msgid "Navbar (top) Background Color"
-msgstr ""
+msgstr "Color Navbar (top) Background"
 
 #: ../inc/theme-options.php:515
 msgid "Inverted navbar?"
-msgstr ""
+msgstr "Inverted do you wish the navbar to be?"
 
 #: ../inc/theme-options.php:526
-#, fuzzy
 msgid "Navbar Link Color"
-msgstr "Kolor linków"
+msgstr "Color Navbar Link"
 
 #: ../inc/theme-options.php:536
 msgid "Use author meta tags?"
-msgstr ""
+msgstr "Author meta tags you wish to use?"
 
 #: ../inc/theme-options.php:547
 msgid "Footer Text"
-msgstr "Tekst w stopce strony"
+msgstr "Text Footer"
 
 #: ../inc/theme-options.php:557
-#, fuzzy
 msgid "Custom Favicon"
-msgstr "Własna favikona"
+msgstr "Favicon Custom"
 
 #: ../inc/theme-options.php:566
 msgid "Send usage data?"
-msgstr "Wysłać dane na temat użytkowania?"
+msgstr "Usage data you wish to send?"
 
 #: ../inc/theme-options.php:577
 msgid "Debug Mode Active"
-msgstr ""
+msgstr "If the Force is not strong, debug mode wish you to use?"
 
 #: ../parts/part-micropostmeta.php:2 ../parts/part-title.php:10
 #: ../parts/part-title.php:12 ../parts/post-single.php:7
 #, php-format
 msgid "Permanent Link to %s"
-msgstr "Bezpośredni odnośnik do %1$s"
+msgstr "To %s this permanent link is"
 
 #: ../parts/part-micropostmeta.php:4
 #, php-format
 msgid "%1$s ago"
-msgstr "%1$s temu"
+msgstr "%1$s ago"
 
 #: ../parts/part-navigation.php:4
-#, fuzzy
 msgid "&larr; Older Entries"
-msgstr "&laquo; Starsze wpisy"
+msgstr "&larr; Entries Past"
 
 #: ../parts/part-navigation.php:5
-#, fuzzy
 msgid "Newer Entries &rarr;"
-msgstr "Nowsze wpisy &raquo;"
+msgstr "Entries Future &rarr;"
 
 #: ../parts/part-postmetadata.php:8
 msgid "Gallery"
-msgstr ""
+msgstr "Gallery"
 
 #: ../parts/part-postmetadata.php:10
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 #: ../parts/part-postmetadata.php:14
 msgid ", "
-msgstr "'"
+msgstr ", "
 
 #: ../parts/part-postmetadata.php:15
 msgid "and tagged "
-msgstr "i otagowane"
+msgstr "tagged "
 
 #: ../parts/part-postmetadata.php:19
 #, php-format
 msgid "by %s"
-msgstr ""
+msgstr "%s"
 
 #: ../parts/part-postmetadata.php:22
 #, php-format
 msgid "Posted in %1$s on %2$s %3$s %4$s"
-msgstr "Napisane w %1$s w dniu %2$s %3$s %4$s"
+msgstr "%4$s, on %2$s posted in %1$s  %3$sthis was"
 
 #: ../parts/part-postmetadata.php:24
 #, php-format
 msgid "Filed under %1$s %2$s %3$s"
-msgstr "Z kategorii %1$s %2$s %3$s"
+msgstr "On %2$s under %1$s, %3$s filed this is."
 
 #: ../parts/part-postmetadata.php:26
 #, php-format
 msgid "Displayed in %1$s %2$s %3$s"
-msgstr "Wyświetlane w %1$s %2$s %3$s"
+msgstr "On %2$s in %1$s, %3$s displayed this is."
 
 #: ../parts/part-postmetadata.php:28
-#, fuzzy, php-format
+#, php-format
 msgid "Posted in %1$s %2$s %3$s"
-msgstr "Napisane w %1$s w dniu %2$s %3$s "
+msgstr "On %2$s in %1$s, by %3$s posted this was."
 
 #: ../parts/part-postmetadata.php:32
 #, php-format
 msgid "Posted in %1$s on %2$s %3$s"
-msgstr "Napisane w %1$s w dniu %2$s %3$s "
+msgstr "On %2$s in %1$s, by %3$s posted this was."
 
 #: ../parts/part-postmetadata.php:34
 #, php-format
 msgid "Filed under %1$s %2$s"
-msgstr "Z kategorii %1$s %2$s"
+msgstr "Under %2$s%1$s, filed this is."
 
 #: ../parts/part-postmetadata.php:36
 #, php-format
 msgid "Displayed in %1$s %2$s"
-msgstr "Wyświetlane w %1$s %2$s "
+msgstr "In %2$s%1$s, displayed this is."
 
 #: ../parts/part-postmetadata.php:38
 #, php-format
 msgid "Posted in %1$s %2$s"
-msgstr "Napisane w %1$s %2$s"
+msgstr "In %2$s%1$s posted this is."
 
 #: ../parts/part-postmetadata.php:48
 msgid "No Comments &#187;"
-msgstr "Brak komentarzy &#187;"
+msgstr "Comments, there are not &#187;"
 
 #: ../parts/part-postmetadata.php:48
 msgid "One Comment &#187;"
-msgstr "Jeden komentarz &#187;"
+msgstr "One Comment There Is &#187;"
 
 #: ../parts/part-postmetadata.php:48
 msgid "% Comments &#187;"
-msgstr "% Komentarze &#187;"
+msgstr "% Comments There Are &#187;"
 
 #: ../parts/part-postmetadata.php:50 ../parts/post-page.php:20
 msgid "Edit this entry"
-msgstr "Edytuj wpis"
+msgstr "This entry you may edit"
 
 #: ../parts/part-title.php:10
 msgid "(no title)"
-msgstr "(bez tytułu)"
+msgstr "(title there is not)"
 
 #: ../parts/post-archive.php:5 ../parts/post-archive.php:9
 msgid "Posts filed under "
-msgstr "Wpisy z kategorii"
+msgstr ""
 
 #: ../parts/post-archive.php:13 ../parts/post-archive.php:17
 #: ../parts/post-archive.php:21
 #, php-format
 msgid "Archive for %1$s"
-msgstr "Archiwum dla %1$s"
+msgstr "For %1$s archive, this is"
 
 #: ../parts/post-archive.php:25
 msgid "Author Archive"
-msgstr "Archiwum autora"
+msgstr "For author, archive this is"
 
 #: ../parts/post-archive.php:29
 msgid "Blog Archives"
-msgstr "Archiwa bloga"
+msgstr "For blog, archive this is"
 
 #: ../parts/post-archive.php:46 ../parts/post-aside.php:9
 #: ../parts/post-audio.php:9 ../parts/post-author.php:13
@@ -526,87 +520,87 @@ msgstr "Archiwa bloga"
 #: ../parts/post-single.php:14 ../parts/post-status.php:7
 #: ../parts/post-video.php:9 ../parts/post.php:11
 msgid "Read more &raquo;"
-msgstr "Czytaj dalej &raquo; "
+msgstr "More to read, there is &raquo;"
 
 #: ../parts/post-archive.php:64
-#, fuzzy
 msgid "Archive"
-msgstr "Archiwa bloga"
+msgstr "Archive"
 
 #: ../parts/post-aside.php:16
 msgid "Aside"
-msgstr ""
+msgstr "Aside"
 
 #: ../parts/post-audio.php:16
 msgid "Audio"
-msgstr ""
+msgstr "Audio"
 
 #: ../parts/post-author.php:23
-#, fuzzy
 msgid "Author"
-msgstr "Archiwum autora"
+msgstr "Author"
 
 #: ../parts/post-chat.php:18
 msgid "Chat"
-msgstr ""
+msgstr "Chat"
 
 #: ../parts/post-link.php:15
-#, fuzzy
 msgid "Link"
-msgstr "Linki"
+msgstr "Link"
 
 #: ../parts/post-quote.php:14
 msgid "Quote"
-msgstr ""
+msgstr "Quote"
 
 #: ../parts/post-search.php:17
-#, fuzzy, php-format
+#, php-format
 msgid "We found %1$s results for <q>%2$s</q>"
-msgstr "Znaleziono %1$s wyników dla &ldquo;%2$s&rdquo;"
+msgstr "For <q>%2$s</q>, %1$s results I found."
 
 #: ../parts/post-search.php:20
 msgid "Not what you were looking for?  Enter your search terms to try again."
-msgstr "Nie tego szukano? Wprowadź szukany termin jeszcze raz."
+msgstr ""
+"Searching for this is not? Your search terms enter, or enter not. There is "
+"no try."
 
 #: ../parts/post-search.php:45
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 #: ../parts/post-status.php:14
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: ../parts/post-video.php:16
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #~ msgid "The page you were looking for could not be found."
-#~ msgstr "Szukana strona nie została znaleziona."
+#~ msgstr "The page you were looking for could not be found."
 
 #~ msgid ""
 #~ "The page you were looking for is missing or doesn't exist.  Here are some "
 #~ "links to help you back on your way."
-#~ msgstr "Brak szukanej strony. Oto kilka linków, które mogą być pomocne."
+#~ msgstr ""
+#~ "The page you were looking for is missing or doesn't exist.  Here are some "
+#~ "links to help you back on your way."
 
 #~ msgid "General"
-#~ msgstr "Ogólne"
+#~ msgstr "General"
 
 #~ msgid ""
 #~ "Select whether you want full posts on the blog page or post excerpts with "
 #~ "post thumbnails."
 #~ msgstr ""
-#~ "Wybierz, czy chcesz pełne wpisy na na stronie bloga, czy fragmenty wpisów "
-#~ "z miniaturami obrazków."
+#~ "Select whether you want full posts on the blog page or post excerpts with "
+#~ "post thumbnails."
 
 #~ msgid ""
 #~ "Add your own footer text or leave blank for no text in the footer.  "
 #~ "Allowed HTML is <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, "
 #~ "<code>&lt;em&gt;</code> & <code>&lt;strong&gt;</code>"
 #~ msgstr ""
-#~ "Dodaj swój własny tekst stopki lub pozostaw puste miejsce, jeśli nie "
-#~ "chcesz mieć tekstu w stopce. Wolno użyć następujących tagów  HTML: "
-#~ "<code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;em&gt;</code> "
-#~ "& <code>&lt;strong&gt;</code>"
+#~ "Add your own footer text or leave blank for no text in the footer.  "
+#~ "Allowed HTML is <code>&lt;a&gt;</code>, <code>&lt;br&gt;</code>, "
+#~ "<code>&lt;em&gt;</code> & <code>&lt;strong&gt;</code>"
 
 #~ msgid ""
 #~ "PressTrends allows theme developers to see how their themes are being "
@@ -615,14 +609,14 @@ msgstr ""
 #~ "or check out the <a href=\"http://wordpress.org/extend/plugins/"
 #~ "presstrends/\">plugin</a>."
 #~ msgstr ""
-#~ "PressTrends pozwala twórcom szablonów obserwować, jak ich szablony są "
-#~ "używane, aby mogli je lepiej dostosowywać do potrzeb użytkowników. Jeśli "
-#~ "chcesz więcej informacji, odwiedź <a href=\"http://presstrends.io/faq"
-#~ "\">PressTrends</a> albo sprawdź <a href=\"http://wordpress.org/extend/"
-#~ "plugins/presstrends/\">plugin</a>."
+#~ "PressTrends allows theme developers to see how their themes are being "
+#~ "used so they can better address the needs of their users. For more "
+#~ "information visit <a href=\"http://presstrends.io/faq\">PressTrends</a> "
+#~ "or check out the <a href=\"http://wordpress.org/extend/plugins/"
+#~ "presstrends/\">plugin</a>."
 
 #~ msgid "Museum Core Fonts"
-#~ msgstr "Czcionki w szablonie Museum Core"
+#~ msgstr "Museum Core Fonts"
 
 #~ msgid "[link]"
 #~ msgstr "[link]"
@@ -631,11 +625,11 @@ msgstr ""
 #~ "Used for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;"
 #~ "h3&gt;</code> tags."
 #~ msgstr ""
-#~ "Używana dla tagów <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, i "
-#~ "<code>&lt;h3&gt;</code>."
+#~ "Used for <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;"
+#~ "h3&gt;</code> tags."
 
 #~ msgid "Used for all body text."
-#~ msgstr "Używana dla tekstu głównego"
+#~ msgstr "Used for all body text."
 
 #~ msgid ""
 #~ "Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</"
@@ -643,38 +637,40 @@ msgstr ""
 #~ "class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</"
 #~ "code>."
 #~ msgstr ""
-#~ "Używana dla dat, podtytułów, tagów <code>&lt;h4&gt;</code>, <code>&lt;"
-#~ "h5&gt;</code i <code>&lt;h6&gt;</code>, oraz wszędzie tam, gdzie klasa "
-#~ "<code>.alt</code> jest używana w code>&lt;span&gt;</code> lub <code>&lt;"
-#~ "div&gt;</code>."
+#~ "Used for dates, sub-headings, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</"
+#~ "code> and <code>&lt;h6&gt;</code> tags and anywhere the <code>.alt</code> "
+#~ "class is used in a <code>&lt;span&gt;</code> or a <code>&lt;div&gt;</"
+#~ "code>."
 
 #~ msgid ""
 #~ "If set to \"Yes\", the alternate font will be used on the <code>&lt;h1&gt;"
 #~ "</code> tag in the header and the heading font will be used for the "
 #~ "description."
 #~ msgstr ""
-#~ "Jeśli ustawione na \"Tak\", czcionka uzupełniająca będzie użyta dla tagu "
-#~ "<code>&lt;h1&gt;</code> w nagłówku bloga a czcionka nagłówkowa będzie "
-#~ "użyta w opisie bloga."
+#~ "If set to \"Yes\", the alternate font will be used on the <code>&lt;h1&gt;"
+#~ "</code> tag in the header and the heading font will be used for the "
+#~ "description."
 
 #~ msgid "Set your desired link color."
-#~ msgstr "Ustaw pożądany kolor linków."
+#~ msgstr "Set your desired link color."
 
 #~ msgid "Set your desired link hover color."
-#~ msgstr "Ustaw pożądany kolor linków po najechaniu kursorem."
+#~ msgstr "Set your desired link hover color."
+
+#~ msgid "Upload Image"
+#~ msgstr "Upload Image"
 
 #~ msgid ""
 #~ "Use the uploader to upload a PNG or ICO file to use as a favicon for your "
 #~ "site.  If left blank, no favicon will be used. (Other image formats will "
 #~ "work but may not be browser-supported.)"
 #~ msgstr ""
-#~ "Prześlij plik PNG lub ICO, który będzie służył jako favikona dla Twojej "
-#~ "strony. Jeśli zostawisz puste miejsce, favikona nie będzie użyta. (Można "
-#~ "załadować obrazki innych formatów, jednak mogą być nieobsługiwane przez "
-#~ "przeglądarki.) "
+#~ "Use the uploader to upload a PNG or ICO file to use as a favicon for your "
+#~ "site.  If left blank, no favicon will be used. (Other image formats will "
+#~ "work but may not be browser-supported.)"
 
 #~ msgid "Use meta description?"
-#~ msgstr "Użyć meta-opisu?"
+#~ msgstr "Use meta description?"
 
 #~ msgid ""
 #~ "If Yes, meta tags for description will be loaded in the header (pulled "
@@ -682,35 +678,34 @@ msgstr ""
 #~ "tags and categories).  Use this if you don't plan on using an SEO plugin "
 #~ "to handle your meta descriptions."
 #~ msgstr ""
-#~ "Jeśli Tak, meta-tagi dla opisu będą załadowane w nagłówku (ściągnięte z "
-#~ "fragmentów wpisów dla pojedynczych wpisów i stron albo z opisów dla tagów "
-#~ "i kategorii). Użyj tego, jeśli nie planujesz korzystać z wtyczki SEO do "
-#~ "tworzenia meta-opisów. "
+#~ "If Yes, meta tags for description will be loaded in the header (pulled "
+#~ "from post excerpt for single posts and pages or from the description for "
+#~ "tags and categories).  Use this if you don't plan on using an SEO plugin "
+#~ "to handle your meta descriptions."
 
 #~ msgid ""
 #~ "If No, no meta description tags will be loaded.  Use this if you plan on "
 #~ "using something to take care of your meta description."
 #~ msgstr ""
-#~ "Jeśli Nie, meta-tagi opisu nie będą ładowane. Włącz tę opcję, jeśli "
-#~ "planujesz użycie innego środka do meta-opisu. "
+#~ "If No, no meta description tags will be loaded.  Use this if you plan on "
+#~ "using something to take care of your meta description."
 
 #~ msgid "More info"
-#~ msgstr "Więcej informacji "
+#~ msgstr "More info"
 
 #~ msgid "Use meta author?"
-#~ msgstr "Używać meta-tagu author? "
+#~ msgstr "Use meta author?"
 
 #~ msgid ""
 #~ "If Yes, meta author tags will be used on all pages (except 404 pages)."
 #~ msgstr ""
-#~ "Jeśli Tak, meta-tagi author będą użyte na wszystkich stronach (z "
-#~ "wyjątkiem stron 404)."
+#~ "If Yes, meta author tags will be used on all pages (except 404 pages)."
 
 #~ msgid "If No, meta author tags will be disabled."
-#~ msgstr "Jeśli Nie, meta-tagi author będą wyłączone."
+#~ msgstr "If No, meta author tags will be disabled."
 
 #~ msgid "Use meta generator tag?"
-#~ msgstr "Używać meta-tagu generator?"
+#~ msgstr "Use meta generator tag?"
 
 #~ msgid ""
 #~ "If Yes, the theme name and version will be added to a meta generator "
@@ -718,48 +713,92 @@ msgstr ""
 #~ "using for troubleshooting purposes.  This should be enabled if you need "
 #~ "to contact us for support."
 #~ msgstr ""
-#~ "Jeśli Tak, nazwa i wersja szablonu będą dodane do meta tagu generator. "
-#~ "Jest to potrzebne do określenia, której wersji szablonu używasz, w "
-#~ "przypadku, gdyby były rozwiązywane jakiekolwiek problemy. Należy to "
-#~ "włączyć, jeśli musisz skontaktować się z obsługą."
+#~ "If Yes, the theme name and version will be added to a meta generator "
+#~ "tag.  This is useful in identifying which version of the theme you are "
+#~ "using for troubleshooting purposes.  This should be enabled if you need "
+#~ "to contact us for support."
 
 #~ msgid ""
 #~ "Select whether you want full posts on archive pages or excerpts with post "
 #~ "thumbnails."
 #~ msgstr ""
-#~ "Wybierz, czy chcesz pełne wpisy na stronach archiwów, czy fragmenty z "
-#~ "ikonami wpisów."
+#~ "Select whether you want full posts on archive pages or excerpts with post "
+#~ "thumbnails."
 
 #~ msgid "Use Twitter hovercards?"
-#~ msgstr "Wyświetlać w dymkach wizytówki z Twittera?"
+#~ msgstr "Use Twitter hovercards?"
 
 #~ msgid ""
 #~ "Twitter hovercards display information about a particular Twitter user "
 #~ "when the @ symbol is used.  See the %1$sTwitter developer documentation "
 #~ "for more information%2$s"
 #~ msgstr ""
-#~ "Wizytówki z Twittera wyświetlają informację o danym użytkowniku Twittera "
-#~ "(po najechaniu kursorem), wtedy gdy używany jest symbol @ . Aby uzyskać "
-#~ "%1$swięcej informacji, zajrzyj do dokumentacji dla deweloperów na "
-#~ "Twitterze%2$s"
+#~ "Twitter hovercards display information about a particular Twitter user "
+#~ "when the @ symbol is used.  See the %1$sTwitter developer documentation "
+#~ "for more information%2$s"
+
+#~ msgid "Custom CSS"
+#~ msgstr "Custom CSS"
+
+#~ msgid "add your custom css here"
+#~ msgstr "add your custom css here"
+
+#~ msgid ""
+#~ "Add custom CSS overrides to your theme.  Intended for advanced users with "
+#~ "a good working knowledge of <abbr title=\"Cascading Style Sheets\">CSS</"
+#~ "abbr>."
+#~ msgstr ""
+#~ "Add custom CSS overrides to your theme.  Intended for advanced users with "
+#~ "a good working knowledge of <abbr title=\"Cascading Style Sheets\">CSS</"
+#~ "abbr>."
+
+#~ msgid ""
+#~ "Set to \"No\" to hide the site title and tagline.  Use this if you would "
+#~ "rather display the header image with no site title."
+#~ msgstr ""
+#~ "Set to \"No\" to hide the site title and tagline.  Use this if you would "
+#~ "rather display the header image with no site title."
+
+#~ msgid ""
+#~ "If this is set to \"Yes\", the post author will be displayed in the post "
+#~ "meta and link to an author archive page."
+#~ msgstr ""
+#~ "If this is set to \"Yes\", the post author will be displayed in the post "
+#~ "meta and link to an author archive page."
 
 #~ msgid "Theme Options"
-#~ msgstr "Opcje Szablonu"
+#~ msgstr "Theme Options"
 
 #~ msgid "What's new at Museum Themes"
-#~ msgstr "Co nowego w Museum Themes"
+#~ msgstr "What's new at Museum Themes"
 
 #~ msgid "Follow us on Twitter"
-#~ msgstr "Śledź nas na Twitterze"
+#~ msgstr "Follow us on Twitter"
 
 #~ msgid "%s Theme Options"
-#~ msgstr " %s Opcje Szablonu"
+#~ msgstr "%s Theme Options"
 
 #~ msgid "Options saved"
-#~ msgstr "Ustawienia zostały zapisane"
+#~ msgstr "Options saved"
 
-#~ msgid "Go"
-#~ msgstr "Idź"
+#~ msgid "Museum Themes"
+#~ msgstr "Museum Themes"
 
-#~ msgid "Upload Image"
-#~ msgstr "Prześlij obrazek"
+#~ msgid "Powered by WordPress"
+#~ msgstr "Powered by WordPress"
+
+#~ msgid "Add your own footer text or leave blank for no text in the footer"
+#~ msgstr "Add your own footer text or leave blank for no text in the footer"
+
+#~ msgid "Posted in %1$s"
+#~ msgstr "Posted in %1$s"
+
+#~ msgid " and tagged "
+#~ msgstr " and tagged "
+
+#~ msgid ""
+#~ "For more information visit <a href=\"http://presstrends.io/faq"
+#~ "\">PressTrends</a>."
+#~ msgstr ""
+#~ "For more information visit <a href=\"http://presstrends.io/faq"
+#~ "\">PressTrends</a>."

@@ -2,15 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-04 15:45-0700\n"
-"PO-Revision-Date: 2013-10-04 15:46-0700\n"
+"POT-Creation-Date: 2013-10-05 08:49-0700\n"
+"PO-Revision-Date: 2013-10-05 08:49-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _e;__;_n:1,2;_x\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x;esc_attr_e;esc_attr_x;esc_html_e;"
+"esc_html_x\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -39,7 +40,7 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: ../author.php:33 ../functions.php:890
+#: ../author.php:33 ../functions.php:895
 #, php-format
 msgid "All posts by %s"
 msgstr ""
@@ -106,160 +107,164 @@ msgstr ""
 msgid "This is the right box in the footer."
 msgstr ""
 
-#: ../functions.php:175
+#: ../functions.php:180
 msgid "Top Header Navigation"
 msgstr ""
 
-#: ../functions.php:176
+#: ../functions.php:181
 msgid "Main Navigation"
 msgstr ""
 
-#: ../functions.php:177
+#: ../functions.php:182
 msgid "Footer Navigation"
 msgstr ""
 
-#: ../functions.php:213
+#: ../functions.php:218
 msgid "Nature"
 msgstr ""
 
-#: ../functions.php:219
+#: ../functions.php:224
 msgid "Smoke"
 msgstr ""
 
-#: ../functions.php:225
+#: ../functions.php:230
 msgid "Lights 1"
 msgstr ""
 
-#: ../functions.php:231
+#: ../functions.php:236
 msgid "Lights 2"
 msgstr ""
 
-#: ../functions.php:237
+#: ../functions.php:242
 msgid "Lights 3"
 msgstr ""
 
-#: ../functions.php:256
+#: ../functions.php:261
 #, php-format
 msgid "On %1$s at %2$s %3$s said:"
 msgstr ""
 
-#: ../functions.php:259
+#: ../functions.php:264
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: ../functions.php:263
+#: ../functions.php:268
 msgid "(Edit)"
 msgstr ""
 
-#: ../functions.php:267
+#: ../functions.php:272
 msgid "Respond to this"
 msgstr ""
 
-#: ../functions.php:271
+#: ../functions.php:276
 msgid "Permalink"
 msgstr ""
 
-#: ../functions.php:281
+#: ../functions.php:286
 msgid "read more"
 msgstr ""
 
-#: ../functions.php:353
+#: ../functions.php:358
 msgid "Pages:"
 msgstr ""
 
-#: ../functions.php:586
+#: ../functions.php:591
 #, php-format
 msgid "%1$s %2$s %3$s"
 msgstr ""
 
-#: ../functions.php:586
+#: ../functions.php:591
 #, php-format
 msgid ""
 "Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
 msgstr ""
 
-#: ../functions.php:615
+#: ../functions.php:620
 msgid "Left Sidebar"
 msgstr ""
 
-#: ../functions.php:616
+#: ../functions.php:621
 msgid "Right Sidebar"
 msgstr ""
 
-#: ../functions.php:653
+#: ../functions.php:658
 msgid "Latin"
 msgstr ""
 
-#: ../functions.php:654
+#: ../functions.php:659
 msgid "Latin Extended"
 msgstr ""
 
-#: ../functions.php:655
+#: ../functions.php:660
 msgid "Cyrillic"
 msgstr ""
 
-#: ../functions.php:656
+#: ../functions.php:661
 msgid "Cyrillic Extended"
 msgstr ""
 
-#: ../functions.php:657
+#: ../functions.php:662
 msgid "Greek"
 msgstr ""
 
-#: ../functions.php:658
+#: ../functions.php:663
 msgid "Greek Extended"
 msgstr ""
 
-#: ../functions.php:659
+#: ../functions.php:664
 msgid "Vietnamese"
 msgstr ""
 
-#: ../functions.php:676
+#: ../functions.php:681
 msgid "Show Post Excerpts"
 msgstr ""
 
-#: ../functions.php:677
+#: ../functions.php:682
 msgid "Show Full Posts"
 msgstr ""
 
-#: ../functions.php:692
+#: ../functions.php:697
 msgid "Yes"
 msgstr ""
 
-#: ../functions.php:693
+#: ../functions.php:698
 msgid "No"
 msgstr ""
 
-#: ../functions.php:824
+#: ../functions.php:829
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:833
+#: ../functions.php:838
 #, php-format
 msgid "Posts filed under <q>%s</q>"
 msgstr ""
 
-#: ../functions.php:885
+#: ../functions.php:890
 #, php-format
 msgid "Search results for <q>%s</q>"
 msgstr ""
 
-#: ../functions.php:887
+#: ../functions.php:892
 #, php-format
 msgid "Posts tagged <q>%s</q>"
 msgstr ""
 
-#: ../functions.php:892
+#: ../functions.php:897
 msgid "Error 404"
 msgstr ""
 
-#: ../functions.php:896
+#: ../functions.php:901
 #, php-format
 msgid "Page %s"
 msgstr ""
 
 #: ../searchform.php:2
 msgid "Search this site"
+msgstr ""
+
+#: ../searchform.php:10
+msgid "Go"
 msgstr ""
 
 #: ../inc/theme-options.php:56
