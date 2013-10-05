@@ -6,10 +6,6 @@ Requires at least: 3.2
 Tested up to: 3.5
 Stable tag: 2.0
 
-TODO
-nav links
-language files
-
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
 == Description ==
@@ -66,6 +62,10 @@ There are currently no screenshots.
 * Added Bootstrap progress bars for my [Progress Bar](http://wordpress.org/plugins/progress-bar/) plugin
 * Refreshed comment styling
 * If you have saved custom CSS, added an area in the customizer to copy the code & a setting to remove the message when you're done
+* Removed text shadows from everything
+* Added [wp-bootstrap-navwalker class](https://github.com/twittem/wp-bootstrap-navwalker) by [twittem](https://github.com/twittem) for Bootstrap nav menu support
+* Added navbar customization options (positioning, colors)
+* Added support for breadcrumbs
 
 = Version 1.1.3.4 =
 
