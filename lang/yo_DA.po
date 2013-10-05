@@ -2,15 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 08:49-0700\n"
-"PO-Revision-Date: 2013-10-05 08:57-0700\n"
+"POT-Creation-Date: 2013-10-05 09:02-0700\n"
+"PO-Revision-Date: 2013-10-05 09:53-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Rebel Alliance <chris@arcanepalette.com>\n"
 "Language: yo_DA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: _e;__;_n:1,2\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x;esc_attr_e;esc_attr_x;esc_html_e;"
+"esc_html_x\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -427,7 +428,7 @@ msgstr ", "
 
 #: ../parts/part-postmetadata.php:15
 msgid "and tagged "
-msgstr "tagged "
+msgstr "&nbsp;"
 
 #: ../parts/part-postmetadata.php:19
 #, php-format
@@ -437,27 +438,27 @@ msgstr "%s"
 #: ../parts/part-postmetadata.php:22
 #, php-format
 msgid "Posted in %1$s on %2$s %3$s %4$s"
-msgstr "%4$s, on %2$s posted in %1$s  %3$sthis was"
+msgstr "By %4$s, on %2$s posted in %1$s  %3$s this was."
 
 #: ../parts/part-postmetadata.php:24
 #, php-format
 msgid "Filed under %1$s %2$s %3$s"
-msgstr "On %2$s under %1$s, %3$s filed this is."
+msgstr "By %3$s, under %2$s%1$s, filed this is."
 
 #: ../parts/part-postmetadata.php:26
 #, php-format
 msgid "Displayed in %1$s %2$s %3$s"
-msgstr "On %2$s in %1$s, %3$s displayed this is."
+msgstr "By %3$s, in %2$s%1$s, displayed this is."
 
 #: ../parts/part-postmetadata.php:28
 #, php-format
 msgid "Posted in %1$s %2$s %3$s"
-msgstr "On %2$s in %1$s, by %3$s posted this was."
+msgstr "In %2$s%1$s, by %3$s posted this was."
 
 #: ../parts/part-postmetadata.php:32
 #, php-format
 msgid "Posted in %1$s on %2$s %3$s"
-msgstr "On %2$s in %1$s, by %3$s posted this was."
+msgstr "In %2$s%1$s, by %3$s posted this was."
 
 #: ../parts/part-postmetadata.php:34
 #, php-format
@@ -488,7 +489,7 @@ msgstr "% Comments There Are &#187;"
 
 #: ../parts/part-postmetadata.php:50 ../parts/post-page.php:20
 msgid "Edit this entry"
-msgstr "This entry you may edit"
+msgstr "Edit this entry, you may"
 
 #: ../parts/part-title.php:10
 msgid "(no title)"
