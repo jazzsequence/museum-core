@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 09:02-0700\n"
-"PO-Revision-Date: 2013-10-05 09:53-0700\n"
+"POT-Creation-Date: 2013-10-05 10:15-0700\n"
+"PO-Revision-Date: 2013-10-05 10:35-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Rebel Alliance <chris@arcanepalette.com>\n"
 "Language: yo_DA\n"
@@ -236,7 +236,7 @@ msgstr "Yes"
 msgid "No"
 msgstr "No"
 
-#: ../functions.php:829
+#: ../functions.php:829 ../functions.php:905
 msgid "Home"
 msgstr "Home"
 
@@ -259,10 +259,14 @@ msgstr "With <q>%s</q> are these posts tagged"
 msgid "Error 404"
 msgstr "A disturbance in the force there is"
 
-#: ../functions.php:901
+#: ../functions.php:903 ../functions.php:907
 #, php-format
 msgid "Page %s"
 msgstr "Page %s"
+
+#: ../functions.php:906
+msgid "Blog"
+msgstr ""
 
 #: ../searchform.php:2
 msgid "Search this site"
@@ -443,22 +447,22 @@ msgstr "By %4$s, on %2$s posted in %1$s  %3$s this was."
 #: ../parts/part-postmetadata.php:24
 #, php-format
 msgid "Filed under %1$s %2$s %3$s"
-msgstr "By %3$s, under %2$s%1$s, filed this is."
+msgstr "By %3$s, under %1$s%2$s, filed this is."
 
 #: ../parts/part-postmetadata.php:26
 #, php-format
 msgid "Displayed in %1$s %2$s %3$s"
-msgstr "By %3$s, in %2$s%1$s, displayed this is."
+msgstr "By %3$s, in %1$s%2$s, displayed this is."
 
 #: ../parts/part-postmetadata.php:28
 #, php-format
 msgid "Posted in %1$s %2$s %3$s"
-msgstr "In %2$s%1$s, by %3$s posted this was."
+msgstr "In %1$s%2$s, by %3$s posted this was."
 
 #: ../parts/part-postmetadata.php:32
 #, php-format
 msgid "Posted in %1$s on %2$s %3$s"
-msgstr "In %2$s%1$s, by %3$s posted this was."
+msgstr "In %1$s%2$s, by %3$s posted this was."
 
 #: ../parts/part-postmetadata.php:34
 #, php-format
@@ -495,7 +499,12 @@ msgstr "Edit this entry, you may"
 msgid "(no title)"
 msgstr "(title there is not)"
 
-#: ../parts/post-archive.php:5 ../parts/post-archive.php:9
+#: ../parts/post-archive.php:5
+#, php-format
+msgid "Posts filed under %s"
+msgstr "Under %s are these posts filed"
+
+#: ../parts/post-archive.php:9
 msgid "Posts filed under "
 msgstr ""
 

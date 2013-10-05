@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 08:49-0700\n"
-"PO-Revision-Date: 2013-10-05 08:49-0700\n"
+"POT-Creation-Date: 2013-10-05 10:35-0700\n"
+"PO-Revision-Date: 2013-10-05 10:35-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: anemoone <chris@arcanepalette.com>\n"
 "Language: pl_PL\n"
@@ -235,7 +235,7 @@ msgstr "Tak"
 msgid "No"
 msgstr "Nie"
 
-#: ../functions.php:829
+#: ../functions.php:829 ../functions.php:905
 msgid "Home"
 msgstr ""
 
@@ -258,9 +258,13 @@ msgstr ""
 msgid "Error 404"
 msgstr ""
 
-#: ../functions.php:901
+#: ../functions.php:903 ../functions.php:907
 #, php-format
 msgid "Page %s"
+msgstr ""
+
+#: ../functions.php:906
+msgid "Blog"
 msgstr ""
 
 #: ../searchform.php:2
@@ -504,25 +508,26 @@ msgstr "Edytuj wpis"
 msgid "(no title)"
 msgstr "(bez tytułu)"
 
-#: ../parts/post-archive.php:5 ../parts/post-archive.php:9
-msgid "Posts filed under "
+#: ../parts/post-archive.php:7 ../parts/post-archive.php:16
+#, fuzzy, php-format
+msgid "Posts filed under %s"
 msgstr "Wpisy z kategorii"
 
-#: ../parts/post-archive.php:13 ../parts/post-archive.php:17
-#: ../parts/post-archive.php:21
+#: ../parts/post-archive.php:20 ../parts/post-archive.php:24
+#: ../parts/post-archive.php:28
 #, php-format
 msgid "Archive for %1$s"
 msgstr "Archiwum dla %1$s"
 
-#: ../parts/post-archive.php:25
+#: ../parts/post-archive.php:32
 msgid "Author Archive"
 msgstr "Archiwum autora"
 
-#: ../parts/post-archive.php:29
+#: ../parts/post-archive.php:36
 msgid "Blog Archives"
 msgstr "Archiwa bloga"
 
-#: ../parts/post-archive.php:46 ../parts/post-aside.php:9
+#: ../parts/post-archive.php:53 ../parts/post-aside.php:9
 #: ../parts/post-audio.php:9 ../parts/post-author.php:13
 #: ../parts/post-chat.php:11 ../parts/post-gallery.php:9
 #: ../parts/post-image.php:9 ../parts/post-link.php:8
@@ -532,7 +537,7 @@ msgstr "Archiwa bloga"
 msgid "Read more &raquo;"
 msgstr "Czytaj dalej &raquo; "
 
-#: ../parts/post-archive.php:64
+#: ../parts/post-archive.php:71
 #, fuzzy
 msgid "Archive"
 msgstr "Archiwa bloga"

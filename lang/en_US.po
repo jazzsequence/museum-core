@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Museum Core\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 08:49-0700\n"
-"PO-Revision-Date: 2013-10-05 08:49-0700\n"
+"POT-Creation-Date: 2013-10-05 10:35-0700\n"
+"PO-Revision-Date: 2013-10-05 10:36-0700\n"
 "Last-Translator: Chris Reynolds <chris@jazzsequence.com>\n"
 "Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
 "Language: en_US\n"
@@ -232,7 +232,7 @@ msgstr "Yes"
 msgid "No"
 msgstr "No"
 
-#: ../functions.php:829
+#: ../functions.php:829 ../functions.php:905
 msgid "Home"
 msgstr "Home"
 
@@ -255,10 +255,14 @@ msgstr "Posts tagged <q>%s</q>"
 msgid "Error 404"
 msgstr "Error 404"
 
-#: ../functions.php:901
+#: ../functions.php:903 ../functions.php:907
 #, php-format
 msgid "Page %s"
 msgstr "Page %s"
+
+#: ../functions.php:906
+msgid "Blog"
+msgstr "Blog"
 
 #: ../searchform.php:2
 msgid "Search this site"
@@ -491,25 +495,26 @@ msgstr "Edit this entry"
 msgid "(no title)"
 msgstr "(no title)"
 
-#: ../parts/post-archive.php:5 ../parts/post-archive.php:9
-msgid "Posts filed under "
-msgstr "Posts filed under "
+#: ../parts/post-archive.php:7 ../parts/post-archive.php:16
+#, php-format
+msgid "Posts filed under %s"
+msgstr "Posts filed under %s"
 
-#: ../parts/post-archive.php:13 ../parts/post-archive.php:17
-#: ../parts/post-archive.php:21
+#: ../parts/post-archive.php:20 ../parts/post-archive.php:24
+#: ../parts/post-archive.php:28
 #, php-format
 msgid "Archive for %1$s"
 msgstr "Archive for %1$s"
 
-#: ../parts/post-archive.php:25
+#: ../parts/post-archive.php:32
 msgid "Author Archive"
 msgstr "Author Archive"
 
-#: ../parts/post-archive.php:29
+#: ../parts/post-archive.php:36
 msgid "Blog Archives"
 msgstr "Blog Archives"
 
-#: ../parts/post-archive.php:46 ../parts/post-aside.php:9
+#: ../parts/post-archive.php:53 ../parts/post-aside.php:9
 #: ../parts/post-audio.php:9 ../parts/post-author.php:13
 #: ../parts/post-chat.php:11 ../parts/post-gallery.php:9
 #: ../parts/post-image.php:9 ../parts/post-link.php:8
@@ -519,7 +524,7 @@ msgstr "Blog Archives"
 msgid "Read more &raquo;"
 msgstr "Read more &raquo;"
 
-#: ../parts/post-archive.php:64
+#: ../parts/post-archive.php:71
 msgid "Archive"
 msgstr "Archive"
 
