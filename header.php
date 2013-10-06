@@ -47,8 +47,13 @@
 		<?php tha_header_before(); ?>
 		<header>
 			<?php tha_header_top(); ?>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1-collapse">
+					<i class="icon-reorder" title="Menu"></i>
+				</button>
+			</div>
 			<?php
-				$default = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $navbar_inverse . ' collapse navbar-collapse navbar-ex1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
+				$default = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $navbar_inverse . ' collapse navbar-collapse navbar-1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
 				$fixed = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $navbar_inverse . ' navbar navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
 			if ( $fixed_nav ) {
 				// if the nav menu is fixed
@@ -108,7 +113,7 @@
 				</div>
 			<?php } ?>
 
-			<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'mainnav collapse navbar-collapse navbar-ex1-collapse', 'theme_location' => 'main', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() ) ); ?>
+			<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'mainnav collapse navbar-collapse navbar-2-collapse', 'theme_location' => 'main', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() ) ); ?>
 			<?php tha_header_bottom(); ?>
 		</header>
 		<?php tha_header_after(); ?>

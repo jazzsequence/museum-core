@@ -412,6 +412,11 @@ hgroup h3 { font-size: 2em; }
 .bs-fixed-nav .navbar-nav>li>.dropdown-menu {
   margin-top: 0;
 }
+.navbar-toggle {
+  float: none;
+  width: 100%;
+  font-size: large;
+}
 
 /* Content */
 
