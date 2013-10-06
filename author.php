@@ -8,7 +8,7 @@ include( AP_CORE_OPTIONS );
 $description = null;
 $url = null;
 ?>
-<div class="content col-md-9<?php echo $right; ?>">
+<div class="content col-md-9 col-lg-9<?php echo $right; ?>">
 	<?php tha_content_top(); ?>
 
 	<?php if ( have_posts() ) the_post();

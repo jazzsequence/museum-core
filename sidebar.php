@@ -4,7 +4,7 @@
 */
 tha_sidebars_before();
 include( AP_CORE_OPTIONS ); ?>
- <div class="sidebar the_<?php echo $sidebar; ?> col-md-3<?php echo $last; ?>">
+ <div class="sidebar the_<?php echo $sidebar; ?> col-md-3 col-lg-3<?php echo $last; ?>">
  	<?php tha_sidebar_top(); ?>
 	<ul>
          <!-- regular sidebar starts here -->

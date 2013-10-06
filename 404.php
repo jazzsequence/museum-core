@@ -5,7 +5,7 @@
 get_header();
 tha_content_before();
 include( AP_CORE_OPTIONS ); ?>
-<div class="content col-md-9<?php echo $right; ?>">
+<div class="content col-md-9 col-lg-9<?php echo $right; ?>">
 	<?php tha_content_top(); ?>
 	<article class="post">
 
@@ -16,14 +16,14 @@ include( AP_CORE_OPTIONS ); ?>
 
 		<div class="spacer-10"></div>
 
-		<nav class="col-md-6" id="month">
+		<nav class="col-md-6 col-lg-6" id="month">
 			<h2><?php _e('Archives by Month','museum-core'); ?></h2>
 			<ul>
 				<?php wp_get_archives('type=monthly'); ?>
 			</ul>
 		</nav>
 
-		<nav class="col-md-6" id="categories">
+		<nav class="col-md-6 col-lg-6" id="categories">
 			<h2><?php _e('Archives by Subject','museum-core'); ?></h2>
 			<ul>
 				 <?php wp_list_categories( 'title_li=' ); ?>
