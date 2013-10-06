@@ -9,6 +9,10 @@ $args = array(
 	'previouspagelink' => '&laquo;',
 	'nextpagelink' => '&raquo;'
 );
-
-ap_core_link_pages( $args );
+if ( function_exists( 'ap_core_link_pages' ) ) {
+	ap_core_link_pages( $args );
+} else {
+	// fall back to default wp functionality if, for some reason, ap_core_link_pages is missing
+	wp_link_pages( $args );
+}
 ?>
