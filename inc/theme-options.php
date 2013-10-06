@@ -51,7 +51,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 			$options = get_option( 'ap_core_theme_options' );
 
-			if ( isset( $options['css'] ) && ( $options['css'] != '1' ) ) {
+			if ( isset( $options['css'] ) && ( $options['css'] != '1' ) && ( $options['css'] != '' ) ) {
 				echo '<div style="background-color: #fcf8e3; border: 1px solid #fbeed5; border-radius: 4px; padding: 2px 7px;"><label>';
 				echo '<span class="customize-control-title">' . __( 'Custom CSS is no longer supported.', 'museum-core' ) . '</span>';
 				echo sprintf( _x( 'Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is displayed below.', '1: link to My Custom CSS, 2: closing <a> tag, 3: link to Jetpack', 'museum-core' ), '<a href="wordpress.org/plugins/my-custom-css/" target="_blank">', '</a>', '<a href="http://wordpress.org/plugins/jetpack" target="_blank">' );
