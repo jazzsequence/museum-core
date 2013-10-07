@@ -3,8 +3,8 @@ Contributors: jazzs3quence
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.2
-Tested up to: 3.5
-Stable tag: 2.0
+Tested up to: 3.6.1
+Stable tag: 2.0.1
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -28,6 +28,10 @@ If you are interested in helping translate this theme, contact me at hello@chris
 There are currently no screenshots.
 
 == Changelog ==
+
+= Version 2.0.1 =
+
+* Removed `/inc/load-options.php` and all `include` functions for that file, replaced with functions to do those checks
 
 = Version 2.0 =
 
