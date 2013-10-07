@@ -146,7 +146,6 @@ if (!function_exists('ap_core_load_scripts')) {
 if (!function_exists('ap_core_setup')) {
     function ap_core_setup() {
 
-        define( "AP_CORE_OPTIONS", get_template_directory() . '/inc/load-options.php' );
         // load up the theme options
         require_once ( get_template_directory() . '/inc/theme-options.php' );
         // include theme hook alliance hooks
@@ -968,4 +967,86 @@ if (!function_exists('ap_core_favicon')) {
     }
     add_action( 'wp_head', 'ap_core_favicon' );
 }
-?>
+
+/**
+ * Get Which Sidebar
+ * @since 2.0.1
+ * @author Chris Reynolds
+ * returns the sidebar classes
+ */
+if ( !function_exists( 'ap_core_get_which_sidebar' ) ) {
+    function ap_core_get_which_sidebar() {
+        $defaults = ap_core_get_theme_defaults();
+        $options = get_option( 'ap_core_theme_options' );
+        if ( isset( $options['sidebar'] ) ) {
+            $sidebar = $options['sidebar'];
+            if ( 'right' == $sidebar ) {
+                $sidebar .= ' last';
+            }
+        } else {
+            $sidebar = $defaults['sidebar'];
+        }
+
+        return $sidebar;
+    }
+}
+
+/**
+ * Get Which Content
+ * @since 2.0.1
+ * @author Chris Reynolds
+ * @uses ap_core_get_which_sidebar
+ * returns the content classes
+ */
+if ( !function_exists( 'ap_core_get_which_content' ) ) {
+    function ap_core_get_which_content() {
+        $content = '';
+        $sidebar = ap_core_get_which_sidebar();
+
+        if ( 'left' == $sidebar ) {
+            $content = 'the_right last';
+        }
+
+        return $content;
+    }
+}
+
+/**
+ * Blog excerpt or full post
+ * @since 2.0.1
+ * @author Chris Reynolds
+ * returns the blog excerpt option
+ */
+if ( !function_exists( 'ap_core_blog_excerpts' ) ) {
+    function ap_core_blog_excerpts() {
+        $options = get_option( 'ap_core_theme_options' );
+        $defaults = ap_core_get_theme_defaults();
+        if ( !isset( $options['excerpts'] ) ) {
+            $excerpt = $defaults['excerpts'];
+        } else {
+            $excerpt = $options['excerpts'];
+        }
+
+        return $excerpt;
+    }
+}
+
+/**
+ * Archive excerpt or full post
+ * @since 2.0.1
+ * @author Chris Reynolds
+ * returns the archive excerpt option
+ */
+if ( !function_exists( 'ap_core_archive_excerpts' ) ) {
+    function ap_core_archive_excerpts() {
+        $options = get_option( 'ap_core_theme_options' );
+        $defaults = ap_core_get_theme_defaults();
+        if ( !isset( $options['archive-excerpt'] ) ) {
+            $excerpt = $defaults['archive-excerpt'];
+        } else {
+            $excerpt = $options['archive-excerpt'];
+        }
+
+        return $excerpt;
+    }
+}
