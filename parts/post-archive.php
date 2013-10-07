@@ -46,7 +46,7 @@
 		<section class="entry media">
 			<?php tha_entry_top(); ?>
 
-			<?php include( AP_CORE_OPTIONS );
+			<?php $archive_excerpt = ap_core_archive_excerpt();
 			$format = get_post_format();
 			$no_excerpt_formats = array( 'aside', 'chat', 'link', 'quote', 'status', 'video', 'audio' );
 			if ( $archive_excerpt == false || in_array( $format, $no_excerpt_formats ) ) {

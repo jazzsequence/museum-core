@@ -6,7 +6,7 @@
 	<section class="entry media">
 		<?php tha_entry_top(); ?>
 
-		<?php include( AP_CORE_OPTIONS );
+		<?php $show_excerpt = ap_core_blog_excerpts();
 		if ( $show_excerpt == false ) {
 			the_content(__('Read more &raquo;','museum-core'));
 		} else {

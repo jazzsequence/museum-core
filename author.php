@@ -4,11 +4,11 @@
 */
 get_header();
 tha_content_before();
-include( AP_CORE_OPTIONS );
+$content = ap_core_get_which_content();
 $description = null;
 $url = null;
 ?>
-<div class="content col-md-9 col-lg-9<?php echo $right; ?>">
+<div class="content col-md-9 col-lg-9 <?php echo $content; ?>">
 	<?php tha_content_top(); ?>
 
 	<?php if ( have_posts() ) the_post();
