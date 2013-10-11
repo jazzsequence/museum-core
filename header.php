@@ -12,25 +12,25 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <?php $options = get_option( 'ap_core_theme_options' ); ?>
 <?php
-	$headerimg = null;
+	$ap_core_headerimg = null;
 	if ( $options['site-title'] == false ) {
-		$headerimg_before = '<a href="' . home_url() . '" title="' . get_bloginfo('title') . '">';
-		$headerimg_after = '</a>';
+		$ap_core_headerimg_before = '<a href="' . home_url() . '" title="' . get_bloginfo('title') . '">';
+		$ap_core_headerimg_after = '</a>';
 	} else {
-		$headerimg_before = null;
-		$headerimg_after = null;
+		$ap_core_headerimg_before = null;
+		$ap_core_headerimg_after = null;
 	}
 
-	$fixed_nav = null;
+	$ap_core_fixed_nav = null;
 	if ( isset( $options['nav-menu'] ) && ( true == $options['nav-menu'] ) ) {
-		$fixed_nav = 'bs-fixed-nav';
+		$ap_core_fixed_nav = 'bs-fixed-nav';
 	}
 
-	$navbar_inverse = null;
+	$ap_core_navbar_inverse = null;
 	if ( isset( $options['navbar-inverse'] ) && ( true == $options['navbar-inverse'] ) ) {
-		$navbar_inverse = 'navbar-inverse';
+		$ap_core_navbar_inverse = 'navbar-inverse';
 	} else {
-		$navbar_invers = 'navbar-default';
+		$ap_core_navbar_inverse = 'navbar-default';
 	}
 ?>
 <title><?php wp_title(); ?></title>
@@ -38,10 +38,10 @@
 <meta name="viewport" content="width=device-width">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 <?php wp_get_archives('type=monthly&format=link'); ?>
-<?php wp_head(); ?>
 <?php tha_head_bottom(); ?>
+<?php wp_head(); ?>
 </head>
-<body <?php body_class( $fixed_nav ); ?>>
+<body <?php body_class( $ap_core_fixed_nav ); ?>>
 <?php tha_body_top(); ?>
 	<div class="container" id="wrap">
 		<?php tha_header_before(); ?>
@@ -53,49 +53,42 @@
 				</button>
 			</div>
 			<?php
-				$default = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $navbar_inverse . ' collapse navbar-collapse navbar-1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
-				$fixed = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $navbar_inverse . ' navbar navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
-			if ( $fixed_nav ) {
+				$ap_core_navbar_default = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' collapse navbar-collapse navbar-1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
+				$ap_core_navbar_fixed = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' navbar navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
+			if ( $ap_core_fixed_nav ) {
 				// if the nav menu is fixed
-				wp_nav_menu( $fixed );
+				wp_nav_menu( $ap_core_navbar_fixed );
 			} else {
-				wp_nav_menu( $default );
+				wp_nav_menu( $ap_core_navbar_default );
 			} ?>
-			<?php if ( function_exists( 'get_custom_header' ) ) {
-				$header_image_width = get_theme_support( 'custom-header', 'width' );
-			} else {
-				$header_image_width = HEADER_IMAGE_WIDTH;
-			}
+			<?php
+			$ap_core_header_image_width = get_theme_support( 'custom-header', 'width' );
 			// Check if this is a post or page, if it has a thumbnail, and if it's a big one
 			if ( is_singular() && current_theme_supports( 'post-thumbnails' ) && has_post_thumbnail( $post->ID ) && ( $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' ) ) &&
-							$image[1] >= $header_image_width ) :
+							$image[1] >= $ap_core_header_image_width ) :
 				// there's a header image
-				$headerimg = true;
+				$ap_core_headerimg = true;
 				?>
 
 				<div class="headerimg">
 
-					<?php echo $headerimg_before; ?>
+					<?php echo $ap_core_headerimg_before; ?>
 					<?php echo get_the_post_thumbnail( $post->ID ); ?>
-					<?php echo $headerimg_after; ?>
+					<?php echo $ap_core_headerimg_after; ?>
 
 
 			<?php elseif ( get_header_image() ) :
 
-				$headerimg = true;
-				if ( function_exists( 'get_custom_header' ) ) {
-					$header_image_width = get_custom_header()->width;
-					$header_image_height = get_custom_header()->height;
-				} else {
-					$header_image_width = HEADER_IMAGE_WIDTH;
-					$header_image_height = HEADER_IMAGE_HEIGHT;
-				} ?>
+				$ap_core_headerimg = true;
+				$ap_core_header_image_width = get_custom_header()->width;
+				$ap_core_header_image_height = get_custom_header()->height;
+				?>
 
 				<div class="headerimg">
 
-					<?php echo $headerimg_before; ?>
-					<img src="<?php header_image(); ?>" width="<?php echo $header_image_width; ?>" height="<?php echo $header_image_height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-					<?php echo $headerimg_after; ?>
+					<?php echo $ap_core_headerimg_before; ?>
+					<img src="<?php header_image(); ?>" width="<?php echo $ap_core_header_image_width; ?>" height="<?php echo $ap_core_header_image_height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+					<?php echo $ap_core_headerimg_after; ?>
 
 			<?php endif; ?>
 
@@ -109,11 +102,11 @@
 				<?php } ?>
 			</hgroup>
 
-			<?php if ( $headerimg ) { ?>
+			<?php if ( $ap_core_headerimg ) { ?>
 				</div>
 			<?php } ?>
 
-			<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'mainnav collapse navbar-collapse navbar-2-collapse', 'theme_location' => 'main', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() ) ); ?>
+			<?php wp_nav_menu( array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'mainnav collapse navbar-collapse navbar-2-collapse', 'theme_location' => 'main', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new ap_core_wp_bootstrap_navwalker() ) ); ?>
 			<?php tha_header_bottom(); ?>
 		</header>
 		<?php tha_header_after(); ?>
