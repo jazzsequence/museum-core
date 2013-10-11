@@ -32,6 +32,11 @@ There are currently no screenshots.
 = Version 2.0.1 =
 
 * Removed `/inc/load-options.php` and all `include` functions for that file, replaced with functions to do those checks
+* Removed `function_exists` checks for pre-3.4 functions
+* Moved `wp_head` directly above `</head>`
+* Moved `wp_footer` directly above '</body>'
+* Renamed `$_post_format_chat_ids` to `$ap_core_post_format_chat_ids`
+* Prefixed EVERYTHING
 
 = Version 2.0 =
 
