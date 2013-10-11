@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-class wp_bootstrap_navwalker extends Walker_Nav_Menu {
+class ap_core_wp_bootstrap_navwalker extends Walker_Nav_Menu {
 
 	/**
 	 * @see Walker::start_lvl()

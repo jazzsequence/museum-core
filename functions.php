@@ -10,6 +10,7 @@ if (!function_exists('ap_core_register_sidebars')) {
             'after_title' => '</h3>'
         ));
         register_sidebar(array(
+            'id' => 'left-footer-box',
         	'name' => __('Left Footer Box','museum-core'),
         	'description' => __('This is the left box in the footer.','museum-core'),
             'before_widget' => '<li id="%1$s" class="widget %2$s">',
@@ -18,6 +19,7 @@ if (!function_exists('ap_core_register_sidebars')) {
             'after_title' => '</h3>'
         ));
         register_sidebar(array(
+            'id' => 'center-footer-box',
     		'name' => __('Center Footer Box','museum-core'),
         	'description' => __('This is the center box in the footer.','museum-core'),
             'before_widget' => '<li id="%1$s" class="widget %2$s">',
@@ -26,6 +28,7 @@ if (!function_exists('ap_core_register_sidebars')) {
             'after_title' => '</h3>'
         ));
         register_sidebar(array(
+            'id' => 'right-footer-box',
     		'name' => __('Right Footer Box','museum-core'),
         	'description' => __('This is the right box in the footer.','museum-core'),
             'before_widget' => '<li id="%1$s" class="widget %2$s">',
@@ -417,19 +420,19 @@ add_filter( 'ap_core_chat_text', 'wpautop' );
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link http://justintadlock.com/archives/2012/08/21/post-formats-chat
  *
- * @global array $_post_format_chat_ids An array of IDs for the chat rows based on the author.
+ * @global array $ap_core_post_format_chat_ids An array of IDs for the chat rows based on the author.
  * @param string $content The content of the post.
  * @return string $chat_output The formatted content of the post.
  */
 function ap_core_chat_content( $content ) {
-    global $_post_format_chat_ids;
+    global $ap_core_post_format_chat_ids;
 
     /* If this is not a 'chat' post, return the content. */
     if ( !has_post_format( 'chat' ) )
         return $content;
 
     /* Set the global variable of speaker IDs to a new, empty array for this chat. */
-    $_post_format_chat_ids = array();
+    $ap_core_post_format_chat_ids = array();
 
     /* Allow the separator (separator for speaker/text) to be filtered. */
     $separator = apply_filters( 'ap_core_chat_separator', ':' );
@@ -516,24 +519,24 @@ function ap_core_chat_content( $content ) {
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link http://justintadlock.com/archives/2012/08/21/post-formats-chat
  *
- * @global array $_post_format_chat_ids An array of IDs for the chat rows based on the author.
+ * @global array $ap_core_post_format_chat_ids An array of IDs for the chat rows based on the author.
  * @param string $chat_author Author of the current chat row.
  * @return int The ID for the chat row based on the author.
  */
 function ap_core_chat_row_id( $chat_author ) {
-    global $_post_format_chat_ids;
+    global $ap_core_post_format_chat_ids;
 
     /* Let's sanitize the chat author to avoid craziness and differences like "John" and "john". */
     $chat_author = strtolower( strip_tags( $chat_author ) );
 
     /* Add the chat author to the array. */
-    $_post_format_chat_ids[] = $chat_author;
+    $ap_core_post_format_chat_ids[] = $chat_author;
 
     /* Make sure the array only holds unique values. */
-    $_post_format_chat_ids = array_unique( $_post_format_chat_ids );
+    $ap_core_post_format_chat_ids = array_unique( $ap_core_post_format_chat_ids );
 
     /* Return the array key for the chat author and add "1" to avoid an ID of "0". */
-    return absint( array_search( $chat_author, $_post_format_chat_ids ) ) + 1;
+    return absint( array_search( $chat_author, $ap_core_post_format_chat_ids ) ) + 1;
 }
 
 /**

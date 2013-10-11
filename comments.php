@@ -47,22 +47,22 @@
 
 <?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
 <p><?php
-	$anchor = '<a href="' . wp_login_url( get_permalink() ) . '">';
-	$anchorclose = '</a>';
-	echo sprintf( __('You must be %1$slogged in%$2s to post a comment.','museum-core'), $anchor, $anchorclose ); ?></p>
+	$ap_anchor = '<a href="' . wp_login_url( get_permalink() ) . '">';
+	$ap_anchorclose = '</a>';
+	echo sprintf( __('You must be %1$slogged in%$2s to post a comment.','museum-core'), $ap_anchor, $ap_anchorclose ); ?></p>
 <?php else : ?>
 
 <?php
 
-	$comment_form = '<div class="form-group"><label for="comment">' . __( 'Comment', 'museum-core' ) . '</label>';
-	$comment_form .= '<textarea class="form-control" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>';
-	$comment_form .= '</div>';
+	$ap_comment_form = '<div class="form-group"><label for="comment">' . __( 'Comment', 'museum-core' ) . '</label>';
+	$ap_comment_form .= '<textarea class="form-control" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>';
+	$ap_comment_form .= '</div>';
 
-	$comment_notes_after = '<div class="form-group form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s', 'museum-core' ), ' <pre>' . allowed_tags() . '</pre>' ) . '</div>';
+	$ap_comment_notes_after = '<div class="form-group form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s', 'museum-core' ), ' <pre>' . allowed_tags() . '</pre>' ) . '</div>';
 
 ?>
 
-<?php comment_form( array( 'comment_field' => $comment_form, 'comment_notes_after' => $comment_notes_after ) ); ?>
+<?php comment_form( array( 'comment_field' => $ap_comment_form, 'comment_notes_after' => $ap_comment_notes_after ) ); ?>
 
 <?php endif; // If registration required and not logged in ?>
 

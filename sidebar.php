@@ -3,8 +3,8 @@
 	this is the sidebar
 */
 tha_sidebars_before();
-$sidebar = ap_core_get_which_sidebar(); ?>
- <div class="sidebar the_<?php echo $sidebar; ?> col-md-3 col-lg-3">
+$ap_core_sidebar = ap_core_get_which_sidebar(); ?>
+ <div class="sidebar the_<?php echo $ap_core_sidebar; ?> col-md-3 col-lg-3">
  	<?php tha_sidebar_top(); ?>
 	<ul>
          <!-- regular sidebar starts here -->

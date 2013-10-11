@@ -4,8 +4,8 @@
 */
 get_header();
 tha_content_before();
-$content = ap_core_get_which_content(); ?>
-<div class="content col-md-9 col-lg-9 <?php echo $content; ?>">
+$ap_core_content = ap_core_get_which_content(); ?>
+<div class="content col-md-9 col-lg-9 <?php echo $ap_core_content; ?>">
 	<?php tha_content_top(); ?>
 
 	<?php get_template_part('parts/post','archive'); ?>

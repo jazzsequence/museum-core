@@ -4,13 +4,13 @@
 */
 get_header();
 tha_content_before();
-$content = ap_core_get_which_content(); ?>
-<div class="content col-md-9 col-lg-9 <?php echo $content; ?>">
+$ap_core_content = ap_core_get_which_content(); ?>
+<div class="content col-md-9 col-lg-9 <?php echo $ap_core_content; ?>">
 	<?php tha_content_top(); ?>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post();
-		$post_format = get_post_format();
-		get_template_part('parts/post', $post_format);
+		$ap_core_post_format = get_post_format();
+		get_template_part('parts/post', $ap_core_post_format);
 		endwhile; ?>
 
 		<?php get_template_part( 'parts/part', 'navigation' ); ?>
