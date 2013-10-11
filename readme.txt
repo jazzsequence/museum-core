@@ -37,6 +37,8 @@ There are currently no screenshots.
 * Moved `wp_footer` directly above '</body>'
 * Renamed `$_post_format_chat_ids` to `$ap_core_post_format_chat_ids`
 * Prefixed EVERYTHING
+* Escaped all instances of `home_url()`
+* Set background color and border to top navbar to transparent
 
 = Version 2.0 =
 

@@ -1,7 +1,7 @@
 <?php
 	$ap_core_searchtext = __('Search this site', 'museum-core');
 ?>
-<form method="get" role="form" class="form-inline" id="searchform" action="<?php echo home_url(); ?>/">
+<form method="get" role="form" class="form-inline" id="searchform" action="<?php echo esc_url( home_url() ); ?>/">
 	<div class="form-group">
 		<label class="sr-only" for="search">
 			<?php echo $ap_core_searchtext; ?>

@@ -828,7 +828,7 @@ if ( !function_exists( 'ap_core_breadcrumbs' ) ) {
 
         if ( !is_home() || !is_front_page() || !is_paged() ) {
 
-            echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_home_url() . '">' . __( 'Home', 'museum-core' ) . '</a></span></li>';
+            echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . esc_url( get_home_url() ) . '">' . __( 'Home', 'museum-core' ) . '</a></span></li>';
 
             if ( is_category() ) {
                 $category = get_the_category();
@@ -904,8 +904,8 @@ if ( !function_exists( 'ap_core_breadcrumbs' ) ) {
             if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
                 echo '&nbsp;<span class="active paged">(' . sprintf( __( 'Page %s', 'museum-core' ), esc_attr( $paged ) ) . ')</li>';
             } else {
-                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_home_url() . '">' . __( 'Home', 'museum-core' ) . '</a></span></li>';
-                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_home_url() . '/?p=' . $front_page_ID . '">' . __( 'Blog', 'museum-core' ) . '</a></span></li>';
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . esc_url( get_home_url() ) . '">' . __( 'Home', 'museum-core' ) . '</a></span></li>';
+                echo '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . esc_url( get_home_url() ) . '/?p=' . $front_page_ID . '">' . __( 'Blog', 'museum-core' ) . '</a></span></li>';
                 echo '<li class="active paged">' . sprintf( __( 'Page %s', 'museum-core' ), esc_attr( $paged ) ) . '</li>';
             }
         }
