@@ -14,7 +14,7 @@
 <?php
 	$ap_core_headerimg = null;
 	if ( $options['site-title'] == false ) {
-		$ap_core_headerimg_before = '<a href="' . home_url() . '" title="' . get_bloginfo('title') . '">';
+		$ap_core_headerimg_before = '<a href="' . esc_url( home_url() ) . '" title="' . get_bloginfo('title') . '">';
 		$ap_core_headerimg_after = '</a>';
 	} else {
 		$ap_core_headerimg_before = null;
@@ -53,8 +53,8 @@
 				</button>
 			</div>
 			<?php
-				$ap_core_navbar_default = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' collapse navbar-collapse navbar-1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
-				$ap_core_navbar_fixed = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' navbar navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new wp_bootstrap_navwalker() );
+				$ap_core_navbar_default = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' collapse navbar-collapse navbar-1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new ap_core_wp_bootstrap_navwalker() );
+				$ap_core_navbar_fixed = array( 'container' => 'nav', 'depth' => 2, 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' navbar navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new ap_core_wp_bootstrap_navwalker() );
 			if ( $ap_core_fixed_nav ) {
 				// if the nav menu is fixed
 				wp_nav_menu( $ap_core_navbar_fixed );
@@ -94,10 +94,10 @@
 
 			<hgroup class="siteinfo">
 				<?php if ($options['alth1'] == true) { ?>
-					<h2 class="alt"><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
+					<h2 class="alt"><a href="<?php echo esc_url( home_url() ) ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
 					<h3><?php bloginfo('description'); ?></h3>
 				<?php } else { ?>
-					<h2><a href="<?php echo home_url() ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
+					<h2><a href="<?php echo esc_url( home_url() ) ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
 					<h3 class="alt"><?php bloginfo('description'); ?></h3>
 				<?php } ?>
 			</hgroup>
