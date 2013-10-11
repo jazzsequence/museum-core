@@ -417,6 +417,10 @@ hgroup h3 { font-size: 2em; }
   width: 100%;
   font-size: large;
 }
+.navbar-default {
+  background-color: transparent;
+  border: none;
+}
 
 /* Content */
 
