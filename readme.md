@@ -29,6 +29,10 @@ There are currently no screenshots.
 
 ## Changelog
 
+### Version 2.0.2
+
+* Fixes a bug with excerpts on archive pages
+
 ### Version 2.0.1
 
 * Removed `/inc/load-options.php` and all `include` functions for that file, replaced with functions to do those checks
