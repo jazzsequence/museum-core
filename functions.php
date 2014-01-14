@@ -425,6 +425,15 @@ function ap_core_meta_tags() {
     }
     return $output;
 }
+/*
+    example filter:
+    function my_cool_filter( $output ) {
+        $output = '<meta name="viewport" content="width="device-width">';
+        return $output;
+    }
+    add_filter( 'ap_core_filter_meta_tags', 'my_cool_filter' );
+*/
+
 
 /* Filter the content of chat posts. */
 add_filter( 'the_content', 'ap_core_chat_content' );
