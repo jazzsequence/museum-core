@@ -29,10 +29,8 @@
 	}
 ?>
 <title><?php wp_title(); ?></title>
-  <!-- Mobile viewport optimized: h5bp.com/viewport -->
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<?php wp_get_archives('type=monthly&format=link'); ?>
 <?php tha_head_bottom(); ?>
 <?php wp_head(); ?>
 </head>
