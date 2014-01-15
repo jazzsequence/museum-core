@@ -9,21 +9,21 @@
 	<footer class="row">
 		<?php tha_footer_top(); ?>
 		<?php if ( is_active_sidebar( 'left-footer-box' ) ) : ?>
-			<div class="col-md-4 col-lg-4" id="leftbox">
+			<div class="col-sm-4" id="leftbox">
 				<ul>
 					<?php dynamic_sidebar( 'left-footer-box' ); ?>
 				</ul>
 			</div>
 		<?php endif; ?>
 		<?php if ( is_active_sidebar( 'center-footer-box' ) ) : ?>
-			<div class="col-md-4 col-lg-4" id="middlebox">
+			<div class="col-sm-4" id="middlebox">
 				<ul>
 					 <?php dynamic_sidebar( 'center-footer-box' ); ?>
 				</ul>
 			</div>
 		<?php endif; ?>
 		<?php if ( is_active_sidebar( 'right-footer-box' ) ) : ?>
-			<div class="col-md-4 col-lg-4 last" id="rightbox">
+			<div class="col-sm-4 last" id="rightbox">
 				<ul>
 					 <?php dynamic_sidebar( 'right-footer-box' ); ?>
 				</ul>
