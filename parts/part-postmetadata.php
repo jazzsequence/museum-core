@@ -2,10 +2,6 @@
 	<?php
 		$options = get_option( 'ap_core_theme_options' );
 
-		if ( 'gallery' == get_post_format() || 'image' == get_post_format() ) { ?>
-			<span class="the_date"><time datetime=<?php the_time('Y-m-d'); ?>><?php the_time(get_option('date_format')) ?></time></span><br />
-		<?php }
-		
 		$time = '<time datetime=' . get_the_time('Y-m-d') . '>' . get_the_time('j F Y') . '</time>';
     	$categories = get_the_category_list( __(', ', 'museum-core') );
 		$tags = get_the_tag_list( __('and tagged ', 'museum-core'),', ' );
