@@ -1,7 +1,5 @@
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<time datetime=<?php the_time('Y-m-d'); ?>></time>
-
 	<?php get_template_part( 'parts/part', 'title' ); ?>
 
 	<?php tha_entry_before(); ?>
