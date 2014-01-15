@@ -33,7 +33,7 @@ $ap_core_url = null;
 	<h3 class="alt"><?php echo sprintf( __( 'All posts by %s', 'museum-core' ), get_the_author_meta('display_name') ); ?></h3>
 	<?php
 		rewind_posts();
-		get_template_part('parts/post', 'author');
+		get_template_part('parts/content', 'author');
 	?>
 
 	<?php tha_content_bottom(); ?>
