@@ -12,7 +12,7 @@ $ap_core_url = null;
 	<?php tha_content_top(); ?>
 
 	<?php if ( have_posts() ) the_post();
-		$ap_core_description = get_the_author_meta('description');
+		$ap_core_description = esc_attr( get_the_author_meta('description') );
 		$ap_core_url = get_the_author_meta('user_url');
 	?>
 	<section class="author media">
@@ -21,7 +21,7 @@ $ap_core_url = null;
 			<h2 class="the_title media-heading"><?php the_author_meta('display_name') ?></h2>
 			<p>
 				<?php if ( $ap_core_description ) {
-					esc_attr_e( $ap_core_description ); ?><br />
+					echo $ap_core_description; ?><br />
 				<?php }
 				if ( $ap_core_url ) { ?>
 					<a href="<?php echo esc_url($ap_core_url); ?>" rel="me"><?php _e('Website','museum-core'); ?></a>
