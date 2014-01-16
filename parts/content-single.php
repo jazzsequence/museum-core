@@ -17,7 +17,6 @@
 
 		<?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
-
 		<?php get_template_part( 'parts/part', 'navigation' ); ?>
 
         <?php tha_comments_before(); ?>

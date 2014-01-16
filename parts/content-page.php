@@ -16,7 +16,6 @@
 		</section>
 		<?php tha_entry_after(); ?>
 
-
 		<?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
 		<?php tha_comments_before(); ?>
