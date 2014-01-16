@@ -23,9 +23,6 @@
 
 		<?php get_template_part( 'parts/part', 'navigation' ); ?>
 
-        <div class="spacer-10"></div>
-        <div class="spacer-10"></div>
-
         <?php tha_comments_before(); ?>
     	<section id="comments">
 			<?php comments_template(); ?>
