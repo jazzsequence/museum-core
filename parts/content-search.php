@@ -1,17 +1,6 @@
 <?php
-    global $query_string;
-    $query_args = explode("&", $query_string);
-    $search_query = array();
-
-    foreach($query_args as $key => $string) {
-        $query_split = explode("=", $string);
-        $search_query[$query_split[0]] = $query_split[1];
-    } // foreach
-
-    $search = new WP_Query($search_query);
-
-    global $wp_query;
-    $total_results = $wp_query->found_posts;
+global $wp_query;
+$total_results = $wp_query->found_posts;
 ?>
 
 <h1 class="searchresults the_title"><?php echo sprintf( __( 'We found %1$s results for <q>%2$s</q>', 'museum-core' ), $total_results, get_search_query() ); ?></h1>
