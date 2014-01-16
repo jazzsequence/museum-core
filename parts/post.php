@@ -6,8 +6,8 @@
 	<section class="entry media">
 		<?php tha_entry_top(); ?>
 
-		<?php $show_excerpt = ap_core_blog_excerpts();
-		if ( $show_excerpt == false ) {
+		<?php
+		if ( function_exists( 'ap_core_blog_excerpts' ) && ap_core_blog_excerpts() == false ) {
 			the_content(__('Read more &raquo;','museum-core'));
 		} else {
 			if(has_post_thumbnail()) { ?>

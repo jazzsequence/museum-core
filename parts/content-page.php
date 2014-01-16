@@ -16,9 +16,7 @@
 		</section>
 		<?php tha_entry_after(); ?>
 
-		<section class="postmetadata">
-			<p><?php edit_post_link(__('Edit this entry','museum-core'),'','.'); ?></p>
-		</section>
+		<?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
 		<?php tha_comments_before(); ?>
 		<section id="comments">

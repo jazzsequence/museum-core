@@ -1,4 +1,5 @@
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+
 	<time datetime=<?php the_time('Y-m-d'); ?>></time>
 
 	<?php tha_entry_before(); ?>

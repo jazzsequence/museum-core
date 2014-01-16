@@ -5,10 +5,10 @@
 get_header();
 tha_content_before();
 $ap_core_content = ap_core_get_which_content(); ?>
-<div class="content col-md-9 col-lg-9 <?php echo $ap_core_content; ?>">
+<div class="content col-md-9 <?php echo $ap_core_content; ?>">
 	<?php tha_content_top(); ?>
 
-	<?php get_template_part('parts/post', 'page'); ?>
+	<?php get_template_part('parts/content', 'page'); ?>
 
 	<?php tha_content_bottom(); ?>
 </div>
