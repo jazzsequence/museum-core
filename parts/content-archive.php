@@ -51,10 +51,8 @@
 				<section class="entry media">
 					<?php tha_entry_top(); ?>
 
-					<?php $archive_excerpt = ap_core_archive_excerpts();
-					$format = get_post_format();
-					$no_excerpt_formats = array( 'aside', 'chat', 'link', 'quote', 'status', 'video', 'audio' );
-					if ( $archive_excerpt == false || in_array( $format, $no_excerpt_formats ) ) {
+					<?php
+					if ( ap_core_archive_excerpts() == false ) {
 						the_content(__('Read more &raquo;','museum-core'));
 					} else {
 						if ( has_post_thumbnail() ) { ?>
