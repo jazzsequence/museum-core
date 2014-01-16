@@ -400,6 +400,41 @@ function ap_core_link_pages( $args = array () ) {
     print $output . $after;
 }
 
+/**
+ * Add the meta tags with a filter
+ * This function outputs the (potentially filtered) content of the meta tag filter
+ * @author Chris Reynolds
+ * @since 2.0.4
+ */
+add_action( 'tha_head_bottom', 'ap_core_do_meta_tags' );
+function ap_core_do_meta_tags() {
+    echo ap_core_meta_tags();
+}
+
+/**
+ * Build the meta tags and allow other people to filter them
+ * @author Chris Reynolds
+ * @since 2.0.4
+ */
+function ap_core_meta_tags() {
+    $output = '<meta name="viewport" content="width=device-width, initial-scale=1">';
+    $output .= '<link rel="pingback" href="' . get_bloginfo('pingback_url') . '" />';
+
+    if ( has_filter( 'ap_core_filter_meta_tags' ) ) {
+        $output = apply_filters( 'ap_core_filter_meta_tags', 10, 2 );
+    }
+    return $output;
+}
+/*
+    example filter:
+    function my_cool_filter( $output ) {
+        $output = '<meta name="viewport" content="width="device-width">';
+        return $output;
+    }
+    add_filter( 'ap_core_filter_meta_tags', 'my_cool_filter' );
+*/
+
+
 /* Filter the content of chat posts. */
 add_filter( 'the_content', 'ap_core_chat_content' );
 
