@@ -42,7 +42,7 @@ There are currently no screenshots.
 * Removed `/inc/load-options.php` and all `include` functions for that file, replaced with functions to do those checks
 * Removed `function_exists` checks for pre-3.4 functions
 * Moved `wp_head` directly above `</head>`
-* Moved `wp_footer` directly above '</body>'
+* Moved `wp_footer` directly above `</body>`
 * Renamed `$_post_format_chat_ids` to `$ap_core_post_format_chat_ids`
 * Prefixed EVERYTHING
 * Escaped all instances of `home_url()`
