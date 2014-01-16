@@ -12,19 +12,23 @@
 <?php if ( have_comments() ) : ?>
 	<h3 id="comments"><?php printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), 'museum-core' ), number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' ); ?></h3>
 
-	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link() ?></div>
-		<div class="alignright"><?php next_comments_link() ?></div>
-	</div>
+	<nav class="navigation clearfix">
+		<ul class="pager">
+			<li class="previous"><?php previous_comments_link() ?></li>
+			<li class="next"><?php next_comments_link() ?></li>
+		</ul>
+	</nav>
 
 	<ol class="commentlist">
 	<?php wp_list_comments('type=all&callback=ap_core_comment'); ?>
 	</ol>
 
-	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link() ?></div>
-		<div class="alignright"><?php next_comments_link() ?></div>
-	</div>
+	<nav class="navigation clearfix">
+		<ul class="pager">
+			<li class="previous"><?php previous_comments_link() ?></li>
+			<li class="next"><?php next_comments_link() ?></li>
+		</ul>
+	</nav>
  <?php else : // this is displayed if there are no comments so far ?>
 
 	<?php if ( comments_open() ) : ?>
