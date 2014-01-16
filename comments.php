@@ -20,7 +20,7 @@
 	</nav>
 
 	<ol class="commentlist">
-	<?php wp_list_comments('type=all&callback=ap_core_comment'); ?>
+		<?php wp_list_comments('type=all&callback=ap_core_comment'); ?>
 	</ol>
 
 	<nav class="navigation clearfix">
