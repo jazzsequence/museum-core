@@ -553,20 +553,14 @@ form#searchform input#s:active, form#searchform input#s:focus {
 ul.commentlist, ol.commentlist { clear: both; }
 #comments ul.commentlist, #comments ol.commentlist { list-style-type: none; margin: 0; padding: 0; }
 #comments li div.the_comment { padding: 10px; border-bottom: 1px solid #efefef; margin-bottom: 10px; }
-#comments ul.children { margin: 0 0 0 10px; list-style-type: none; padding-left: 20px; }
-#comments ul.children li { border-left: 5px solid #efefef; }
-#comments ul.children li.bypostauthor { border-left: 5px solid #f1e7bc; }
-.comment-author .thumbnail {
-  width: 64px;
-  height: 64px;
-  float: right;
-}
+#comments ul.children div.the_comment { border-left: 5px solid #efefef; list-style-type: none; }
+.comment-author .thumbnail { width: 64px; height: 64px; }
 .odd .thumbnail { float: left; margin-right: 10px; margin-bottom: 10px; }
 .even .thumbnail { float: right; margin-left: 10px; margin-bottom: 10px; }
 .comment-meta { clear: both; }
 li.comment { clear: both; }
-li.bypostauthor { background: #fefbed; color: #4E3E22; }
-#comments li.bypostauthor div.the_comment { border-bottom: 1px solid #f1e7bc; }
+li.bypostauthor div.the_comment { background: #fefbed; color: #4E3E22; }
+#comments li.bypostauthor div.the_comment { border-left: 5px solid #f1e7bc; border-bottom: 1px solid #f1e7bc; }
 #comments .reply button { margin: 10px 0; clear: both; }
 #comments .reply button a { color: #333; }
 h3#comments { word-wrap: break-word; clear: both; }
