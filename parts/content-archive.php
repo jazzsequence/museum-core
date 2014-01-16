@@ -4,7 +4,7 @@
 	if ( is_category() ) {
 		$category = get_the_category();
 		$category = $category[0]->cat_name; ?>
-	    <h1 class="the_title"><?php echo sprintf( __( 'Posts filed under %s','museum-core'), $category ); ?></h1>
+	    <h2 class="the_title"><?php echo sprintf( __( 'Posts filed under %s','museum-core'), $category ); ?></h2>
 
 	<?php /* If this is a tag archive */
 	} elseif( is_tag() ) {
@@ -13,68 +13,73 @@
 		foreach ( $tags as $tag ) {
 			$tag_name = $tag->name; // only one should get pulled
 		} ?>
-		<h1 class="the_title"><?php echo sprintf( __('Posts filed under %s','museum-core'), $tag_name ); ?></h1>
+		<h2 class="the_title"><?php echo sprintf( __('Posts filed under %s','museum-core'), $tag_name ); ?></h2>
 
 	<?php /* If this is a daily archive */
 	} elseif ( is_day() ) { ?>
-		<h1 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('j F Y') ); ?></h1>
+		<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('j F Y') ); ?></h2>
 
 	<?php /* If this is a monthly archive */
 	} elseif ( is_month() ) { ?>
-		<h1 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('F Y') ); ?></h1>
+		<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('F Y') ); ?></h2>
 
 	<?php /* If this is a yearly archive */
 	} elseif ( is_year() ) { ?>
-		<h1 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('Y') ); ?></h1>
+		<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('Y') ); ?></h2>
 
 	<?php /* If this is an author archive */
 	} elseif ( is_author() ) { ?>
-		<h1 class="the_title"><?php _e('Author Archive','museum-core'); ?></h1>
+		<h2 class="the_title"><?php _e('Author Archive','museum-core'); ?></h2>
 
 	<?php /* All other archives */
 	} else { ?>
-		<h1 class="the_title"><?php _e('Blog Archives','museum-core'); ?></h1>
+		<h2 class="the_title"><?php _e('Blog Archives','museum-core'); ?></h2>
 	<?php } ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+	<?php while ( have_posts() ) : the_post();
 
-    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+		$ap_core_post_format = get_post_format();
+		if ( $ap_core_post_format ) {
+			get_template_part('parts/post', $ap_core_post_format);
+		} else { ?>
 
-		<?php get_template_part( 'parts/part', 'title' ); ?>
+		    <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-		<?php tha_entry_before(); ?>
-		<section class="entry media">
-			<?php tha_entry_top(); ?>
+				<?php get_template_part( 'parts/part', 'title' ); ?>
 
-			<?php $archive_excerpt = ap_core_archive_excerpts();
-			$format = get_post_format();
-			$no_excerpt_formats = array( 'aside', 'chat', 'link', 'quote', 'status', 'video', 'audio' );
-			if ( $archive_excerpt == false || in_array( $format, $no_excerpt_formats ) ) {
-				the_content(__('Read more &raquo;','museum-core'));
-			} else {
-				if ( has_post_thumbnail() ) { ?>
+				<?php tha_entry_before(); ?>
+				<section class="entry media">
+					<?php tha_entry_top(); ?>
 
-					<div class="pull-left"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'thumbnail', array( 'class' => 'img-thumbnail media-object' ) ); ?></a></div>
+					<?php $archive_excerpt = ap_core_archive_excerpts();
+					$format = get_post_format();
+					$no_excerpt_formats = array( 'aside', 'chat', 'link', 'quote', 'status', 'video', 'audio' );
+					if ( $archive_excerpt == false || in_array( $format, $no_excerpt_formats ) ) {
+						the_content(__('Read more &raquo;','museum-core'));
+					} else {
+						if ( has_post_thumbnail() ) { ?>
 
-				<?php } ?>
+							<div class="pull-left"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'thumbnail', array( 'class' => 'img-thumbnail media-object' ) ); ?></a></div>
 
-				<div class="media-body">
-					<?php the_excerpt(); ?>
-				</div>
+						<?php } ?>
 
-			<?php } ?>
+						<div class="media-body">
+							<?php the_excerpt(); ?>
+						</div>
 
-			<?php tha_entry_bottom(); ?>
-		</section>
-		<?php tha_entry_after(); ?>
+					<?php } ?>
 
-		<div class="icon icon-archive pull-left" title="<?php _e( 'Archive', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
+					<?php tha_entry_bottom(); ?>
+				</section>
+				<?php tha_entry_after(); ?>
 
-    </article>
+				<div class="icon icon-archive pull-left" title="<?php _e( 'Archive', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
-    <div class="spacer-10"></div>
+		    </article>
 
-	<?php
+		    <div class="spacer-10"></div>
+
+		<?php }
 	endwhile;
 	get_template_part( 'parts/part', 'navigation' );
 	endif; ?>
