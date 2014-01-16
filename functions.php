@@ -262,7 +262,7 @@ if (!function_exists('ap_core_setup')) {
                             <?php endif; ?>
                         </div>
                         <div class="media-body">
-                            <label><?php echo sprintf(_x('On %1$s at %2$s %3$s said:', '1: date, 2: time, 3:author', 'museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ?></label>
+                            <label><?php echo sprintf(_x('On %1$s at %2$s, %3$s said:', '1: date, 2: time, 3:author', 'museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ?></label>
                             <?php if ($comment->comment_approved == '0') : ?>
                                 <em><?php _e('Your comment is awaiting moderation.', 'museum-core') ?></em>
                                 <br />
