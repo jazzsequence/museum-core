@@ -18,7 +18,7 @@ if ( have_comments() ) : ?>
 	</nav>
 
 	<ol class="commentlist">
-		<?php wp_list_comments('type=all&callback=ap_core_comment'); ?>
+		<?php wp_list_comments('callback=ap_core_comment'); ?>
 	</ol>
 
 	<nav class="navigation clearfix">
@@ -52,4 +52,4 @@ if ( comments_open() ) : ?>
 
 	comment_form( array( 'comment_field' => $ap_comment_form, 'comment_notes_after' => $ap_comment_notes_after ) ); ?>
 
-<?php endif; // if you delete this the sky will fall on your head ?>
+<?php endif; // end comments_open() ?>
