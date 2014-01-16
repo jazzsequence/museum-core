@@ -2,10 +2,7 @@
 
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-		<?php $is_title_set = get_the_title();
-		if ( !empty( $is_title_set ) ) { ?>
-			<h1 class="the_title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php echo sprintf( __('Permanent Link to %s','museum-core'), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h1>
-		<?php } ?>
+		<h1 class="the_title"><?php the_title(); ?></h1>
 
 		<?php tha_entry_before(); ?>
 		<section class="entry">
