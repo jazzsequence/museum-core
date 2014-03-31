@@ -98,7 +98,6 @@ if (!function_exists('ap_core_load_scripts')) {
         wp_register_style( 'opensans', 'http://fonts.googleapis.com/css?family=Open+Sans&subset=' . $font_subset, false, $theme['Version'] );
         // only enqueue fonts that are actually being used
         $corefonts = array( $options['heading'], $options['body'], $options['alt'] );
-        //var_dump($corefonts);
         // if any of these fonts are selected, load their stylesheets
         if ( in_array( 'Droid Sans', $corefonts ) ) {
             wp_enqueue_style( 'droidsans' );
@@ -174,7 +173,7 @@ if (!function_exists('ap_core_setup')) {
         // automatic feed links
         add_theme_support('automatic-feed-links');
 
-    	if ( ! isset( $content_width ) ) $content_width = 1140;
+    	if ( ! isset( $content_width ) ) $content_width = 698;
 
         // custom nav menus
         // This theme uses wp_nav_menu() in three (count them, three!) locations.
@@ -183,15 +182,6 @@ if (!function_exists('ap_core_setup')) {
         	'main' => __( 'Main Navigation', 'museum-core' ),
         	'footer' => __( 'Footer Navigation', 'museum-core' ),
         ) );
-
-        // This adds a home link option in the Menus
-        if (!function_exists('ap_core_home_page_menu_args')) {
-            function ap_core_home_page_menu_args( $args ) {
-                $args['show_home'] = true;
-                return $args;
-            }
-            add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
-        }
 
         // This theme allows users to set a custom background
         add_theme_support( 'custom-background', array() );  // 'nuff said. there are no defaults here, so we'll move on to headers
