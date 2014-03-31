@@ -22,7 +22,8 @@
 
 			<div class="icon icon-user pull-left" title="<?php _e( 'Author', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
-		<?php tha_entry_bottom(); ?>
+			<?php tha_entry_bottom(); ?>
+		</section>
 	</article>
 	<?php tha_entry_after(); ?>
 
