@@ -163,6 +163,9 @@ if (!function_exists('ap_core_setup')) {
             load_theme_textdomain('museum-core', get_template_directory() .'/lang');
         }
 
+        // html5 theme support
+        add_theme_support( 'html5' );
+
         // post thumbnail support
         add_theme_support( 'post-thumbnails' );
         set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
