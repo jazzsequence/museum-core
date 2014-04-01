@@ -175,6 +175,12 @@ if (!function_exists('ap_core_setup')) {
 
     	if ( ! isset( $content_width ) ) $content_width = 698;
 
+        $themecolors = array(
+            'bg' => 'f5f5f5',
+            'border' => 'f5f5f5',
+            'text' => '111111'
+        );
+
         // custom nav menus
         // This theme uses wp_nav_menu() in three (count them, three!) locations.
         register_nav_menus( array(
