@@ -13,6 +13,6 @@
 	</section>
 	<?php tha_entry_after(); ?>
 
-	<div class="icon icon-comments-alt pull-left" title="<?php _e( 'Chat', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
+	<div class="icon icon-comments-alt pull-left" title="<?php esc_attr_e( 'Chat', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
 </article>

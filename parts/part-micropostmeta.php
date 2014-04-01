@@ -2,7 +2,7 @@
 	<?php
 		$is_title_set = get_the_title();
 		if ( empty( $is_title_set ) ) { ?>
-			<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php _e( 'Permanent Link to post', 'museum-core' ); ?>"><?php _e( '(no title)', 'museum-core' ) ?></a>
+			<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php esc_attr_e( 'Permanent Link to post', 'museum-core' ); ?>"><?php _e( '(no title)', 'museum-core' ) ?></a>
 	<?php } else { ?>
 		<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php echo sprintf( __('Permanent Link to %s','museum-core'), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a>
 	<?php } ?>

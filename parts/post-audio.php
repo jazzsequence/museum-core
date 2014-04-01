@@ -13,6 +13,6 @@
 	</section>
 	<?php tha_entry_after(); ?>
 
-	<div class="icon icon-volume-up pull-left" title="<?php _e( 'Audio', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
+	<div class="icon icon-volume-up pull-left" title="<?php esc_attr_e( 'Audio', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
 </article>
