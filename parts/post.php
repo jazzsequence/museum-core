@@ -23,6 +23,6 @@
 	</section>
 	<?php tha_entry_after(); ?>
 
-	<div class="icon icon-edit pull-left"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
+	<div class="icon icon-post pull-left"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
 </article>

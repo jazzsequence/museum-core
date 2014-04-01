@@ -493,7 +493,8 @@ article.format-video .entry object,
 article.format-video .entry iframe,
 article.format-audio .entry embed,
 article.format-audio .entry object,
-article.format-audio .entry iframe {
+article.format-audio .entry iframe,
+.single-attachment .attachment img {
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -531,7 +532,7 @@ article.format-audio .entry iframe {
   color: #5bc0de;
 }
 
-.icon { margin-top: 4px; }
+.icon { margin-top: 2px; margin-bottom: -2px; }
 
 /* search page */
 section.searchform { margin: 20px 0; }

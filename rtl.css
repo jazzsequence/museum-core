@@ -1,0 +1,59 @@
+/*
+Theme Name: Museum Core
+Description: Adds support for languages written in a Right-to-Left (RTL) direction.
+*/
+
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+a {
+	display: inline-block;
+}
+
+.last {
+	margin-left: 0px;
+}
+
+.span-3um {
+	float: right;
+	margin-left: 10px;
+	margin-right: 0px;
+}
+
+#wp-calendar #next a {
+	padding-right: 0px;
+	padding-left: 10px;
+	text-align: left;
+}
+
+#wp-calendar #prev a {
+	padding-left: 0px;
+	padding-right: 10px;
+	text-align: right;
+}
+
+article.sticky,
+article.format-aside,
+article.format-status {
+	padding: 15px 15px 15px 30px;
+	border-left: 0px;
+	border-right: 5px solid;
+}
+
+.chat-author {
+	margin-left: .5em;
+	margin-right: 0px;
+	float: right!important;
+}
+
+.icon.pull-left {
+	float: right!important;
+	margin-right: 0em;
+	margin-left: .3em;
+}
+
+footer {
+	text-align: right;
+}

@@ -775,7 +775,7 @@ function ap_core_validate_sidebar( $value ) {
  * @link http://themeshaper.com/2013/04/29/validation-sanitization-in-customizer/
  */
 function ap_core_validate_subset( $value ) {
-	if ( !array_key_exists( $value, ap_core_font_subsets() ) )
+	if ( !array_key_exists( $value, ap_core_font_subset() ) )
 		$value = null;
 
 	return $value;

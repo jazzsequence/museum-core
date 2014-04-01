@@ -1,4 +1,11 @@
 <?php
+
+if ( !isset( $content_width ) )
+    $content_width = 698;
+
+if ( !isset( $themecolors ) )
+    $themecolors = array( 'bg' => 'f5f5f5', 'border' => 'f5f5f5', 'text' => '111111' );
+
 if (!function_exists('ap_core_register_sidebars')) {
     function ap_core_register_sidebars() {
         register_sidebar(array(
@@ -98,7 +105,6 @@ if (!function_exists('ap_core_load_scripts')) {
         wp_register_style( 'opensans', 'http://fonts.googleapis.com/css?family=Open+Sans&subset=' . $font_subset, false, $theme['Version'] );
         // only enqueue fonts that are actually being used
         $corefonts = array( $options['heading'], $options['body'], $options['alt'] );
-        //var_dump($corefonts);
         // if any of these fonts are selected, load their stylesheets
         if ( in_array( 'Droid Sans', $corefonts ) ) {
             wp_enqueue_style( 'droidsans' );
@@ -122,9 +128,8 @@ if (!function_exists('ap_core_load_scripts')) {
             wp_enqueue_style( 'notoserif' );
         }
         // this loads the style.css
-        wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', false, '3.2.1' );
-        if ( $is_IE )
-            wp_enqueue_style( 'fontawesome-ie7', get_template_directory_uri() . '/assets/css/font-awesome-ie7.min.css', array( 'fontawesome' ), '3.2.1' );
+        wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', false, $theme['Version'] );
+
         wp_register_style('corecss', get_stylesheet_uri(),false,$theme['Version']);
         wp_enqueue_style('corecss');
         // loads the comment reply script
@@ -164,6 +169,9 @@ if (!function_exists('ap_core_setup')) {
             load_theme_textdomain('museum-core', get_template_directory() .'/lang');
         }
 
+        // html5 theme support
+        add_theme_support( 'html5' );
+
         // post thumbnail support
         add_theme_support( 'post-thumbnails' );
         set_post_thumbnail_size( 150, 150 ); // 150 pixels wide by 150 pixels tall, box resize mode
@@ -174,8 +182,6 @@ if (!function_exists('ap_core_setup')) {
         // automatic feed links
         add_theme_support('automatic-feed-links');
 
-    	if ( ! isset( $content_width ) ) $content_width = 1140;
-
         // custom nav menus
         // This theme uses wp_nav_menu() in three (count them, three!) locations.
         register_nav_menus( array(
@@ -183,15 +189,6 @@ if (!function_exists('ap_core_setup')) {
         	'main' => __( 'Main Navigation', 'museum-core' ),
         	'footer' => __( 'Footer Navigation', 'museum-core' ),
         ) );
-
-        // This adds a home link option in the Menus
-        if (!function_exists('ap_core_home_page_menu_args')) {
-            function ap_core_home_page_menu_args( $args ) {
-                $args['show_home'] = true;
-                return $args;
-            }
-            add_filter( 'wp_page_menu_args', 'ap_core_home_page_menu_args' );
-        }
 
         // This theme allows users to set a custom background
         add_theme_support( 'custom-background', array() );  // 'nuff said. there are no defaults here, so we'll move on to headers
@@ -326,7 +323,13 @@ if (!function_exists('ap_core_wp_title')) {
 
         // if we're on a single post...
         elseif ( is_single() ) {
-            $ap_core_title = single_post_title( '', false ) . ' | ' . $category[0]->cat_name;
+            if ( !is_attachment() ) {
+                $ap_core_title = single_post_title( '', false ) . ' | ' . $category[0]->cat_name;
+            } else {
+                global $post;
+                $parent = get_post( $post->post_parent );
+                $ap_core_title = single_post_title( '', false ) . ' : ' . get_the_title( $parent );
+            }
         }
 
         // if we're on a page...
