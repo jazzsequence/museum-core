@@ -322,7 +322,13 @@ if (!function_exists('ap_core_wp_title')) {
 
         // if we're on a single post...
         elseif ( is_single() ) {
-            $ap_core_title = single_post_title( '', false ) . ' | ' . $category[0]->cat_name;
+            if ( !is_attachment() ) {
+                $ap_core_title = single_post_title( '', false ) . ' | ' . $category[0]->cat_name;
+            } else {
+                global $post;
+                $parent = get_post( $post->post_parent );
+                $ap_core_title = single_post_title( '', false ) . ' : ' . get_the_title( $parent );
+            }
         }
 
         // if we're on a page...

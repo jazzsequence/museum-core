@@ -493,7 +493,8 @@ article.format-video .entry object,
 article.format-video .entry iframe,
 article.format-audio .entry embed,
 article.format-audio .entry object,
-article.format-audio .entry iframe {
+article.format-audio .entry iframe,
+.single-attachment .attachment img {
   display: block;
   margin: 0 auto;
   text-align: center;
