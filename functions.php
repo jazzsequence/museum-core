@@ -128,9 +128,8 @@ if (!function_exists('ap_core_load_scripts')) {
             wp_enqueue_style( 'notoserif' );
         }
         // this loads the style.css
-        wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', false, '3.2.1' );
-        if ( $is_IE )
-            wp_enqueue_style( 'fontawesome-ie7', get_template_directory_uri() . '/assets/css/font-awesome-ie7.min.css', array( 'fontawesome' ), '3.2.1' );
+        wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', false, $theme['Version'] );
+
         wp_register_style('corecss', get_stylesheet_uri(),false,$theme['Version']);
         wp_enqueue_style('corecss');
         // loads the comment reply script
