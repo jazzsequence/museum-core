@@ -1,4 +1,5 @@
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php if (have_posts()) : while (have_posts()) : the_post();
+global $content_width; ?>
 
 	<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
@@ -34,7 +35,7 @@
 					}
 				?>
 
-				<a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php echo wp_get_attachment_image( $post->ID, array( 1140, 9999 ) ); ?></a>
+				<a href="<?php echo $next_attachment_url; ?>" title="<?php echo esc_attr( get_the_title() ); ?>" rel="attachment"><?php echo wp_get_attachment_image( $post->ID, array( $content_width, 9999 ) ); ?></a>
 			</div><!-- .attachment -->
 
 			<?php if ( ! empty( $post->post_excerpt ) ) : ?>

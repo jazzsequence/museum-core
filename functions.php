@@ -1,4 +1,11 @@
 <?php
+
+if ( !isset( $content_width ) )
+    $content_width = 698;
+
+if ( !isset( $themecolors ) )
+    $themecolors = array( 'bg' => 'f5f5f5', 'border' => 'f5f5f5', 'text' => '111111' );
+
 if (!function_exists('ap_core_register_sidebars')) {
     function ap_core_register_sidebars() {
         register_sidebar(array(
@@ -175,14 +182,6 @@ if (!function_exists('ap_core_setup')) {
 
         // automatic feed links
         add_theme_support('automatic-feed-links');
-
-    	if ( ! isset( $content_width ) ) $content_width = 698;
-
-        $themecolors = array(
-            'bg' => 'f5f5f5',
-            'border' => 'f5f5f5',
-            'text' => '111111'
-        );
 
         // custom nav menus
         // This theme uses wp_nav_menu() in three (count them, three!) locations.

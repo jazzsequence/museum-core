@@ -45,8 +45,8 @@
     	$image_url = wp_get_attachment_url();
     	$parent_title = get_the_title( $post->post_parent );
     	$parent_link = '<a href="' . get_permalink( $post->post_parent ) . '" title="' . sprintf( __( 'Permalink to %s', 'museum-core' ), esc_attr( $parent_title ) ) . '">' . esc_attr( $parent_title ) . '</a>';
-    	printf( __( 'Displayed in %1$s on %2$s.' , 'museum-core' ), $parent_link, $time );
-    	echo ' | ';
+    	printf( __( 'Attached to %1$s which was posted on %2$s.' , 'museum-core' ), $parent_link, $time );
+    	echo '<br />';
     	echo '<a href="' . esc_url_raw( $image_url ) . '" title="' . __( 'Link to full-size image.', 'museum-core' ) . '">';
     	_e( 'View full image.' );
     	echo '</a>';
