@@ -31,7 +31,7 @@ $total_results = $wp_query->found_posts;
 	</section>
 	<?php tha_entry_after(); ?>
 
-	<div class="icon icon-search pull-left" title="<?php _e( 'Search', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
+	<div class="icon icon-search pull-left" title="<?php esc_attr_e( 'Search', 'museum-core' ); ?>"></div><?php get_template_part( 'parts/part', 'postmetadata' ); ?>
 
 </article>
 
