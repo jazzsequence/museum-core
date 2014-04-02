@@ -35,7 +35,7 @@
 			<?php if ( $ap_options['footer'] != '' ) {
 				echo wp_kses_post( stripcslashes( $ap_options['footer'] ) );
 			} else {
-				echo $ap_defaults['footer'];
+				echo wp_kses_post( $ap_defaults['footer'] );
 			} ?>
 		</div>
 		<?php tha_footer_bottom(); ?>

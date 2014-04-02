@@ -259,7 +259,7 @@ if (!function_exists('ap_core_setup')) {
                             <?php endif; ?>
                         </div>
                         <div class="media-body">
-                            <label><?php echo sprintf(_x('On %1$s at %2$s, %3$s said:', '1: date, 2: time, 3:author', 'museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ?></label>
+                            <label><?php esc_html_e( sprintf(_x('On %1$s at %2$s, %3$s said:', '1: date, 2: time, 3:author', 'museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ); ?></label>
                             <?php if ($comment->comment_approved == '0') : ?>
                                 <em><?php _e('Your comment is awaiting moderation.', 'museum-core') ?></em>
                                 <br />
@@ -274,7 +274,7 @@ if (!function_exists('ap_core_setup')) {
                             } ?>
                             <small>
                                 <div class="comment-meta commentmetadata"><?php edit_comment_link( '<span class="text-danger">' . __('(Edit)', 'museum-core') . '</span>','','') ?></div>
-                                <a href="<?php echo get_comment_link(); ?>"><?php _e( 'Permalink', 'museum-core' ); ?></a>
+                                <a href="<?php comment_link(); ?>"><?php _e( 'Permalink', 'museum-core' ); ?></a>
                             </small>
                         </div>
                     </div>
@@ -405,7 +405,7 @@ function ap_core_link_pages( $args = array () ) {
         }
     }
 
-    print $output . $after;
+    print wp_kses_post( $output ) . $after;
 }
 
 /**
@@ -416,7 +416,7 @@ function ap_core_link_pages( $args = array () ) {
  */
 add_action( 'tha_head_bottom', 'ap_core_do_meta_tags' );
 function ap_core_do_meta_tags() {
-    echo ap_core_meta_tags();
+    echo wp_kses_post( ap_core_meta_tags() );
 }
 
 /**
@@ -596,7 +596,7 @@ if (!function_exists('ap_core_generator')) {
         $theme = wp_get_theme();
         $ap_core_version = '<meta name="generator" content="' . $theme['Name'] . ' ' . $theme['Version'] . '">';
 
-        echo $ap_core_version;
+        echo wp_kses_post( $ap_core_version );
     }
     $options = get_option( 'ap_core_theme_options' );
     if ($options['generator'] == true) {
@@ -846,7 +846,7 @@ if (!function_exists('ap_core_custom_styles')) {
 
         $output .= "</style>";
         if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == false ) {
-            echo $output;
+            echo wp_kses( $output, array( 'style' => array( 'type' => array(), 'media' => array() ) ) );
         }
     }
     add_action( 'wp_head', 'ap_core_custom_styles' );
@@ -866,6 +866,19 @@ if ( !function_exists( 'ap_core_breadcrumbs' ) ) {
     function ap_core_breadcrumbs() {
         global $post, $paged;
 
+        $accepted_parameters = array(
+            'li' => array(
+                'class' => array()
+            ),
+            'span' => array(
+                'typeof' => array(),
+            ),
+            'a' => array(
+                'href' => array(),
+                'rel' => array(),
+                'property' => array()
+            )
+        );
         // this sets up some breadcrumbs for posts & pages that support Twitter Bootstrap styles
         echo '<ul xmlns:v="http://rdf.data-vocabulary.org/#" class="breadcrumb">';
 
@@ -928,7 +941,7 @@ if ( !function_exists( 'ap_core_breadcrumbs' ) ) {
                 }
                 $breadcrumbs = array_reverse( $breadcrumbs );
                 foreach ( $breadcrumbs as $crumb ) {
-                    echo $crumb;
+                    echo wp_kses( $crumb, $accepted_parameters );
                 }
                 echo '<li class="active"><span typeof="v:Breadcrumb">' . get_the_title() . '</span></li>';
             } elseif ( is_search() ) {
@@ -1007,8 +1020,8 @@ if (!function_exists('ap_core_favicon')) {
         $options = get_option( 'ap_core_theme_options' );
 
         if ( isset($options['favicon']) ) {
-            $favicon = esc_url($options['favicon']); ?>
-            <link rel="Shortcut Icon" href="<?php echo $favicon; ?>" type="image/x-icon" />
+            $favicon = $options['favicon']; ?>
+            <link rel="Shortcut Icon" href="<?php echo esc_url( $favicon ); ?>" type="image/x-icon" />
         <?php }
     }
     add_action( 'wp_head', 'ap_core_favicon' );
