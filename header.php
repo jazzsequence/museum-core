@@ -63,9 +63,9 @@
 
 				<div class="headerimg">
 
-					<?php echo $ap_core_headerimg_before; ?>
+					<?php echo wp_kses_post( $ap_core_headerimg_before ); ?>
 					<?php echo get_the_post_thumbnail( $post->ID ); ?>
-					<?php echo $ap_core_headerimg_after; ?>
+					<?php echo wp_kses_post( $ap_core_headerimg_after ); ?>
 
 
 			<?php elseif ( get_header_image() ) :
@@ -77,9 +77,9 @@
 
 				<div class="headerimg">
 
-					<?php echo $ap_core_headerimg_before; ?>
-					<img src="<?php header_image(); ?>" width="<?php echo $ap_core_header_image_width; ?>" height="<?php echo $ap_core_header_image_height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-					<?php echo $ap_core_headerimg_after; ?>
+					<?php echo wp_kses_post( $ap_core_headerimg_before ); ?>
+					<img src="<?php header_image(); ?>" width="<?php esc_attr_e( $ap_core_header_image_width ); ?>" height="<?php esc_attr_e( $ap_core_header_image_height ); ?>" alt="<?php esc_attr_e( get_bloginfo( 'name', 'display' ) ); ?>" />
+					<?php echo wp_kses_post( $ap_core_headerimg_after ); ?>
 
 			<?php endif; ?>
 
