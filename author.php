@@ -8,7 +8,7 @@ $ap_core_content = ap_core_get_which_content();
 $ap_core_description = null;
 $ap_core_url = null;
 ?>
-<div class="content col-md-9 <?php echo $ap_core_content; ?>">
+<div class="content col-md-9 <?php esc_attr_e( $ap_core_content ); ?>">
 	<?php tha_content_top(); ?>
 
 	<?php if ( have_posts() ) the_post();

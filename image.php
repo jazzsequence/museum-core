@@ -16,7 +16,7 @@ if ( $imagesize < 698 || $imagesize[0] > 698 && $imagesize[0] < 1140 ) {
 	$content_width = 1140;
 }
 $ap_core_content = ap_core_get_which_content(); ?>
-<div class="content image col-md-12 <?php echo $ap_core_content; ?>">
+<div class="content image col-md-12 <?php esc_attr_e( $ap_core_content ); ?>">
 	<?php tha_content_top(); ?>
 
 	<?php get_template_part('parts/content','image'); ?>
