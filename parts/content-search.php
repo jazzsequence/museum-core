@@ -3,7 +3,7 @@ global $wp_query;
 $total_results = $wp_query->found_posts;
 ?>
 
-<h1 class="searchresults the_title"><?php echo sprintf( __( 'We found %1$s results for <q>%2$s</q>', 'museum-core' ), $total_results, get_search_query() ); ?></h1>
+<h1 class="searchresults the_title"><?php echo wp_kses_post( sprintf( __( 'We found %1$s results for <q>%2$s</q>', 'museum-core' ), $total_results, get_search_query() ) ); ?></h1>
 
 <section class="searchform">
 	<h3 class="alt"><?php _e( 'Not what you were looking for?  Enter your search terms to try again.', 'museum-core' ); ?></h3>
