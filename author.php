@@ -21,7 +21,7 @@ $ap_core_url = null;
 			<h2 class="the_title media-heading"><?php the_author_meta('display_name') ?></h2>
 			<p>
 				<?php if ( $ap_core_description ) {
-					wp_kses_post( $ap_core_description ); ?><br />
+					echo wp_kses_post( $ap_core_description ); ?><br />
 				<?php }
 				if ( $ap_core_url ) { ?>
 					<a href="<?php echo esc_url($ap_core_url); ?>" rel="me"><?php _e('Website','museum-core'); ?></a>
