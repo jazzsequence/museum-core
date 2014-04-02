@@ -830,7 +830,7 @@ if (!function_exists('ap_core_custom_styles')) {
             }
         }
 
-        $output = "<style type=\"text/css\" media=\"print,screen\">";
+        $output = '<style type="text/css" media="print,screen">';
         $output .= $output_heading;
         $output .= $output_alt;
         $output .= $output_body;
@@ -841,10 +841,10 @@ if (!function_exists('ap_core_custom_styles')) {
         $output .= $output_navbar_link;
 
         if ( isset( $options['site-title'] ) && $options['site-title'] == false ) {
-            $output .= ".headerimg hgroup h2, .headerimg hgroup h3 { float: left; position: absolute; left: -999em; height: 0px; }";
+            $output .= '.headerimg hgroup h2, .headerimg hgroup h3 { float: left; position: absolute; left: -999em; height: 0px; }';
         }
 
-        $output .= "</style>";
+        $output .= '</style>';
         if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == false ) {
             echo wp_kses( $output, array( 'style' => array( 'type' => array(), 'media' => array() ) ) );
         }
