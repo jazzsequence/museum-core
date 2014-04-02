@@ -30,7 +30,7 @@ $ap_core_url = null;
 		</div>
 	</section>
 	<div class="spacer-10"></div>
-	<h3 class="alt"><?php echo sprintf( __( 'All posts by %s', 'museum-core' ), get_the_author_meta('display_name') ); ?></h3>
+	<h3 class="alt"><?php esc_attr_e( sprintf( __( 'All posts by %s', 'museum-core' ), get_the_author_meta('display_name') ) ); ?></h3>
 	<?php
 		rewind_posts();
 		get_template_part('parts/content', 'author');
