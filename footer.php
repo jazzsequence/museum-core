@@ -33,7 +33,7 @@
 		<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'footernav', 'theme_location' => 'footer', 'fallback_cb' => false, 'depth' => 1 ) ); ?>
 		<div class="credit">
 			<?php if ( $ap_options['footer'] != '' ) {
-				echo stripcslashes($ap_options['footer']);
+				echo wp_kses_post( stripcslashes( $ap_options['footer'] ) );
 			} else {
 				echo $ap_defaults['footer'];
 			} ?>
