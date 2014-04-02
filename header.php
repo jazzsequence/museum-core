@@ -78,7 +78,7 @@
 				<div class="headerimg">
 
 					<?php echo wp_kses_post( $ap_core_headerimg_before ); ?>
-					<img src="<?php header_image(); ?>" width="<?php esc_attr_e( $ap_core_header_image_width ); ?>" height="<?php esc_attr_e( $ap_core_header_image_height ); ?>" alt="<?php esc_attr_e( get_bloginfo( 'name', 'display' ) ); ?>" />
+					<img src="<?php header_image(); ?>" width="<?php echo esc_attr( $ap_core_header_image_width ); ?>" height="<?php echo esc_attr( $ap_core_header_image_height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 					<?php echo wp_kses_post( $ap_core_headerimg_after ); ?>
 
 			<?php endif; ?>
