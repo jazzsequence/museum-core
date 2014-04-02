@@ -4,7 +4,7 @@
 */
 tha_sidebars_before();
 $ap_core_sidebar = ap_core_get_which_sidebar(); ?>
- <div class="sidebar the_<?php echo $ap_core_sidebar; ?> col-md-3">
+ <div class="sidebar the_<?php esc_attr_e( $ap_core_sidebar ); ?> col-md-3">
  	<?php tha_sidebar_top(); ?>
 	<ul>
          <?php dynamic_sidebar( 'Sidebar'); ?>
