@@ -208,7 +208,7 @@ class ap_core_wp_bootstrap_navwalker extends Walker_Nav_Menu {
 				$fb_output .= '</' . $container . '>';
 			}
 
-			echo $fb_output;
+			echo wp_kses_post( $fb_output );
 		}
 	}
 }
