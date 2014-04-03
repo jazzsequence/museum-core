@@ -48,7 +48,7 @@
     	printf( __( 'Attached to %1$s which was posted on %2$s.' , 'museum-core' ), $parent_link, $time );
     	echo '<br />';
     	echo '<a href="' . esc_url_raw( $image_url ) . '" title="' . __( 'Link to full-size image.', 'museum-core' ) . '">';
-    	_e( 'View full image.' );
+    	_e( 'View full image.', 'museum-core' );
     	echo '</a>';
     }
     if ( is_singular() || is_page() ) { ?>

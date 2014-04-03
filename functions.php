@@ -365,7 +365,7 @@ if (!function_exists('ap_core_wp_title')) {
  */
 function ap_core_link_pages( $args = array () ) {
     $defaults = array(
-        'before'      => '<p>' . __('Pages:'),
+        'before'      => '<p>' . __('Pages:', 'museum-core'),
         'after'       => '</p>',
         'before_link' => '',
         'after_link'  => '',
