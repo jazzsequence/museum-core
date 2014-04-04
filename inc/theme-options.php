@@ -54,10 +54,10 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			if ( isset( $options['css'] ) && ( $options['css'] != '1' ) && ( $options['css'] != '' ) ) {
 				echo '<div style="background-color: #fcf8e3; border: 1px solid #fbeed5; border-radius: 4px; padding: 2px 7px;"><label>';
 				echo '<span class="customize-control-title">' . __( 'Custom CSS is no longer supported.', 'museum-core' ) . '</span>';
-				echo sprintf( _x( 'Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is displayed below.', '1: link to My Custom CSS, 2: closing <a> tag, 3: link to Jetpack', 'museum-core' ), '<a href="wordpress.org/plugins/my-custom-css/" target="_blank">', '</a>', '<a href="http://wordpress.org/plugins/jetpack" target="_blank">' );
+				echo wp_kses_post( sprintf( _x( 'Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is displayed below.', '1: link to My Custom CSS, 2: closing <a> tag, 3: link to Jetpack', 'museum-core' ), '<a href="wordpress.org/plugins/my-custom-css/" target="_blank">', '</a>', '<a href="http://wordpress.org/plugins/jetpack" target="_blank">' ) );
 				echo '</label>';
 				echo '<pre style="overflow-x: scroll;">';
-				echo $options['css'];
+				echo esc_attr( $options['css'] );
 				echo '</pre>';
 				echo '</div>';
 				echo '<label>';
@@ -465,50 +465,55 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 		) );
 
 		// colors
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[font-color]', array(
+		$font_color = new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[font-color]', array(
 
 			'label' => __( 'Font Color', 'museum-core' ),
 			'section' => 'colors',
 			'settings' => 'ap_core_theme_options[font-color]',
 			'sanitize_callback' => 'sanitize_hex_color'
 
-		) ) );
+		) );
+		$wp_customize->add_control( $font_color );
 
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[link]', array(
+		$link_color = new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[link]', array(
 
 			'label' => __( 'Link Color', 'museum-core' ),
 			'section' => 'colors',
 			'settings' => 'ap_core_theme_options[link]',
 			'sanitize_callback' => 'sanitize_hex_color'
 
-		) ) );
+		) );
+		$wp_customize->add_control( $link_color );
 
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[hover]', array(
+		$hover_color = new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[hover]', array(
 
 			'label' => __( 'Hover Color', 'museum-core' ),
 			'section' => 'colors',
 			'settings' => 'ap_core_theme_options[hover]',
 			'sanitize_callback' => 'sanitize_hex_color'
 
-		) ) );
+		) );
+		$wp_customize->add_control( $hover_color );
 
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[content-color]', array(
+		$content_color = new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[content-color]', array(
 
 			'label' => __( 'Content Background color', 'museum-core' ),
 			'section' => 'colors',
 			'settings' => 'ap_core_theme_options[content-color]',
 			'sanitize_callback' => 'sanitize_hex_color'
 
-		) ) );
+		) );
+		$wp_customize->add_control( $content_color );
 
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[navbar-color]', array(
+		$navbar_color = new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[navbar-color]', array(
 
 			'label' => __( 'Navbar (top) Background Color', 'museum-core' ),
 			'section' => 'colors',
 			'settings' => 'ap_core_theme_options[navbar-color]',
 			'sanitize_callback' => 'sanitize_hex_color'
 
-		) ) );
+		) );
+		$wp_customize->add_control( $navbar_color );
 
 		$wp_customize->add_control( 'ap_core_theme_options[navbar-inverse]', array(
 
@@ -521,14 +526,15 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[navbar-link]', array(
+		$navbar_link = new WP_Customize_Color_Control( $wp_customize, 'ap_core_theme_options[navbar-link]', array(
 
 			'label' => __( 'Navbar Link Color', 'museum-core' ),
 			'section' => 'colors',
 			'settings' => 'ap_core_theme_options[navbar-link]',
 			'sanitize_callback' => 'sanitize_hex_color'
 
-		) ) );
+		) );
+		$wp_customize->add_control( $navbar_link );
 
 		// advanced options
 		$wp_customize->add_control( 'ap_core_theme_options[author]', array(
@@ -542,7 +548,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
-		$wp_customize->add_control( new AP_Core_Textarea_Control( $wp_customize, 'ap_core_theme_options[footer]', array(
+		$footer_text = new AP_Core_Textarea_Control( $wp_customize, 'ap_core_theme_options[footer]', array(
 
 			'label' => __( 'Footer Text', 'museum-core' ),
 			'section' => 'ap_core_advanced',
@@ -550,16 +556,18 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'type' => 'textarea',
 			'sanitize_callback' => 'esc_textarea'
 
-		) ) );
+		) );
+		$wp_customize->add_control( $footer_text );
 
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ap_core_theme_options[favicon]', array(
+		$favicon = new WP_Customize_Image_Control( $wp_customize, 'ap_core_theme_options[favicon]', array(
 
 			'label' => __( 'Custom Favicon', 'museum-core' ),
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[favicon]',
 			'sanitize_callback' => 'ap_core_validate_favicon'
 
-		) ) );
+		) );
+		$wp_customize->add_control( $favicon );
 
 		$wp_customize->add_control( 'ap_core_theme_options[presstrends]', array(
 
@@ -583,12 +591,13 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
-		$wp_customize->add_control( new AP_Core_Legacy_CSS_Control( $wp_customize, 'ap_core_theme_options[css]', array(
+		$legacy_css = new AP_Core_Legacy_CSS_Control( $wp_customize, 'ap_core_theme_options[css]', array(
 
 			'section' => 'ap_core_advanced',
 			'settings' => 'ap_core_theme_options[css]'
 
-		) ) );
+		) );
+		$wp_customize->add_control( $legacy_css );
 
 		// adds live refresh on site title and tagline
 		$wp_customize->get_setting('blogname')->transport='postMessage';

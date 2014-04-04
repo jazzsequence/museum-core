@@ -10,7 +10,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-class ap_core_wp_bootstrap_navwalker extends Walker_Nav_Menu {
+class AP_Core_WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 
 	/**
 	 * @see Walker::start_lvl()
@@ -208,7 +208,7 @@ class ap_core_wp_bootstrap_navwalker extends Walker_Nav_Menu {
 				$fb_output .= '</' . $container . '>';
 			}
 
-			echo $fb_output;
+			echo wp_kses_post( $fb_output );
 		}
 	}
 }

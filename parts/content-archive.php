@@ -4,7 +4,7 @@
 	if ( is_category() ) {
 		$category = get_the_category();
 		$category = $category[0]->cat_name; ?>
-	    <h2 class="the_title"><?php echo sprintf( __( 'Posts filed under %s','museum-core'), $category ); ?></h2>
+	    <h2 class="the_title"><?php echo esc_attr( sprintf( __( 'Posts filed under %s','museum-core'), $category ) ); ?></h2>
 
 	<?php /* If this is a tag archive */
 	} elseif( is_tag() ) {
@@ -13,19 +13,19 @@
 		foreach ( $tags as $tag ) {
 			$tag_name = $tag->name; // only one should get pulled
 		} ?>
-		<h2 class="the_title"><?php echo sprintf( __('Posts filed under %s','museum-core'), $tag_name ); ?></h2>
+		<h2 class="the_title"><?php echo esc_attr( sprintf( __('Posts filed under %s','museum-core'), $tag_name ) ); ?></h2>
 
 	<?php /* If this is a daily archive */
 	} elseif ( is_day() ) { ?>
-		<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('j F Y') ); ?></h2>
+		<h2 class="the_title"><?php echo esc_attr( sprintf( __('Archive for %1$s','museum-core'), get_the_time('j F Y') ) ); ?></h2>
 
 	<?php /* If this is a monthly archive */
 	} elseif ( is_month() ) { ?>
-		<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('F Y') ); ?></h2>
+		<h2 class="the_title"><?php echo esc_attr( sprintf( __('Archive for %1$s','museum-core'), get_the_time('F Y') ) ); ?></h2>
 
 	<?php /* If this is a yearly archive */
 	} elseif ( is_year() ) { ?>
-		<h2 class="the_title"><?php echo sprintf( __('Archive for %1$s','museum-core'), get_the_time('Y') ); ?></h2>
+		<h2 class="the_title"><?php echo esc_attr( sprintf( __('Archive for %1$s','museum-core'), get_the_time('Y') ) ); ?></h2>
 
 	<?php /* If this is an author archive */
 	} elseif ( is_author() ) { ?>

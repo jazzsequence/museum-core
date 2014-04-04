@@ -8,7 +8,7 @@ $ap_core_content = ap_core_get_which_content();
 $ap_core_description = null;
 $ap_core_url = null;
 ?>
-<div class="content col-md-9 <?php echo $ap_core_content; ?>">
+<div class="content col-md-9 <?php echo esc_attr( $ap_core_content ) ?>">
 	<?php tha_content_top(); ?>
 
 	<?php if ( have_posts() ) the_post();
@@ -21,7 +21,7 @@ $ap_core_url = null;
 			<h2 class="the_title media-heading"><?php the_author_meta('display_name') ?></h2>
 			<p>
 				<?php if ( $ap_core_description ) {
-					echo $ap_core_description; ?><br />
+					echo wp_kses_post( $ap_core_description ); ?><br />
 				<?php }
 				if ( $ap_core_url ) { ?>
 					<a href="<?php echo esc_url($ap_core_url); ?>" rel="me"><?php _e('Website','museum-core'); ?></a>
@@ -30,7 +30,7 @@ $ap_core_url = null;
 		</div>
 	</section>
 	<div class="spacer-10"></div>
-	<h3 class="alt"><?php echo sprintf( __( 'All posts by %s', 'museum-core' ), get_the_author_meta('display_name') ); ?></h3>
+	<h3 class="alt"><?php echo esc_attr( sprintf( __( 'All posts by %s', 'museum-core' ), get_the_author_meta('display_name') ) ); ?></h3>
 	<?php
 		rewind_posts();
 		get_template_part('parts/content', 'author');

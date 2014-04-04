@@ -44,8 +44,8 @@
 				</button>
 			</div>
 			<?php
-				$ap_core_navbar_default = array( 'container' => 'nav', 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' collapse navbar-collapse navbar-1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new ap_core_wp_bootstrap_navwalker() );
-				$ap_core_navbar_fixed = array( 'container' => 'nav', 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' navbar navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new ap_core_wp_bootstrap_navwalker() );
+				$ap_core_navbar_default = array( 'container' => 'nav', 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' collapse navbar-collapse navbar-1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new AP_Core_WP_Bootstrap_Navwalker() );
+				$ap_core_navbar_fixed = array( 'container' => 'nav', 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' navbar navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new AP_Core_WP_Bootstrap_Navwalker() );
 			if ( $ap_core_fixed_nav ) {
 				// if the nav menu is fixed
 				wp_nav_menu( $ap_core_navbar_fixed );
@@ -63,9 +63,9 @@
 
 				<div class="headerimg">
 
-					<?php echo $ap_core_headerimg_before; ?>
+					<?php echo wp_kses_post( $ap_core_headerimg_before ); ?>
 					<?php echo get_the_post_thumbnail( $post->ID ); ?>
-					<?php echo $ap_core_headerimg_after; ?>
+					<?php echo wp_kses_post( $ap_core_headerimg_after ); ?>
 
 
 			<?php elseif ( get_header_image() ) :
@@ -77,9 +77,9 @@
 
 				<div class="headerimg">
 
-					<?php echo $ap_core_headerimg_before; ?>
-					<img src="<?php header_image(); ?>" width="<?php echo $ap_core_header_image_width; ?>" height="<?php echo $ap_core_header_image_height; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
-					<?php echo $ap_core_headerimg_after; ?>
+					<?php echo wp_kses_post( $ap_core_headerimg_before ); ?>
+					<img src="<?php header_image(); ?>" width="<?php echo esc_attr( $ap_core_header_image_width ); ?>" height="<?php echo esc_attr( $ap_core_header_image_height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
+					<?php echo wp_kses_post( $ap_core_headerimg_after ); ?>
 
 			<?php endif; ?>
 
@@ -97,7 +97,7 @@
 				</div>
 			<?php } ?>
 
-			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'mainnav collapse navbar-collapse navbar-2-collapse', 'theme_location' => 'main', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new ap_core_wp_bootstrap_navwalker() ) ); ?>
+			<?php wp_nav_menu( array( 'container' => 'nav', 'container_class' => 'mainnav collapse navbar-collapse navbar-2-collapse', 'theme_location' => 'main', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new AP_Core_WP_Bootstrap_Navwalker() ) ); ?>
 			<?php tha_header_bottom(); ?>
 		</header>
 		<?php tha_header_after(); ?>
