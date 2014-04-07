@@ -96,37 +96,11 @@ if (!function_exists('ap_core_load_scripts')) {
         wp_register_script('modernizr',get_template_directory_uri() . '/assets/js/modernizr-2.5.3.min.js',false,'2.5.3');
         wp_enqueue_script('modernizr');
         // register fonts
-        wp_register_style('droidsans','http://fonts.googleapis.com/css?family=Droid+Sans&subset=' . $font_subset,false,$theme['Version']);
-        wp_register_style('ptserif','http://fonts.googleapis.com/css?family=PT+Serif&subset=' . $font_subset,false,$theme['Version']);
         wp_register_style('inconsolata','http://fonts.googleapis.com/css?family=Inconsolata&subset=' . $font_subset,false,$theme['Version']);
-        wp_register_style('ubuntu','http://fonts.googleapis.com/css?family=Ubuntu&subset=' . $font_subset,false,$theme['Version']);
-        wp_register_style('lato','http://fonts.googleapis.com/css?family=Lato&subset=' . $font_subset,false,$theme['Version'] );
-        wp_register_style( 'notoserif','http://fonts.googleapis.com/css?family=Noto+Serif&subset=' . $font_subset,false, $theme['Version']  );
         wp_register_style( 'opensans', 'http://fonts.googleapis.com/css?family=Open+Sans&subset=' . $font_subset, false, $theme['Version'] );
-        // only enqueue fonts that are actually being used
-        $corefonts = array( $options['heading'], $options['body'], $options['alt'] );
-        // if any of these fonts are selected, load their stylesheets
-        if ( in_array( 'Droid Sans', $corefonts ) ) {
-            wp_enqueue_style( 'droidsans' );
-        }
-        if ( in_array( 'PT Serif', $corefonts ) ) {
-            wp_enqueue_style( 'ptserif' );
-        }
-        if ( in_array( 'Inconsolata', $corefonts ) ) {
-            wp_enqueue_style( 'inconsolata' );
-        }
-        if ( in_array( 'Ubuntu', $corefonts ) ) {
-            wp_enqueue_style( 'ubuntu' );
-        }
-        if ( in_array( 'Lato', $corefonts ) ) {
-            wp_enqueue_style( 'lato' );
-        }
-        if ( in_array( 'Open Sans', $corefonts ) ) {
-            wp_enqueue_style( 'opensans' );
-        }
-        if ( in_array( 'Noto Serif', $corefonts ) ) {
-            wp_enqueue_style( 'notoserif' );
-        }
+        wp_enqueue_style( 'inconsolata' );
+        wp_enqueue_style( 'opensans' );
+
         // this loads the style.css
         wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', false, $theme['Version'] );
 

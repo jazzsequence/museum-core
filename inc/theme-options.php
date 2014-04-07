@@ -43,46 +43,11 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 	}
 
-	class AP_Core_Legacy_CSS_Control extends WP_Customize_Control {
-
-		public $type = 'ap-legacy-css';
-
-		public function render_content() {
-
-			$options = get_option( 'ap_core_theme_options' );
-
-			if ( isset( $options['css'] ) && ( $options['css'] != '1' ) && ( $options['css'] != '' ) ) {
-				echo '<div style="background-color: #fcf8e3; border: 1px solid #fbeed5; border-radius: 4px; padding: 2px 7px;"><label>';
-				echo '<span class="customize-control-title">' . __( 'Custom CSS is no longer supported.', 'museum-core' ) . '</span>';
-				echo wp_kses_post( sprintf( _x( 'Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is displayed below.', '1: link to My Custom CSS, 2: closing <a> tag, 3: link to Jetpack', 'museum-core' ), '<a href="wordpress.org/plugins/my-custom-css/" target="_blank">', '</a>', '<a href="http://wordpress.org/plugins/jetpack" target="_blank">' ) );
-				echo '</label>';
-				echo '<pre style="overflow-x: scroll;">';
-				echo esc_attr( $options['css'] );
-				echo '</pre>';
-				echo '</div>';
-				echo '<label>';
-				echo '<input type="checkbox" value="" data-customize-setting-link="ap_core_theme_options[css]" /> ' . __( 'I\'ve copied my CSS. Dismiss this message.', 'museum-core' );
-
-				echo '</label>';
-			}
-
-
-		}
-
-	}
-
 		/* add sections */
 		$wp_customize->add_section( 'ap_core_layout', array(
 
 			'title' => __( 'Layout Options', 'museum-core' ),
 			'priority' => 35
-
-		) );
-
-		$wp_customize->add_section( 'ap_core_typography', array(
-
-			'title' => __( 'Typography Options', 'museum-core' ),
-			'priority' => 36
 
 		) );
 
@@ -158,116 +123,6 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['post-author'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
-
-		) );
-
-		// typography options
-		$wp_customize->add_setting( 'ap_core_theme_options[heading]', array(
-
-			'default' => $defaults['heading'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[body]', array(
-
-			'default' => $defaults['body'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[alt]', array(
-
-			'default' => $defaults['alt'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[alth1]', array(
-
-			'default' => $defaults['alth1'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[font_subset]', array(
-
-			'default' => $defaults['font_subset'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
-			'type' => 'option'
-
-		) );
-
-		// colors
-		$wp_customize->add_setting( 'ap_core_theme_options[font-color]', array(
-
-			'default' => $defaults['font-color'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'postMessage',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[link]', array(
-
-			'default' => $defaults['link'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'postMessage',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[hover]', array(
-
-			'default' => $defaults['hover'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[content-color]', array(
-
-			'default' => $defaults['content-color'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'postMessage',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[navbar-color]', array(
-
-			'default' => $defaults['navbar-color'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'postMessage',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[navbar-inverse]', array(
-
-			'default' => $defaults['navbar-inverse'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'refresh',
-			'type' => 'option'
-
-		) );
-
-		$wp_customize->add_setting( 'ap_core_theme_options[navbar-link]', array(
-
-			'default' => $defaults['navbar-link'],
-			'capability' => 'edit_theme_options',
-			'transport' => 'postMessage',
 			'type' => 'option'
 
 		) );
