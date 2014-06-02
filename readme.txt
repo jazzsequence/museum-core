@@ -3,8 +3,8 @@ Contributors: jazzs3quence
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.2
-Tested up to: 3.6.1
-Stable tag: 2.0.3
+Tested up to: 3.9.1
+Stable tag: 2.1.1
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -28,6 +28,53 @@ If you are interested in helping translate this theme, contact me at hello@chris
 There are currently no screenshots.
 
 == Changelog ==
+
+= Version 2.1.1 =
+
+* added support for mobile navbar for either header nav (not just topnav)
+* `icon-reorder` was lost when moving the font to a custom set. added it back.
+* fixed textdomain issues
+* stored WP_Customize_Color_Control in a variable
+* switched to CamelCase for AP_Core_WP_Bootstrap_Navwalker class
+* sanitized lots of stuff
+* fixed "Expected next thing to be an escaping function" message when running VIP checks
+
+= Version 2.1 =
+
+* changed the post icon to a thumbtack
+* switched icon pact to custom fontastic.me reduced version of fontawesome
+* added support for image attachment pages
+* added `html5` theme support value
+* added RTL support
+* added default `$themecolors` array
+* added quotes around datetime values
+* removed function to add a home page link to the menus (now handled by core)
+* fixed `$content_width`
+* updated bootstrap.js with custom version with only the plugins used by the theme
+* removed a lot of old code from comments template
+* bootstrapped comments
+* added bootstrap pagers to previous/next comment paged links
+* escapes author meta before outputting it
+* removed a bunch of unused code from the search template
+* moved `wp_pagenavi` check to be inside the `pager` div
+* varios archive template fixes
+* removed the title check on single posts
+* removed double `spacer-10` divs
+* allowed pages to use the postmetadata template part
+* changed how the options are checked in post templates
+* changed the way the date displays
+* removed different handling of the date on image posts
+* added a date tag to quote and status posts
+* moved icon out of the postmetadata part and into the post format parts
+* renamed template parts that run the loop within the template part
+* removed the check for `dynamic_sidebar` since nothing is being added as a default
+* replaced some bootstrap classes
+* removed some redundant bootstrap classes
+* adds new function that moves the meta tags to functions.php and allows other devs to modify via a filter
+* adds initial scale & removed `wp_get_archives`
+* removed `chrome=1` from `ua-compatibility` (updates h5bp)
+* removed conditional html classes (updates h5bp)
+* moved `tha_before_html` inside the doctype element
 
 = Version 2.0.3 =
 

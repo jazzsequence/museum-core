@@ -39,13 +39,24 @@
 		<header>
 			<?php tha_header_top(); ?>
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1-collapse">
-					<i class="icon-reorder" title="Menu"></i>
-				</button>
+				<?php
+				$nav_1 = has_nav_menu( 'top' );
+				$nav_2 = has_nav_menu( 'main' );
+				$data_target = null;
+				if ( !empty( $nav_1 ) ) {
+					$data_target = '.navbar-1-collapse';
+				} elseif ( !empty( $nav_2 ) ) {
+					$data_target = '.navbar-2-collapse';
+				}
+				if ( !is_null( $data_target ) ) : ?>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="<?php echo $data_target; ?>">
+						<i class="icon-reorder" title="Menu"></i>
+					</button>
+				<?php endif;?>
 			</div>
 			<?php
 				$ap_core_navbar_default = array( 'container' => 'nav', 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' collapse navbar-collapse navbar-1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new AP_Core_WP_Bootstrap_Navwalker() );
-				$ap_core_navbar_fixed = array( 'container' => 'nav', 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' navbar navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new AP_Core_WP_Bootstrap_Navwalker() );
+				$ap_core_navbar_fixed = array( 'container' => 'nav', 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' navbar navbar-collapse collapse navbar-1-collapse navbar-default navbar-fixed-top', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new AP_Core_WP_Bootstrap_Navwalker() );
 			if ( $ap_core_fixed_nav ) {
 				// if the nav menu is fixed
 				wp_nav_menu( $ap_core_navbar_fixed );
