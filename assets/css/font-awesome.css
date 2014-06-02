@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: "museum-core";
-  src:url("fonts/museum-core.eot");
-  src:url("fonts/museum-core.eot?#iefix") format("embedded-opentype"),
-    url("fonts/museum-core.woff") format("woff"),
-    url("fonts/museum-core.ttf") format("truetype"),
-    url("fonts/museum-core.svg#museum-core") format("svg");
+  src:url("../font/museum-core.eot");
+  src:url("../font/museum-core.eot?#iefix") format("embedded-opentype"),
+    url("../font/museum-core.woff") format("woff"),
+    url("../font/museum-core.ttf") format("truetype"),
+    url("../font/museum-core.svg#museum-core") format("svg");
   font-weight: normal;
   font-style: normal;
 
