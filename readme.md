@@ -31,7 +31,7 @@ There are currently no screenshots.
 
 ### Version 2.1.1.
 
-* added support for mobile navbar for either header nav (not just topnav)
+* added support for mobile navbar for either header nav (not just topnav) -- default will be top nav, with main nav being used if no top nav exists
 * `icon-reorder` was lost when moving the font to a custom set. added it back.
 * fixed textdomain issues
 * stored WP_Customize_Color_Control in a variable
