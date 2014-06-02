@@ -52,7 +52,7 @@
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="<?php echo $data_target; ?>">
 						<i class="icon-reorder" title="Menu"></i>
 					</button>
-				<?php endif;?>
+				<?php endif; ?>
 			</div>
 			<?php
 				$ap_core_navbar_default = array( 'container' => 'nav', 'container_class' => 'topnav ' . $ap_core_navbar_inverse . ' collapse navbar-collapse navbar-1-collapse', 'theme_location' => 'top', 'fallback_cb' => false, 'menu_class' => 'nav navbar-nav', 'walker' => new AP_Core_WP_Bootstrap_Navwalker() );
