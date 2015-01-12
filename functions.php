@@ -852,7 +852,7 @@ if (!function_exists('ap_core_custom_styles')) {
         }
 
         $output .= '</style>';
-        if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == false ) {
+        if ( $heading || $body || $alt || $link || $hover || isset( $options['site-title'] ) && $options['site-title'] == false ) {
             echo wp_kses( $output, array( 'style' => array( 'type' => array(), 'media' => array() ) ) );
         }
     }
