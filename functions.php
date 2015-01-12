@@ -104,7 +104,10 @@ if (!function_exists('ap_core_load_scripts')) {
         wp_register_style( 'notoserif','http://fonts.googleapis.com/css?family=Noto+Serif&subset=' . $font_subset,false, $theme['Version']  );
         wp_register_style( 'opensans', 'http://fonts.googleapis.com/css?family=Open+Sans&subset=' . $font_subset, false, $theme['Version'] );
         // only enqueue fonts that are actually being used
-        $corefonts = array( $options['heading'], $options['body'], $options['alt'] );
+        $heading = ( isset( $options['heading'] ) ) ? $options['heading'] : $defaults['heading'];
+        $body = ( isset( $options['body'] ) ) ? $options['body'] : $defaults['body'];
+        $alt = ( isset( $options['alt'] ) ) ? $options['alt'] : $defaults['alt'];
+        $corefonts = array( $heading, $body, $alt );
         // if any of these fonts are selected, load their stylesheets
         if ( in_array( 'Droid Sans', $corefonts ) ) {
             wp_enqueue_style( 'droidsans' );
