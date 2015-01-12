@@ -95,7 +95,7 @@
 			<?php endif; ?>
 
 			<hgroup class="siteinfo">
-				<?php if ($options['alth1'] == true) { ?>
+				<?php if ( isset( $options['alth1'] ) && $options['alth1'] == true) { ?>
 					<h2 class="alt"><a href="<?php echo esc_url( home_url() ) ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
 					<h3><?php bloginfo('description'); ?></h3>
 				<?php } else { ?>
