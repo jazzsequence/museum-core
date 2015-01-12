@@ -48,21 +48,6 @@ if (!function_exists('ap_core_register_sidebars')) {
 }
 
 /**
- * clear shortcode
- * @since 0.1
- * @author Chris Reynolds
- * @uses add_shortcode
- * a quick shortcode that clears floats
- * usage example: [clear]
- */
-if (!function_exists('ap_core_clear')) {
-    function ap_core_clear() {
-    	return '<div class="clear"></div>';
-    }
-    add_shortcode('clear','ap_core_clear');
-}
-
-/**
  * load scripts
  * @since 0.1
  * @author Chris Reynolds
