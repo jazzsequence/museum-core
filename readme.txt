@@ -38,6 +38,7 @@ There are currently no screenshots.
 * added right margin to post format icons
 * removed old legacy custom css support
 * proper sanitization of customizer settings
+* removed support for [clear] shortcode (wp theme review requirements)
 
 = Version 2.1.1 =
 
@@ -538,16 +539,20 @@ There are currently no screenshots.
 
 == Upgrade Notice ==
 
-2.0 is an almost complete rewrite of Museum Core. Please be aware of these major changes:
+= 2.1.2 Update =
 
-* The responsive grid system has been removed and replaced with Twitter Bootstrap 3.0.
-* The icons have been removed and replaced with FontAwesome (all the filetype icons that appeared next to file links have been removed completely).
-* Theme Options page has been removed in favor of the theme Customizer.
-* Custom CSS box has been removed. Please use [My Custom CSS](http://wordpress.org/plugins/my-custom-css/) or [Jetpack](http://wordpress.org/plugins/jetpack). Your custom CSS will be available to copy in Advanced settings in the customizer.
-* Meta description has been removed. Please use [WordPress SEO by Yoast](http://wordpress.org/plugins/wordpress-seo/).
-* "Use meta generator tag" has been renamed to "Debug mode active".
-* Twitter hovercards have been removed. Support has been discontinued from Twitter.
-* Though it's unlikely, you *may* need to resave some of your stored settings on upgrading to 2.0.
+2.1.2 dropped support for the [clear] shortcode that was previously built in. Shortcodes are generally plugin functionality and updated requirements of the theme review process required the removal of the `add_shortcode` function. If you were previously using the [clear] shortcode, you will need to replace those with `<div class="clear"></div>` or create your own plugin with the following function:
+
+`
+if (!function_exists('ap_core_clear')) {
+    function ap_core_clear() {
+    	return '<div class="clear"></div>';
+    }
+    add_shortcode('clear','ap_core_clear');
+}
+`
+
+You can also add this to a custom child theme functions.php file. I will submit a new plugin to the plugins repository to support the clear shortcode in the near future.
 
 = Translators wanted! =
 
