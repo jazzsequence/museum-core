@@ -74,7 +74,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['site-title'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -84,7 +85,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['sidebar'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_sidebar'
 
 		) );
 
@@ -93,7 +95,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['nav-menu'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -102,7 +105,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['breadcrumbs'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -111,7 +115,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['excerpts'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_excerpts'
 
 		) );
 
@@ -121,7 +126,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['archive-excerpt'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_excerpts'
 
 		) );
 
@@ -130,7 +136,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['post-author'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -140,7 +147,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['heading'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_fonts'
 
 		) );
 
@@ -149,7 +157,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['body'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_fonts'
 
 		) );
 
@@ -158,7 +167,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['alt'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_fonts'
 
 		) );
 
@@ -167,7 +177,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['alth1'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -176,7 +187,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['font_subset'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_subset'
 
 		) );
 
@@ -186,7 +198,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['font-color'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'postMessage',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'sanitize_hex_color'
 
 		) );
 
@@ -195,7 +208,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['link'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'postMessage',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'sanitize_hex_color'
 
 		) );
 
@@ -204,7 +218,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['hover'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'sanitize_hex_color'
 
 		) );
 
@@ -213,7 +228,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['content-color'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'postMessage',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'sanitize_hex_color'
 
 		) );
 
@@ -222,7 +238,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['navbar-color'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'postMessage',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'sanitize_hex_color'
 
 		) );
 
@@ -231,7 +248,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['navbar-inverse'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -240,7 +258,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['navbar-link'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'postMessage',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'sanitize_hex_color'
 
 		) );
 
@@ -250,7 +269,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['author'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
@@ -259,7 +279,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['footer'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'postMessage',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'esc_textarea'
 
 		) );
 
@@ -268,7 +289,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['favicon'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_favicon'
 
 		) );
 
@@ -277,7 +299,8 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'default' => $defaults['generator'],
 			'capability' => 'edit_theme_options',
 			'transport' => 'refresh',
-			'type' => 'option'
+			'type' => 'option',
+			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
 
