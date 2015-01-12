@@ -1000,7 +1000,7 @@ if (!function_exists('ap_core_header_meta')) {
         $author = null;
 
         /* author meta */
-        if ($options['author'] == true) {
+        if ( isset( $options['author'] ) && $options['author'] == true ) {
             if (!is_404()) {
                 // if there is no post author, this stuff doesn't exist
                 if ( $post->post_author ) {
