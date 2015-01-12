@@ -36,6 +36,8 @@ There are currently no screenshots.
 * fixed HTML displaying for author link in comments [issue](https://github.com/jazzsequence/museum-core/issues/73)
 * fixed various undefined index errors when some (but not all) options were set and WP_DEBUG was set to true [issue](https://github.com/jazzsequence/museum-core/issues/75)
 * added right margin to post format icons
+* removed old legacy custom css support
+* proper sanitization of customizer settings
 
 = Version 2.1.1 =
 
