@@ -606,7 +606,7 @@ if (!function_exists('ap_core_generator')) {
         echo wp_kses_post( $ap_core_version );
     }
     $options = get_option( 'ap_core_theme_options' );
-    if ($options['generator'] == true) {
+    if ( isset( $options['generator'] ) && $options['generator'] == true) {
         add_action( 'wp_head', 'ap_core_generator' );
     }
 }
