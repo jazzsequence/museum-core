@@ -29,7 +29,15 @@ There are currently no screenshots.
 
 ## Changelog
 
-### Version 2.1.1.
+### Version 2.1.2
+
+* fixed breadcrumbs infinite loop [issue](https://github.com/jazzsequence/museum-core/issues/74)
+* fixed allowed HTML block breaking tag midword
+* fixed HTML displaying for author link in comments [issue](https://github.com/jazzsequence/museum-core/issues/73)
+* fixed various undefined index errors when some (but not all) options were set and WP_DEBUG was set to true [issue](https://github.com/jazzsequence/museum-core/issues/75)
+* added right margin to post format icons
+
+### Version 2.1.1
 
 * added support for mobile navbar for either header nav (not just topnav) -- default will be top nav, with main nav being used if no top nav exists
 * `icon-reorder` was lost when moving the font to a custom set. added it back.
