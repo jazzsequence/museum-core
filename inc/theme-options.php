@@ -43,34 +43,6 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 	}
 
-	class AP_Core_Legacy_CSS_Control extends WP_Customize_Control {
-
-		public $type = 'ap-legacy-css';
-
-		public function render_content() {
-
-			$options = get_option( 'ap_core_theme_options' );
-
-			if ( isset( $options['css'] ) && ( $options['css'] != '1' ) && ( $options['css'] != '' ) ) {
-				echo '<div style="background-color: #fcf8e3; border: 1px solid #fbeed5; border-radius: 4px; padding: 2px 7px;"><label>';
-				echo '<span class="customize-control-title">' . __( 'Custom CSS is no longer supported.', 'museum-core' ) . '</span>';
-				echo wp_kses_post( sprintf( _x( 'Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is displayed below.', '1: link to My Custom CSS, 2: closing <a> tag, 3: link to Jetpack', 'museum-core' ), '<a href="wordpress.org/plugins/my-custom-css/" target="_blank">', '</a>', '<a href="http://wordpress.org/plugins/jetpack" target="_blank">' ) );
-				echo '</label>';
-				echo '<pre style="overflow-x: scroll;">';
-				echo esc_attr( $options['css'] );
-				echo '</pre>';
-				echo '</div>';
-				echo '<label>';
-				echo '<input type="checkbox" value="" data-customize-setting-link="ap_core_theme_options[css]" /> ' . __( 'I\'ve copied my CSS. Dismiss this message.', 'museum-core' );
-
-				echo '</label>';
-			}
-
-
-		}
-
-	}
-
 		/* add sections */
 		$wp_customize->add_section( 'ap_core_layout', array(
 
@@ -309,13 +281,6 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 
 		) );
 
-		$wp_customize->add_setting( 'ap_core_theme_options[css]', array(
-
-			'default' => '',
-			'capability' => 'edit_theme_options',
-			'type' => 'option'
-
-		) );
 
 		/* add controls */
 
@@ -570,14 +535,6 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'sanitize_callback' => 'ap_core_validate_true_false'
 
 		) );
-
-		$legacy_css = new AP_Core_Legacy_CSS_Control( $wp_customize, 'ap_core_theme_options[css]', array(
-
-			'section' => 'ap_core_advanced',
-			'settings' => 'ap_core_theme_options[css]'
-
-		) );
-		$wp_customize->add_control( $legacy_css );
 
 		// adds live refresh on site title and tagline
 		$wp_customize->get_setting('blogname')->transport='postMessage';
