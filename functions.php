@@ -259,7 +259,11 @@ if (!function_exists('ap_core_setup')) {
                             <?php endif; ?>
                         </div>
                         <div class="media-body">
-                            <label><?php echo esc_html( sprintf(_x('On %1$s at %2$s, %3$s said:', '1: date, 2: time, 3:author', 'museum-core'), get_comment_date(), get_comment_time(), get_comment_author_link()) ); ?></label>
+                            <label><?php echo sprintf(_x('On %1$s at %2$s, %3$s said:', '1: date, 2: time, 3:author', 'museum-core'),
+                                esc_html( get_comment_date() ),
+                                esc_html( get_comment_time() ),
+                                wp_kses_post( get_comment_author_link() )
+                                ); ?></label>
                             <?php if ($comment->comment_approved == '0') : ?>
                                 <em><?php _e('Your comment is awaiting moderation.', 'museum-core') ?></em>
                                 <br />
@@ -935,9 +939,11 @@ if ( !function_exists( 'ap_core_breadcrumbs' ) ) {
             } elseif ( is_page() && $post->post_parent ) {
                 $parent_id = $post->post_parent;
                 $breadcrumbs = array();
-                while ( $parent_id ) {
+                while ( $parent_id != 0 ) {
                     $page = get_post($parent_id);
                     $breadcrumbs[] = '<li><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="' . get_permalink($page->ID) . '">' . get_the_title( $page->ID ) . '</a></span></li>';
+                        //Get next parent, walk backwards
+                        $parent_id = $page->post_parent;
                 }
                 $breadcrumbs = array_reverse( $breadcrumbs );
                 foreach ( $breadcrumbs as $crumb ) {
