@@ -589,6 +589,9 @@ form#commentform span.required { float: right; color: red; }
 form#commentform p.comment-notes span.required { float: none; }
 #comments p.form-allowed-tags { font-size: 0.8em; }
 #comments .cancel-comment-reply { clear: both; }
+.form-allowed-tags pre {
+  word-break: normal;
+}
 
 /* resets alt style for comments */
 #comments .alt {
