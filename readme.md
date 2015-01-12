@@ -545,14 +545,14 @@ There are currently no screenshots.
 
 2.1.2 dropped support for the [clear] shortcode that was previously built in. Shortcodes are generally plugin functionality and updated requirements of the theme review process required the removal of the `add_shortcode` function. If you were previously using the [clear] shortcode, you will need to replace those with `<div class="clear"></div>` or create your own plugin with the following function:
 
-`
-if (!function_exists('ap_core_clear')) {
-    function ap_core_clear() {
-    	return '<div class="clear"></div>';
-    }
-    add_shortcode('clear','ap_core_clear');
-}
-`
+     if (!function_exists('ap_core_clear')) {
+         function ap_core_clear() {
+    	     return '<div class="clear"></div>';
+         }
+         add_shortcode('clear','ap_core_clear');
+     }
+    
+
 
 You can also add this to a custom child theme functions.php file. I will submit a new plugin to the plugins repository to support the clear shortcode in the near future.
 
