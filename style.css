@@ -532,7 +532,7 @@ article.format-audio .entry iframe,
   color: #5bc0de;
 }
 
-.icon { margin-top: 2px; margin-bottom: -2px; }
+.icon { margin-top: 2px; margin-bottom: -2px; margin-right: 5px; }
 
 /* search page */
 section.searchform { margin: 20px 0; }

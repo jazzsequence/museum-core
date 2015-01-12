@@ -8,7 +8,7 @@
 <?php $options = get_option( 'ap_core_theme_options' ); ?>
 <?php
 	$ap_core_headerimg = null;
-	if ( $options['site-title'] == false ) {
+	if ( !isset( $options['site-title'] ) || $options['site-title'] == false ) {
 		$ap_core_headerimg_before = '<a href="' . esc_url( home_url() ) . '" title="' . get_bloginfo('title') . '">';
 		$ap_core_headerimg_after = '</a>';
 	} else {
@@ -95,7 +95,7 @@
 			<?php endif; ?>
 
 			<hgroup class="siteinfo">
-				<?php if ($options['alth1'] == true) { ?>
+				<?php if ( isset( $options['alth1'] ) && $options['alth1'] == true) { ?>
 					<h2 class="alt"><a href="<?php echo esc_url( home_url() ) ?>" title="<?php bloginfo('title'); ?>"><?php bloginfo('title'); ?></a></h2>
 					<h3><?php bloginfo('description'); ?></h3>
 				<?php } else { ?>
