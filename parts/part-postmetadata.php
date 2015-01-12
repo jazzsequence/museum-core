@@ -10,7 +10,7 @@
 			$author_ID = get_the_author_meta('ID');
 			$author_link = '<a href="' . get_author_posts_url($author_ID) . '">' . $author_name . '</a>';
 			$author = sprintf( __( 'by %s', 'museum-core' ), $author_link );
-			if ( $options['post-author'] ) {
+			if ( isset( $options['post-author'] ) && $options['post-author'] ) {
 				if ( is_singular() ) {
 					$postmeta = __('Posted in %1$s on %2$s %3$s %4$s', 'museum-core');
 				} elseif ( 'chat' == get_post_format() ) {

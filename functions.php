@@ -104,7 +104,10 @@ if (!function_exists('ap_core_load_scripts')) {
         wp_register_style( 'notoserif','http://fonts.googleapis.com/css?family=Noto+Serif&subset=' . $font_subset,false, $theme['Version']  );
         wp_register_style( 'opensans', 'http://fonts.googleapis.com/css?family=Open+Sans&subset=' . $font_subset, false, $theme['Version'] );
         // only enqueue fonts that are actually being used
-        $corefonts = array( $options['heading'], $options['body'], $options['alt'] );
+        $heading = ( isset( $options['heading'] ) ) ? $options['heading'] : $defaults['heading'];
+        $body = ( isset( $options['body'] ) ) ? $options['body'] : $defaults['body'];
+        $alt = ( isset( $options['alt'] ) ) ? $options['alt'] : $defaults['alt'];
+        $corefonts = array( $heading, $body, $alt );
         // if any of these fonts are selected, load their stylesheets
         if ( in_array( 'Droid Sans', $corefonts ) ) {
             wp_enqueue_style( 'droidsans' );
@@ -603,7 +606,7 @@ if (!function_exists('ap_core_generator')) {
         echo wp_kses_post( $ap_core_version );
     }
     $options = get_option( 'ap_core_theme_options' );
-    if ($options['generator'] == true) {
+    if ( isset( $options['generator'] ) && $options['generator'] == true) {
         add_action( 'wp_head', 'ap_core_generator' );
     }
 }
@@ -816,7 +819,7 @@ if (!function_exists('ap_core_custom_styles')) {
             $link = sanitize_text_field($options['link']);
             $output_link = "a, a:link, a:visited { color: $link; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
-        if ( isset( $options['hover'] ) && $options['hover'] != $defaults['hover'] || $options['link'] ) {
+        if ( isset( $options['hover'] ) && $options['hover'] !== $defaults['hover'] || isset( $options['link'] ) ) {
             $hover = sanitize_text_field($options['hover']);
             $output_hover = "a:hover, a:active { color: $hover; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
@@ -849,7 +852,7 @@ if (!function_exists('ap_core_custom_styles')) {
         }
 
         $output .= '</style>';
-        if ( $heading || $body || $alt || $link || $hover || $options['site-title'] == false ) {
+        if ( $heading || $body || $alt || $link || $hover || isset( $options['site-title'] ) && $options['site-title'] == false ) {
             echo wp_kses( $output, array( 'style' => array( 'type' => array(), 'media' => array() ) ) );
         }
     }
@@ -997,7 +1000,7 @@ if (!function_exists('ap_core_header_meta')) {
         $author = null;
 
         /* author meta */
-        if ($options['author'] == true) {
+        if ( isset( $options['author'] ) && $options['author'] == true ) {
             if (!is_404()) {
                 // if there is no post author, this stuff doesn't exist
                 if ( $post->post_author ) {
