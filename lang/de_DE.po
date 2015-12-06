@@ -1,0 +1,578 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Museum Core\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-06 11:56+0100\n"
+"PO-Revision-Date: 2015-12-06 14:38+0100\n"
+"Language-Team: Arcane Palette Creative Design <chris@arcanepalette.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_x;esc_attr_e;esc_attr_x;esc_html_e;"
+"esc_html_x\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: Christian Mauderer <oss@c-mauderer.de>\n"
+"Language: de_DE\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPath-1: ../inc\n"
+"X-Poedit-SearchPath-2: ../parts\n"
+
+#: ../404.php:12
+msgid "Whoops! I couldn't find the page you were looking for."
+msgstr "Die gesuchte Seite konnte nicht gefunden werden."
+
+#: ../404.php:14
+msgid "Try a search or one of the links below."
+msgstr "Versuchen Sie eine Suche oder einen der untenstehenden Links."
+
+#: ../404.php:20
+msgid "Archives by Month"
+msgstr "Archiv nach Monat"
+
+#: ../404.php:27
+msgid "Archives by Subject"
+msgstr "Archiv nach Thema"
+
+#: ../author.php:27
+msgid "Website"
+msgstr "Website"
+
+#: ../author.php:33 ../functions.php:895
+#, php-format
+msgid "All posts by %s"
+msgstr "Alle Beiträge von %s"
+
+#: ../comments.php:4
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Dieser Beitrag ist passwortgeschützt. Bitte Passwort eingeben, um die "
+"Kommentare zu sehen."
+
+#: ../comments.php:13
+#, php-format
+msgid "One Response to %2$s"
+msgid_plural "%1$s Responses to %2$s"
+msgstr[0] "Eine Antwort auf %2$s"
+msgstr[1] "%1$s Antworten auf %2$s"
+
+#: ../comments.php:36
+msgid "Comments are closed."
+msgstr "Die Kommentarfunktion ist geschlossen."
+
+#: ../comments.php:52
+msgid "You must be %1$slogged in%$2s to post a comment."
+msgstr "Sie müssen %1$seingeloggt%$2s sein um einen Kommentar zu schreiben."
+
+#: ../comments.php:57
+msgid "Comment"
+msgstr "Kommentar"
+
+#: ../comments.php:61
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+"Sie können folgende <abbr title=\"HyperText Markup Language\">HTML</abbr> "
+"Tags und Attribute nutzen: %s"
+
+#: ../functions.php:5 ../sidebar.php:11 ../inc/theme-options.php:346
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: ../functions.php:6
+msgid "This is the regular, widgetized sidebar"
+msgstr "Dies ist die normale, mit Widgets versehene Sidebar"
+
+#: ../functions.php:13
+msgid "Left Footer Box"
+msgstr "Linker Fußzeilenbereich"
+
+#: ../functions.php:14
+msgid "This is the left box in the footer."
+msgstr "Dies ist der linke Bereich in der Fußzeile."
+
+#: ../functions.php:21
+msgid "Center Footer Box"
+msgstr "Mittlerer Fußzeilenbereich"
+
+#: ../functions.php:22
+msgid "This is the center box in the footer."
+msgstr "Dies ist der mittlere Bereich in der Fußzeile."
+
+#: ../functions.php:29
+msgid "Right Footer Box"
+msgstr "Rechter Fußzeilenbereich"
+
+#: ../functions.php:30
+msgid "This is the right box in the footer."
+msgstr "Dies ist der rechte Bereich in der Fußzeile."
+
+#: ../functions.php:180
+msgid "Top Header Navigation"
+msgstr "Kopfzeilen Navigation"
+
+#: ../functions.php:181
+msgid "Main Navigation"
+msgstr "Haupt Navigation"
+
+#: ../functions.php:182
+msgid "Footer Navigation"
+msgstr "Fußzeilen Navigation"
+
+#: ../functions.php:218
+msgid "Nature"
+msgstr "Natur"
+
+#: ../functions.php:224
+msgid "Smoke"
+msgstr "Rauch"
+
+#: ../functions.php:230
+msgid "Lights 1"
+msgstr "Lichter 1"
+
+#: ../functions.php:236
+msgid "Lights 2"
+msgstr "Lichter 2"
+
+#: ../functions.php:242
+msgid "Lights 3"
+msgstr "Lichter 3"
+
+#: ../functions.php:261
+#, php-format
+msgid "On %1$s at %2$s %3$s said:"
+msgstr "Am %1$s um %2$s hat %3$s gesagt:"
+
+#: ../functions.php:264
+msgid "Your comment is awaiting moderation."
+msgstr "Ihr Kommentar wartet auf die Freigabe durch einen Moderator."
+
+#: ../functions.php:268
+msgid "(Edit)"
+msgstr "(Bearbeiten)"
+
+#: ../functions.php:272
+msgid "Respond to this"
+msgstr "Darauf antworten"
+
+#: ../functions.php:276
+msgid "Permalink"
+msgstr "Permalink"
+
+#: ../functions.php:286
+msgid "read more"
+msgstr "weiterlesen"
+
+#: ../functions.php:358
+msgid "Pages:"
+msgstr "Seiten:"
+
+#: ../functions.php:591
+#, php-format
+msgid "%1$s %2$s %3$s"
+msgstr "%1$s %2$s %3$s"
+
+#: ../functions.php:591
+#, php-format
+msgid ""
+"Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s."
+msgstr ""
+"Museum Core von %1$sMuseum Themes%2$s wird ermöglicht von %3$sWordPress%2$s."
+
+#: ../functions.php:620
+msgid "Left Sidebar"
+msgstr "Linke Sidebar"
+
+#: ../functions.php:621
+msgid "Right Sidebar"
+msgstr "Rechte Sidebar"
+
+#: ../functions.php:658
+msgid "Latin"
+msgstr "Latin"
+
+#: ../functions.php:659
+msgid "Latin Extended"
+msgstr "Latin Extended"
+
+#: ../functions.php:660
+msgid "Cyrillic"
+msgstr "Cyrillic"
+
+#: ../functions.php:661
+msgid "Cyrillic Extended"
+msgstr "Cyrillic Extended"
+
+#: ../functions.php:662
+msgid "Greek"
+msgstr "Greek"
+
+#: ../functions.php:663
+msgid "Greek Extended"
+msgstr "Greek Extended"
+
+#: ../functions.php:664
+msgid "Vietnamese"
+msgstr "Vietnamese"
+
+#: ../functions.php:681
+msgid "Show Post Excerpts"
+msgstr "Zeige Auszüge aus Beiträgen"
+
+#: ../functions.php:682
+msgid "Show Full Posts"
+msgstr "Zeige volle Beiträge"
+
+#: ../functions.php:697
+msgid "Yes"
+msgstr "Ja"
+
+#: ../functions.php:698
+msgid "No"
+msgstr "Nein"
+
+#: ../functions.php:829 ../functions.php:905
+msgid "Home"
+msgstr "Startseite"
+
+#: ../functions.php:838
+#, php-format
+msgid "Posts filed under <q>%s</q>"
+msgstr "Beiträge in der Kategorie <q>%s</q>"
+
+#: ../functions.php:890
+#, php-format
+msgid "Search results for <q>%s</q>"
+msgstr "Suchergebnisse für <q>%s</q>"
+
+#: ../functions.php:892
+#, php-format
+msgid "Posts tagged <q>%s</q>"
+msgstr "Beiträge mit dem Schlagwort <q>%s</q>"
+
+#: ../functions.php:897
+msgid "Error 404"
+msgstr "Fehler 404"
+
+#: ../functions.php:903 ../functions.php:907
+#, php-format
+msgid "Page %s"
+msgstr "Seite %s"
+
+#: ../functions.php:906
+msgid "Blog"
+msgstr "Blog"
+
+#: ../searchform.php:2
+msgid "Search this site"
+msgstr "Suchen"
+
+#: ../searchform.php:10
+msgid "Go"
+msgstr "Start"
+
+#: ../inc/theme-options.php:56
+msgid "Custom CSS is no longer supported."
+msgstr "Custom CSS is no longer supported."
+
+#: ../inc/theme-options.php:57
+#, php-format
+msgid ""
+"Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s "
+"or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is "
+"displayed below."
+msgstr ""
+"Museum Core no longer supports custom CSS. Please use %1$sMy Custom CSS%2$s "
+"or %3$sJetpack%2$s to add custom CSS to your site. Your Custom CSS is "
+"displayed below."
+
+#: ../inc/theme-options.php:64
+msgid "I've copied my CSS. Dismiss this message."
+msgstr "I've copied my CSS. Dismiss this message."
+
+#: ../inc/theme-options.php:77
+msgid "Layout Options"
+msgstr "Layoutoptionen"
+
+#: ../inc/theme-options.php:84
+msgid "Typography Options"
+msgstr "Typographieoptionen"
+
+#: ../inc/theme-options.php:91
+msgid "Advanced Settings"
+msgstr "Erweiterte Einstellungen"
+
+#: ../inc/theme-options.php:334
+msgid "Show site title?"
+msgstr "Seitentitel Zeigen?"
+
+#: ../inc/theme-options.php:357
+msgid "Fixed nav menu?"
+msgstr "Festes Navigations Menü?"
+
+#: ../inc/theme-options.php:368
+msgid "Enable breadcrumbs?"
+msgstr "Aktiviere Breadcrumbs?"
+
+#: ../inc/theme-options.php:379
+msgid "Full posts or excerpts on blog home?"
+msgstr "Volle Beiträge oder Auszüge auf der Blog Startseite?"
+
+#: ../inc/theme-options.php:390
+msgid "Full posts or excerpts on archive pages?"
+msgstr "Volle Beiträge oder Auszüge im Archiv?"
+
+#: ../inc/theme-options.php:401
+msgid "Display post author?"
+msgstr "Autor der Beiträge anzeigen?"
+
+#: ../inc/theme-options.php:414
+msgid "Heading Font"
+msgstr "Schriftart im Kopf"
+
+#: ../inc/theme-options.php:425
+msgid "Body Font"
+msgstr "Schriftart im Körper"
+
+#: ../inc/theme-options.php:436
+msgid "Alternate Font"
+msgstr "Alternative Schriftart"
+
+#: ../inc/theme-options.php:447
+msgid "Use alternate font for site title?"
+msgstr "Alternative Schrift für den Seitentitel verwenden?"
+
+#: ../inc/theme-options.php:458
+msgid "Font Subset"
+msgstr "Subset der Schrift"
+
+#: ../inc/theme-options.php:470
+msgid "Font Color"
+msgstr "Schriftfarbe"
+
+#: ../inc/theme-options.php:479
+msgid "Link Color"
+msgstr "Linkfarbe"
+
+#: ../inc/theme-options.php:488
+msgid "Hover Color"
+msgstr "Hoverfarbe"
+
+#: ../inc/theme-options.php:497
+msgid "Content Background color"
+msgstr "Hintergrundfarbe des Inhalts"
+
+#: ../inc/theme-options.php:506
+msgid "Navbar (top) Background Color"
+msgstr "Hintergrundfarbe der Navigationsleiste (oben)"
+
+#: ../inc/theme-options.php:515
+msgid "Inverted navbar?"
+msgstr "Navigationsleiste invertieren?"
+
+#: ../inc/theme-options.php:526
+msgid "Navbar Link Color"
+msgstr "Linkfarbe in der Navigationsleiste"
+
+#: ../inc/theme-options.php:536
+msgid "Use author meta tags?"
+msgstr "Autor Meta-Tags verwenden?"
+
+#: ../inc/theme-options.php:547
+msgid "Footer Text"
+msgstr "Text in der Fußzeile"
+
+#: ../inc/theme-options.php:557
+msgid "Custom Favicon"
+msgstr "Eigenes Favicon"
+
+#: ../inc/theme-options.php:566
+msgid "Send usage data?"
+msgstr "Nutzungsdaten senden?"
+
+#: ../inc/theme-options.php:577
+msgid "Debug Mode Active"
+msgstr "Debugmodus aktiv"
+
+#: ../parts/part-micropostmeta.php:2 ../parts/part-title.php:10
+#: ../parts/part-title.php:12 ../parts/post-single.php:7
+#, php-format
+msgid "Permanent Link to %s"
+msgstr "Permanenter Link zu %s"
+
+#: ../parts/part-micropostmeta.php:4
+#, php-format
+msgid "%1$s ago"
+msgstr "vor %1$s"
+
+#: ../parts/part-navigation.php:4
+msgid "&larr; Older Entries"
+msgstr "&larr; ältere Einträge"
+
+#: ../parts/part-navigation.php:5
+msgid "Newer Entries &rarr;"
+msgstr "neuere Einträge &rarr;"
+
+#: ../parts/part-postmetadata.php:8
+msgid "Gallery"
+msgstr "Gallerie"
+
+#: ../parts/part-postmetadata.php:10
+msgid "Image"
+msgstr "Bild"
+
+#: ../parts/part-postmetadata.php:14
+msgid ", "
+msgstr ", "
+
+#: ../parts/part-postmetadata.php:15
+msgid "and tagged "
+msgstr "und getagged mit"
+
+#: ../parts/part-postmetadata.php:19
+#, php-format
+msgid "by %s"
+msgstr "von %s"
+
+#: ../parts/part-postmetadata.php:22
+#, php-format
+msgid "Posted in %1$s on %2$s %3$s %4$s"
+msgstr "Geposted unter %1$s am %2$s %3$s %4$s"
+
+#: ../parts/part-postmetadata.php:24
+#, php-format
+msgid "Filed under %1$s %2$s %3$s"
+msgstr "Eingeordnet unter %1$s %2$s %3$s"
+
+#: ../parts/part-postmetadata.php:26
+#, php-format
+msgid "Displayed in %1$s %2$s %3$s"
+msgstr "Angezeigt unter %1$s %2$s %3$s"
+
+#: ../parts/part-postmetadata.php:28
+#, php-format
+msgid "Posted in %1$s %2$s %3$s"
+msgstr "Geposted unter %1$s %2$s %3$s"
+
+#: ../parts/part-postmetadata.php:32
+#, php-format
+msgid "Posted in %1$s on %2$s %3$s"
+msgstr "Geposted unter %1$s am %2$s %3$s"
+
+#: ../parts/part-postmetadata.php:34
+#, php-format
+msgid "Filed under %1$s %2$s"
+msgstr "Eingeordnet unter  %1$s %2$s"
+
+#: ../parts/part-postmetadata.php:36
+#, php-format
+msgid "Displayed in %1$s %2$s"
+msgstr "Angezeigt unter %1$s %2$s"
+
+#: ../parts/part-postmetadata.php:38
+#, php-format
+msgid "Posted in %1$s %2$s"
+msgstr "Geposted unter %1$s %2$s"
+
+#: ../parts/part-postmetadata.php:48
+msgid "No Comments &#187;"
+msgstr "Keine Kommentare &#187;"
+
+#: ../parts/part-postmetadata.php:48
+msgid "One Comment &#187;"
+msgstr "Ein Kommentar &#187;"
+
+#: ../parts/part-postmetadata.php:48
+msgid "% Comments &#187;"
+msgstr "% Kommentare &#187;"
+
+#: ../parts/part-postmetadata.php:50 ../parts/post-page.php:20
+msgid "Edit this entry"
+msgstr "Eintrag bearbeiten"
+
+#: ../parts/part-title.php:10
+msgid "(no title)"
+msgstr "(kein Titel)"
+
+#: ../parts/post-archive.php:7 ../parts/post-archive.php:16
+#, php-format
+msgid "Posts filed under %s"
+msgstr "Beiträge unter %s"
+
+#: ../parts/post-archive.php:20 ../parts/post-archive.php:24
+#: ../parts/post-archive.php:28
+#, php-format
+msgid "Archive for %1$s"
+msgstr "Archiv für %1$s"
+
+#: ../parts/post-archive.php:32
+msgid "Author Archive"
+msgstr "Autor Archiv"
+
+#: ../parts/post-archive.php:36
+msgid "Blog Archives"
+msgstr "Blog Archiv"
+
+#: ../parts/post-archive.php:53 ../parts/post-aside.php:9
+#: ../parts/post-audio.php:9 ../parts/post-author.php:13
+#: ../parts/post-chat.php:11 ../parts/post-gallery.php:9
+#: ../parts/post-image.php:9 ../parts/post-link.php:8 ../parts/post-page.php:12
+#: ../parts/post-quote.php:7 ../parts/post-single.php:14
+#: ../parts/post-status.php:7 ../parts/post-video.php:9 ../parts/post.php:11
+msgid "Read more &raquo;"
+msgstr "Weiterlesen &raquo;"
+
+#: ../parts/post-archive.php:71
+msgid "Archive"
+msgstr "Archiv"
+
+#: ../parts/post-aside.php:16
+msgid "Aside"
+msgstr "Beiseite legen"
+
+#: ../parts/post-audio.php:16
+msgid "Audio"
+msgstr "Audio"
+
+#: ../parts/post-author.php:23
+msgid "Author"
+msgstr "Autor"
+
+#: ../parts/post-chat.php:18
+msgid "Chat"
+msgstr "Chat"
+
+#: ../parts/post-link.php:15
+msgid "Link"
+msgstr "Link"
+
+#: ../parts/post-quote.php:14
+msgid "Quote"
+msgstr "Zitat"
+
+#: ../parts/post-search.php:17
+#, php-format
+msgid "We found %1$s results for <q>%2$s</q>"
+msgstr "%1$s Resultate für <q>%2$s</q> gefunden."
+
+#: ../parts/post-search.php:20
+msgid "Not what you were looking for?  Enter your search terms to try again."
+msgstr ""
+"Nicht das Gesuchte? Bitte Suchbegriffe eingeben um es erneut zu versuchen."
+
+#: ../parts/post-search.php:45
+msgid "Search"
+msgstr "Suche"
+
+#: ../parts/post-status.php:14
+msgid "Status"
+msgstr "Status"
+
+#: ../parts/post-video.php:16
+msgid "Video"
+msgstr "Video"
