@@ -1,10 +1,10 @@
 === Museum Core ===
 Contributors: jazzs3quence
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
+Donate link: https://www.dwolla.com/hub/jazzsequence
 Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.2
-Tested up to: 3.9.1
-Stable tag: 2.1.2
+Tested up to: 4.4
+Stable tag: 2.1.3
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -13,6 +13,8 @@ A simple, responsive WordPress theme/framework with support for internationaliza
 Museum Core is a clean, responsive framework with support for built-in WordPress theme options like post thumbnails, post formats, custom backgrounds & header, etc.  A theme options page lets you customize the typefaces used in the theme, footer credit, sidebar position, link colors and more.  Core can be used as a standalone theme or as a framework for other themes or child themes.
 
 * Polish translation by [anemoone](http://kratery.com/)
+* German translation by [Christian Mauderer](http://www.c-mauderer.de/)
+* Spanish translatin by [Wenke Adam](http://guillermodeisler.xyz/)
 
 **Call for translators!**
 If you are interested in helping translate this theme, contact me at hello@chrisreynolds.io.
@@ -28,6 +30,11 @@ If you are interested in helping translate this theme, contact me at hello@chris
 There are currently no screenshots.
 
 == Changelog ==
+
+= Version 2.1.3 =
+
+* added German translation
+* added Spanish translation
 
 = Version 2.1.2 =
 
