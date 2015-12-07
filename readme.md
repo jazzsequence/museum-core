@@ -1,10 +1,10 @@
 # Museum Core
-Contributors: [jazzsequence](https://github.com/jazzsequence)
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6
-Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
-Requires at least: 3.2
-Tested up to: 3.9.1
-Stable tag: 2.1.2
+Contributors: [jazzsequence](https://github.com/jazzsequence)  
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AWM2TG3D4HYQ6  
+Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready  
+Requires at least: 3.2  
+Tested up to: 4.1  
+Stable tag: 2.1.2  
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -545,14 +545,14 @@ There are currently no screenshots.
 
 2.1.2 dropped support for the [clear] shortcode that was previously built in. Shortcodes are generally plugin functionality and updated requirements of the theme review process required the removal of the `add_shortcode` function. If you were previously using the [clear] shortcode, you will need to replace those with `<div class="clear"></div>` or create your own plugin with the following function:
 
-`
-if (!function_exists('ap_core_clear')) {
-    function ap_core_clear() {
-    	return '<div class="clear"></div>';
-    }
-    add_shortcode('clear','ap_core_clear');
-}
-`
+     if (!function_exists('ap_core_clear')) {
+         function ap_core_clear() {
+    	     return '<div class="clear"></div>';
+         }
+         add_shortcode('clear','ap_core_clear');
+     }
+    
+
 
 You can also add this to a custom child theme functions.php file. I will submit a new plugin to the plugins repository to support the clear shortcode in the near future.
 
