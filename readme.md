@@ -34,6 +34,8 @@ There are currently no screenshots.
 ### Version 2.1.3
 * added German translation
 * added Spanish translation
+* fixed a bug where html in the footer would display the code instead of rendering html
+* added .screen-reader-text class to allow text to be read by screen readers but hidden from browsers
 
 ### Version 2.1.2
 
