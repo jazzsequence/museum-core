@@ -150,12 +150,7 @@ if (!function_exists('ap_core_setup')) {
         require_once( get_template_directory() . '/inc/class-bootstrap-nav-walker.php' );
 
         // i18n stuff
-        $locale = get_locale();
-        if ( file_exists( WP_LANG_DIR . '/museum-core/' . $locale . '.mo' ) ) {
-            load_theme_textdomain( 'museum-core', WP_LANG_DIR . '/museum-core' );
-        } else {
-            load_theme_textdomain('museum-core', get_template_directory() .'/lang');
-        }
+        load_theme_textdomain('museum-core', get_template_directory() .'/language');
 
         // html5 theme support
         add_theme_support( 'html5' );
@@ -625,7 +620,7 @@ if (!function_exists('ap_core_get_theme_defaults')) {
             // use alt for h1?
             'alth1' => 0,
             // footer text
-            'footer' => sprintf( _x( '%1$s %2$s %3$s', '1: copyright, 2: year, 3: blog title', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . ' . ' . sprintf( __( 'Museum Core by %1$sMuseum Themes%2$s is proudly powered by %3$sWordPress%2$s.', 'museum-core' ), '<a href="http://museumthemes.com/" target="_blank" title="Museum Themes">', '</a>', '<a href="http://wordpress.org" target="_blank">' ),
+            'footer' => sprintf( _x( '%1$s %2$s %3$s', '1: copyright, 2: year, 3: blog title', 'museum-core' ), '&copy;',  date('Y'), get_bloginfo('title') ) . ' . ' . sprintf( __( 'Museum Core is proudly powered by %1$sWordPress%2$s.', 'museum-core' ), '<a href="http://wordpress.org" target="_blank">', '</a>' ),
             // advanced settings
             'author' => 0,
             'generator' => 0,
