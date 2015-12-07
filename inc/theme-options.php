@@ -280,7 +280,7 @@ if ( !function_exists( 'ap_core_theme_customizer_init' ) ) {
 			'capability' => 'edit_theme_options',
 			'transport' => 'postMessage',
 			'type' => 'option',
-			'sanitize_callback' => 'esc_textarea'
+			'sanitize_callback' => 'ap_core_kses'
 
 		) );
 
@@ -724,4 +724,13 @@ function ap_core_validate_favicon( $value ) {
 	}
 
     return $value;
+}
+
+/**
+ * Runs the value through wp_kses_post for html validation.
+ * @param  string $value The original value.
+ * @return string        The sanitized string.
+ */
+function ap_core_kses( $value ) {
+	return wp_kses_post( $value );
 }
