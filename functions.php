@@ -150,7 +150,7 @@ if (!function_exists('ap_core_setup')) {
         require_once( get_template_directory() . '/inc/class-bootstrap-nav-walker.php' );
 
         // i18n stuff
-        load_theme_textdomain('museum-core', get_template_directory() .'/language');
+        load_theme_textdomain('museum-core', get_template_directory() .'/lang');
 
         // html5 theme support
         add_theme_support( 'html5' );
