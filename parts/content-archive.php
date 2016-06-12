@@ -2,8 +2,7 @@
 
 	<?php /* If this is a category archive */
 	if ( is_category() ) {
-		$category = get_the_category();
-		$category = $category[0]->cat_name; ?>
+		$category = single_cat_title( '', false ); ?>
 	    <h2 class="the_title"><?php echo esc_attr( sprintf( __( 'Posts filed under %s','museum-core'), $category ) ); ?></h2>
 
 	<?php /* If this is a tag archive */
