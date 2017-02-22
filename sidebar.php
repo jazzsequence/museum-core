@@ -7,7 +7,7 @@ $ap_core_sidebar = ap_core_get_which_sidebar(); ?>
  <div class="sidebar the_<?php echo esc_attr( $ap_core_sidebar ); ?> col-md-3">
  	<?php tha_sidebar_top(); ?>
 	<ul>
-         <?php dynamic_sidebar( 'Sidebar'); ?>
+         <?php dynamic_sidebar( 'main-sidebar-box'); ?>
      </ul>
      <?php tha_sidebar_bottom(); ?>
 </div>
