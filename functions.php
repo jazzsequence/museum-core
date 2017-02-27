@@ -9,8 +9,9 @@ if ( !isset( $themecolors ) )
 if (!function_exists('ap_core_register_sidebars')) {
     function ap_core_register_sidebars() {
         register_sidebar(array(
-        	'name' => __('Sidebar','museum-core'),
-        	'description' => __('This is the regular, widgetized sidebar','museum-core'),
+            'id' => 'main-sidebar-box',
+            'name' => __('Sidebar','museum-core'),
+            'description' => __('This is the regular, widgetized sidebar','museum-core'),
             'before_widget' => '<li id="%1$s" class="widget %2$s">',
             'after_widget' => '</li>',
             'before_title' => '<h3 class="widgettitle">',
@@ -152,6 +153,9 @@ if (!function_exists('ap_core_setup')) {
         // i18n stuff
         load_theme_textdomain('museum-core', get_template_directory() .'/lang');
 
+        // Add title tag support.
+        add_theme_support( 'title-tag' );
+        
         // html5 theme support
         add_theme_support( 'html5' );
 
