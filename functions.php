@@ -153,6 +153,9 @@ if (!function_exists('ap_core_setup')) {
         // i18n stuff
         load_theme_textdomain('museum-core', get_template_directory() .'/lang');
 
+        // Add title tag support.
+        add_theme_support( 'title-tag' );
+        
         // html5 theme support
         add_theme_support( 'html5' );
 
