@@ -34,6 +34,8 @@ There are currently no screenshots.
 = Version 2.1.5 =
 
 * fixed a bug where sidebar would not load correctly due to using name instead of ID [issue](https://github.com/jazzsequence/museum-core/issues/81) 
+* use `add_theme_support( 'title-tag' )` instead of `<title><?php wp_title(); ?></title>`
+* add text domain to style.css
 
 = Version 2.1.4 =
 
