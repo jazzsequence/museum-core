@@ -1,7 +1,7 @@
 # Museum Core
 Contributors: [jazzsequence](https://github.com/jazzsequence)  
 Donate link: https://www.paypal.me/jazzsequence/  
-Tags: two-columns, white, custom-menu, threaded-comments, sticky-post, fixed-width, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready  
+Tags: two-columns, custom-menu, threaded-comments, sticky-post, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready  
 Requires at least: 3.2  
 Tested up to: 4.7  
 Stable tag: 2.1.5
