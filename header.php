@@ -28,7 +28,6 @@
 		$ap_core_navbar_inverse = 'navbar-default';
 	}
 ?>
-<title><?php wp_title(); ?></title>
 <?php tha_head_bottom(); ?>
 <?php wp_head(); ?>
 </head>
