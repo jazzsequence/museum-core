@@ -803,7 +803,7 @@ if (!function_exists('ap_core_custom_styles')) {
             $link = sanitize_text_field($options['link']);
             $output_link = "a, a:link, a:visited { color: $link; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
-        if ( isset( $options['hover'] ) && $options['hover'] !== $defaults['hover'] || isset( $options['link'] ) ) {
+        if ( isset( $options['hover'] ) && $options['hover'] !== $defaults['hover'] || isset( $options['hover'] ) && isset( $options['link'] ) ) {
             $hover = sanitize_text_field($options['hover']);
             $output_hover = "a:hover, a:active { color: $hover; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
