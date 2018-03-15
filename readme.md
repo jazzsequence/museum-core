@@ -3,8 +3,8 @@ Contributors: [jazzsequence](https://github.com/jazzsequence)
 Donate link: https://www.paypal.me/jazzsequence/  
 Tags: two-columns, custom-menu, threaded-comments, sticky-post, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready  
 Requires at least: 3.2  
-Tested up to: 4.7  
-Stable tag: 2.1.5
+Tested up to: 4.9.4  
+Stable tag: 2.1.6
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -16,8 +16,8 @@ Museum Core is a clean, responsive framework with support for built-in WordPress
 * German translation by [Christian Mauderer](http://www.c-mauderer.de/)
 * Spanish translatin by [Wenke Adam](http://guillermodeisler.xyz/)
 
-**Call for translators!**
-If you are interested in helping translate this theme, contact me at hello@chrisreynolds.io.
+**Call for contributors!**  
+If you like this theme and you would like to help maintain it, please get in touch with me on twitter ([@jazzs3quence](https://twitter.com/jazzs3quence)) via email (me@chrisreynolds.io) or on the [GitHub repo](https://github.com/jazzsequence/museum-core) as this is no longer a project that I am actively developing or maintaining.
 
 ## Installation
 
@@ -30,6 +30,11 @@ If you are interested in helping translate this theme, contact me at hello@chris
 There are currently no screenshots.
 
 ## Changelog
+
+### Version 2.1.6
+
+* strip 'http:' from font URLs to improve HTTPS support [#86](https://github.com/jazzsequence/museum-core/pull/86)
+* fix a PHP notice when changing link colors [#87](https://github.com/jazzsequence/museum-core/issues/87)
 
 ### Version 2.1.5
 * fixed a bug where sidebar would not load correctly due to using name instead of ID [issue](https://github.com/jazzsequence/museum-core/issues/81)

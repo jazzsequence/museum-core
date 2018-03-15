@@ -82,13 +82,13 @@ if (!function_exists('ap_core_load_scripts')) {
         wp_register_script('modernizr',get_template_directory_uri() . '/assets/js/modernizr-2.5.3.min.js',false,'2.5.3');
         wp_enqueue_script('modernizr');
         // register fonts
-        wp_register_style('droidsans','http://fonts.googleapis.com/css?family=Droid+Sans&subset=' . $font_subset,false,$theme['Version']);
-        wp_register_style('ptserif','http://fonts.googleapis.com/css?family=PT+Serif&subset=' . $font_subset,false,$theme['Version']);
-        wp_register_style('inconsolata','http://fonts.googleapis.com/css?family=Inconsolata&subset=' . $font_subset,false,$theme['Version']);
-        wp_register_style('ubuntu','http://fonts.googleapis.com/css?family=Ubuntu&subset=' . $font_subset,false,$theme['Version']);
-        wp_register_style('lato','http://fonts.googleapis.com/css?family=Lato&subset=' . $font_subset,false,$theme['Version'] );
-        wp_register_style( 'notoserif','http://fonts.googleapis.com/css?family=Noto+Serif&subset=' . $font_subset,false, $theme['Version']  );
-        wp_register_style( 'opensans', 'http://fonts.googleapis.com/css?family=Open+Sans&subset=' . $font_subset, false, $theme['Version'] );
+        wp_register_style('droidsans','//fonts.googleapis.com/css?family=Droid+Sans&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('ptserif','//fonts.googleapis.com/css?family=PT+Serif&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('inconsolata','//fonts.googleapis.com/css?family=Inconsolata&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('ubuntu','//fonts.googleapis.com/css?family=Ubuntu&subset=' . $font_subset,false,$theme['Version']);
+        wp_register_style('lato','//fonts.googleapis.com/css?family=Lato&subset=' . $font_subset,false,$theme['Version'] );
+        wp_register_style( 'notoserif','//fonts.googleapis.com/css?family=Noto+Serif&subset=' . $font_subset,false, $theme['Version']  );
+        wp_register_style( 'opensans', '//fonts.googleapis.com/css?family=Open+Sans&subset=' . $font_subset, false, $theme['Version'] );
         // only enqueue fonts that are actually being used
         $heading = ( isset( $options['heading'] ) ) ? $options['heading'] : $defaults['heading'];
         $body = ( isset( $options['body'] ) ) ? $options['body'] : $defaults['body'];
@@ -803,7 +803,7 @@ if (!function_exists('ap_core_custom_styles')) {
             $link = sanitize_text_field($options['link']);
             $output_link = "a, a:link, a:visited { color: $link; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
-        if ( isset( $options['hover'] ) && $options['hover'] !== $defaults['hover'] || isset( $options['link'] ) ) {
+        if ( isset( $options['hover'] ) && $options['hover'] !== $defaults['hover'] || isset( $options['hover'] ) && isset( $options['link'] ) ) {
             $hover = sanitize_text_field($options['hover']);
             $output_hover = "a:hover, a:active { color: $hover; -webkit-transition: all 0.3s ease!important; -moz-transition: all 0.3s ease!important; -o-transition: all 0.3s ease!important; transition: all  0.3s ease!important; }";
         }
