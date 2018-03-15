@@ -3,7 +3,7 @@ Contributors: jazzs3quence
 Donate link: https://www.paypal.me/jazzsequence/
 Tags: two-columns, custom-menu, threaded-comments, sticky-post, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready
 Requires at least: 3.2
-Tested up to: 4.7
+Tested up to: 4.9.4
 Stable tag: 2.1.6
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
