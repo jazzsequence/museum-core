@@ -16,8 +16,8 @@ Museum Core is a clean, responsive framework with support for built-in WordPress
 * German translation by [Christian Mauderer](http://www.c-mauderer.de/)
 * Spanish translatin by [Wenke Adam](http://guillermodeisler.xyz/)
 
-**Call for translators!**
-If you are interested in helping translate this theme, contact me at hello@chrisreynolds.io.
+**Call for contributors!**
+If you like this theme and you would like to help maintain it, please get in touch with me on twitter ([@jazzs3quence](https://twitter.com/jazzs3quence)) via email (me@chrisreynolds.io) or on the [GitHub repo](https://github.com/jazzsequence/museum-core) as this is no longer a project that I am actively developing or maintaining.
 
 ## Installation
 
