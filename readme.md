@@ -3,8 +3,8 @@ Contributors: [jazzsequence](https://github.com/jazzsequence)
 Donate link: https://www.paypal.me/jazzsequence/  
 Tags: two-columns, custom-menu, threaded-comments, sticky-post, custom-background, featured-image-header, featured-images, post-formats, right-sidebar, translation-ready  
 Requires at least: 3.2  
-Tested up to: 4.7  
-Stable tag: 2.1.5
+Tested up to: 4.9.4  
+Stable tag: 2.1.6
 
 A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...
 
@@ -30,6 +30,11 @@ If you are interested in helping translate this theme, contact me at hello@chris
 There are currently no screenshots.
 
 ## Changelog
+
+### Version 2.1.6
+
+* strip 'http:' from font URLs to improve HTTPS support [#86](https://github.com/jazzsequence/museum-core/pull/86)
+* fix a PHP notice when changing link colors [#87](https://github.com/jazzsequence/museum-core/issues/87)
 
 ### Version 2.1.5
 * fixed a bug where sidebar would not load correctly due to using name instead of ID [issue](https://github.com/jazzsequence/museum-core/issues/81)
