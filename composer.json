@@ -1,0 +1,14 @@
+{
+    "name": "jazzsequence/museum-core",
+    "description": "A simple, responsive WordPress theme/framework with support for internationalization, post formats, thumbnails, background, header, menus, custom favicon and more...",
+    "type": "wordpress-theme",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Chris Reynolds",
+            "email": "chris@jazzsequence.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
